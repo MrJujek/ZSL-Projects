@@ -1,0 +1,23 @@
+{
+  "name": "zsl-projects",
+  "version": "1.0.0",
+  "main": "server01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrjujek/zsl-projects.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrjujek/zsl-projects/issues"
+  },
+  "homepage": "https://github.com/mrjujek/zsl-projects#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
