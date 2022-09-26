@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#klik").click(function () {
+                let pole1 = $("#pole1").val()
+                let pole2 = $("#pole2").val()
+
+                let suma = Number(pole1) + Number(pole2)
+                let iloczyn = pole1 * pole2
+
+                window.alert("suma: " + suma + " | iloczyn: " + iloczyn)
+
+                $.ajax({
+                    url: "/post",
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        suma: $("#pole1").val() + $("#pole2").val(),
+                        iloczyn: $("#pole1").val() * $("#pole2").val()
+                    }),
+                    type: "POST",
+                    success: function (data) {
+                        //czytamy odesłane z serwera dane
+                        console.log(data)
+                        //ew parsujemy na obiekt
+                        var obj = JSON.parse(data)
+
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('Error: ' + error.message);
+                    },
+                });
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <form method="post" action="handlePost">
+        <input type="text" name="pole1" id="pole1"><br>
+        <input type="text" name="pole2" id="pole2"><br>
+        asd
+    </form>
+
+    <div style="width:100px;height:100px;background:yellow;display:flex;align-items:center;justify-content:center"
+        id="klik">klik</div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
