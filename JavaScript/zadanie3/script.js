@@ -23,7 +23,7 @@ function zad2(element2) {
         poczatek = zdanie.substring(0, 1)
         zdanie = zdanie.substring(1, zdanie.length)
         zdanie += poczatek
-        element2.value = zdanie
+        element2.placeholder = zdanie
     }, 100);
 }
 
@@ -33,7 +33,7 @@ function zad3(element3) {
     for (let i = 0; i < 6; i++) {
         spadajacy[i] = ">>>>> " + (i + 1) + " punkt <<<<<"
     }
-    for (let i = 6; i < 12; i++) {
+    for (let i = 6; i < 10; i++) {
         spadajacy[i] = ""
     }
     let zamiana = ""
@@ -43,6 +43,23 @@ function zad3(element3) {
 
         zamiana = spadajacy.pop()
         spadajacy.splice(0, 0, zamiana).join()
+    }, 100);
+}
+
+zad4(document.getElementById("zad4"))
+function zad4(element4) {
+    let x, y
+    let stopien = 1
+    let R = 200
+    setInterval(() => {
+        x = R * Math.cos(stopien * Math.PI / 180)
+        y = R * Math.sin(stopien)
+
+        element4.style.top = y + "px"
+        element4.style.left = x + "px"
+
+        stopien++
+        if (stopien > 360) stopien = 1
     }, 100);
 }
 
