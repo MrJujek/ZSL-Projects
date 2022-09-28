@@ -1,6 +1,6 @@
 zad1(document.getElementById("zad1"))
 function zad1(element1) {
-    let i = 20
+    let i = 30
     let rosnie = true
 
     setInterval(() => {
@@ -9,7 +9,7 @@ function zad1(element1) {
             i += 10
         }
         else i -= 10
-        if (i < 20) rosnie = true
+        if (i < 30) rosnie = true
         element1.style["height"] = i + "px";
     }, 100);
 }
@@ -43,7 +43,7 @@ function zad3(element3) {
 
         zamiana = spadajacy.pop()
         spadajacy.splice(0, 0, zamiana).join()
-    }, 100);
+    }, 200);
 }
 
 zad4(document.getElementById("zad4"))
@@ -52,15 +52,15 @@ function zad4(element4) {
     let stopien = 1
     let R = 200
     setInterval(() => {
-        x = R * Math.cos(stopien * Math.PI / 180)
-        y = R * Math.sin(stopien)
+        x = Math.cos(stopien) * R + 200
+        y = Math.sin(stopien) * R + 200
 
         element4.style.top = y + "px"
         element4.style.left = x + "px"
 
-        stopien++
+        stopien += 0.01
         if (stopien > 360) stopien = 1
-    }, 100);
+    }, 10);
 }
 
 

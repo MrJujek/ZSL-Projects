@@ -9,16 +9,15 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-app.post("/handlePost", function (req, res) {
+app.use(express.json());
+
+app.post("/post", function (req, res) {
     console.log(req.body)
-    //res.setHeader("content-type", "text/plain")
-    //res.setHeader("content-type", "text/html")
-    res.setHeader("content-type", "application/json")
-    res.send(req.body)
 })
 
 app.listen(PORT, function () {
     console.log("start serwera na porcie " + PORT)
 })
 
-//1.html
+//3.html
+//sudo kill -9 $(sudo lsof -t -i:3000)

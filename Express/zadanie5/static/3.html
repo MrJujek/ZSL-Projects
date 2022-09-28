@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let gorny = $("#gorny").val()
+            let dolny = $("#dolny").val()
+
+            $("#gorny").click(function () {
+                $.ajax({
+                    url: "/post",
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        gorny: $("#gorny").val(),
+                        dolny: $("#dolny").val()
+                    }),
+                    type: "POST",
+                    success: function (data) {
+                        //czytamy odesłane z serwera dane
+                        console.log(data)
+                        //ew parsujemy na obiekt
+                        var obj = JSON.parse(data)
+                        //czytamy odesłane z serwera dane
+                        //console.log(gorny.val())
+                        // dolny.value = gorny.value
+                        //gorny = document.getElementById("gorny")
+                        //console.log(gorny.valueAsNumber)
+                        //ew parsujemy na obiekt
+                        //var obj = JSON.parse(data)
+                        dolny.value() = gorny.val()
+
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('Error: ' + error.message);
+                    },
+                });
+            })
+
+
+
+        })
+
+    </script>
+</head>
+
+<body>
+    <form method="post" action="handlePost">
+        <input type="range" id="gorny" min="0" max="100" style="width: 100px;"><br>
+        <input type="range" id="dolny" min="0" max="100" style="width: 400px;">
+    </form>
+
+</body>
+
+</html>

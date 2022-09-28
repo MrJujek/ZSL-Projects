@@ -22,3 +22,5 @@ app.post("/handlePost", function (req, res) {
 app.listen(PORT, function () {
     console.log("start serwera na porcie " + PORT)
 })
+
+//1.html

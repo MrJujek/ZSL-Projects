@@ -18,3 +18,6 @@ app.post("/post", function (req, res) {
 app.listen(PORT, function () {
     console.log("start serwera na porcie " + PORT)
 })
+
+//2.html
+//sudo kill -9 $(sudo lsof -t -i:3000)
