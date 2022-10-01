@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel {
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    border: 1px solid black;
+    height: 400px;
+    width: 200px;
+    background-color: wheat;
+}
+
+.right {
+    border: 1px solid black;
+    height: 400px;
+    width: 200px;
+    background-color: aqua;
+}
+
+
+
+
+
+

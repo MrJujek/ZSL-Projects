@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./4.css">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -44,8 +45,8 @@
                     type: "POST",
                     success: function (data) {
                         //console.log(data)
-                        cos = JSON.parse(data)
-                        console.log("|||" + cos.dolny)
+                        dane = JSON.parse(data)
+                        console.log(dane.dolny + "|||")
                         $("#gorny").val(cos.dolny)
 
                     },
@@ -60,11 +61,10 @@
 </head>
 
 <body>
-    <form method="post" action="handlePost">
-        <input type="range" id="gorny" min="0" max="100" style="width: 100px;"><br>
-        <input type="range" id="dolny" min="0" max="100" style="width: 400px;">
-    </form>
-
+    <div class="panel">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
 </body>
 
 </html>
