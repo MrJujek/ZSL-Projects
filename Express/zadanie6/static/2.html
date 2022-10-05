@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <title>Document</title>
+    <style>
+        #bt1,
+        #bt2 {
+            background: aqua;
+            color: black;
+            height: 100px;
+            width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .butony {
+            display: flex;
+            flex-direction: row;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+    <script>
+        $("document").ready(() => {
+            $("#bt2").click(() => {
+                console.log("klik")
+                for (let i = 0; i < 3; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        $("#boxy").append("<div style='height: 50px;width: 50px; background: gray;border: 1px solid black' id='box'" + (i + j) + "></div>")
+                    }
+                }
+
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="butony">
+        <button id="bt1" type="button">post fetch</button>
+        <button id="bt2" type="button">make table</button>
+    </div>
+    <div class="boxy"></div>
+
+
+    <script>
+
+        function fetchPost() {
+
+            const body = JSON.stringify({ a: 1, b: 2, c: "fetch" }) // body czyli przesyłane na serwer dane
+
+            const headers = { "Content-Type": "application/json" } // nagłowek czyli typ danych
+
+            fetch("/api", { method: "post", body, headers }) // fetch
+                .then(response => response.json())
+                .then(
+                    data => console.log(data) // dane odpowiedzi z serwera
+                )
+
+        }
+
+        document.getElementById("bt1").onclick = function () {
+            fetchPost()
+        }
+
+
+    </script>
+</body>
+
+</html>

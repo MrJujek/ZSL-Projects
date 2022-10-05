@@ -79,6 +79,7 @@ $(document).ready(function () {
 
         for (let i = 0; i < iloscPol; i++) {
             $("#box" + i).css("background", "gray")
+            
             $("#box" + i).on("click", function () {
                 $(this).css("background", "yellow")
                 let x = $(this).css("left")
