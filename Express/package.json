@@ -17,6 +17,7 @@
   "homepage": "https://github.com/mrjujek/zsl-projects#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "express-handlebars": "^5.3.5",
     "formidable": "^1.2.2"
   },
   "description": ""

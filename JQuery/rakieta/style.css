@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+}
+
+#cosmos {
+    width: 500px;
+    height: 300px;
+    background-color: darkblue;
+    border: 1px solid black;
+}
+
+#stop,
+#steps,
+#jumping,
+#fly {
+    width: 80px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#stop:hover,
+#steps:hover,
+#jumping:hover,
+#fly:hover {
+    cursor: pointer;
+}
+
+#rocket {
+    width: 100px;
+    height: 100px;
+    background-image: url("./img/rocket.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.meteroid {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url("./img/meteroid.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-weight: bold;
+    font-size: 20px;
+}

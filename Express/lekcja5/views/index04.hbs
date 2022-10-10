@@ -1,0 +1,8 @@
+<form action="/odp" method="get">
+    <select name="select" size="5">
+        {{#each fields}}
+        <option value={{name}}>{{name}}</option>
+        {{/each}}
+    </select>
+    <input type="submit" value="wyslij">
+</form>
