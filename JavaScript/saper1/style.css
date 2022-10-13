@@ -22,10 +22,15 @@ body,
 .box {
     height: 50px;
     width: 50px;
-    background-image: url(./img/klepa.PNG);
     background-size: 100%;
 }
 
 .box:hover {
     cursor: pointer;
+}
+
+#saper div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
