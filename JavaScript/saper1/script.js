@@ -1,23 +1,19 @@
 let formularz = document.createElement("form");
-let input, label, height, width, mines
+let input, label, height, width, mines, pozostalo
 let dane, box
 let opis = ["Height", "Width", "Mines"]
-let element, count
+let element, count, pozostale_miny
 let saperFreezeClic
 
 for (let i = 0; i < 3; i++) {
     input = document.createElement("input")
-    input.setAttribute({
-        "type": "text",
-        "value": 5,
-        "id": "input_" + opis[i]
-    })
+    input.setAttribute("type", "text")
+    input.setAttribute("value", 10)
+    input.setAttribute("id", "input_" + opis[i])
 
     label = document.createElement("label")
-    label.setAttribute({
-        "for": "input_" + opis[i],
-        "id": "label_" + opis[i]
-    })
+    label.setAttribute("for", "input_" + opis[i])
+    label.setAttribute("for", "input_" + opis[i])
     label.innerHTML = opis[i] + ":"
 
     formularz.appendChild(label)
@@ -25,18 +21,22 @@ for (let i = 0; i < 3; i++) {
 }
 
 input = document.createElement("input")
-input.setAttribute({
-    "type": "button",
-    "id": "generuj",
-    "value": "GENERUJ"
-})
+input.setAttribute("type", "button")
+input.setAttribute("id", "generuj")
+input.setAttribute("value", "GENERUJ")
+
 formularz.appendChild(input)
 
 formularz.setAttribute("class", "flex-column")
 
 dane = document.createElement("div");
-dane.setAttribute("class", "dane")
+dane.setAttribute("class", "flex-column")
 dane.appendChild(formularz);
+
+pozostalo = document.createElement("p")
+pozostalo.setAttribute("id", "pozostalo")
+pozostalo.style.height = 40 + "px"
+dane.appendChild(pozostalo)
 
 document.body.appendChild(dane);
 
@@ -46,7 +46,7 @@ document.body.appendChild(saper_div);
 
 document.getElementById('generuj').onclick = () => {
     saperFreezeClic = false
-    document.getElementById("saper").innerHTML = null
+    document.getElementById("saper").innerText = null
 
     height = parseInt(document.getElementById("input_" + opis[0]).value)
     width = parseInt(document.getElementById("input_" + opis[1]).value)
@@ -65,10 +65,12 @@ document.getElementById('generuj').onclick = () => {
 }
 
 function saper(height, width, mines) {
+    pozostale_miny = mines
+    document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
     console.log(height, width, mines)
 
     let saper = document.getElementById("saper")
-    saper.style.width = width * 50 + "px"
+    saper.style.width = width * 20 + "px"
     saper.style.position = "relative"
 
     for (let i = 0; i < height; i++) {
@@ -78,8 +80,8 @@ function saper(height, width, mines) {
             box.setAttribute("class", "box")
 
             box.style.position = "absolute"
-            box.style.left = j * 50 + "px"
-            box.style.top = i * 50 + "px"
+            box.style.left = j * 20 + "px"
+            box.style.top = i * 20 + "px"
 
             saper.appendChild(box);
         }
@@ -138,8 +140,14 @@ function saper(height, width, mines) {
                 console.log("prawy klik: ", element)
 
                 if (element.style.backgroundImage == 'url("./img/klepa.PNG")') {
-                    element.style.backgroundImage = 'url("./img/flaga.PNG")'
+                    if (pozostale_miny > 0) {
+                        pozostale_miny--
+                        document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
+                        element.style.backgroundImage = 'url("./img/flaga.PNG")'
+                    }
                 } else if (element.style.backgroundImage == 'url("./img/flaga.PNG")') {
+                    pozostale_miny++
+                    document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
                     element.style.backgroundImage = 'url("./img/pyt.png")'
                 } else if (element.style.backgroundImage == 'url("./img/pyt.png")') {
                     element.style.backgroundImage = 'url("./img/klepa.PNG")'
