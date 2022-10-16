@@ -1,0 +1,36 @@
+{% extends "bootstrap/base.html" %}
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{moment.locale('pl')}}
+{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block navbar%}
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container">
+        <a href="/" class="navbar-brand">home</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">menu 1</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">menu 2</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>witaj flask</h1>
+    {% if name %}
+        <h2>Witaj {{ name }}</h2>
+    {% else %}
+        <h2>Witaj nieznajomy</h2>
+    {% endif %}
+    <p>aktualna data i godzina {{moment(currentTime).format('LLL')}}</p>
+    <p>to bylo {{moment(currentTime).fromNow(refresh=True)}}</p>
+</div>
+{% endblock %}

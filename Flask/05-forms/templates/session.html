@@ -1,0 +1,32 @@
+{% extends "bootstrap/base.html" %}
+{%import "bootstrap/wtf.html" as wtf%}
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{moment.locale('pl')}}
+{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block navbar%}
+    {%include "include/navbar.html"%}
+{% endblock %}
+{% block content %}
+<div class="container">
+    {%for message in get_flashed_messages()%}
+        <div class="alert alert-info alert-dismissible fade show mt-1" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {%endfor%}
+    {%if userName%}
+        <h2>Witaj, {{userName}}!</h2>
+    {%else%}
+        <h2>Witaj, nieznajomy!</h2>
+    {%endif%}
+
+    <form method="POST" action="/setSession">
+        {{userForm.hidden_tag()}}
+        {{userForm.userName.label(class_="form-label")}}{{userForm.userName(class_="form-control")}}
+        {{userForm.submit(class_="btn btn-warning mt-3")}}
+    </form>
+</div>
+{% endblock %}
