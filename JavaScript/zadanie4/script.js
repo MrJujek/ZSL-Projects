@@ -129,8 +129,8 @@ function saper(height, width, mines) {
                         }
                     }
 
-                    bomby = generuj_bomby(bomby, width, height, mines)
-                    bomby = licz_cyferki(bomby, width, height)
+                    generuj_bomby(bomby, width, height, mines)
+                    licz_cyferki(bomby, width, height)
 
                     byl_pierwszy_klik = true
                 }
@@ -160,7 +160,12 @@ function saper(height, width, mines) {
                     element.style.backgroundImage = ""
                     if (bomby[i][j] === 0) {
                         element.innerText = ""
-                        odkryj_puste(bomby, height, width, i, j)
+
+                        ///////////////////////////////
+
+                        odkryj_puste(bomby, height, width, i, j, pozostale_miny)
+
+                        ///////////////////////////////
                     } else {
                         for (let k = 0; k < kolor.length; k++) {
                             if (bomby[i][j] === k + 1) {
@@ -228,9 +233,7 @@ function saper(height, width, mines) {
                 k++
             }
         }
-        return bomby
     }
-
 
     function licz_cyferki(bomby, width, height) {
         for (let i = 0; i < height; i++) {
@@ -253,31 +256,40 @@ function saper(height, width, mines) {
                 }
             }
         }
-        console.log(bomby)
-
-        return bomby
     }
 
-    function odkryj_puste(bomby, height, width, x, y) {
-        for (let k = y - 1; k <= y + 1; k++) {
-            for (let l = x - 1; l <= x + 1; l++) {
-                if (k >= 0 && l >= 0 && k < height && l < width) {
-                    let nazwa = "box_x" + l + "_y" + k
+    function odkryj_puste(bomby, height, width, box_y, box_x, pozostale_miny) {
+        for (let pomoc_y = box_y - 1; pomoc_y <= box_y + 1; pomoc_y++) {
+            for (let pomoc_x = box_x - 1; pomoc_x <= box_x + 1; pomoc_x++) {
+                if (pomoc_y >= 0 && pomoc_x >= 0 && pomoc_y < height && pomoc_x < width) {
 
-                    if (bomby[k][l] == 0 && document.getElementById(nazwa).style.backgroundImage != '') {
+                    let nazwa = "box_x" + pomoc_x + "_y" + pomoc_y
+
+                    if (bomby[pomoc_y][pomoc_x] === 0 && document.getElementById(nazwa).style.backgroundImage != '') {
+                        if (document.getElementById(nazwa).style.backgroundImage === 'url("./img/flaga.PNG")') {
+                            pozostale_miny++
+                            document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
+                        }
+
                         document.getElementById(nazwa).style.backgroundImage = ''
-                        odkryj_puste((bomby, height, width, l, k))
-                    } else if (bomby[k][l] !== 9 && bomby[k][l] !== 0) {
+                        odkryj_puste(bomby, height, width, pomoc_y, pomoc_x, pozostale_miny)
+                    } else if (bomby[pomoc_y][pomoc_x] !== 9 && bomby[pomoc_y][pomoc_x] !== 0) {
+
                         for (let q = 0; q < kolor.length; q++) {
-                            if (bomby[k][l] === q + 1) {
+                            if (bomby[pomoc_y][pomoc_x] === q + 1) {
                                 document.getElementById(nazwa).style.color = kolor[q]
                             }
                         }
+
                         document.getElementById(nazwa).style.backgroundImage = ''
-                        document.getElementById(nazwa).innerText = bomby[k][l]
+                        document.getElementById(nazwa).innerText = bomby[pomoc_y][pomoc_x]
                     }
                 }
             }
         }
+    }
+
+    function zwyciestwo() {
+
     }
 }

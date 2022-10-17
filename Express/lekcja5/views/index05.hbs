@@ -1,0 +1,7 @@
+<form action="/odp" method="get">
+    {{#each fields}}
+    <input type="radio" name="radio" value={{name}}>{{name}}
+    {{/each}}
+
+    <input type="submit" value="wyslij">
+</form>

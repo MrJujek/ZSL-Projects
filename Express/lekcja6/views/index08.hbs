@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="css/08.css">
+
+<h1>{{subject}}</h1>
+
+<p>
+    {{#each books}}
+    {{#if author }}
+    {{author}}, {{title}}
+    {{else}}
+    * brak autora *
+    {{/if}}
+    <br>
+    {{/each}}
+
+
+</p>
