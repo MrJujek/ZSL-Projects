@@ -1,5 +1,5 @@
 let formularz = document.createElement("form");
-let input, label, height, width, mines, pozostalo
+let input, label, height, width, mines, pozostalo, czas
 let dane, box
 let opis = ["Height", "Width", "Mines"]
 let element, count, pozostale_miny
@@ -40,7 +40,31 @@ pozostalo.setAttribute("id", "pozostalo")
 pozostalo.style.height = 40 + "px"
 dane.appendChild(pozostalo)
 
+czas = document.createElement("p")
+czas.setAttribute("id", "czas")
+czas.style.height = 40 + "px"
+dane.appendChild(czas)
+
 document.body.appendChild(dane);
+
+for (let i = 0; i < 3; i++) {
+    element = document.getElementById("input_" + opis[i])
+
+    element.addEventListener("change", () => {
+        height = (document.getElementById("input_" + opis[0]).value)
+        width = (document.getElementById("input_" + opis[1]).value)
+        mines = (document.getElementById("input_" + opis[2]).value)
+
+        if (isNaN(height) || isNaN(width) || isNaN(mines)
+            || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
+            //console.log("Zle dane")
+            setTimeout(() => {
+                document.getElementById("input_" + opis[i]).value = ""
+            }, 1000)
+        }
+    })
+
+}
 
 let saper_div = document.createElement("div");
 saper_div.setAttribute("id", "saper")
@@ -73,9 +97,9 @@ function saper(height, width, mines) {
     //console.log(height, width, mines)
 
     let saper = document.getElementById("saper")
-    saper.style.width = width * 20 + "px"
-    saper.style.height = height * 20 + "px"
-    saper.style.background = "rgb(200, 200, 200)"
+    saper.style.width = width * 30 + "px"
+    saper.style.height = height * 30 + "px"
+    saper.style.background = "rgb(190, 190, 190)"
     saper.style.position = "relative"
 
     for (let i = 0; i < height; i++) {
@@ -85,8 +109,8 @@ function saper(height, width, mines) {
             box.setAttribute("class", "box")
 
             box.style.position = "absolute"
-            box.style.left = j * 20 + "px"
-            box.style.top = i * 20 + "px"
+            box.style.left = j * 30 + "px"
+            box.style.top = i * 30 + "px"
 
             saper.appendChild(box);
         }
@@ -167,11 +191,7 @@ function saper(height, width, mines) {
 
                         ///////////////////////////////
                     } else {
-                        for (let k = 0; k < kolor.length; k++) {
-                            if (bomby[i][j] === k + 1) {
-                                element.style.color = kolor[k]
-                            }
-                        }
+                        daj_kolor(bomby, j, i)
                         element.innerText = bomby[i][j]
                     }
                 }
@@ -213,6 +233,20 @@ function saper(height, width, mines) {
                     }
 
                     if (dobre_zaznaczenie == mines) {
+                        for (let m = 0; m < height; m++) {
+                            for (let n = 0; n < width; n++) {
+                                let pomoc = document.getElementById("box_x" + n + "_y" + m)
+
+                                if (bomby[m][n] === 0 && pomoc.style.backgroundImage == 'url("./img/klepa.PNG")') {
+                                    for (let k = 0; k < kolor.length; k++) {
+                                        if (bomby[m][n] === k + 1) {
+                                            element.style.color = kolor[k]
+                                        }
+                                    }
+                                    element.innerText = bomby[m][n]
+                                }
+                            }
+                        }
                         alert("Wygrales")
                         document.getElementById("pozostalo").innerText = "Wygrałeś :)"
                         saperFreezeClic = true
@@ -222,6 +256,17 @@ function saper(height, width, mines) {
 
 
         }
+    }
+
+    function daj_kolor(bomby, x, y) {
+        let nazwa = "box_x" + x + "_y" + y
+        element = document.getElementById(nazwa) 
+        for (let k = 0; k < kolor.length; k++) {
+            if (bomby[y][x] === k + 1) {
+                element.style.color = kolor[k]
+            }
+        }
+        element.innerText = bomby[y][x]
     }
 
     function generuj_bomby(bomby, width, height, mines) {
@@ -265,21 +310,16 @@ function saper(height, width, mines) {
 
                     let nazwa = "box_x" + pomoc_x + "_y" + pomoc_y
 
-                    if (bomby[pomoc_y][pomoc_x] === 0 && document.getElementById(nazwa).style.backgroundImage != '') {
-                        if (document.getElementById(nazwa).style.backgroundImage === 'url("./img/flaga.PNG")') {
-                            pozostale_miny++
-                            document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
-                        }
+                    if (document.getElementById(nazwa).style.backgroundImage === 'url("./img/flaga.PNG")') {
+                        pozostale_miny++
+                        document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
+                    }
 
+                    if (bomby[pomoc_y][pomoc_x] === 0 && document.getElementById(nazwa).style.backgroundImage != '') {
                         document.getElementById(nazwa).style.backgroundImage = ''
                         odkryj_puste(bomby, height, width, pomoc_y, pomoc_x, pozostale_miny)
                     } else if (bomby[pomoc_y][pomoc_x] !== 9 && bomby[pomoc_y][pomoc_x] !== 0) {
-
-                        for (let q = 0; q < kolor.length; q++) {
-                            if (bomby[pomoc_y][pomoc_x] === q + 1) {
-                                document.getElementById(nazwa).style.color = kolor[q]
-                            }
-                        }
+                        daj_kolor(bomby, pomoc_x, pomoc_y)
 
                         document.getElementById(nazwa).style.backgroundImage = ''
                         document.getElementById(nazwa).innerText = bomby[pomoc_y][pomoc_x]
