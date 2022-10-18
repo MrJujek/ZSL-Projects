@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="kolko.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.46769781"
+     inkscape:cx="397.69269"
+     inkscape:cy="553.77638"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="-181.74128"
+       y="408.38335"
+       width="401.96895"
+       height="188.15568"
+       id="rect541" />
+  </defs>
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#000000;stroke-width:0.264583"
+       id="path61"
+       cx="18.647779"
+       cy="90.983185"
+       r="44.974285"
+       transform="matrix(-0.58267233,0.81270717,0.81270717,0.58267233,0,0)" />
+    <circle
+       style="fill:#ffffff;stroke-width:0.264583"
+       id="path167"
+       cx="-80.846237"
+       cy="-46.5042"
+       transform="rotate(-162.63943)"
+       r="27.719999" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text539"
+       style="fill:#808080;font-size:53.33333333px;white-space:pre;shape-inside:url(#rect541)" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.7px;line-height:1.6;letter-spacing:-0.449792px;baseline-shift:baseline;fill:#ffffff;stroke-width:0.264583"
+       id="text435"
+       x="32.869183"
+       y="0"><textPath
+         xlink:href="#path167"
+         id="textPath549"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12.7px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;baseline-shift:baseline;text-anchor:start;fill:#ffffff;stroke-width:0.264583"
+         dy="-4.98">Dworzycki</textPath></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14.1111px;letter-spacing:1.91294px;fill:#808080;stroke-width:0.264583"
+       id="text547"><textPath
+         xlink:href="#path61"
+         id="textPath605"
+         style="fill:#ffffff"><tspan
+           id="tspan545"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff;stroke-width:0.264583"
+           dy="-4.1900001">Julian</tspan></textPath></text>
+  </g>
+</svg>
