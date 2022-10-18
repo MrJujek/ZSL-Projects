@@ -260,7 +260,7 @@ function saper(height, width, mines) {
 
     function daj_kolor(bomby, x, y) {
         let nazwa = "box_x" + x + "_y" + y
-        element = document.getElementById(nazwa) 
+        element = document.getElementById(nazwa)
         for (let k = 0; k < kolor.length; k++) {
             if (bomby[y][x] === k + 1) {
                 element.style.color = kolor[k]
@@ -303,7 +303,7 @@ function saper(height, width, mines) {
         }
     }
 
-    function odkryj_puste(bomby, height, width, box_y, box_x, pozostale_miny) {
+    function odkryj_puste(bomby, height, width, box_y, box_x) {
         for (let pomoc_y = box_y - 1; pomoc_y <= box_y + 1; pomoc_y++) {
             for (let pomoc_x = box_x - 1; pomoc_x <= box_x + 1; pomoc_x++) {
                 if (pomoc_y >= 0 && pomoc_x >= 0 && pomoc_y < height && pomoc_x < width) {

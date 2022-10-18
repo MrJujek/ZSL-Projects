@@ -1,3 +1,5 @@
+//https://www.bioinformatics.org/sms2/random_dna.html
+
 let ciag = "tgaactatgataataagtttaggatacgcaaaatgttaaagctatgttccctagtga"
 // do {
 //     ciag = window.prompt("Podaj ciąg DNA");
@@ -7,6 +9,11 @@ let ciag = "tgaactatgataataagtttaggatacgcaaaatgttaaagctatgttccctagtga"
 // } while (ciag.length % 3 != 0)
 
 ciag = ciag.replace(/(\r\n|\n|\r)/gm, "");
+/*
+to | potem to
+m - więcej lini
+g - więcej zamian
+*/
 let nic = ciag;
 
 let nic_komplementarna = ciag.replaceAll("a", "T");
@@ -76,8 +83,7 @@ for (let i = 0; i < ciag.length; i = i + 3) {
     let kodon = (ciag.substring(i, i + 3)).toUpperCase();
     if (kodon == "TAA" || kodon == "TAG" || kodon == "TGA") {
         document.write('<span style="background: yellow;">')
-    }
-    if (kodon == "ATG") {
+    } else if (kodon == "ATG") {
         document.write('<b><span style="color: green;">')
     }
     document.write(kodon + "</span></b> ");
@@ -88,8 +94,7 @@ for (let i = 0; i < nic_komplementarna.length; i = i + 3) {
     let kodon = (nic_komplementarna.substring(i, i + 3)).toUpperCase();
     if (kodon == "TAA" || kodon == "TAG" || kodon == "TGA") {
         document.write('<span style="background: yellow;">')
-    }
-    if (kodon == "ATG") {
+    } else if (kodon == "ATG") {
         document.write('<b><span style="color: green;">')
     }
     document.write(kodon + "</span></b> ");
