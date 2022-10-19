@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <select multiple>
+            <optgroup label="Języki programowania">
+                <option value="C">C</option>
+                <option value="C++">C++</option>
+                <option value="C#">C#</option>
+            </optgroup>
+            <optgroup label="Języki skryptowe" disabled>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="Shell">Shell</option>
+            </optgroup>
+        </select>
+        <hr>
+
+        <fieldset style="width: 200px">
+            <legend><b>Formularz wyboru języka:</b></legend>
+            <select style="height: 100px;"  multiple>
+                <optgroup label="Języki słowiańskie">
+                    <option value="PL">polski</option> <!--po value jest to co jest wysylane na serwer-->
+                    <option value="RU">rosyjski</option>
+                    <option value="UK">ukraiński</option>
+                </optgroup>
+                <optgroup label="Języki germańskie">
+                    <option value="DE">niemiecki</option>
+                    <option value="ENG">angielski</option>
+                </optgroup>
+                <optgroup label="Języki romańskie">
+                    <option value="FR">francuski</option>
+                    <option value="IT">włoski</option>
+                </optgroup>
+            </select>
+        </fieldset>
+        <hr>
+
+        <textarea name="lorem ipsum" cols="30" rows="10" readonly>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit dolorem a eos delectus nulla ipsum nihil quibusdam numquam excepturi officiis accusamus, nobis ullam sunt earum recusandae error dicta tempora vitae?</textarea>
+        <hr>
+
+        <fieldset>
+            <legend>Zostaw komentarz</legend>
+            <dl>
+                <dt><strong>Imie</strong></dt>
+                <dd><input type="text" name="name" size="30"></dd>
+                <dt><strong>Email</strong></dt>
+                <dd><input type="email" name="email" size="30"></dd>
+                <dt><strong>Komentarz:</strong></dt>
+                <dd><textarea name="opinia" cols="30" rows="10" maxlength="100" placeholder="Komentarz"></textarea></dd>
+            </dl>
+            <p><input type="submit" value="Wyślij"></p>
+        </fieldset>
+        <hr>
+
+        <input type="radio" value="podstawowe" name="grupa-opcji" accesskey="p">Podstawowe [alt+P]<br>
+        <input type="radio" value="srednie" name="grupa-opcji" accesskey="s">Srednie [alt+S]<br>
+        <input type="radio" value="zaawansoawne" name="grupa-opcji" accesskey="z">Zaawansowane [alt+Z]<br>
+        <!--na macach trzeba nacisnac alt+ctrl-->
+    </form>
+</body>
+</html>

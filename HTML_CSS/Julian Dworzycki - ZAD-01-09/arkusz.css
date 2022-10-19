@@ -1,0 +1,62 @@
+td a { 
+    display: block;
+    width: 100%;
+    height: 100%; 
+    text-decoration: none;
+}
+
+.tabela {
+	margin: auto;
+	border-spacing: 30px 10px;
+}
+
+.wybor {
+	border: black solid 1px;
+	text-align: center;
+    text-decoration: none;
+}
+
+.wybor:hover {
+	background-color: black;
+	color: white;
+	cursor: pointer;
+    text-decoration: none;
+}
+
+.logo {
+	float: left;
+}
+
+.tekst1,
+.tekst2 {
+	text-align: center;
+}
+
+.tekst1 {
+	padding-top: 40px;
+}
+
+.tabela {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+.obraz,
+.obrazmain {
+    display: block;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+}
+.obrazmain {
+    border: grey solid 2px;
+}
+
+.pasek {
+	clear: both;
+	text-align: center;
+	border-top: black solid 1px;
+	border-bottom: black solid 1px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

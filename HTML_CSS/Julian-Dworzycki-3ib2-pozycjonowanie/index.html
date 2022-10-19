@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Julian Dworzycki 3ib2">
+    <title>zad domowe</title>
+    <style>
+        .d1, .d3, .d5, .d7 {
+            background-image: url(p-02s.jpg);
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            outline: black solid 5px;
+        }
+        .d2, .d4, .d6, .d8 {
+            background-image: url(p-03s.jpg);
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            outline: black solid 5px;
+        }  
+        .d1 {
+            z-index: 1;
+            left: 50px;
+            top: 50px;
+        }
+        .d2 {
+            z-index: 2;
+            right: 50px;
+            top: 50px;
+        }
+        .d3 {
+            z-index: 4;
+            left: 100px;
+            top: 100px;
+        }
+        .d4 {
+            z-index: 3;
+            right: 100px;
+            top: 100px;
+        }
+        .d5 {
+            z-index: 5;
+            left: 150px;
+            top: 150px;
+        }
+        .d6 {
+            z-index: 6;
+            right: 150px;
+            top: 150px;
+        }
+        .d7 {
+            z-index: 8;
+            left: 200px;
+            top: 200px;
+        }
+        .d8 {
+            z-index: 7;
+            right: 200px;
+            top: 200px;
+        }
+        .kolo {
+            outline: 1px solid black;
+            background-color: aqua;
+            border-radius: 100%;
+            z-index: 10;
+            width: 150px;
+            height: 100px;
+            font-size: 20px;
+        }
+        .srodek {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="srodek">
+        <div class="kolo srodek"><p style="text-align: center;">Kazde przesuniecie to 50px</p></div>
+    </div>
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+    <div class="d4"></div>
+    <div class="d5"></div>
+    <div class="d6"></div>
+    <div class="d7"></div>
+    <div class="d8"></div>
+</body>
+</html>

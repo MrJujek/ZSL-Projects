@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        $(document).ready(function () {
+            const products = [
+                { price: "2.22", product: "kurtka" },
+                { price: "3.34", product: "szalik" },
+                { price: "4.44", product: "rękawiczki" },
+                { price: "5.55", product: "buty" },
+                { price: "6.66", product: "bluza" },
+                { price: "7.77", product: "coś na wieczór" },
+                { price: "7.77", product: "coś na wieczór" }
+            ]
+
+            let legenda = ["Produkt", "Cena", "Ilosc", "Suma"]
+
+            let tabela = $("<table>")
+
+            let naglowek = $("<tr>")
+            tabela.append(naglowek)
+            for (let i = 0; i < 4; i++) {
+                let komorka = $("<th>")
+                komorka.append(legenda[i])
+
+                naglowek.append(komorka)
+            }
+
+
+            for (let i = 0; i < products.length; i++) {
+                let wiersz = $("<tr>")
+                tabela.append(wiersz)
+
+                for (let j = 0; j < 4; j++) {
+                    let kolumna = $("<td>")
+                    kolumna.attr("id", "kom_" + i + "_" + j)
+
+                    if (j == 0) {
+                        kolumna.append(products[i].product)
+                    }
+                    else if (j == 1) {
+                        kolumna.append(products[i].price)
+                    }
+                    else if (j == 2) {
+                        var input = $("<input>")
+                        input
+                            .attr("type", "number")
+                            .val(0)
+                            .attr("max", "10")
+                            .attr("min", "0")
+                            .attr("id", "input_" + i)
+                        kolumna.append(input)
+                    }
+                    else if (j == 3) {
+                        let wartosc = input.val() * products[i].price
+                        kolumna.append(wartosc)
+                    }
+
+                    wiersz.append(kolumna)
+                }
+            }
+
+            let suma = $("<tr>")
+            tabela.append(suma)
+
+            for (let i = 0; i < 4; i++) {
+                if (i == 2) {
+                    let komorka = $("<th>")
+                    komorka.attr("id", "suma_ile")
+
+                    komorka.append(0)
+
+                    suma.append(komorka)
+                } else if (i == 3) {
+                    let komorka = $("<th>")
+                    komorka.attr("id", "suma_sumy")
+                    komorka.append(0)
+
+
+                    suma.append(komorka)
+                } else {
+                    let komorka = $("<th>")
+
+                    suma.append(komorka)
+                }
+
+            }
+
+            $("body").append(tabela)
+            let suma_sumy = 0
+            for (let i = 0; i < products.length; i++) {
+                $("#input_" + i).on("change", function () {
+                    let suma_ile = 0;
+                    for (let j = 0; j < products.length; j++) {
+                        suma_ile += parseInt($("#input_" + j).val())
+                    }
+                    $("#suma_ile")
+                        .empty()
+                        .append(suma_ile)
+
+                    /////////////////////////////////////////////////////////////////
+                    let wartosc = ($("#input_" + i).val() * products[i].price).toFixed(2)
+
+                    $("#kom_" + i + "_" + 3)
+                        .empty()
+                        .append(wartosc)
+
+                    /////////////////////////////////////////////////////////////////
+
+
+                    suma_sumy = 0;
+                    for (let j = 0; j < products.length; j++) {
+                        suma_sumy += parseFloat($("#kom_" + j + "_3").text())
+                    }
+                    $("#suma_sumy")
+                        .empty()
+                        .append(suma_sumy.toFixed(2))
+
+
+
+
+
+
+                })
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

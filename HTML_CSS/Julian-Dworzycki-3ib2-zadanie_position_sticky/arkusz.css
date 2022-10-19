@@ -1,0 +1,66 @@
+/* Julian Dworzycki 3ib2 */
+* {margin: 0; padding: 0; box-sizing: border-box;}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 250vh;
+}
+.menu1, .menu2, .menu3, p {
+    width: 80vw;
+    margin: auto;
+    background-color: lightgrey;
+}
+.menu1  {
+    background: lightskyblue;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+}
+.menu2  {
+    background: lemonchiffon;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px;
+}
+.menu3 {
+    background: lightcoral;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 80px;
+}
+p {
+    background: aqua;
+    border-left: 2px gray solid;
+    border-right: 2px gray solid;
+    padding: 10px;
+    text-indent: 10px;
+}
+.menu1, .menu2, .menu3  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+.menu1:hover {
+    background: dodgerblue;
+}
+.menu2:hover {
+    background: yellow;
+}
+.menu3:hover {
+    background: red;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+#m1 {
+    scroll-margin: 0px;
+}
+#m2 {
+    scroll-margin: 40px;
+}
+#m3 {
+    scroll-margin: 80px;
+}

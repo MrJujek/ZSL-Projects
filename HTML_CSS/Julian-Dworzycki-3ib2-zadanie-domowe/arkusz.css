@@ -1,0 +1,59 @@
+div {
+    margin: 10px;
+}
+
+.jeden1 {
+    border: 5px dashed black;
+    padding: 10px;
+    background: #5f5;
+    background-clip: border-box;
+}
+.jeden2 {
+    border: 5px dashed black;
+    padding: 10px;
+    background: #5f5;
+    background-clip: padding-box;
+}
+.jeden3 {
+    border: 5px dashed black;
+    padding: 10px;
+    background: #5f5;
+    background-clip: content-box;
+}
+
+.dwa1 {
+    border: 5px dashed black;
+    padding: 10px;
+    height: 50px;
+    background: url(p-02s.jpg);
+    background-repeat: no-repeat;
+    background-origin: padding-box;
+}
+.dwa2 {
+    border: 5px dashed black;
+    padding: 10px;
+    height: 50px;
+    background: url(p-02s.jpg);
+    background-repeat: no-repeat;
+    background-origin: border-box;
+}
+.dwa3 {
+    border: 5px dashed black;
+    padding: 10px;
+    height: 50px;
+    background: url(p-02s.jpg);
+    background-repeat: no-repeat;
+    background-origin: content-box;
+}
+
+.trzy1 {
+    background: linear-gradient(#5f5, blue);
+    height: 100px;
+    padding: 10px;
+}
+
+.trzy2 {
+    background: radial-gradient(red, yellow);
+    height: 100px;
+    padding: 10px;
+}
