@@ -1,0 +1,39 @@
+<nav class="navbar navbar-dark bg-dark p-3">
+    <div class="d-flex col-12 col-md-3 col-lg-2 flex-wrap mb-lg-0 flex-md-wrap">
+        <a href="/" class="navbar-brand">Home</a>
+    </div>
+    <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end">
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item">-->
+<!--                <a href="/logOut" class="nav-link">Wyloguj</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+        <div class="dropdown me-5">
+            <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Witaj, {{userLogin}}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownmenuButton">
+                <li>
+                    <a href="/dashboard" class="dropdown-item">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="dropdown-item">Przedmioty</a>
+                </li>
+                <li>
+                    <a href="" class="dropdown-item">Oceny</a>
+                </li>
+                <li>
+                    <a href="" class="dropdown-item">Średnia</a>
+                </li>
+                <li class="dropdown-divider"></li>
+                <li>
+                    <a href="/logOut" class="dropdown-item">
+                        <i class="bi bi-door-open"></i> Wyloguj
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
