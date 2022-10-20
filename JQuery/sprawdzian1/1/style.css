@@ -1,0 +1,26 @@
+.legenda {
+    background-color: aqua;
+    border: 1px solid black;
+}
+
+
+.kom {
+    background-color: bisque;
+    border: 1px solid red;
+}
+
+.kom input {
+    background-color: bisque;
+    border: none;
+}
+
+.ile {
+    background-color: greenyellow;
+    border: 1px solid blue;
+}
+
+.suma {
+    background-color: red;
+    border: 1px solid yellow;
+    width: 100px;
+}
