@@ -61,7 +61,10 @@ for (let i = 0; i < 3; i++) {
             || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
             //console.log("Zle dane")
             setTimeout(() => {
-                document.getElementById("input_" + opis[i]).value = ""
+                if (isNaN(height) || isNaN(width) || isNaN(mines) || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
+
+                    document.getElementById("input_" + opis[i]).value = ""
+                }
             }, 1000)
         }
     })
@@ -82,7 +85,6 @@ document.getElementById('generuj').onclick = () => {
     mines = parseInt(document.getElementById("input_" + opis[2]).value)
 
     if (isNaN(height) || isNaN(width) || isNaN(mines) || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
-        //console.log("Zle dane")
         setTimeout(() => {
             document.getElementById("input_" + opis[0]).value = ""
             document.getElementById("input_" + opis[1]).value = ""
@@ -143,7 +145,6 @@ function saper(height, width, mines) {
 
             element.addEventListener("click", () => {
                 if (!byl_pierwszy_klik) {
-                    //console.log("PIEWRSZY KLIK");
                     pierwszy_x = i
                     pierwszy_y = j
 
@@ -154,14 +155,11 @@ function saper(height, width, mines) {
                             }
                         }
                     }
-
                     generuj_bomby(width, height, mines)
                     licz_cyferki(width, height)
 
                     byl_pierwszy_klik = true
                 }
-
-
 
                 element = document.getElementById(nazwa)
                 if (bomby[i][j] === 9) {
@@ -186,19 +184,12 @@ function saper(height, width, mines) {
                     element.style.backgroundImage = ""
                     if (bomby[i][j] === 0) {
                         element.innerText = ""
-
-                        ///////////////////////////////
-
                         odkryj_puste(height, width, i, j)
-
-                        ///////////////////////////////
                     } else {
                         daj_cyfre(j, i)
                         element.innerText = bomby[i][j]
                     }
                 }
-
-
                 //console.log("lewy klik: ", element)
             })
 
@@ -239,13 +230,9 @@ function saper(height, width, mines) {
                             for (let n = 0; n < width; n++) {
                                 let pomoc = document.getElementById("box_x" + n + "_y" + m)
 
-                                if (bomby[m][n] === 0 && pomoc.style.backgroundImage == 'url("./img/klepa.PNG")') {
-                                    for (let k = 0; k < kolor.length; k++) {
-                                        if (bomby[m][n] === k + 1) {
-                                            element.style.color = kolor[k]
-                                        }
-                                    }
-                                    element.innerText = bomby[m][n]
+                                if (pomoc.style.backgroundImage == 'url("./img/klepa.PNG")') {
+                                    pomoc.style.backgroundImage = ""
+                                    daj_cyfre(n, m)
                                 }
                             }
                         }
@@ -254,9 +241,7 @@ function saper(height, width, mines) {
                         saperFreezeClic = true
                     }
                 }
-            });
-
-
+            })
         }
     }
 
@@ -309,7 +294,6 @@ function saper(height, width, mines) {
         for (let pomoc_y = box_y - 1; pomoc_y <= box_y + 1; pomoc_y++) {
             for (let pomoc_x = box_x - 1; pomoc_x <= box_x + 1; pomoc_x++) {
                 if (pomoc_y >= 0 && pomoc_x >= 0 && pomoc_y < height && pomoc_x < width) {
-
                     let nazwa = "box_x" + pomoc_x + "_y" + pomoc_y
 
                     if (document.getElementById(nazwa).style.backgroundImage === 'url("./img/flaga.PNG")') {
