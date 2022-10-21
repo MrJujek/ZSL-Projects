@@ -73,6 +73,7 @@ for (let i = 0; i < 3; i++) {
 
 let saper_div = document.createElement("div");
 saper_div.setAttribute("id", "saper")
+saper_div.style.margin = "0 auto"
 document.body.appendChild(saper_div);
 
 document.getElementById('generuj').onclick = () => {
@@ -160,36 +161,38 @@ function saper(height, width, mines) {
 
                     byl_pierwszy_klik = true
                 }
+                if (element.style.backgroundImage !== 'url("./img/flaga.PNG")') {
+                    element = document.getElementById(nazwa)
+                    if (bomby[i][j] === 9) {
+                        for (let i = 0; i < height; i++) {
+                            for (let j = 0; j < width; j++) {
+                                let nazwa_bomb = "box_x" + j + "_y" + i
+                                let bomb = document.getElementById(nazwa_bomb)
+                                if (bomby[i][j] === 9)
+                                    bomb.style.backgroundImage = 'url("./img/pbomb.PNG")'
+                            }
+                        }
 
-                element = document.getElementById(nazwa)
-                if (bomby[i][j] === 9) {
-                    for (let i = 0; i < height; i++) {
-                        for (let j = 0; j < width; j++) {
-                            let nazwa_bomb = "box_x" + j + "_y" + i
-                            let bomb = document.getElementById(nazwa_bomb)
-                            if (bomby[i][j] === 9)
-                                bomb.style.backgroundImage = 'url("./img/pbomb.PNG")'
+                        element.style.backgroundImage = 'url("./img/bomb.PNG")'
+                        document.getElementById("pozostalo").innerText = "Przegrałeś :("
+                        alert("przegrales")
+                        saperFreezeClic = true
+                    } else {
+                        if (document.getElementById(nazwa).style.backgroundImage == 'url("./img/flaga.PNG")') {
+                            pozostale_miny++
+                            document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
+                        }
+                        element.style.backgroundImage = ""
+                        if (bomby[i][j] === 0) {
+                            element.innerText = ""
+                            odkryj_puste(height, width, i, j)
+                        } else {
+                            daj_cyfre(j, i)
+                            element.innerText = bomby[i][j]
                         }
                     }
-
-                    element.style.backgroundImage = 'url("./img/bomb.PNG")'
-                    document.getElementById("pozostalo").innerText = "Przegrałeś :("
-                    alert("przegrales")
-                    saperFreezeClic = true
-                } else {
-                    if (document.getElementById(nazwa).style.backgroundImage == 'url("./img/flaga.PNG")') {
-                        pozostale_miny++
-                        document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
-                    }
-                    element.style.backgroundImage = ""
-                    if (bomby[i][j] === 0) {
-                        element.innerText = ""
-                        odkryj_puste(height, width, i, j)
-                    } else {
-                        daj_cyfre(j, i)
-                        element.innerText = bomby[i][j]
-                    }
                 }
+
                 //console.log("lewy klik: ", element)
             })
 
