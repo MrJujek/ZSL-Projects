@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,4 +18,115 @@
 
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+    <style>
+        div {
+            background-color: transparent;
+        }
+
+        .gora {
+            border-radius: 50px;
+        }
+
+        .srodek {
+            border-radius: 50px;
+            position: relative;
+        }
+
+        .suwak {
+            border-radius: 50px;
+            position: absolute;
+        }
+
+        .td {
+            text-align: center;
+        }
+
+        td {
+            border: 1px black dotted;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<script>
+    let wartosc = 0
+    const tab = [
+        { type: "inteligencja interpersonalna", c1: "f6ac55", c2: "fa8a02", size: 90 },
+        { type: "inteligencja kinestetyczna", c1: "3dc6f4", c2: "0ebaea", size: 80 },
+        { type: "inteligencja muzyczna", c1: "abd66d", c2: "9fc25e", size: 70 },
+        { type: "inteligencja lingwistyczno-językowa", c1: "f05156", c2: "ff4b4c", size: 60 },
+        { type: "inteligencja wizualno-przestrzenna", c1: "f8a0c6", c2: "ff79aa", size: 70 },
+        { type: "inteligencja logiczno-matematyczna", c1: "a06db0", c2: "984190", size: 80 },
+        { type: "inteligencja intrapersonalna", c1: "fdd542", c2: "f5c300", size: 90 },
+    ]
+    $(document).ready(function () {
+        for (let x = 0; x < tab.length; x++) {
+            let tr = $("<tr>");
+            $("#tab1").append(tr);
+            for (let y = 0; y < 3; y++) {
+                if (y == 0) {
+                    let td = $("<td>").text(tab[x].type);
+                    $(tr).append(td)
+                }
+                else if (y == 1) {
+                    let color = "#" + tab[x].c1
+                    let div = $("<div>").css("height", "50px").css("width", "500px").css("background-color", "#CCCCCC").addClass("gora");
+                    console.log(color);
+                    let div1 = $("<div>").css("height", "50px").css("width", tab[x].size + "%").css("background-color", color).addClass("srodek");
+                    let div2 = $("<div>").css("height", "50px").css("width", "50px").css("background-color", ("#" + tab[x].c2)).addClass("suwak");
+                    var td = $("<td>").append(div);
+                    $(div).append(div1)
+                    $(div1).append(div2)
+                    $(tr).append(td)
+                }
+                else if (y == 2) {
+                    $(".srodek").on("mousedown", function () {
+                        $(".srodek").on("mousemove", function (e) {
+                            let width = parseInt($(this).css("width"))
+                            wartosc = ((e.clientX - 250) / width) * 100;
+                            console.log((wartosc))
+                            if (wartosc < 100 && wartosc > 0) {
+                                $(this).children().css("left", wartosc + "%");
+                                $(this).children().text(Math.floor(wartosc));
+                            }
+                        })
+                    })
+                    $(document).on("mouseup", function () {
+                        $(".srodek").off("mousemove");
+                    })
+                    let td = $("<td>").text(tab[x].size)
+                    tr.append(td)
+                }
+            }
+
+        }
+        let suma = 0
+        let k = 0;
+        let tr = $("<tr>");
+        for (let z = 0; z < tab.length; z++) {
+            suma += parseInt(tab[z].size)
+            k++
+            suma = suma
+        }
+        suma = suma / tab.length
+        let td1 = $("<td colspan='3'>").text(("Twoja inteligencja: " + Math.floor(suma))).addClass("td")
+        $("#tab1").append(tr);
+        tr.append(td1);
+    })
+</script>
+</head>
+
+<body>
+    <table id="tab1"></table>
+</body>
+
+>>>>>>> 258ab10399c63ac9bb39279ed097b8a3f4c50639
 </html>

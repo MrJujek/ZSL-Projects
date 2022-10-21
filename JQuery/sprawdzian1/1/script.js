@@ -1,5 +1,4 @@
 let tabela = $("<table>")
-//tabela.attr("border", "1")
 
 const produkty = [
     { price: "2.22", product: "kurtka" },
@@ -48,7 +47,6 @@ $(document).ready(() => {
                     komorka.append(0)
                     break
             }
-            // komorka.append(produkty["kurtka"])
 
             wiersz.append(komorka)
         }
@@ -81,7 +79,7 @@ $(document).ready(() => {
     $("body").append(tabela)
 
     for (let i = 0; i < Object.keys(produkty).length; i++) {
-        $("#input_" + i).on("change", () => {
+        $("#input_" + i).on("input", () => {
             $("#suma_" + i)
                 .empty()
                 .append(($("#input_" + i).val() * produkty[i].price).toFixed(2))
@@ -89,7 +87,6 @@ $(document).ready(() => {
             let wartosc = 0
             for (let i = 0; i < Object.keys(produkty).length; i++) {
                 wartosc += parseInt($("#input_" + i).val())
-                //console.log(wartosc)
             }
             $("#suma_ile")
                 .empty()
