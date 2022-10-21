@@ -50,10 +50,12 @@ document.body.appendChild(dane);
 for (let i = 0; i < 3; i++) {
     element = document.getElementById("input_" + opis[i])
 
-    element.addEventListener("change", () => {
+    element.addEventListener("input", () => {
         height = (document.getElementById("input_" + opis[0]).value)
         width = (document.getElementById("input_" + opis[1]).value)
         mines = (document.getElementById("input_" + opis[2]).value)
+
+        console.log(height, width, mines)
 
         if (isNaN(height) || isNaN(width) || isNaN(mines)
             || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
@@ -153,8 +155,8 @@ function saper(height, width, mines) {
                         }
                     }
 
-                    generuj_bomby(bomby, width, height, mines)
-                    licz_cyferki(bomby, width, height)
+                    generuj_bomby(width, height, mines)
+                    licz_cyferki(width, height)
 
                     byl_pierwszy_klik = true
                 }
@@ -187,11 +189,11 @@ function saper(height, width, mines) {
 
                         ///////////////////////////////
 
-                        odkryj_puste(bomby, height, width, i, j, pozostale_miny)
+                        odkryj_puste(height, width, i, j)
 
                         ///////////////////////////////
                     } else {
-                        daj_kolor(bomby, j, i)
+                        daj_cyfre(j, i)
                         element.innerText = bomby[i][j]
                     }
                 }
@@ -258,7 +260,7 @@ function saper(height, width, mines) {
         }
     }
 
-    function daj_kolor(bomby, x, y) {
+    function daj_cyfre(x, y) {
         let nazwa = "box_x" + x + "_y" + y
         element = document.getElementById(nazwa)
         for (let k = 0; k < kolor.length; k++) {
@@ -269,7 +271,7 @@ function saper(height, width, mines) {
         element.innerText = bomby[y][x]
     }
 
-    function generuj_bomby(bomby, width, height, mines) {
+    function generuj_bomby(width, height, mines) {
         for (let k = 0; k < mines;) {
             let x = Math.floor(Math.random() * width)
             let y = Math.floor(Math.random() * height)
@@ -280,7 +282,7 @@ function saper(height, width, mines) {
         }
     }
 
-    function licz_cyferki(bomby, width, height) {
+    function licz_cyferki(width, height) {
         for (let i = 0; i < height; i++) {
             for (let j = 0; j < width; j++) {
                 if (bomby[i][j] !== 9) {
@@ -303,7 +305,7 @@ function saper(height, width, mines) {
         }
     }
 
-    function odkryj_puste(bomby, height, width, box_y, box_x) {
+    function odkryj_puste(height, width, box_y, box_x) {
         for (let pomoc_y = box_y - 1; pomoc_y <= box_y + 1; pomoc_y++) {
             for (let pomoc_x = box_x - 1; pomoc_x <= box_x + 1; pomoc_x++) {
                 if (pomoc_y >= 0 && pomoc_x >= 0 && pomoc_y < height && pomoc_x < width) {
@@ -317,9 +319,9 @@ function saper(height, width, mines) {
 
                     if (bomby[pomoc_y][pomoc_x] === 0 && document.getElementById(nazwa).style.backgroundImage != '') {
                         document.getElementById(nazwa).style.backgroundImage = ''
-                        odkryj_puste(bomby, height, width, pomoc_y, pomoc_x, pozostale_miny)
+                        odkryj_puste(height, width, pomoc_y, pomoc_x)
                     } else if (bomby[pomoc_y][pomoc_x] !== 9 && bomby[pomoc_y][pomoc_x] !== 0) {
-                        daj_kolor(bomby, pomoc_x, pomoc_y)
+                        daj_cyfre(pomoc_x, pomoc_y)
 
                         document.getElementById(nazwa).style.backgroundImage = ''
                         document.getElementById(nazwa).innerText = bomby[pomoc_y][pomoc_x]
