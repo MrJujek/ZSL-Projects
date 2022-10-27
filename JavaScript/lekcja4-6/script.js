@@ -166,8 +166,8 @@ function saper(height, width, mines) {
                 if (element.style.backgroundImage !== 'url("./img/flaga.PNG")' && element.style.backgroundImage !== 'url("./img/pyt.png")') {
                     element = document.getElementById(nazwa)
                     if (bomby[i][j] === 9) {
-                        saperFreezeClic = przegrana(bomby, height, width, nazwa)
-
+                        przegrana(bomby, height, width, nazwa)
+                        saperFreezeClic = true
                     } else {
                         if (element.style.backgroundImage == 'url("./img/flaga.PNG")') {
                             pozostale_miny++
@@ -182,6 +182,10 @@ function saper(height, width, mines) {
                             element.innerText = bomby[i][j]
                         }
                     }
+                    if (czy_wygrana(bomby, height, width)) {
+                        zwyciestwo(bomby, height, width, kolor)
+                        saperFreezeClic = true
+                    }
                 }
 
                 //console.log("lewy klik: ", element)
@@ -193,11 +197,9 @@ function saper(height, width, mines) {
                 //console.log("prawy klik: ", element)
 
                 if (element.style.backgroundImage == 'url("./img/klepa.PNG")') {
-                    if (pozostale_miny > 0) {
-                        pozostale_miny--
-                        document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
-                        element.style.backgroundImage = 'url("./img/flaga.PNG")'
-                    }
+                    pozostale_miny--
+                    document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
+                    element.style.backgroundImage = 'url("./img/flaga.PNG")'
                 } else if (element.style.backgroundImage == 'url("./img/flaga.PNG")') {
                     pozostale_miny++
                     document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
@@ -205,46 +207,9 @@ function saper(height, width, mines) {
                 } else if (element.style.backgroundImage == 'url("./img/pyt.png")') {
                     element.style.backgroundImage = 'url("./img/klepa.PNG")'
                 }
-
-                ////////////////////
-                let hi = czy_wygrana(bomby, height, width)
-                console.log(hi)
-                /****************************************************************************/
-                if (pozostale_miny === 0) {
-                    let dobre_zaznaczenie = 0
-                    for (let m = 0; m < height; m++) {
-                        for (let n = 0; n < width; n++) {
-
-                            let pomoc = document.getElementById("box_x" + n + "_y" + m)
-
-                            if (bomby[m][n] === 9 && pomoc.style.backgroundImage == 'url("./img/flaga.PNG")') {
-                                dobre_zaznaczenie++
-                            }
-                        }
-                    }
-
-                    if (dobre_zaznaczenie == mines) {
-                        for (let m = 0; m < height; m++) {
-                            for (let n = 0; n < width; n++) {
-                                let pomoc = document.getElementById("box_x" + n + "_y" + m)
-
-                                if (pomoc.style.backgroundImage == 'url("./img/klepa.PNG")') {
-                                    pomoc.style.backgroundImage = ""
-                                    daj_cyfre(bomby, n, m, kolor)
-                                }
-                            }
-                        }
-                        alert("Wygrales")
-                        document.getElementById("pozostalo").innerText = "Wygrałeś :)"
-                        saperFreezeClic = true
-                    }
-                }
-                /****************************************************************************/
             })
         }
     }
-
-
 }
 
 function daj_cyfre(bomby, x, y, kolor) {
@@ -321,25 +286,31 @@ function odkryj_puste(bomby, height, width, box_y, box_x, kolor) {
 }
 
 function czy_wygrana(bomby, height, width) {
-    let wygrana = true
     for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
-            let nazwa = "box_x" + x + "_y" + y
-            element = document.getElementById(nazwa)
-            //console.log(element, element.style.backgroundImage == 'url("./img/klepa.PNG")')
-
+            element = document.getElementById("box_x" + x + "_y" + y)
             if (bomby[y][x] !== 9 && element.style.backgroundImage == 'url("./img/klepa.PNG")') {
-                wygrana = false
-
-                return wygrana
+                return false
             }
         }
     }
-    if (wygrana) return wygrana
+    return true
 }
 
-function zwyciestwo() {
+function zwyciestwo(bomby, height, width, kolor) {
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            let element = document.getElementById("box_x" + x + "_y" + y)
 
+            if (element.style.backgroundImage == 'url("./img/klepa.PNG")' && bomby[y][x] !== 9) {
+                element.style.backgroundImage = ""
+                daj_cyfre(bomby, x, y, kolor)
+            }
+        }
+    }
+    document.getElementById("pozostalo").innerText = "Wygrałeś :)"
+
+    return window.prompt("Gratulacje\nPodaj nick aby zapisać go w tabeli:\n")
 }
 
 function przegrana(bomby, height, width, nazwa) {
@@ -355,7 +326,5 @@ function przegrana(bomby, height, width, nazwa) {
 
     element.style.backgroundImage = 'url("./img/bomb.PNG")'
     document.getElementById("pozostalo").innerText = "Przegrałeś :("
-    alert("przegrales")
-
-    return true
+    alert("Przegrałeś")
 }
