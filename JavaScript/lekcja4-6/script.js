@@ -5,7 +5,7 @@ let opis = ["Height", "Width", "Mines"]
 let element, count, pozostale_miny
 let saperFreezeClic, byl_pierwszy_klik = false
 let pierwszy_x, pierwszy_y
-let kolor = ["blue", "green", "red", "darkblue", "darkred", "darkcyan", "darkmagenta", "black"]
+let kolor = ["rgb(190, 190, 190)", "blue", "green", "red", "darkblue", "darkred", "darkcyan", "darkmagenta", "black"]
 
 for (let i = 0; i < 3; i++) {
     input = document.createElement("input")
@@ -98,7 +98,7 @@ document.getElementById('generuj').onclick = () => {
 
 function saper(height, width, mines) {
     pozostale_miny = mines
-    document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
+    document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
     //console.log(height, width, mines)
 
     let saper = document.getElementById("saper")
@@ -156,38 +156,29 @@ function saper(height, width, mines) {
                             }
                         }
                     }
-                    generuj_bomby(width, height, mines)
-                    licz_cyferki(width, height)
+                    bomby = generuj_bomby(bomby, width, height, mines)
+                    bomby = licz_cyferki(bomby, width, height)
 
                     byl_pierwszy_klik = true
                 }
-                if (element.style.backgroundImage !== 'url("./img/flaga.PNG")') {
+
+                element = document.getElementById(nazwa)
+                if (element.style.backgroundImage !== 'url("./img/flaga.PNG")' && element.style.backgroundImage !== 'url("./img/pyt.png")') {
                     element = document.getElementById(nazwa)
                     if (bomby[i][j] === 9) {
-                        for (let i = 0; i < height; i++) {
-                            for (let j = 0; j < width; j++) {
-                                let nazwa_bomb = "box_x" + j + "_y" + i
-                                let bomb = document.getElementById(nazwa_bomb)
-                                if (bomby[i][j] === 9)
-                                    bomb.style.backgroundImage = 'url("./img/pbomb.PNG")'
-                            }
-                        }
+                        saperFreezeClic = przegrana(bomby, height, width, nazwa)
 
-                        element.style.backgroundImage = 'url("./img/bomb.PNG")'
-                        document.getElementById("pozostalo").innerText = "Przegrałeś :("
-                        alert("przegrales")
-                        saperFreezeClic = true
                     } else {
-                        if (document.getElementById(nazwa).style.backgroundImage == 'url("./img/flaga.PNG")') {
+                        if (element.style.backgroundImage == 'url("./img/flaga.PNG")') {
                             pozostale_miny++
-                            document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
+                            document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
                         }
                         element.style.backgroundImage = ""
                         if (bomby[i][j] === 0) {
                             element.innerText = ""
-                            odkryj_puste(height, width, i, j)
+                            bomby = odkryj_puste(bomby, height, width, i, j, kolor)
                         } else {
-                            daj_cyfre(j, i)
+                            daj_cyfre(bomby, j, i, kolor)
                             element.innerText = bomby[i][j]
                         }
                     }
@@ -204,17 +195,21 @@ function saper(height, width, mines) {
                 if (element.style.backgroundImage == 'url("./img/klepa.PNG")') {
                     if (pozostale_miny > 0) {
                         pozostale_miny--
-                        document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
+                        document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
                         element.style.backgroundImage = 'url("./img/flaga.PNG")'
                     }
                 } else if (element.style.backgroundImage == 'url("./img/flaga.PNG")') {
                     pozostale_miny++
-                    document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
+                    document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
                     element.style.backgroundImage = 'url("./img/pyt.png")'
                 } else if (element.style.backgroundImage == 'url("./img/pyt.png")') {
                     element.style.backgroundImage = 'url("./img/klepa.PNG")'
                 }
 
+                ////////////////////
+                let hi = czy_wygrana(bomby, height, width)
+                console.log(hi)
+                /****************************************************************************/
                 if (pozostale_miny === 0) {
                     let dobre_zaznaczenie = 0
                     for (let m = 0; m < height; m++) {
@@ -235,7 +230,7 @@ function saper(height, width, mines) {
 
                                 if (pomoc.style.backgroundImage == 'url("./img/klepa.PNG")') {
                                     pomoc.style.backgroundImage = ""
-                                    daj_cyfre(n, m)
+                                    daj_cyfre(bomby, n, m, kolor)
                                 }
                             }
                         }
@@ -244,81 +239,123 @@ function saper(height, width, mines) {
                         saperFreezeClic = true
                     }
                 }
+                /****************************************************************************/
             })
         }
     }
 
-    function daj_cyfre(x, y) {
-        let nazwa = "box_x" + x + "_y" + y
-        element = document.getElementById(nazwa)
-        for (let k = 0; k < kolor.length; k++) {
-            if (bomby[y][x] === k + 1) {
-                element.style.color = kolor[k]
-            }
-        }
-        element.innerText = bomby[y][x]
-    }
 
-    function generuj_bomby(width, height, mines) {
-        for (let k = 0; k < mines;) {
-            let x = Math.floor(Math.random() * width)
-            let y = Math.floor(Math.random() * height)
-            if (bomby[y][x] !== 9 && bomby[y][x] !== -1) {
-                bomby[y][x] = 9
-                k++
-            }
+}
+
+function daj_cyfre(bomby, x, y, kolor) {
+    let nazwa = "box_x" + x + "_y" + y
+    element = document.getElementById(nazwa)
+    for (let k = 0; k < kolor.length; k++) {
+        if (bomby[y][x] === k) {
+            element.style.color = kolor[k]
         }
     }
+    element.innerText = bomby[y][x]
+}
 
-    function licz_cyferki(width, height) {
-        for (let i = 0; i < height; i++) {
-            for (let j = 0; j < width; j++) {
-                if (bomby[i][j] !== 9) {
-                    count = 0
+function generuj_bomby(bomby, width, height, mines) {
+    for (let k = 0; k < mines;) {
+        let x = Math.floor(Math.random() * width)
+        let y = Math.floor(Math.random() * height)
+        if (bomby[y][x] !== 9 && bomby[y][x] !== -1) {
+            bomby[y][x] = 9
+            k++
+        }
+    }
+    return bomby
+}
 
-                    for (let k = i - 1; k <= i + 1; k++) {
-                        for (let l = j - 1; l <= j + 1; l++) {
-                            if (k >= 0 && l >= 0 && k < height && l < width) {
-                                if (bomby[k][l] === 9) {
-                                    count++
-                                }
+function licz_cyferki(bomby, width, height) {
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            if (bomby[i][j] !== 9) {
+                count = 0
+
+                for (let k = i - 1; k <= i + 1; k++) {
+                    for (let l = j - 1; l <= j + 1; l++) {
+                        if (k >= 0 && l >= 0 && k < height && l < width) {
+                            if (bomby[k][l] === 9) {
+                                count++
                             }
                         }
-
-                        bomby[i][j] = count
                     }
 
+                    bomby[i][j] = count
+                }
+
+            }
+        }
+    }
+    return bomby
+}
+
+function odkryj_puste(bomby, height, width, box_y, box_x, kolor) {
+    for (let pomoc_y = box_y - 1; pomoc_y <= box_y + 1; pomoc_y++) {
+        for (let pomoc_x = box_x - 1; pomoc_x <= box_x + 1; pomoc_x++) {
+            if (pomoc_y >= 0 && pomoc_x >= 0 && pomoc_y < height && pomoc_x < width) {
+                let nazwa = "box_x" + pomoc_x + "_y" + pomoc_y
+
+                if (document.getElementById(nazwa).style.backgroundImage === 'url("./img/flaga.PNG")') {
+                    pozostale_miny++
+                    document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
+                }
+
+                if (bomby[pomoc_y][pomoc_x] === 0 && document.getElementById(nazwa).style.backgroundImage != '') {
+                    document.getElementById(nazwa).style.backgroundImage = ''
+                    odkryj_puste(bomby, height, width, pomoc_y, pomoc_x, kolor)
+                } else if (bomby[pomoc_y][pomoc_x] !== 9 && bomby[pomoc_y][pomoc_x] !== 0) {
+                    daj_cyfre(bomby, pomoc_x, pomoc_y, kolor)
+
+                    document.getElementById(nazwa).style.backgroundImage = ''
+                    document.getElementById(nazwa).innerText = bomby[pomoc_y][pomoc_x]
                 }
             }
         }
     }
+    return bomby
+}
 
-    function odkryj_puste(height, width, box_y, box_x) {
-        for (let pomoc_y = box_y - 1; pomoc_y <= box_y + 1; pomoc_y++) {
-            for (let pomoc_x = box_x - 1; pomoc_x <= box_x + 1; pomoc_x++) {
-                if (pomoc_y >= 0 && pomoc_x >= 0 && pomoc_y < height && pomoc_x < width) {
-                    let nazwa = "box_x" + pomoc_x + "_y" + pomoc_y
+function czy_wygrana(bomby, height, width) {
+    let wygrana = true
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            let nazwa = "box_x" + x + "_y" + y
+            element = document.getElementById(nazwa)
+            //console.log(element, element.style.backgroundImage == 'url("./img/klepa.PNG")')
 
-                    if (document.getElementById(nazwa).style.backgroundImage === 'url("./img/flaga.PNG")') {
-                        pozostale_miny++
-                        document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " min"
-                    }
+            if (bomby[y][x] !== 9 && element.style.backgroundImage == 'url("./img/klepa.PNG")') {
+                wygrana = false
 
-                    if (bomby[pomoc_y][pomoc_x] === 0 && document.getElementById(nazwa).style.backgroundImage != '') {
-                        document.getElementById(nazwa).style.backgroundImage = ''
-                        odkryj_puste(height, width, pomoc_y, pomoc_x)
-                    } else if (bomby[pomoc_y][pomoc_x] !== 9 && bomby[pomoc_y][pomoc_x] !== 0) {
-                        daj_cyfre(pomoc_x, pomoc_y)
-
-                        document.getElementById(nazwa).style.backgroundImage = ''
-                        document.getElementById(nazwa).innerText = bomby[pomoc_y][pomoc_x]
-                    }
-                }
+                return wygrana
             }
         }
     }
+    if (wygrana) return wygrana
+}
 
-    function zwyciestwo() {
+function zwyciestwo() {
 
+}
+
+function przegrana(bomby, height, width, nazwa) {
+    let element = document.getElementById(nazwa)
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+            let nazwa_bomb = "box_x" + j + "_y" + i
+            let bomb = document.getElementById(nazwa_bomb)
+            if (bomby[i][j] === 9)
+                bomb.style.backgroundImage = 'url("./img/pbomb.PNG")'
+        }
     }
+
+    element.style.backgroundImage = 'url("./img/bomb.PNG")'
+    document.getElementById("pozostalo").innerText = "Przegrałeś :("
+    alert("przegrales")
+
+    return true
 }
