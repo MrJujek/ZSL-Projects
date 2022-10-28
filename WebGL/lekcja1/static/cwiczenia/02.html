@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+
+</head>
+
+<body>
+    <input type="range" id="range" min="1" max="179" style="position: absolute;">
+    <div id="root"></div>
+    <script>
+        window.addEventListener("load", function () {
+            const scene = new THREE.Scene();
+
+            const camera = new THREE.PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                10000
+            );
+
+            const renderer = new THREE.WebGLRenderer();
+
+            renderer.setClearColor(0x444);
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            document.getElementById("root").appendChild(renderer.domElement);
+
+            camera.lookAt(scene.position);
+
+            const axes = new THREE.AxesHelper(1000)
+            scene.add(axes)
+            camera.position.set(100, 100, 100)
+            camera.lookAt(scene.position)
+
+            const geometry = new THREE.BoxGeometry(100, 100, 100, 3, 3, 3);
+            const material = new THREE.MeshBasicMaterial({
+                color: 0x8888ff,
+                side: THREE.DoubleSide,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.8
+            });
+            const cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+
+            function render() {
+                camera.fov = document.getElementById("range").value;
+                camera.updateProjectionMatrix();
+
+
+                cube.rotation.y += 0.001;
+                cube.rotation.x += 0.01;
+                requestAnimationFrame(render);
+                console.log("render leci")
+
+                renderer.render(scene, camera);
+            }
+
+            render();
+        })
+    </script>
+</body>
+
+
+</html>

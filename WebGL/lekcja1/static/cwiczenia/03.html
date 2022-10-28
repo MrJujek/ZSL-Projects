@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+
+</head>
+
+<body>
+    <div id="boxy" style="position: absolute;">
+        <input type="range" id="range" min="1" max="179" style="position: absolute;"><br>
+        <input type="button" value="1" id="geometry1">
+        <input type="button" value="2" id="geometry2">
+        <input type="button" value="3" id="geometry3">
+        <input type="button" value="4" id="geometry4">
+    </div>
+    <div id="root"></div>
+    <script>
+        window.addEventListener("load", function () {
+
+            let cube, mesh, sphere, cone
+            let na_stronie1 = false
+            let na_stronie2 = false
+            let na_stronie3 = false
+            let na_stronie4 = false
+            document.getElementById("geometry1").addEventListener("click", () => {
+                if (na_stronie1) {
+                    scene.remove(cone)
+                    na_stronie1 = false
+                } else {
+                    const geometry = new THREE.ConeGeometry(50, 100, 50);
+                    const material = new THREE.MeshBasicMaterial({ color: "#A00", wireframe: true });
+                    cone = new THREE.Mesh(geometry, material);
+                    scene.add(cone);
+
+                    na_stronie1 = true
+                }
+            })
+
+            document.getElementById("geometry2").addEventListener("click", () => {
+                if (na_stronie2) {
+                    scene.remove(cube)
+                    na_stronie2 = false
+                } else {
+                    const geometry = new THREE.BoxGeometry(100, 100, 100);
+                    const material = new THREE.MeshBasicMaterial({
+                        color: 0x8888ff,
+                        side: THREE.DoubleSide,
+                        wireframe: true,
+                        transparent: true,
+                        opacity: 0.8
+                    });
+                    cube = new THREE.Mesh(geometry, material);
+                    scene.add(cube);
+
+                    na_stronie2 = true
+                }
+            })
+
+            document.getElementById("geometry3").addEventListener("click", () => {
+                if (na_stronie3) {
+                    scene.remove(mesh)
+                    na_stronie3 = false
+                } else {
+                    const length = 50, width = 100;
+
+                    const shape = new THREE.Shape();
+                    shape.moveTo(0, 0);
+                    shape.lineTo(0, width);
+                    shape.lineTo(length, width);
+                    shape.lineTo(length, 0);
+                    shape.lineTo(0, 0);
+
+                    const extrudeSettings = {
+                        steps: 2,
+                        depth: 16,
+                        bevelEnabled: true,
+                        bevelThickness: 1,
+                        bevelSize: 1,
+                        bevelOffset: 0,
+                        bevelSegments: 1
+                    };
+
+                    const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+                    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+                    mesh = new THREE.Mesh(geometry, material);
+                    scene.add(mesh);
+
+                    na_stronie3 = true
+                }
+            })
+
+            document.getElementById("geometry4").addEventListener("click", () => {
+                if (na_stronie4) {
+                    scene.remove(sphere)
+                    na_stronie4 = false
+                } else {
+                    const geometry = new THREE.SphereGeometry(50, 50, 16);
+                    const material = new THREE.MeshBasicMaterial({ color: 0xffff00, wireframe: true });
+                    sphere = new THREE.Mesh(geometry, material);
+                    scene.add(sphere);
+
+                    na_stronie4 = true
+                }
+            })
+
+            const scene = new THREE.Scene();
+
+            const camera = new THREE.PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                10000
+            );
+
+            const renderer = new THREE.WebGLRenderer();
+
+            renderer.setClearColor(0x444);
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            document.getElementById("root").appendChild(renderer.domElement);
+
+            camera.lookAt(scene.position);
+
+            const axes = new THREE.AxesHelper(1000)
+            scene.add(axes)
+            camera.position.set(100, 100, 100)
+            camera.lookAt(scene.position)
+
+
+
+            function render() {
+                camera.fov = document.getElementById("range").value;
+                camera.updateProjectionMatrix();
+
+                if (na_stronie1)
+                    cone.rotation.y += 0.001;
+
+                if (na_stronie2)
+                    cube.rotation.y += 0.001;
+
+                if (na_stronie3)
+                    mesh.rotation.y += 0.001;
+
+                if (na_stronie4)
+                    sphere.rotation.y += 0.001;
+
+
+
+                requestAnimationFrame(render);
+                console.log("render leci")
+
+                renderer.render(scene, camera);
+            }
+
+            render();
+        })
+    </script>
+</body>
+
+
+</html>
