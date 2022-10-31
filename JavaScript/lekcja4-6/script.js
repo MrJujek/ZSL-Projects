@@ -6,6 +6,7 @@ let element, count, pozostale_miny
 let saperFreezeClic, byl_pierwszy_klik = false
 let pierwszy_x, pierwszy_y
 let kolor = ["rgb(190, 190, 190)", "blue", "green", "red", "darkblue", "darkred", "darkcyan", "darkmagenta", "black"]
+let licz_czas
 
 for (let i = 0; i < 3; i++) {
     input = document.createElement("input")
@@ -57,12 +58,10 @@ for (let i = 0; i < 3; i++) {
 
         console.log(height, width, mines)
 
-        if (isNaN(height) || isNaN(width) || isNaN(mines)
-            || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
+        if (isNaN(height) || isNaN(width) || isNaN(mines) || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
             //console.log("Zle dane")
             setTimeout(() => {
                 if (isNaN(height) || isNaN(width) || isNaN(mines) || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
-
                     document.getElementById("input_" + opis[i]).value = ""
                 }
             }, 1000)
@@ -77,6 +76,7 @@ saper_div.style.margin = "0 auto"
 document.body.appendChild(saper_div);
 
 document.getElementById('generuj').onclick = () => {
+    clearInterval(licz_czas)
     saperFreezeClic = false
     byl_pierwszy_klik = false
     document.getElementById("saper").innerText = null
@@ -92,16 +92,16 @@ document.getElementById('generuj').onclick = () => {
             document.getElementById("input_" + opis[2]).value = ""
         }, 1000)
     } else {
+        generuj_plansze(height, width);
         saper(height, width, mines);
     }
 }
 
-function saper(height, width, mines) {
-    pozostale_miny = mines
-    document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
-    //console.log(height, width, mines)
+function generuj_plansze(height, width) {
+    document.getElementById("czas").innerText = "Czas: 0s"
 
     let saper = document.getElementById("saper")
+
     saper.style.width = width * 30 + "px"
     saper.style.height = height * 30 + "px"
     saper.style.background = "rgb(190, 190, 190)"
@@ -135,6 +135,11 @@ function saper(height, width, mines) {
             e.preventDefault();
         }
     }, true);
+}
+
+function saper(height, width, mines) {
+    pozostale_miny = mines
+    document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
 
     let bomby = []
     for (let i = 0; i < height; i++) {
@@ -146,6 +151,11 @@ function saper(height, width, mines) {
 
             element.addEventListener("click", () => {
                 if (!byl_pierwszy_klik) {
+                    let czas_startu = new Date().getTime()
+                    licz_czas = setInterval(() => {
+                        document.getElementById("czas").innerText = "Czas: " + Math.round((new Date().getTime() - czas_startu) / 1000) + "s"
+                    }, 1000)
+
                     pierwszy_x = i
                     pierwszy_y = j
 
@@ -179,7 +189,6 @@ function saper(height, width, mines) {
                             bomby = odkryj_puste(bomby, height, width, i, j, kolor)
                         } else {
                             daj_cyfre(bomby, j, i, kolor)
-                            element.innerText = bomby[i][j]
                         }
                     }
                     if (czy_wygrana(bomby, height, width)) {
@@ -220,6 +229,7 @@ function daj_cyfre(bomby, x, y, kolor) {
             element.style.color = kolor[k]
         }
     }
+    element.style.backgroundImage = ''
     element.innerText = bomby[y][x]
 }
 
@@ -275,9 +285,6 @@ function odkryj_puste(bomby, height, width, box_y, box_x, kolor) {
                     odkryj_puste(bomby, height, width, pomoc_y, pomoc_x, kolor)
                 } else if (bomby[pomoc_y][pomoc_x] !== 9 && bomby[pomoc_y][pomoc_x] !== 0) {
                     daj_cyfre(bomby, pomoc_x, pomoc_y, kolor)
-
-                    document.getElementById(nazwa).style.backgroundImage = ''
-                    document.getElementById(nazwa).innerText = bomby[pomoc_y][pomoc_x]
                 }
             }
         }
@@ -294,6 +301,7 @@ function czy_wygrana(bomby, height, width) {
             }
         }
     }
+    clearInterval(licz_czas)
     return true
 }
 
@@ -303,22 +311,21 @@ function zwyciestwo(bomby, height, width, kolor) {
             let element = document.getElementById("box_x" + x + "_y" + y)
 
             if (element.style.backgroundImage == 'url("./img/klepa.PNG")' && bomby[y][x] !== 9) {
-                element.style.backgroundImage = ""
                 daj_cyfre(bomby, x, y, kolor)
             }
         }
     }
     document.getElementById("pozostalo").innerText = "Wygrałeś :)"
 
-    return window.prompt("Gratulacje\nPodaj nick aby zapisać go w tabeli:\n")
+    return window.prompt("Gratulacje\nPodaj nick aby zapisać go w tabeli:")
 }
 
 function przegrana(bomby, height, width, nazwa) {
     let element = document.getElementById(nazwa)
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            let nazwa_bomb = "box_x" + j + "_y" + i
-            let bomb = document.getElementById(nazwa_bomb)
+            let nazwa = "box_x" + j + "_y" + i
+            let bomb = document.getElementById(nazwa)
             if (bomby[i][j] === 9)
                 bomb.style.backgroundImage = 'url("./img/pbomb.PNG")'
         }
@@ -327,4 +334,5 @@ function przegrana(bomby, height, width, nazwa) {
     element.style.backgroundImage = 'url("./img/bomb.PNG")'
     document.getElementById("pozostalo").innerText = "Przegrałeś :("
     alert("Przegrałeś")
+    clearInterval(licz_czas)
 }
