@@ -28,6 +28,22 @@ app.get("/", function (req, res) {
     })
 })
 
+app.get("/lekcja1", function (req, res) {
+    fs.readdir(__dirname + '/static/cwiczenia/lekcja1', (err, files) => {
+        if (err) {
+            console.log(err)
+        } else {
+            let obj = { "files": [] }
+            for (let i = 0; i < files.length; i++) {
+                obj.files[i] = { "plik": files[i] }
+            }
+            console.log(obj)
+
+            res.render('index.hbs', obj)
+        }
+    })
+})
+
 app.listen(PORT, function () {
     console.log("start serwera na porcie " + PORT)
 })
