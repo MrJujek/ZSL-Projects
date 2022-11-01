@@ -1,11 +1,9 @@
 let formularz = document.createElement("form");
 let input, label, height, width, mines, pozostalo, czas
-let dane, box
+let dane
 let opis = ["Height", "Width", "Mines"]
-let element, count, pozostale_miny
+let element, pozostale_miny
 let saperFreezeClic, byl_pierwszy_klik = false
-let pierwszy_x, pierwszy_y
-let kolor = ["rgb(190, 190, 190)", "blue", "green", "red", "darkblue", "darkred", "darkcyan", "darkmagenta", "black"]
 let licz_czas
 
 for (let i = 0; i < 3; i++) {
@@ -109,7 +107,7 @@ function generuj_plansze(height, width) {
 
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            box = document.createElement("div")
+            let box = document.createElement("div")
             box.setAttribute("id", "box_x" + j + "_y" + i)
             box.setAttribute("class", "box")
 
@@ -138,6 +136,7 @@ function generuj_plansze(height, width) {
 }
 
 function saper(height, width, mines) {
+    let kolor = ["rgb(190, 190, 190)", "blue", "green", "red", "darkblue", "darkred", "darkcyan", "darkmagenta", "black"]
     pozostale_miny = mines
     document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
 
@@ -151,13 +150,14 @@ function saper(height, width, mines) {
 
             element.addEventListener("click", () => {
                 if (!byl_pierwszy_klik) {
-                    let czas_startu = new Date().getTime()
+                    
+                    var czas_startu = new Date().getTime()
                     licz_czas = setInterval(() => {
                         document.getElementById("czas").innerText = "Czas: " + Math.round((new Date().getTime() - czas_startu) / 1000) + "s"
                     }, 1000)
 
-                    pierwszy_x = i
-                    pierwszy_y = j
+                    let pierwszy_x = i
+                    let pierwszy_y = j
 
                     for (let k = pierwszy_x - 1; k <= pierwszy_x + 1; k++) {
                         for (let l = pierwszy_y - 1; l <= pierwszy_y + 1; l++) {
@@ -192,8 +192,9 @@ function saper(height, width, mines) {
                         }
                     }
                     if (czy_wygrana(bomby, height, width)) {
-                        zwyciestwo(bomby, height, width, kolor)
                         saperFreezeClic = true
+                        let nick = zwyciestwo(bomby, height, width, kolor)
+                        ciastka(width, height, mines, nick, czas_startu)
                     }
                 }
 
@@ -249,7 +250,7 @@ function licz_cyferki(bomby, width, height) {
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
             if (bomby[i][j] !== 9) {
-                count = 0
+                let count = 0
 
                 for (let k = i - 1; k <= i + 1; k++) {
                     for (let l = j - 1; l <= j + 1; l++) {
@@ -301,7 +302,6 @@ function czy_wygrana(bomby, height, width) {
             }
         }
     }
-    clearInterval(licz_czas)
     return true
 }
 
@@ -316,7 +316,7 @@ function zwyciestwo(bomby, height, width, kolor) {
         }
     }
     document.getElementById("pozostalo").innerText = "Wygrałeś :)"
-
+    clearInterval(licz_czas)
     return window.prompt("Gratulacje\nPodaj nick aby zapisać go w tabeli:")
 }
 
@@ -335,4 +335,12 @@ function przegrana(bomby, height, width, nazwa) {
     document.getElementById("pozostalo").innerText = "Przegrałeś :("
     alert("Przegrałeś")
     clearInterval(licz_czas)
+}
+
+function ciastka(width, height, mines, nick, czas_startu) {
+    let format = width + "x" + height + "x" + mines
+    console.log(document.cookie, format, czas_startu, Math.round((new Date().getTime() - czas_startu) / 1000))
+    document.cookie = format + "=" + nick + "=" + Math.round((new Date().getTime() - czas_startu) / 1000) + "|" + format + "=" + nick + "=" + Math.round((new Date().getTime() - czas_startu) / 1000)
+    let ciasteczka = document.cookie.split("|")
+    console.log(ciasteczka)
 }
