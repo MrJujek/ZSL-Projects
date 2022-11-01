@@ -338,13 +338,25 @@ function ciastka(width, height, mines, nick, czas_startu) {
     if (nick == "") {
         nick = "Anonim"
     }
-    console.log(nick)
+
     let format = width + "x" + height + "x" + mines
     let czas = Math.round((new Date().getTime() - czas_startu) / 1000)
-    console.log(document.cookie, format, czas)
-    let ciasteczka = format + "=" + nick + "=" + czas + "|" + format + "=" + nick + "=" + czas
-    //let ciasteczka = document.cookie.split("|")
-    console.log(ciasteczka)
 
-    document.cookie = ciasteczka + "; expires=Thu, 10 June 2049 12:00:00 UTC;"
+    let ciastko = document.cookie.split(";")
+    let dane = ciastko[0]
+    let formaty = dane.split("|")
+    console.log(formaty)
+    let obj = {}
+    for (let i = 0; i < gry.length; i++) {
+        //let format = 
+        //obj[]
+        let ciasteczka = document.cookie.split("=")
+    }
+
+    // let ciasteczka = format + "=" + nick + "=" + czas + "|" + format + "=" + nick + "=" + czas
+
+    // console.log(gry)
+
+
+    //document.cookie = ciasteczka + "; expires=Thu, 10 June 2049 12:00:00 UTC;"
 }
