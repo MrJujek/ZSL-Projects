@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main ()
+{
+	float A[10] = {1,2,3,4,5,6,7,8,9,0};
+	float *pAB;
+	float *p;
+	int i;
+	
+	pAB = &A[1]; // Przypisujemy adres 0 elementu tablicy
+	
+	for (i = 0; i < 10; i+=2)
+	{
+		p = pAB + i; // Do p przypisujemy adres tej kom�rki + warto�� i, przez to przesuwamy adres
+		*p = 0; // Dostajemy si� do warto�ci tego obliczonego adresu i wstawiamy 0
+	}
+	
+	for (i = 0; i < 10; i++)
+	{
+		cout << A[i] << endl;
+	}
+	
+	return 0;
+}
