@@ -145,12 +145,13 @@ function saper(height, width, mines) {
             let element = document.getElementById(nazwa)
             element.style.backgroundImage = "url(./img/klepa.PNG)"
 
+            var czas_startu
             element.addEventListener("click", () => {
                 if (!byl_pierwszy_klik) {
 
-                    var czas_startu = new Date().getTime()
+                    czas_startu = new Date().getTime()
                     licz_czas = setInterval(() => {
-                        document.getElementById("czas").innerText = "Czas: " + Math.round((new Date().getTime() - czas_startu) / 1000) + "s"
+                        document.getElementById("czas").innerText = "Czas: " + ((new Date().getTime() - czas_startu) / 1000).toFixed() + "s"
                     }, 1000)
 
                     let pierwszy_x = i
@@ -188,10 +189,13 @@ function saper(height, width, mines) {
                             daj_cyfre(bomby, j, i, kolor)
                         }
                     }
+                    console.log(czas_startu)
                     if (czy_wygrana(bomby, height, width)) {
                         saperFreezeClic = true
                         let nick = zwyciestwo(bomby, height, width, kolor)
-                        ciastka(width, height, mines, nick, czas_startu)
+
+                        let czas = (new Date().getTime() - czas_startu) / 1000
+                        ciastka(width, height, mines, nick, czas)
                     }
                 }
 
@@ -334,29 +338,86 @@ function przegrana(bomby, height, width, nazwa) {
     clearInterval(licz_czas)
 }
 
-function ciastka(width, height, mines, nick, czas_startu) {
+function ciastka(width, height, mines, nick, czas) {
     if (nick == "") {
         nick = "Anonim"
     }
 
     let format = width + "x" + height + "x" + mines
-    let czas = Math.round((new Date().getTime() - czas_startu) / 1000)
+    let currentCookie = daj_ciastko(format)
 
-    let ciastko = document.cookie.split(";")
-    let dane = ciastko[0]
-    let formaty = dane.split("|")
-    console.log(formaty)
-    let obj = {}
-    for (let i = 0; i < gry.length; i++) {
-        //let format = 
-        //obj[]
-        let ciasteczka = document.cookie.split("=")
+    if (currentCookie) {
+        currentCookie.push([nick, czas])
     }
+    else {
+        currentCookie = [[nick, czas]]
+    }
+    var sortedArray = currentCookie.sort(function (a, b) {
+        return a[1] - b[1];
+    });
+    if (sortedArray.length > 10) {
+        sortedArray.pop()
+    }
+    for (let i = 0; i < sortedArray.length; i++) {
+        sortedArray[i][0] = sortedArray[i][0].replaceAll("\\", "")
+        sortedArray[i][0] = sortedArray[i][0].replaceAll('"', "")
+    }
+    document.cookie = format + '=' + JSON.stringify(sortedArray) + ";  expires=Tue, 01 Jan 2030 00:00:00 GMT; secure"
 
-    // let ciasteczka = format + "=" + nick + "=" + czas + "|" + format + "=" + nick + "=" + czas
-
-    // console.log(gry)
 
 
-    //document.cookie = ciasteczka + "; expires=Thu, 10 June 2049 12:00:00 UTC;"
+    // let format = width + "x" + height + "x" + mines
+    // let czas = Math.round((new Date().getTime() - czas_startu) / 1000)
+
+    // let ciasteczka = format + "[" + nick + "=" + czas + "|" + format + "=" + nick + "=" + czas
+    // document.cookie = ciasteczka + "; expires=Thu, 10 June 2049 12:00:00 UTC;"
+
+    // let cale_ciastko = document.cookie.split(";")
+    // let dane = cale_ciastko[0].split("|") //podzielone z formatu
+
+    // let obj = {}
+    // for (let i = 0; i < dane.length; i++) {
+    //     if (dane[i].split('[')[0] == format) {
+    //         obj[format] = {}
+    //         obj[format][nick] = czas
+    //     }
+    // }
+    // console.log(obj);
+    // let obj = {
+    //     format: {
+    //         nick: czas,
+    //         nick: czas
+    //     }
+    // }
+    // ciastko => format[nick=czas'nick=czas|format[
+
+
+
+}
+
+function daj_ciastko(format) {
+    let string = document.cookie
+    console.log(string);
+    string = string.split(";")
+    let obj = {}
+    for (let i = 0; i < string.length; i++) {
+        let current = string[i].split("=")
+        let size = current[0].replaceAll(" ", "")
+        let scores = current[1]
+        if (scores) {
+            scores = scores.split("],[")
+            for (let j = 0; j < scores.length; j++) {
+                scores[j] = scores[j].replaceAll("[", "")
+                scores[j] = scores[j].replaceAll("]", "")
+                scores[j] = scores[j].replaceAll(" ", "")
+                scores[j] = scores[j].split(",")
+                scores[j][1] = parseFloat(scores[j][1])
+
+                console.log(scores[j], scores[j][1])
+            }
+            obj[size] = scores
+        }
+
+    }
+    return obj[format]
 }
