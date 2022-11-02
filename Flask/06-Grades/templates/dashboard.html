@@ -15,8 +15,65 @@
     {%endif%}
 {% endblock %}
 {% block content %}
-<div class="container mt-2">
+<div class="mt-2 mx-3">
     {% if userLogin %}
+        <div class="row my-3">
+            <div class="col-lg-2">
+                <div class="card">
+                    <div class="card-header text-secondary h5">
+                        Twoja średnia
+                    </div>
+                    <div class="card-body">
+                        <h2 class="text-center">3,75</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header text-secondary h5">
+                        Przedmioty - najwyzsza srednia
+                    </div>
+                    <div class="card-body">
+                        <p class="text-start text-success lead">
+                            biologia <span class="badge bg-success">4,78</span>
+                            informatyka <span class="badge bg-success">4,54</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header text-secondary h5">
+                        Przedmioty - zagrożenia
+                    </div>
+                    <div class="card-body">
+                        <p class="text-start text-danger lead fw-bold">
+                            fizyka, plastyka
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5 text-center p-1">
+                            {{ moment(date).format('dddd DD MMMM YYYY') }}
+                            <p id="data" class="h5 text-center p-1"></p>
+                            <script>
+                                let data = new Date().getHours()+":"+(new Date().getMinutes()<10?"0":"")+new Date().getMinutes()+":"+(new Date().getSeconds()<10?"0":"")+new Date().getSeconds()
+                                let element = document.getElementById("data")
+                                element.innerText = data
+
+                                setInterval(()=>{
+                                    let data = new Date().getHours()+":"+(new Date().getMinutes()<10?"0":"")+new Date().getMinutes()+":"+(new Date().getSeconds()<10?"0":"")+new Date().getSeconds()
+                                    element.innerText = data
+                                }, 1000)
+                            </script>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% include "includes/gradesTab.html" %}
     {% else %}
         <div class="alert alert-warning">
@@ -24,4 +81,5 @@
         </div>
     {%endif%}
 </div>
+{% include "includes/footer.html" %}
 {% endblock %}
