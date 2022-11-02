@@ -1,20 +1,15 @@
 let formularz = document.createElement("form");
-let input, label, height, width, mines, pozostalo, czas
-let dane, box
 let opis = ["Height", "Width", "Mines"]
-let element, count, pozostale_miny
 let saperFreezeClic, byl_pierwszy_klik = false
-let pierwszy_x, pierwszy_y
-let kolor = ["rgb(190, 190, 190)", "blue", "green", "red", "darkblue", "darkred", "darkcyan", "darkmagenta", "black"]
 let licz_czas
 
 for (let i = 0; i < 3; i++) {
-    input = document.createElement("input")
+    let input = document.createElement("input")
     input.setAttribute("type", "text")
     input.setAttribute("value", 10)
     input.setAttribute("id", "input_" + opis[i])
 
-    label = document.createElement("label")
+    let label = document.createElement("label")
     label.setAttribute("for", "input_" + opis[i])
     label.setAttribute("for", "input_" + opis[i])
     label.innerHTML = opis[i] + ":"
@@ -23,7 +18,7 @@ for (let i = 0; i < 3; i++) {
     formularz.appendChild(input)
 }
 
-input = document.createElement("input")
+let input = document.createElement("input")
 input.setAttribute("type", "button")
 input.setAttribute("id", "generuj")
 input.setAttribute("value", "GENERUJ")
@@ -32,16 +27,16 @@ formularz.appendChild(input)
 
 formularz.setAttribute("class", "flex-column")
 
-dane = document.createElement("div");
+let dane = document.createElement("div");
 dane.setAttribute("class", "flex-column")
 dane.appendChild(formularz);
 
-pozostalo = document.createElement("p")
+let pozostalo = document.createElement("p")
 pozostalo.setAttribute("id", "pozostalo")
 pozostalo.style.height = 40 + "px"
 dane.appendChild(pozostalo)
 
-czas = document.createElement("p")
+let czas = document.createElement("p")
 czas.setAttribute("id", "czas")
 czas.style.height = 40 + "px"
 dane.appendChild(czas)
@@ -49,12 +44,12 @@ dane.appendChild(czas)
 document.body.appendChild(dane);
 
 for (let i = 0; i < 3; i++) {
-    element = document.getElementById("input_" + opis[i])
+    let element = document.getElementById("input_" + opis[i])
 
     element.addEventListener("input", () => {
-        height = (document.getElementById("input_" + opis[0]).value)
-        width = (document.getElementById("input_" + opis[1]).value)
-        mines = (document.getElementById("input_" + opis[2]).value)
+        let height = (document.getElementById("input_" + opis[0]).value)
+        let width = (document.getElementById("input_" + opis[1]).value)
+        let mines = (document.getElementById("input_" + opis[2]).value)
 
         console.log(height, width, mines)
 
@@ -81,9 +76,9 @@ document.getElementById('generuj').onclick = () => {
     byl_pierwszy_klik = false
     document.getElementById("saper").innerText = null
 
-    height = parseInt(document.getElementById("input_" + opis[0]).value)
-    width = parseInt(document.getElementById("input_" + opis[1]).value)
-    mines = parseInt(document.getElementById("input_" + opis[2]).value)
+    let height = parseInt(document.getElementById("input_" + opis[0]).value)
+    let width = parseInt(document.getElementById("input_" + opis[1]).value)
+    let mines = parseInt(document.getElementById("input_" + opis[2]).value)
 
     if (isNaN(height) || isNaN(width) || isNaN(mines) || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
         setTimeout(() => {
@@ -109,7 +104,7 @@ function generuj_plansze(height, width) {
 
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            box = document.createElement("div")
+            let box = document.createElement("div")
             box.setAttribute("id", "box_x" + j + "_y" + i)
             box.setAttribute("class", "box")
 
@@ -138,7 +133,8 @@ function generuj_plansze(height, width) {
 }
 
 function saper(height, width, mines) {
-    pozostale_miny = mines
+    let kolor = ["rgb(190, 190, 190)", "blue", "green", "red", "darkblue", "darkred", "darkcyan", "darkmagenta", "black"]
+    let pozostale_miny = mines
     document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
 
     let bomby = []
@@ -146,18 +142,19 @@ function saper(height, width, mines) {
         bomby[i] = []
         for (let j = 0; j < width; j++) {
             let nazwa = "box_x" + j + "_y" + i
-            element = document.getElementById(nazwa)
+            let element = document.getElementById(nazwa)
             element.style.backgroundImage = "url(./img/klepa.PNG)"
 
             element.addEventListener("click", () => {
                 if (!byl_pierwszy_klik) {
-                    let czas_startu = new Date().getTime()
+
+                    var czas_startu = new Date().getTime()
                     licz_czas = setInterval(() => {
                         document.getElementById("czas").innerText = "Czas: " + Math.round((new Date().getTime() - czas_startu) / 1000) + "s"
                     }, 1000)
 
-                    pierwszy_x = i
-                    pierwszy_y = j
+                    let pierwszy_x = i
+                    let pierwszy_y = j
 
                     for (let k = pierwszy_x - 1; k <= pierwszy_x + 1; k++) {
                         for (let l = pierwszy_y - 1; l <= pierwszy_y + 1; l++) {
@@ -192,8 +189,9 @@ function saper(height, width, mines) {
                         }
                     }
                     if (czy_wygrana(bomby, height, width)) {
-                        zwyciestwo(bomby, height, width, kolor)
                         saperFreezeClic = true
+                        let nick = zwyciestwo(bomby, height, width, kolor)
+                        ciastka(width, height, mines, nick, czas_startu)
                     }
                 }
 
@@ -223,7 +221,7 @@ function saper(height, width, mines) {
 
 function daj_cyfre(bomby, x, y, kolor) {
     let nazwa = "box_x" + x + "_y" + y
-    element = document.getElementById(nazwa)
+    let element = document.getElementById(nazwa)
     for (let k = 0; k < kolor.length; k++) {
         if (bomby[y][x] === k) {
             element.style.color = kolor[k]
@@ -249,7 +247,7 @@ function licz_cyferki(bomby, width, height) {
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
             if (bomby[i][j] !== 9) {
-                count = 0
+                let count = 0
 
                 for (let k = i - 1; k <= i + 1; k++) {
                     for (let l = j - 1; l <= j + 1; l++) {
@@ -295,13 +293,12 @@ function odkryj_puste(bomby, height, width, box_y, box_x, kolor) {
 function czy_wygrana(bomby, height, width) {
     for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
-            element = document.getElementById("box_x" + x + "_y" + y)
+            let element = document.getElementById("box_x" + x + "_y" + y)
             if (bomby[y][x] !== 9 && element.style.backgroundImage == 'url("./img/klepa.PNG")') {
                 return false
             }
         }
     }
-    clearInterval(licz_czas)
     return true
 }
 
@@ -316,7 +313,7 @@ function zwyciestwo(bomby, height, width, kolor) {
         }
     }
     document.getElementById("pozostalo").innerText = "Wygrałeś :)"
-
+    clearInterval(licz_czas)
     return window.prompt("Gratulacje\nPodaj nick aby zapisać go w tabeli:")
 }
 
@@ -335,4 +332,31 @@ function przegrana(bomby, height, width, nazwa) {
     document.getElementById("pozostalo").innerText = "Przegrałeś :("
     alert("Przegrałeś")
     clearInterval(licz_czas)
+}
+
+function ciastka(width, height, mines, nick, czas_startu) {
+    if (nick == "") {
+        nick = "Anonim"
+    }
+
+    let format = width + "x" + height + "x" + mines
+    let czas = Math.round((new Date().getTime() - czas_startu) / 1000)
+
+    let ciastko = document.cookie.split(";")
+    let dane = ciastko[0]
+    let formaty = dane.split("|")
+    console.log(formaty)
+    let obj = {}
+    for (let i = 0; i < gry.length; i++) {
+        //let format = 
+        //obj[]
+        let ciasteczka = document.cookie.split("=")
+    }
+
+    // let ciasteczka = format + "=" + nick + "=" + czas + "|" + format + "=" + nick + "=" + czas
+
+    // console.log(gry)
+
+
+    //document.cookie = ciasteczka + "; expires=Thu, 10 June 2049 12:00:00 UTC;"
 }

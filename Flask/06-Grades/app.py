@@ -21,7 +21,8 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Zaloguj")
 
 
-users = {1: {"userLogin": "julo", "userPass": "julo", "fname": "julo", "lname": "julo"}}
+users = {1: {"userLogin": "julo", "userPass": "julo",
+             "fname": "julo", "lname": "julo"}}
 
 
 @app.route('/')
@@ -47,12 +48,14 @@ def dashboard():
     with open("data/grades.json") as gradesFile:
         grades = json.load(gradesFile)
         gradesFile.close()
-    return render_template("dashboard.html", title="dashboard", userLogin=session.get("userLogin"), grades = grades)
+    return render_template("dashboard.html", title="dashboard", userLogin=session.get("userLogin"), grades=grades)
+
 
 @app.route("/logOut")
 def logOut():
     session.pop("userLogin")
     return redirect("logIn")
+
 
 if __name__ == '__main__':
     app.run(debug=True)

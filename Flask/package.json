@@ -1,5 +1,12 @@
 {
   "dependencies": {
-    "flask": "^0.2.10"
+    "bootstrap": "^5.2.2",
+    "bootstrap4": "^0.0.1-security",
+    "field": "^1.0.1",
+    "flask": "^0.2.10",
+    "flask-node": "^0.5.2",
+    "form": "^0.2.4",
+    "moment": "^2.29.4",
+    "required": "^1.0.0"
   }
 }
