@@ -43,6 +43,18 @@ dane.appendChild(czas)
 
 document.body.appendChild(dane);
 
+let wyniki = document.createElement("div")
+wyniki.id = "wyniki"
+wyniki.style.width = "50px"
+wyniki.style.height = "min-content"
+wyniki.style.position = "absolute"
+wyniki.style.left = "calc(50vw + 150px)"
+
+let naglowek = document.createElement("p")
+naglowek.innerText = "Wyniki"
+wyniki.appendChild(naglowek)
+document.body.appendChild(wyniki)
+
 for (let i = 0; i < 3; i++) {
     let element = document.getElementById("input_" + opis[i])
 

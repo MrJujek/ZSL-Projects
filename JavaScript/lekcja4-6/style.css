@@ -18,7 +18,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px auto;
+    margin: auto;
+    width: 200px;
 }
 
 #generuj {
