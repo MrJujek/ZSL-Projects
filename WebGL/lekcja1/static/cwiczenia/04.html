@@ -19,10 +19,40 @@
 </head>
 
 <body>
-    <input type="range" id="range" min="1" max="179" style="position: absolute;">
+    <div id="boxy" style="position: absolute;">
+        <input type="range" id="range" min="1" max="179" style="position: absolute;"><br>
+        <input type="button" value="dodaj" id="dodaj">
+        <input type="button" value="usun" id="usun">
+    </div>
     <div id="root"></div>
     <script>
         window.addEventListener("load", function () {
+            let dodane = false
+            let kostki = []
+            let ile_kostek = 0
+
+            document.getElementById("dodaj").addEventListener("click", () => {
+                kostki.push([Math.random() * 100, Math.random() * 100, Math.random() * 100])
+                dodane = true
+            })
+
+            document.getElementById("usun").addEventListener("click", () => {
+                kostki = []
+                while (scene.children.length > 1) {
+                    scene.remove(scene.children[1]);
+                }
+                ile_kostek = 0
+            })
+
+            function dodaj_kostke() {
+                const geometry = new THREE.BoxGeometry(10, 10, 10);
+                const material = new THREE.MeshBasicMaterial({
+                    color: 0x8888ff,
+                });
+                return new THREE.Mesh(geometry, material);
+            }
+
+
             const scene = new THREE.Scene();
 
             const camera = new THREE.PerspectiveCamera(
@@ -47,24 +77,18 @@
             camera.position.set(100, 100, 100)
             camera.lookAt(scene.position)
 
-            const geometry = new THREE.BoxGeometry(100, 100, 100, 3, 3, 3);
-            const material = new THREE.MeshBasicMaterial({
-                color: 0x8888ff,
-                side: THREE.DoubleSide,
-                wireframe: true,
-                transparent: true,
-                opacity: 0.8
-            });
-            const cube = new THREE.Mesh(geometry, material);
-            scene.add(cube);
-
             function render() {
                 camera.fov = document.getElementById("range").value;
                 camera.updateProjectionMatrix();
 
+                if (dodane) {
+                    let cube = dodaj_kostke();
+                    scene.add(cube);
+                    cube.position.set(kostki[ile_kostek][0], kostki[ile_kostek][1], kostki[ile_kostek][2])
+                    dodane = false
+                    ile_kostek++
+                }
 
-                cube.rotation.y += 0.001;
-                cube.rotation.x += 0.01;
                 requestAnimationFrame(render);
                 console.log("render leci")
 
@@ -75,6 +99,5 @@
         })
     </script>
 </body>
-
 
 </html>
