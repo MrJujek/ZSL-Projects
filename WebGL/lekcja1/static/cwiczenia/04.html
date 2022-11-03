@@ -46,9 +46,14 @@
 
             function dodaj_kostke() {
                 const geometry = new THREE.BoxGeometry(10, 10, 10);
-                const material = new THREE.MeshBasicMaterial({
-                    color: 0x8888ff,
-                });
+
+                geometry.colorsNeedUpdate = true;
+
+                const material = new THREE.MeshBasicMaterial({ color: 0x8888ff });
+
+                // for (let i = 0; i < 6; i++) {
+                //     geometry.faces[i].color = Math.random() * 0xffffff;
+                // }
                 return new THREE.Mesh(geometry, material);
             }
 
