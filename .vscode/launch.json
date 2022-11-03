@@ -5,17 +5,13 @@
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
-      "args": [
-        ""
-      ],
+      "args": [],
       "stopAtEntry": false,
-      "cwd": "/home/MrJujek/Desktop/ZSL-Projects/C++",
-      "environment": [],
-      "program": "/home/MrJujek/Desktop/ZSL-Projects/C++/build/Debug/outDebug",
-      "internalConsoleOptions": "openOnSessionStart",
+      "externalConsole": true,
+      "cwd": "d:/Programowanie/HTML/ZSL-Projects/C++",
+      "program": "d:/Programowanie/HTML/ZSL-Projects/C++/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
-      "externalConsole": false,
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
