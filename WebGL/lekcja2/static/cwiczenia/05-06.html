@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+
+</head>
+
+<body>
+    <div id="boxy" style="position: absolute;">
+        <!-- <input type="range" id="range" min="1" max="179" style="position: absolute;"><br> -->
+        <input type="button" id="krec_sie" value="krec_sie">
+    </div>
+    <div id="root"></div>
+    <script>
+        document.addEventListener("keydown", (e) => {
+            console.log(e.keyCode);
+        });
+        window.addEventListener("load", function () {
+            var kreci_sie = false
+            document.getElementById("krec_sie").addEventListener("click", () => {
+                if (kreci_sie == true) {
+                    kreci_sie = false
+                } else {
+                    kreci_sie = true
+                }
+            })
+
+            const scene = new THREE.Scene();
+
+            const camera = new THREE.PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                10000
+            );
+
+            const renderer = new THREE.WebGLRenderer();
+
+            renderer.setClearColor(0x444);
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            document.getElementById("root").appendChild(renderer.domElement);
+
+            camera.lookAt(scene.position);
+
+            const axes = new THREE.AxesHelper(1000)
+            scene.add(axes)
+            camera.position.set(0, 0, 500)
+            camera.lookAt(scene.position)
+
+
+            let materials = [];
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_side.jpg') })); //bok
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_side.jpg') })); //bok
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_top.jpg') })); //top
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/dirt.jpg') })); //bottom
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_side.jpg') })); //przod
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_side.jpg') })); //bok
+
+            const geometry = new THREE.BoxGeometry(100, 100, 100, 3, 3, 3);
+            const cube = new THREE.Mesh(geometry, materials);
+
+
+            scene.add(cube);
+
+            let krecenie = 0
+            function render() {
+
+                if (kreci_sie) {
+                    camera.position.set(Math.cos(krecenie) * 400, Math.sin(krecenie) * 200, Math.sin(krecenie / 10) * 400) //X,Y,Z (Y - wysokosc)
+                    camera.lookAt(scene.position)
+                    krecenie += 0.04
+                }
+
+
+                camera.updateProjectionMatrix();
+
+                requestAnimationFrame(render);
+                console.log("render leci")
+
+
+                renderer.render(scene, camera);
+            }
+
+            render();
+        })
+    </script>
+</body>
+
+</html>

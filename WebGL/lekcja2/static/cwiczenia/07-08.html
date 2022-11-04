@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+
+</head>
+
+<body>
+    <div id="boxy" style="position: absolute;">
+        <!-- <input type="range" id="range" min="1" max="179" style="position: absolute;"><br> -->
+        <input type="button" id="krec_sie" value="krec_sie">
+    </div>
+    <div id="root"></div>
+    <script>
+        document.addEventListener("keydown", (e) => {
+            console.log(e.keyCode);
+        });
+        window.addEventListener("load", function () {
+            var kreci_sie = false
+            document.getElementById("krec_sie").addEventListener("click", () => {
+                if (kreci_sie == true) {
+                    kreci_sie = false
+                } else {
+                    kreci_sie = true
+                }
+            })
+
+            const scene = new THREE.Scene();
+
+            const camera = new THREE.PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                10000
+            );
+
+            const renderer = new THREE.WebGLRenderer();
+
+            renderer.setClearColor(0x444);
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            document.getElementById("root").appendChild(renderer.domElement);
+
+            camera.lookAt(scene.position);
+
+            const axes = new THREE.AxesHelper(1000)
+            scene.add(axes)
+            camera.position.set(0, 0, 500)
+            camera.lookAt(scene.position)
+
+            const raycaster = new THREE.Raycaster();
+            const mouseVector = new THREE.Vector2();
+
+            window.addEventListener("mousedown", (e) => {
+                mouseVector.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouseVector.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+                raycaster.setFromCamera(mouseVector, camera);
+
+                const intersects = raycaster.intersectObjects(scene.children);
+                console.log(intersects.length)
+
+                if (intersects.length > 0) {
+                    console.log(intersects[0].object);
+                }
+            });
+
+
+            let materials = [];
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_side.jpg') })); //side
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_side.jpg') })); //side
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_top.jpg') })); //top
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/dirt.jpg') })); //bottom
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_side.jpg') })); //side
+            materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_side.jpg') })); //side
+
+            const geometry = new THREE.BoxGeometry(50, 50, 50);
+            //X,Y,X | Y-wysokosc
+            let where = [[-50, 25, -50], [0, 25, -50], [50, 25, -50], [-50, 25, 50], [0, 25, 50], [50, 25, 50], [50, 25, 0], [-50, 25, 0]]
+            for (let i = 0; i < where.length; i++) {
+                let cube = new THREE.Mesh(geometry, materials);
+                cube.position.set(where[i][0], where[i][1], where[i][2])
+                scene.add(cube);
+            }
+
+            let krecenie = 0
+            function render() {
+
+                if (kreci_sie) {
+                    camera.position.set(Math.cos(krecenie) * 400, 400, Math.sin(krecenie) * 400) //X,Y,Z (Y - wysokosc)
+                    camera.lookAt(scene.position)
+                    krecenie += 0.04
+                }
+
+
+                camera.updateProjectionMatrix();
+
+                requestAnimationFrame(render);
+                console.log("render leci")
+
+
+                renderer.render(scene, camera);
+            }
+
+            render();
+        })
+    </script>
+</body>
+
+</html>

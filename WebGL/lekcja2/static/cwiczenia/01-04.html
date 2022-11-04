@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+
+</head>
+
+<body>
+    <div id="boxy" style="position: absolute;">
+        <!-- <input type="range" id="range" min="1" max="179" style="position: absolute;"><br> -->
+        <input type="button" id="rusz_sie" value="rusz sie">
+        <input type="button" id="skacz" value="skacz">
+    </div>
+    <div id="root"></div>
+    <script>
+        document.addEventListener("keydown", (e) => {
+            console.log(e.keyCode);
+        });
+        window.addEventListener("load", function () {
+            var skacze = false
+            var rusza_sie = false
+            document.getElementById("skacz").addEventListener("click", () => {
+                if (skacze == true) {
+                    skacze = false
+                } else {
+                    skacze = true
+                }
+            })
+            document.getElementById("rusz_sie").addEventListener("click", () => {
+                if (rusza_sie == true) {
+                    rusza_sie = false
+                } else {
+                    rusza_sie = true
+                }
+            })
+
+            const scene = new THREE.Scene();
+
+            const camera = new THREE.PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                10000
+            );
+
+            const renderer = new THREE.WebGLRenderer();
+
+            renderer.setClearColor(0x444);
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            document.getElementById("root").appendChild(renderer.domElement);
+
+            camera.lookAt(scene.position);
+
+            const axes = new THREE.AxesHelper(1000)
+            scene.add(axes)
+            camera.position.set(0, 0, 500)
+            camera.lookAt(scene.position)
+
+
+            const material = new THREE.MeshBasicMaterial({
+
+                side: THREE.DoubleSide, // dwustronny
+                map: new THREE.TextureLoader().load('mats/dirt.jpg'), // plik tekstury
+                transparent: true, // przezroczysty / nie
+                opacity: 0.8, // stopień przezroczystości
+
+            })
+            const geometry = new THREE.BoxGeometry(100, 100, 100, 3, 3, 3);
+            const cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+
+            let skok = 0
+            let ruch = 500
+            function render() {
+                //camera.fov = document.getElementById("range").value;
+                if (skacze) {
+                    camera.position.set(0, Math.sin(skok) * 100, 500)
+                    camera.lookAt(0, Math.sin(skok) * 100, 0)
+                    skok += 0.05
+                }
+                if (rusza_sie) {
+                    camera.position.set(0, 0, ruch) //X,Y,Z (Y - wysokosc)
+                    camera.lookAt(scene.position)
+                    ruch -= 10
+                }
+
+
+                camera.updateProjectionMatrix();
+
+                requestAnimationFrame(render);
+                console.log("render leci")
+
+
+                renderer.render(scene, camera);
+            }
+
+            render();
+        })
+    </script>
+</body>
+
+</html>
