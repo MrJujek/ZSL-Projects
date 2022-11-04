@@ -89,12 +89,12 @@
             function render() {
                 //camera.fov = document.getElementById("range").value;
                 if (skacze) {
-                    camera.position.set(0, Math.sin(skok) * 100, 500)
+                    camera.position.set(50, Math.sin(skok) * 100, 500)
                     camera.lookAt(0, Math.sin(skok) * 100, 0)
                     skok += 0.05
                 }
                 if (rusza_sie) {
-                    camera.position.set(0, 0, ruch) //X,Y,Z (Y - wysokosc)
+                    camera.position.set(50, 0, ruch) //X,Y,Z (Y - wysokosc)
                     camera.lookAt(scene.position)
                     ruch -= 10
                 }

@@ -75,7 +75,24 @@
                 console.log(intersects.length)
 
                 if (intersects.length > 0) {
-                    console.log(intersects[0].object);
+
+                    document.addEventListener("keydown", (e) => {
+                        console.log(e.keyCode);
+
+                        switch (e.keyCode) {
+                            case 65:
+                                console.log(intersects[0].object);
+
+                                intersects[0].object.position.set(intersects[0].object.position.x + 50, intersects[0].object.position.y, intersects[0].object.position.z)
+                                break;
+                            case 68:
+                                console.log(intersects[0].object);
+
+                                intersects[0].object.position.set(intersects[0].object.position.x - 50, intersects[0].object.position.y, intersects[0].object.position.z)
+                                break;
+                        }
+                    });
+
                 }
             });
 
