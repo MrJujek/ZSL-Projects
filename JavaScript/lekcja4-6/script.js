@@ -21,14 +21,14 @@ for (let i = 0; i < 3; i++) {
 let input = document.createElement("input")
 input.setAttribute("type", "button")
 input.setAttribute("id", "generuj")
-input.setAttribute("value", "GENERUJ")
+input.setAttribute("value", " GENERUJ ")
 
 formularz.appendChild(input)
 
 let pokaz_wyniki = document.createElement("input")
 pokaz_wyniki.setAttribute("type", "button")
 pokaz_wyniki.setAttribute("id", "pokaz_wyniki")
-pokaz_wyniki.setAttribute("value", "POKAŻ WYNIKI")
+pokaz_wyniki.setAttribute("value", " POKAŻ WYNIKI ")
 pokaz_wyniki.style.marginBottom = "10px"
 
 formularz.appendChild(pokaz_wyniki)
@@ -53,7 +53,8 @@ document.body.appendChild(dane);
 
 let wyniki = document.createElement("div")
 wyniki.id = "wyniki"
-wyniki.style.width = "200px"
+wyniki.style.minWidth = "min-content"
+wyniki.style.maxWidth = "max-content"
 wyniki.style.height = "min-content"
 wyniki.style.position = "absolute"
 wyniki.style.left = "calc(50vw + 150px)"
@@ -379,9 +380,11 @@ function ciastka(width, height, mines, nick, czas) {
     } else {
         ciacho = [[nick, czas]]
     }
+
     let posortowane_ciacho = ciacho.sort((a, b) => {
         return a[1] - b[1];
     });
+
     if (posortowane_ciacho.length > 10) {
         posortowane_ciacho.pop()
     }
@@ -397,22 +400,19 @@ function ciastka(width, height, mines, nick, czas) {
 
 function daj_ciastko(format) {
     let string = document.cookie.split(";")
-    //console.log(string);
     let obj = {}
     for (let i = 0; i < string.length; i++) {
-        let current = string[i].split("=")
-        let size = current[0].replaceAll(" ", "")
-        let scores = current[1]
-        if (scores) {
-            scores = scores.split("],[")
-            for (let j = 0; j < scores.length; j++) {
-                scores[j] = scores[j].replaceAll("[", "")
-                scores[j] = scores[j].split(",")
-                scores[j][1] = parseFloat(scores[j][1])
-
-                //console.log(scores[j], scores[j][1])
+        let wczesniejsze = string[i].split("=")
+        let ilosc = wczesniejsze[0].replaceAll(" ", "")
+        let wyniki = wczesniejsze[1]
+        if (wyniki) {
+            wyniki = wyniki.split("],[")
+            for (let j = 0; j < wyniki.length; j++) {
+                wyniki[j] = wyniki[j].replaceAll("[", "")
+                wyniki[j] = wyniki[j].split(",")
+                wyniki[j][1] = parseFloat(wyniki[j][1])
             }
-            obj[size] = scores
+            obj[ilosc] = wyniki
         }
 
     }
@@ -422,7 +422,7 @@ function daj_ciastko(format) {
 function pokaz_ciastka(format) {
     let tabela = document.getElementById("wyniki")
     tabela.innerHTML = format.bold()
-    //tabela.append(format.bold())
+
     tabela.append(document.createElement("hr"))
 
     let ciacho = daj_ciastko(format)
