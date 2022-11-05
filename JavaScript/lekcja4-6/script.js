@@ -25,6 +25,14 @@ input.setAttribute("value", "GENERUJ")
 
 formularz.appendChild(input)
 
+let pokaz_wyniki = document.createElement("input")
+pokaz_wyniki.setAttribute("type", "button")
+pokaz_wyniki.setAttribute("id", "pokaz_wyniki")
+pokaz_wyniki.setAttribute("value", "POKAŻ WYNIKI")
+pokaz_wyniki.style.marginBottom = "10px"
+
+formularz.appendChild(pokaz_wyniki)
+
 formularz.setAttribute("class", "flex-column")
 
 let dane = document.createElement("div");
@@ -45,14 +53,11 @@ document.body.appendChild(dane);
 
 let wyniki = document.createElement("div")
 wyniki.id = "wyniki"
-wyniki.style.width = "50px"
+wyniki.style.width = "200px"
 wyniki.style.height = "min-content"
 wyniki.style.position = "absolute"
 wyniki.style.left = "calc(50vw + 150px)"
 
-let naglowek = document.createElement("p")
-naglowek.innerText = "Wyniki"
-wyniki.appendChild(naglowek)
 document.body.appendChild(wyniki)
 
 for (let i = 0; i < 3; i++) {
@@ -63,12 +68,10 @@ for (let i = 0; i < 3; i++) {
         let width = (document.getElementById("input_" + opis[1]).value)
         let mines = (document.getElementById("input_" + opis[2]).value)
 
-        console.log(height, width, mines)
-
-        if (isNaN(height) || isNaN(width) || isNaN(mines) || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
+        if (isNaN(height) || isNaN(width) || isNaN(mines) || mines < 1 || height < 3 || width < 3) {
             //console.log("Zle dane")
             setTimeout(() => {
-                if (isNaN(height) || isNaN(width) || isNaN(mines) || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
+                if (isNaN(height) || isNaN(width) || isNaN(mines) || mines < 1 || height < 3 || width < 3) {
                     document.getElementById("input_" + opis[i]).value = ""
                 }
             }, 1000)
@@ -82,6 +85,19 @@ saper_div.setAttribute("id", "saper")
 saper_div.style.margin = "0 auto"
 document.body.appendChild(saper_div);
 
+let wyniki_na_stronie = false
+document.getElementById("wyniki").hidden = true
+document.getElementById("pokaz_wyniki").addEventListener("click", () => {
+    if (wyniki_na_stronie) {
+        document.getElementById("wyniki").hidden = true
+        wyniki_na_stronie = false
+    } else {
+        document.getElementById("wyniki").hidden = false
+        wyniki_na_stronie = true
+    }
+
+})
+
 document.getElementById('generuj').onclick = () => {
     clearInterval(licz_czas)
     saperFreezeClic = false
@@ -92,16 +108,9 @@ document.getElementById('generuj').onclick = () => {
     let width = parseInt(document.getElementById("input_" + opis[1]).value)
     let mines = parseInt(document.getElementById("input_" + opis[2]).value)
 
-    if (isNaN(height) || isNaN(width) || isNaN(mines) || mines > (height - 1) * (width - 1) || mines < 1 || height < 4 || width < 4) {
-        setTimeout(() => {
-            document.getElementById("input_" + opis[0]).value = ""
-            document.getElementById("input_" + opis[1]).value = ""
-            document.getElementById("input_" + opis[2]).value = ""
-        }, 1000)
-    } else {
-        generuj_plansze(height, width);
-        saper(height, width, mines);
-    }
+    generuj_plansze(height, width);
+    saper(height, width, mines);
+
 }
 
 function generuj_plansze(height, width) {
@@ -145,6 +154,8 @@ function generuj_plansze(height, width) {
 }
 
 function saper(height, width, mines) {
+    pokaz_ciastka(width + "x" + height + "x" + mines)
+
     let kolor = ["rgb(190, 190, 190)", "blue", "green", "red", "darkblue", "darkred", "darkcyan", "darkmagenta", "black"]
     let pozostale_miny = mines
     document.getElementById("pozostalo").innerText = "Pozostało " + pozostale_miny + " bomb"
@@ -160,10 +171,10 @@ function saper(height, width, mines) {
             var czas_startu
             element.addEventListener("click", () => {
                 if (!byl_pierwszy_klik) {
-
                     czas_startu = new Date().getTime()
+
                     licz_czas = setInterval(() => {
-                        document.getElementById("czas").innerText = "Czas: " + ((new Date().getTime() - czas_startu) / 1000).toFixed() + "s"
+                        document.getElementById("czas").innerText = "Czas: " + Math.round((new Date().getTime() - czas_startu) / 1000) + "s"
                     }, 1000)
 
                     let pierwszy_x = i
@@ -201,12 +212,13 @@ function saper(height, width, mines) {
                             daj_cyfre(bomby, j, i, kolor)
                         }
                     }
-                    console.log(czas_startu)
+
                     if (czy_wygrana(bomby, height, width)) {
+                        let czas = ((new Date().getTime() - czas_startu) / 1000).toFixed(2)
+
                         saperFreezeClic = true
                         let nick = zwyciestwo(bomby, height, width, kolor)
 
-                        let czas = (new Date().getTime() - czas_startu) / 1000
                         ciastka(width, height, mines, nick, czas)
                     }
                 }
@@ -351,66 +363,41 @@ function przegrana(bomby, height, width, nazwa) {
 }
 
 function ciastka(width, height, mines, nick, czas) {
+    console.log("CIASTKA CZAS przed: " + czas);
+    czas = parseFloat(czas)
+    console.log("CIASTKA CZAS po: " + czas);
     if (nick == "") {
         nick = "Anonim"
     }
 
     let format = width + "x" + height + "x" + mines
-    let currentCookie = daj_ciastko(format)
+    let ciacho = daj_ciastko(format)
 
-    if (currentCookie) {
-        currentCookie.push([nick, czas])
+    if (ciacho) {
+        console.log([nick, czas])
+        ciacho.push([nick, czas])
+    } else {
+        ciacho = [[nick, czas]]
     }
-    else {
-        currentCookie = [[nick, czas]]
-    }
-    var sortedArray = currentCookie.sort(function (a, b) {
+    let posortowane_ciacho = ciacho.sort((a, b) => {
         return a[1] - b[1];
     });
-    if (sortedArray.length > 10) {
-        sortedArray.pop()
+    if (posortowane_ciacho.length > 10) {
+        posortowane_ciacho.pop()
     }
-    for (let i = 0; i < sortedArray.length; i++) {
-        sortedArray[i][0] = sortedArray[i][0].replaceAll("\\", "")
-        sortedArray[i][0] = sortedArray[i][0].replaceAll('"', "")
+
+    for (let i = 0; i < posortowane_ciacho.length; i++) {
+        posortowane_ciacho[i][0] = posortowane_ciacho[i][0].replaceAll('"', "")
     }
-    document.cookie = format + '=' + JSON.stringify(sortedArray) + ";  expires=Tue, 01 Jan 2030 00:00:00 GMT; secure"
 
+    document.cookie = format + '=' + JSON.stringify(posortowane_ciacho) + ";  expires=Tue, 01 Jan 2030 00:00:00 GMT; secure"
 
-
-    // let format = width + "x" + height + "x" + mines
-    // let czas = Math.round((new Date().getTime() - czas_startu) / 1000)
-
-    // let ciasteczka = format + "[" + nick + "=" + czas + "|" + format + "=" + nick + "=" + czas
-    // document.cookie = ciasteczka + "; expires=Thu, 10 June 2049 12:00:00 UTC;"
-
-    // let cale_ciastko = document.cookie.split(";")
-    // let dane = cale_ciastko[0].split("|") //podzielone z formatu
-
-    // let obj = {}
-    // for (let i = 0; i < dane.length; i++) {
-    //     if (dane[i].split('[')[0] == format) {
-    //         obj[format] = {}
-    //         obj[format][nick] = czas
-    //     }
-    // }
-    // console.log(obj);
-    // let obj = {
-    //     format: {
-    //         nick: czas,
-    //         nick: czas
-    //     }
-    // }
-    // ciastko => format[nick=czas'nick=czas|format[
-
-
-
+    pokaz_ciastka(format)
 }
 
 function daj_ciastko(format) {
-    let string = document.cookie
-    console.log(string);
-    string = string.split(";")
+    let string = document.cookie.split(";")
+    //console.log(string);
     let obj = {}
     for (let i = 0; i < string.length; i++) {
         let current = string[i].split("=")
@@ -420,16 +407,32 @@ function daj_ciastko(format) {
             scores = scores.split("],[")
             for (let j = 0; j < scores.length; j++) {
                 scores[j] = scores[j].replaceAll("[", "")
-                scores[j] = scores[j].replaceAll("]", "")
-                scores[j] = scores[j].replaceAll(" ", "")
                 scores[j] = scores[j].split(",")
                 scores[j][1] = parseFloat(scores[j][1])
 
-                console.log(scores[j], scores[j][1])
+                //console.log(scores[j], scores[j][1])
             }
             obj[size] = scores
         }
 
     }
     return obj[format]
+}
+
+function pokaz_ciastka(format) {
+    let tabela = document.getElementById("wyniki")
+    tabela.innerHTML = format.bold()
+    //tabela.append(format.bold())
+    tabela.append(document.createElement("hr"))
+
+    let ciacho = daj_ciastko(format)
+    if (ciacho) {
+        for (let i = 0; i < ciacho.length; i++) {
+            let wynik = document.createElement("p")
+
+            ciacho[i][0] = ciacho[i][0].replaceAll('"', "")
+            wynik.innerText = ciacho[i][0] + " - " + ciacho[i][1] + "s"
+            tabela.appendChild(wynik)
+        }
+    }
 }
