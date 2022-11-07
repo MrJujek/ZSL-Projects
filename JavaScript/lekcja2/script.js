@@ -58,8 +58,8 @@ while (po_kolei) {
         }
     }
 }
-po_kolei = true;
 
+po_kolei = true;
 while (po_kolei) {
     po_kolei = false
     for (let i = 0; i < wszystkie.length - 1; i++) {
@@ -92,11 +92,12 @@ for (let i = 0; i < ciag.length; i = i + 3) {
 document.write("<br><br>")
 for (let i = 0; i < nic_komplementarna.length; i = i + 3) {
     let kodon = (nic_komplementarna.substring(i, i + 3)).toUpperCase();
-    if (kodon == "TAA" || kodon == "TAG" || kodon == "TGA") {
-        document.write('<span style="background: yellow;">')
-    } else if (kodon == "ATG") {
-        document.write('<b><span style="color: green;">')
-    }
+    // if (kodon == "TAA" || kodon == "TAG" || kodon == "TGA") {
+    //     document.write('<span style="background: yellow;">')
+    // } else if (kodon == "ATG") {
+    //     document.write('<b><span style="color: green;">')
+    // }
+    document.write("<span>")
     document.write(kodon + "</span></b> ");
 }
 document.write("<br>" + nic_komplementarna.toLowerCase())
