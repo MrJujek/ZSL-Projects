@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="./css.css">
+
+<span class="sklep">SKLEP</span>
+
+<form action="/filtruj" method="get">
+    <select name="wybierz" id="wybierz">
+        {{#each wszystkie_kategorie}}
+        <option name={{dane}}>{{dane}}</option>
+        {{/each}}
+    </select>
+
+    {{#each pierwsze}}
+    <input type="checkbox" name="zaznacz" value={{dane}}>{{dane}}
+    {{/each}}
+
+
+
+    <button type="submit">FILTRUJ</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>NAZWA</th>
+        <th>KATEGORIA</th>
+        <th>CENA</th>
+    </tr>
+    {{#each produkty}}
+
+    {{>wiersz}}
+
+    {{/each}}
+</table>
+
+
+
+
+
+
+
+
+{{!-- {{#each books}}
+{{title}}
+{{/each}} --}}
