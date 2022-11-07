@@ -21,7 +21,7 @@ app.get("/", function (req, res) {
 app.engine('hbs', hbs({
     defaultLayout: 'main.hbs',
     helpers: {
-        shortTitle: function (title) {
+        shortTitle: (title) => {
             return title.substring(0, 10) + "...";
         },
         duze: function (title) {
@@ -55,6 +55,18 @@ app.engine('hbs', hbs({
             console.log(tab)
             return zwrot
         },
+        mala_duza: (title) => {
+            const tekst = title.split("")
+            console.log(tekst)
+            for (let i = 0; i < tekst.length; i++) {
+                if (i % 2 == 0) {
+                    tekst[i] = tekst[i].toUpperCase()
+                } else {
+                    tekst[i] = tekst[i].toLowerCase()
+                }
+            }
+            return tekst.join("")
+        }
 
     }
 }));
