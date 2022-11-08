@@ -69,10 +69,10 @@ for (let i = 0; i < 3; i++) {
         let width = (document.getElementById("input_" + opis[1]).value)
         let mines = (document.getElementById("input_" + opis[2]).value)
 
-        if (isNaN(height) || isNaN(width) || isNaN(mines) || mines < 1 || height < 3 || width < 3) {
+        if (isNaN(height) || isNaN(width) || isNaN(mines)) {
             //console.log("Zle dane")
             setTimeout(() => {
-                if (isNaN(height) || isNaN(width) || isNaN(mines) || mines < 1 || height < 3 || width < 3) {
+                if (isNaN(height) || isNaN(width) || isNaN(mines)) {
                     document.getElementById("input_" + opis[i]).value = ""
                 }
             }, 1000)

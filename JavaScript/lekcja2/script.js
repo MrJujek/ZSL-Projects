@@ -1,12 +1,12 @@
 //https://www.bioinformatics.org/sms2/random_dna.html
 
-let ciag = "tgaactatgataataagtttaggatacgcaaaatgttaaagctatgttccctagtga"
-// do {
-//     ciag = window.prompt("Podaj ciąg DNA");
-//     if (ciag.length % 3 != 0) {
-//         window.alert("Podaj ciag podzielny przez 3!")
-//     }
-// } while (ciag.length % 3 != 0)
+let ciag //= "tgaactatgataataagtttaggatacgcaaaatgttaaagctatgttccctagtga"
+do {
+    ciag = window.prompt("Podaj ciąg DNA");
+    if (ciag.length % 3 != 0) {
+        window.alert("Podaj ciag podzielny przez 3!")
+    }
+} while (ciag.length % 3 != 0)
 
 ciag = ciag.replace(/(\r\n|\n|\r)/gm, "");
 /*
