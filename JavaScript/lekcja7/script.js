@@ -35,11 +35,12 @@ document.getElementById(nazwa).style.backgroundImage = "url(./krzak.png)"
 let pozycja = []
 
 pozycja.push({ x: random_x, y: random_y })
-
+show_snake(pozycja)
 
 
 function show_snake(pozycja) {
     for (let i = 0; i < pozycja.length; i++) {
         let nazwa = "pole_x" + pozycja[i].x + "_y" + pozycja[i].y
+        document.getElementById(nazwa).style.backgroundImage = "url(./krzak.png)"
     }
 }
