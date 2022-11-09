@@ -1,0 +1,23 @@
+<title>{{ title }}</title>
+<form action="#" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.input() }}
+    {{ form.submit() }}
+</form>
+
+{% for i in weather %}
+    {% if city == i["stacja"] %}
+        <table border="1">
+            <tr>
+                {% for j in ["id_stacji","stacja","data_pomiaru","godzina_pomiaru","temperatura","predkosc_wiatru","kierunek_wiatru","wilgotnosc_wzgledna","suma_opadu","cisnienie"] %}
+                    <td>{{ j }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for j in i %}
+                    <td>{{ i[j] }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    {% endif %}
+{% endfor %}
