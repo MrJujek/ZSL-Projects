@@ -1,0 +1,27 @@
+xamp shell -> mysql.exe
+
+tworzenie bazy danych 
+create database nazwa;
+
+wyswietlenie baz
+show databases;
+
+wybor bazy
+use nazwa;
+
+import tabel
+source nazwa;
+
+select * from nazwa;
+
+show columns from nazwa;
+
+show tables;
+
+export do pliku
+select * from nazwa where col1='0' into outfile 'plik.txt'
+
+drop database nazwa;
+
+
+
