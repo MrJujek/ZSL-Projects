@@ -31,7 +31,7 @@ let random_y = Math.round(Math.random() * wielkosc)
 document.body.appendChild(plansza)
 
 let nazwa = "pole_x" + random_x + "_y" + random_y
-document.getElementById(nazwa).style.backgroundImage = "url(./krzak.png)"
+document.getElementById(nazwa).style.backgroundImage = "url('./krzak.png')"
 
 let pozycja = []
 
@@ -89,6 +89,11 @@ function show_snake(pozycja, direction) {
         console.log("asdasdasd");
         let nazwa = "pole_x" + pozycja[i].x + "_y" + pozycja[i].y
         let element = document.getElementById(nazwa)
-        element.style.backgroundColor = "red"
+        if ((pozycja[i].x + pozycja[i].y) % 2 == 0) {
+            element.style.backgroundColor = "rgb(195, 160, 100)"
+        } else {
+            element.style.backgroundColor = "rgb(180, 115, 0)"
+        }
+        element.style.background = "url('./krzak.png')"
     }
 }

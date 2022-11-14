@@ -1,0 +1,22 @@
+<form action="/" method="get">
+    <input type="checkbox" name="box1" id="box1">
+    <input type="checkbox" name="box2" id="box2">
+    <input type="checkbox" name="box3" id="box3">
+    <input type="checkbox" name="box4" id="box4">
+    <button type="submit">SUBMIT</button>
+</form>
+
+<br>
+{{#if zwrot}}
+<table border="1">
+    {{#each zwrot}}
+    <tr>
+        <td>{{box1}}</td>
+        <td>{{box2}}</td>
+        <td>{{box3}}</td>
+        <td>{{box4}}</td>
+        <td>{{_id}}</td>
+    </tr>
+    {{/each}}
+</table>
+{{/if}}
