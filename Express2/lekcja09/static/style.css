@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+th {
+    color: red;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+}

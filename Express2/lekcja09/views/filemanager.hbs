@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="./style.css">
+<table>
+    <tr>
+        <th>ID</th>
+        <th>obraz</th>
+        <th>name</th>
+        <th>type</th>
+        <th>size</th>
+    </tr>
+    {{#each images}}
+    <tr>
+        <td>ID</td>
+        <td><img src="/icons/" {{obraz}}></td>
+        <td>{{name}}</td>
+        <td>{{type}}</td>
+        <td>{{size}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+{{obraz}}
