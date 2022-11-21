@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .balon {
+            height: 20px;
+            width: 20px;
+            background-color: aqua;
+            position: absolute;
+        }
+
+        .gracz {
+            height: 20px;
+            width: 20px;
+            background-color: red;
+            position: absolute;
+            top: 180px;
+        }
+
+        #gra {
+            height: 200px;
+            width: 140px;
+            position: relative;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="gra"></div>
+    <script>
+        let container = document.getElementById("gra");
+
+        let gracz = document.createElement("div")
+        gracz.classList.add("gracz")
+
+        document.onmousemove = (e) => {
+            let lewo
+            if (e.clientX - 20 < 50) {
+                lewo = 0
+            } else if (e.clientX > 190) {
+                lewo = 120
+            } else {
+                lewo = e.clientX - 70
+            }
+            gracz.style.left = lewo + "px";
+            //console.log(e.clientX);
+        }
+        container.append(gracz)
+
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 5; j++) {
+                let element = document.createElement("div")
+                element.setAttribute("id", "x_" + j + "_y_" + i)
+                element.classList.add("balon")
+                element.style.top = i * 30 + "px"
+                element.style.left = j * 30 + "px"
+                container.append(element)
+            }
+        }
+
+        let balony = document.getElementsByClassName("balon")
+        balon_w_dol()
+
+        function balon_w_dol() {
+            if (!balony.length) {
+                alert("wygrales")
+            }
+
+
+
+            let mnoznik = balony.length
+            let index = Math.floor(Math.random() * mnoznik)
+            let spadajacy = balony[index]
+
+            let spadanie = parseInt(spadajacy.style.top)
+
+
+            let loop = setInterval(function () {
+                spadanie += 1;
+                spadajacy.style.top = spadanie + 'px';
+
+                if (spadajacy.style.left == gracz.style.left && spadajacy.style.top < gracz.style.top) {
+                    spadajacy.remove();
+                    spadanie = 0
+                    clearInterval(loop)
+                    balon_w_dol()
+                }
+
+                if (spadanie > 200) {
+                    spadajacy.remove();
+                    spadanie = 0
+                    clearInterval(loop)
+                    alert("lost")
+                }
+
+            }, 10);
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
