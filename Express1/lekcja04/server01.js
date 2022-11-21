@@ -10,6 +10,10 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + "/static/1.html")
+});
+
 app.post('/handleUpload', function (req, res) {
     res.setHeader("content-type", "application/json")
 
