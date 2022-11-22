@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <style>
+        .gra {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: aqua;
+        }
+
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="gra"></div>
+    <script>
+        let gra = document.getElementById("gra")
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 3; j++) {
+                let element = document.createElement("div")
+                element.classList.add("gra")
+                element.style.top = i * 30 + "px"
+                element.style.left = j * 30 + "px"
+
+                gra.append(element)
+            }
+        }
+
+
+    </script>
+    <script>
+        let pudla = document.getElementsByClassName("gra")
+        let interval = setInterval(() => {
+            for (let i = 0; i < pudla.length; i++) {
+                let pudelko = pudla[i]
+                pudelko.classList.remove("red")
+            }
+
+            let losuj = Math.floor(Math.random * pudla.length)
+            let pudelko = pudla[losuj]
+            pudelko.classList.add("red")
+        }, 1000)
+    </script>
+</body>
+
+</html>

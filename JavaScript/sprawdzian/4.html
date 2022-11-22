@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .helikopter {
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            position: absolute;
+
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mina {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            position: absolute;
+        }
+
+        .play {
+            height: 100px;
+            width: 100px;
+            background-color: gold;
+            position: absolute;
+
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .klocek {
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        for (let i = 0; i < 2; i++) {
+            for (let j = 0; j < 2; j++) {
+                let mina = document.createElement("div")
+                mina.classList.add("mina")
+                mina.style.left = i * 300 + "px"
+                mina.style.top = j * 300 + "px"
+                document.body.append(mina)
+            }
+        }
+
+        let play = document.createElement("div")
+        play.classList.add("play")
+        play.style.left = 150 + "px"
+        play.style.top = 150 + "px"
+        document.body.append(play)
+
+        let helikopter = document.createElement("div")
+        helikopter.classList.add("helikopter")
+        helikopter.style.left = 150 + "px"
+        helikopter.style.top = 300 + "px"
+        document.body.append(helikopter)
+        helikopter.innerText = "⇐"
+        let interval = setInterval(() => {
+            let kierunek = helikopter.innerText
+            switch (kierunek) {
+                case "⇑":
+                    helikopter.innerText = "⇐"
+                    break
+                case "⇐":
+                    helikopter.innerText = "⇓"
+                    break
+                case "⇓":
+                    helikopter.innerText = "⇒"
+                    break
+                case "⇒":
+                    helikopter.innerText = "⇑"
+                    break
+
+
+            }
+
+        }, 1000)
+        window.onclick = () => {
+            let kierunek = helikopter.innerText
+            let lewo = parseInt(helikopter.style.left)
+            let gora = parseInt(helikopter.style.top)
+            switch (kierunek) {
+                case "⇑":
+                    gora -= 10
+                    break
+                case "⇐":
+                    lewo -= 10
+                    break
+                case "⇓":
+                    gora += 10
+                    break
+                case "⇒":
+                    lewo += 10
+                    break
+
+
+            }
+            console.log(lewo, gora);
+            helikopter.style.left = lewo + "px"
+            helikopter.style.top = gora + "px"
+
+
+            if (lewo == 0 && gora == 0) {
+                alert("Pzegrales")
+            }
+            if (lewo == 300 && gora == 0) {
+                alert("Pzegrales")
+            }
+            if (lewo == 0 && gora == 300) {
+                alert("Pzegrales")
+            }
+            if (lewo == 300 && gora == 300) {
+                alert("Pzegrales")
+            }
+            if (lewo == 150 && gora == 150) {
+                alert("WYGRALES")
+            }
+        }
+
+    </script>
+</body>
+
+</html>

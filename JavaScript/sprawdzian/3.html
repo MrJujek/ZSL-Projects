@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gwiazda {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background-color: yellow;
+            border: 1px solid gray;
+        }
+
+        .play {
+            height: 100px;
+            width: 100px;
+            background: red;
+            position: absolute;
+            left: 150px;
+            top: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let klikniete = 0
+        let ile = 5
+        for (let i = 0; i < ile; i++) {
+            let element = document.createElement("div")
+            element.onclick = () => {
+                let policzone = 5
+                element.innerText = policzone
+                let czas = setInterval(() => {
+                    policzone--
+                    element.innerText = policzone
+
+                }, 1000)
+                element.style.background = "gold"
+                klikniete++
+                if (klikniete >= ile) {
+                    let play = document.createElement("div")
+                    play.classList.add("play")
+                    play.onclick = () => {
+                        alert("WYGRALES")
+
+                    }
+                    document.body.append(play)
+
+                }
+                let licz = setTimeout(() => {
+                    clearInterval(czas)
+                    element.style.background = "yellow"
+                    klikniete--
+                    element.innerText = ""
+                }, 5000)
+
+            }
+            element.classList.add("gwiazda")
+            element.style.top = Math.floor(Math.random() * 300) + "px"
+            element.style.left = Math.floor(Math.random() * 300) + "px"
+            document.body.append(element)
+        }
+    </script>
+</body>
+
+</html>

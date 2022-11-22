@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .kostka {
+            height: 100px;
+            width: 100px;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let litery = ["p", "l", "a", "y"]
+        for (let i = 0; i < 4; i++) {
+            let kostka = document.createElement("div")
+            kostka.setAttribute("id", "id" + i)
+            kostka.classList.add("kostka")
+            kostka.style.backgroundImage = 'url(p.png)'
+            kostka.onclick = () => {
+                klik(i);
+            }
+            document.body.append(kostka)
+        }
+        function klik(ktory) {
+            let element = document.getElementById("id" + ktory)
+            let tlo = element.style.backgroundImage
+            console.log(tlo)
+            switch (tlo) {
+                case 'url("p.png")':
+                    element.style.backgroundImage = 'url("l.png")'
+                    break;
+                case 'url("l.png")':
+                    element.style.backgroundImage = 'url("a.webp")'
+                    break;
+                case 'url("a.webp")':
+                    element.style.backgroundImage = 'url("y.png")'
+                    break;
+                case 'url("y.png")':
+                    element.style.backgroundImage = 'url("p.png")'
+                    break;
+
+            }
+            string = ""
+            for (let i = 0; i < 4; i++) {
+                switch (document.getElementById("id" + i).style.backgroundImage) {
+                    case 'url("p.png")':
+                        string += "p"
+                        break;
+                    case 'url("l.png")':
+                        string += "l"
+                        break;
+                    case 'url("a.webp")':
+                        string += "a"
+                        break;
+                    case 'url("y.png")':
+                        string += "y"
+                        break;
+                }
+                if (string == "play") {
+                    alert("wygrales")
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
