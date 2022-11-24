@@ -131,7 +131,7 @@ $(document).ready(() => {
                     .append("noc - " + (100 - suma))
 
 
-                $("#suwak_" + i).on("mouseup", (e) => {
+                $(window).on("mouseup", (e) => {
                     $("#suwak_" + i).off("mousemove")
                 })
             })
