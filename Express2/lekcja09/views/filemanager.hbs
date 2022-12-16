@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="./style.css">
 <a href="/">Wyślij pliki</a>
+<a href="/filemanager">Pokaż pliki</a>
 <table>
     <tr>
         <th>ID</th>
@@ -20,7 +21,7 @@
         <td>{{type}}</td>
         <td>{{size}}</td>
         <td><a href="/show/?id={{id}}">SHOW</a></td>
-        <td>INFO</td>
+        <td><a href="/info/?id={{id}}">INFO</a></td>
         <td><a target="_blank" href="/download/?id={{id}}">DOWNLOAD</a></td>
         <td>DELETE</td>
     </tr>

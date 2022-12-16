@@ -29,16 +29,19 @@ app.post('/filemanager', function (req, res) {
     form.keepExtensions = true
     form.multiples = true
     form.parse(req, function (err, fields, files) {
+        console.log(files);
+        //console.log(files);
         if (files.filestoupload.length) {
             for (let i = 0; i < files.filestoupload.length; i++) {
                 let size = files.filestoupload[i].size
                 let path = files.filestoupload[i].path
                 let type = files.filestoupload[i].type
                 let name = files.filestoupload[i].name
+                let savedate = new Date()
 
                 let obraz = getIcon(type)
 
-                let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path }
+                let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path, savedate: savedate }
                 context.files.push(obj)
 
                 id++
@@ -49,19 +52,21 @@ app.post('/filemanager', function (req, res) {
             let path = files.filestoupload.path
             let type = files.filestoupload.type
             let name = files.filestoupload.name
+            let savedate = files.filestoupload.lastModifiedDate
 
             let obraz = getIcon(type)
 
-            let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path }
+            let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path, savedate: savedate }
             context.files.push(obj)
 
             id++
         }
 
-        console.log(context);
+        //console.log(context);
 
-        res.render("filemanager.hbs", context)
+
     });
+    res.render("filemanager.hbs", context)
 });
 
 app.get('/show/', function (req, res) {
@@ -89,7 +94,14 @@ app.get('/info/', function (req, res) {
 
     for (let i = 0; i < context.files.length; i++) {
         if (id == context.files[i].id) {
-            res.download(context.files[i].path)
+            let size = context.files[i].size
+            let path = context.files[i].path
+            let type = context.files[i].type
+            let name = context.files[i].name
+            let savedate = context.files[i].savedate
+
+            let obj = { id: id, name: name, type: type, size: size, path: path, savedate: savedate }
+            res.render("info.hbs", obj)
         }
     }
 });
