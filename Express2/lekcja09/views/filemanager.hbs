@@ -1,29 +1,32 @@
-<link rel="stylesheet" href="./style.css">
-<a href="/">Wyślij pliki</a>
-<a href="/filemanager">Pokaż pliki</a>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>obraz</th>
-        <th>name</th>
-        <th>type</th>
-        <th>size</th>
-        <th>-</th>
-        <th>-</th>
-        <th>-</th>
-        <th>-</th>
-    </tr>
-    {{#each files}}
-    <tr>
-        <td>{{id}}</td>
-        <td><img class="filetype" src="/icons/{{obraz}}"></td>
-        <td>{{name}}</td>
-        <td>{{type}}</td>
-        <td>{{size}}</td>
-        <td><a href="/show/?id={{id}}">SHOW</a></td>
-        <td><a href="/info/?id={{id}}">INFO</a></td>
-        <td><a target="_blank" href="/download/?id={{id}}">DOWNLOAD</a></td>
-        <td>DELETE</td>
-    </tr>
-    {{/each}}
-</table>
+<div class="what">
+    Filemanager<br>
+    <a href="/delete">Usuń wszystkie pliki</a>
+</div>
+<div class="hbs">
+    <table>
+        <tr class="heading">
+            <th>ID</th>
+            <th>obraz</th>
+            <th>name</th>
+            <th>type</th>
+            <th>size</th>
+            <th>-</th>
+            <th>-</th>
+            <th>-</th>
+            <th>-</th>
+        </tr>
+        {{#each files}}
+        <tr>
+            <td class="id">{{id}}</td>
+            <td><img class="filetype" src="/icons/{{obraz}}"></td>
+            <td>{{name}}</td>
+            <td>{{type}}</td>
+            <td>{{size}}</td>
+            <td><a href="/show/?id={{id}}">SHOW</a></td>
+            <td><a href="/info/?id={{id}}">INFO</a></td>
+            <td><a target="_blank" href="/download/?id={{id}}">DOWNLOAD</a></td>
+            <td><a href="/delete/?id={{id}}">DELETE</a></td>
+        </tr>
+        {{/each}}
+    </table>
+</div>

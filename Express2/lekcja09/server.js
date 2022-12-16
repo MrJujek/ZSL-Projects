@@ -21,15 +21,13 @@ app.get("/", function (req, res) {
     res.render('upload.hbs');
 })
 
-
-app.post('/filemanager', function (req, res) {
+app.post("/upload", function (req, res) {
     let form = formidable({});
 
     form.uploadDir = __dirname + '/static/upload/'
     form.keepExtensions = true
     form.multiples = true
     form.parse(req, function (err, fields, files) {
-        console.log(files);
         //console.log(files);
         if (files.filestoupload.length) {
             for (let i = 0; i < files.filestoupload.length; i++) {
@@ -37,8 +35,7 @@ app.post('/filemanager', function (req, res) {
                 let path = files.filestoupload[i].path
                 let type = files.filestoupload[i].type
                 let name = files.filestoupload[i].name
-                let savedate = new Date()
-
+                let savedate = new Date().getTime()
                 let obraz = getIcon(type)
 
                 let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path, savedate: savedate }
@@ -46,14 +43,12 @@ app.post('/filemanager', function (req, res) {
 
                 id++
             }
-        }
-        else {
+        } else {
             let size = files.filestoupload.size
             let path = files.filestoupload.path
             let type = files.filestoupload.type
             let name = files.filestoupload.name
-            let savedate = files.filestoupload.lastModifiedDate
-
+            let savedate = new Date().getTime()
             let obraz = getIcon(type)
 
             let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path, savedate: savedate }
@@ -63,9 +58,12 @@ app.post('/filemanager', function (req, res) {
         }
 
         //console.log(context);
-
-
+        res.redirect("/")
     });
+})
+
+
+app.post('/filemanager', function (req, res) {
     res.render("filemanager.hbs", context)
 });
 
@@ -106,9 +104,25 @@ app.get('/info/', function (req, res) {
     }
 });
 
+app.get('/delete/', function (req, res) {
+    let id = req.query.id
 
-app.set('views', path.join(__dirname, 'views'));         // ustalamy katalog views
-app.engine('hbs', hbs({ defaultLayout: 'main.hbs' }));   // domyślny layout, potem można go zmienić
+    if (id) {
+        for (let i = 0; i < context.files.length; i++) {
+            if (id == context.files[i].id) {
+                context.files.splice(i, 1)
+            }
+        }
+    } else {
+        context = { files: [] }
+    }
+
+    res.render("filemanager.hbs", context)
+});
+
+
+app.set('views', path.join(__dirname, 'views'));        
+app.engine('hbs', hbs({ defaultLayout: 'main.hbs' }));  
 app.set('view engine', 'hbs');
 
 
