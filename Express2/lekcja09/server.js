@@ -13,7 +13,7 @@ app.use(express.urlencoded({
 }));
 
 
-let datas = { images: [] }
+let context = { files: [] }
 let id = 1
 
 
@@ -25,43 +25,54 @@ app.get("/", function (req, res) {
 app.post('/filemanager', function (req, res) {
     let form = formidable({});
 
-    form.uploadDir = __dirname + '/static/upload/'       // folder do zapisu zdjęcia
+    form.uploadDir = __dirname + '/static/upload/'
     form.keepExtensions = true
     form.multiples = true
     form.parse(req, function (err, fields, files) {
-        if (files.filetoupload.length) {
-            for (let i = 0; i < files.filetoupload.length; i++) {
-                let size = files.filetoupload[i].size
-                let path = files.filetoupload[i].path
-                let type = files.filetoupload[i].type
-                let name = files.filetoupload[i].name
+        if (files.filestoupload.length) {
+            for (let i = 0; i < files.filestoupload.length; i++) {
+                let size = files.filestoupload[i].size
+                let path = files.filestoupload[i].path
+                let type = files.filestoupload[i].type
+                let name = files.filestoupload[i].name
 
                 let obraz = getIcon(type)
 
                 let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path }
+                context.files.push(obj)
 
-                datas.images.push(obj)
                 id++
             }
         }
         else {
-            let size = files.filetoupload.size
-            let path = files.filetoupload.path
-            let type = files.filetoupload.type
-            let name = files.filetoupload.name
+            let size = files.filestoupload.size
+            let path = files.filestoupload.path
+            let type = files.filestoupload.type
+            let name = files.filestoupload.name
 
             let obraz = getIcon(type)
 
             let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path }
+            context.files.push(obj)
 
-            datas.images.push(obj)
             id++
         }
 
-        console.log(datas);
+        console.log(context);
 
-        res.render("filemanager.hbs", datas)//JSON.stringify(datas, null, 4))
+        res.render("filemanager.hbs", context)
     });
+});
+
+app.get('/show/:id', function (req, res) {
+    let id = req.params.id
+    for (let i = 0; i < context.files.length; i++) {
+        if (id == context.files[i].id) {
+            res.render(context.files[i].path)
+        }
+    }
+
+    res.render("filemanager.hbs", context)
 });
 
 

@@ -7,14 +7,22 @@
         <th>name</th>
         <th>type</th>
         <th>size</th>
+        <th>-</th>
+        <th>-</th>
+        <th>-</th>
+        <th>-</th>
     </tr>
-    {{#each images}}
+    {{#each files}}
     <tr>
         <td>{{id}}</td>
         <td><img class="filetype" src="/icons/{{obraz}}"></td>
         <td>{{name}}</td>
         <td>{{type}}</td>
         <td>{{size}}</td>
+        <td><a href="/show/?id={{id}}">SHOW</a></td>
+        <td>INFO</td>
+        <td>DOWNLOAD</td>
+        <td>DELETE</td>
     </tr>
     {{/each}}
 </table>
