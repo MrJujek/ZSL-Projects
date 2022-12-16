@@ -64,15 +64,34 @@ app.post('/filemanager', function (req, res) {
     });
 });
 
-app.get('/show/:id', function (req, res) {
-    let id = req.params.id
+app.get('/show/', function (req, res) {
+    let id = req.query.id
+
     for (let i = 0; i < context.files.length; i++) {
         if (id == context.files[i].id) {
-            res.render(context.files[i].path)
+            res.sendFile(context.files[i].path)
         }
     }
+});
 
-    res.render("filemanager.hbs", context)
+app.get('/download/', function (req, res) {
+    let id = req.query.id
+
+    for (let i = 0; i < context.files.length; i++) {
+        if (id == context.files[i].id) {
+            res.download(context.files[i].path)
+        }
+    }
+});
+
+app.get('/info/', function (req, res) {
+    let id = req.query.id
+
+    for (let i = 0; i < context.files.length; i++) {
+        if (id == context.files[i].id) {
+            res.download(context.files[i].path)
+        }
+    }
 });
 
 
