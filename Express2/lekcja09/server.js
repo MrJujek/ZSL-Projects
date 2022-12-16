@@ -14,6 +14,7 @@ app.use(express.urlencoded({
 
 
 let datas = { images: [] }
+let id = 1
 
 
 app.get("/", function (req, res) {
@@ -28,27 +29,33 @@ app.post('/filemanager', function (req, res) {
     form.keepExtensions = true
     form.multiples = true
     form.parse(req, function (err, fields, files) {
-        for (let i = 0; i < files.imagetoupload.length; i++) {
-            let size = files.imagetoupload[i].size
-            let path = files.imagetoupload[i].path
-            let id = 1
-            let type = files.imagetoupload[i].type
-            let name = files.imagetoupload[i].name
+        if (files.filetoupload.length) {
+            for (let i = 0; i < files.filetoupload.length; i++) {
+                let size = files.filetoupload[i].size
+                let path = files.filetoupload[i].path
+                let type = files.filetoupload[i].type
+                let name = files.filetoupload[i].name
 
-            let obraz
-            switch (type) {
-                case 'image/jpeg':
-                    obraz = "jpeg.png"
-                    break;
+                let obraz = getIcon(type)
 
-                default:
-                    obraz = 1
-                    break;
+                let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path }
+
+                datas.images.push(obj)
+                id++
             }
+        }
+        else {
+            let size = files.filetoupload.size
+            let path = files.filetoupload.path
+            let type = files.filetoupload.type
+            let name = files.filetoupload.name
+
+            let obraz = getIcon(type)
 
             let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path }
 
             datas.images.push(obj)
+            id++
         }
 
         console.log(datas);
@@ -66,3 +73,41 @@ app.set('view engine', 'hbs');
 app.listen(PORT, function () {
     console.log("start serwera na porcie " + PORT)
 })
+
+function getIcon(type) {
+    let obraz
+    switch (type) {
+        case 'image/jpeg':
+            obraz = "jpg.png";
+            break;
+
+        case 'image/png':
+            obraz = "png.png";
+            break;
+
+        case 'image/bmp':
+            obraz = "bmp.png";
+            break;
+
+        case 'text/plain':
+            obraz = "txt.png";
+            break;
+
+        case 'application/pdf':
+            obraz = "pdf.png";
+            break;
+
+        case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+            obraz = "docx.png";
+            break;
+
+        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+            obraz = "xlsx.png";
+            break;
+
+        default:
+            obraz = "unknown.png";
+            break;
+    }
+    return obraz
+}

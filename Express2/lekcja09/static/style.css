@@ -13,3 +13,8 @@ th {
 td {
     padding: 10px;
 }
+
+.filetype {
+    height: 50px;
+    width: 50px;
+}

@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="./style.css">
+<a href="/">Wyślij pliki</a>
 <table>
     <tr>
         <th>ID</th>
@@ -9,13 +10,11 @@
     </tr>
     {{#each images}}
     <tr>
-        <td>ID</td>
-        <td><img src="/icons/" {{obraz}}></td>
+        <td>{{id}}</td>
+        <td><img class="filetype" src="/icons/{{obraz}}"></td>
         <td>{{name}}</td>
         <td>{{type}}</td>
         <td>{{size}}</td>
     </tr>
     {{/each}}
 </table>
-
-{{obraz}}
