@@ -163,6 +163,14 @@ function getIcon(type) {
             obraz = "xlsx.png";
             break;
 
+        case 'text/javascript':
+            obraz = "js.png"
+            break;
+
+        case 'application/json':
+            obraz = "json.png";
+            break;
+
         default:
             obraz = "unknown.png";
             break;
