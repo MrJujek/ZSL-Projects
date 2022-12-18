@@ -57,9 +57,22 @@
     text-shadow: 1px 1px 1px #000000;
 }
 
-.what a {
+.delete {
+    text-align: center;
+    margin: 5px;
+    font-size: 16px;
     text-decoration: none;
+    border: 1px solid darkorange;
+    background-color: orange;
+    border-radius: 5px;
+    color: blue;
+    font-family: "Bungee", Arial;
+    text-shadow: 1px 1px 1px #ffffff;
+}
 
+.delete:hover {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px blue;
 }
 
 td a {
@@ -108,6 +121,7 @@ td {
     padding-left: 2px;
     padding-right: 2px;
     background-color: rgb(185, 185, 185);
+    color: aliceblue;
 }
 
 .id {
@@ -115,7 +129,7 @@ td {
     font-size: 22px;
     font-family: "Bungee", Arial;
     text-shadow: 2px 2px 2px #000000;
-    background-color: #acacac;
+    background-color: #a1a1a1;
 }
 
 table {

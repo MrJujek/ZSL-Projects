@@ -28,7 +28,6 @@ app.post("/upload", function (req, res) {
     form.keepExtensions = true
     form.multiples = true
     form.parse(req, function (err, fields, files) {
-        //console.log(files);
         if (files.filestoupload.length) {
             for (let i = 0; i < files.filestoupload.length; i++) {
                 let size = files.filestoupload[i].size
@@ -57,7 +56,6 @@ app.post("/upload", function (req, res) {
             id++
         }
 
-        //console.log(context);
         res.redirect("/")
     });
 })
@@ -107,24 +105,28 @@ app.get('/info/', function (req, res) {
 app.get('/delete/', function (req, res) {
     let id = req.query.id
 
-    if (id) {
-        for (let i = 0; i < context.files.length; i++) {
-            if (id == context.files[i].id) {
-                context.files.splice(i, 1)
-            }
+    // if (id) {
+    for (let i = 0; i < context.files.length; i++) {
+        if (id == context.files[i].id) {
+            context.files.splice(i, 1)
         }
-    } else {
-        context = { files: [] }
     }
+    // } else {
+    //     context = { files: [] }
+    // }
 
     res.render("filemanager.hbs", context)
 });
 
+app.get('/reset/', function (req, res) {
+    context = { files: [] }
 
-app.set('views', path.join(__dirname, 'views'));        
-app.engine('hbs', hbs({ defaultLayout: 'main.hbs' }));  
+    res.render("filemanager.hbs", context)
+})
+
+app.set('views', path.join(__dirname, 'views'));
+app.engine('hbs', hbs({ defaultLayout: 'main.hbs' }));
 app.set('view engine', 'hbs');
-
 
 app.listen(PORT, function () {
     console.log("start serwera na porcie " + PORT)
