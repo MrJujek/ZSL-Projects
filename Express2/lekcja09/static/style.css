@@ -145,3 +145,43 @@ table {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.hbs input[type="file"] {
+    height: 100px;
+    margin: 10px;
+    width: calc(100vw - 220px);
+    border: 3px dashed rgb(105, 105, 105);
+    background-color: #999999;
+    border-radius: 5px;
+}
+
+.hbs input[type="file"]:hover {
+    cursor: pointer;
+}
+
+
+.hbs form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hbs input[type="submit"] {
+    font-size: 20px;
+    text-decoration: none;
+    border: 1px solid darkorange;
+    background-color: orange;
+    border-radius: 5px;
+    color: blue;
+    font-family: "Bungee", Arial;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 1px 1px 1px #ffffff;
+}
+
+.hbs input[type="submit"]:hover {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px blue;
+    cursor: pointer;
+}
