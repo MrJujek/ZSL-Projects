@@ -146,18 +146,33 @@ table {
     padding-right: 10px;
 }
 
-.hbs input[type="file"] {
-    height: 100px;
+.hbs input[type="file"],
+.hbs label {
+    height: 200px;
     margin: 10px;
     width: calc(100vw - 220px);
     border: 3px dashed rgb(105, 105, 105);
     background-color: #999999;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.hbs input[type="file"]:hover {
+.hbs label img {
+    height: 80px;
+    width: 80px;
+}
+
+.hbs input[type="file"],
+.hbs label:hover {
     cursor: pointer;
 }
+
+/* .hbs input[type="file"] {
+    display: none;
+} */
 
 
 .hbs form {
