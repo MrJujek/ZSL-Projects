@@ -170,9 +170,9 @@ table {
     cursor: pointer;
 }
 
-/* .hbs input[type="file"] {
+.hbs input[type="file"] {
     display: none;
-} */
+}
 
 
 .hbs form {
