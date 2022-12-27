@@ -1,5 +1,30 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#plansza {
+    margin: 10px auto;
+}
 .pole {
     height: 30px;
     width: 30px;
     background-size: cover;
+}
+
+.jasniejsze {
+    background-color: rgb(195, 160, 100);
+}
+
+.ciemniejsze {
+    background-color: rgb(180, 115, 0);
+}
+
+.snake_straight {
+    background-image: url("./snake_straight.png");
+}
+
+.snake_turn {
+    background-image: url("./snake_turn.png");
 }
