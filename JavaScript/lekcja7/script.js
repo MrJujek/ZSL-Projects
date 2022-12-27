@@ -1,8 +1,9 @@
 let wielkosc = 11
-let snake_length = 5
+let snake_length = 3
 let pozycja = []
-let speed = 1000
+let speed = 800
 let appleOnBoard = false
+let appleX, appleY
 
 generateBoard()
 
@@ -88,7 +89,10 @@ function show_snake(pozycja, direction) {
         if (pozycja.length > snake_length) {
             last_snake_part = pozycja.pop()
         }
-        //let one_before_last = pozycja[pozycja.length - 2]
+
+        let one_before_last = pozycja[pozycja.length - 2]
+        let nazwa4 = "pole_x" + one_before_last.x + "_y" + one_before_last.y
+        makeSnakeBody(nazwa4)
 
         let nazwa1 = "pole_x" + new_position.x + "_y" + new_position.y
         newSnakeHead(nazwa1)
@@ -101,11 +105,24 @@ function show_snake(pozycja, direction) {
         let nazwa3 = "pole_x" + second_snake.x + "_y" + second_snake.y
         makeSnakeBody(nazwa3)
 
-        let nazwa4 = "pole_x" + last_snake_part.x + "_y" + last_snake_part.y
-        clearTileFromSnake(nazwa4)
+        let nazwa5 = "pole_x" + last_snake_part.x + "_y" + last_snake_part.y
+        clearTileFromSnake(nazwa5)
 
         if (appleOnBoard == false) {
             generateApple()
+        }
+
+        if (pozycja[0].x == appleX && pozycja[0].y == appleY) {
+            let nazwa = "pole_x" + appleX + "_y" + appleY
+            let element = document.getElementById(nazwa)
+
+            element.classList.remove("japko")
+
+            snake_length++;
+            appleOnBoard = false
+            if (speed > 300) {
+                speed -= 20
+            }
         }
     }, speed)
 }
@@ -113,6 +130,10 @@ function show_snake(pozycja, direction) {
 function createStartPosition(pozycja) {
     let random_x = Math.round(Math.random() * wielkosc - 1)
     let random_y = Math.round(Math.random() * wielkosc - 1)
+
+    let nazwa = "pole_x" + random_x + "_y" + random_y
+    let element = document.getElementById(nazwa)
+    element.classList.add("krzak")
 
     pozycja.push({ x: random_x, y: random_y })
 }
@@ -173,49 +194,15 @@ function makeSanaketail(nazwa) {
     element.classList.add("snake_tail")
 }
 
-function generateApple(appleOnBoard) {
-    let random_x = Math.round(Math.random() * wielkosc - 1)
-    let random_y = Math.round(Math.random() * wielkosc - 1)
-    console.log(random_x, random_y);
+function generateApple() {
+    appleX = Math.round(Math.random() * wielkosc - 1)
+    appleY = Math.round(Math.random() * wielkosc - 1)
+    console.log(appleX, appleY);
 
-    let nazwa = "pole_x" + random_x + "_y" + random_y
+    let nazwa = "pole_x" + appleX + "_y" + appleY
     let element = document.getElementById(nazwa)
 
     element.classList.add("japko")
 
     appleOnBoard = true
-    // if (appleOnBoard == false) {
-    //     let appleX = false, appleY = false
-    //     let random_x, random_y
-
-    //     while (appleX == false) {
-    //         random_x = Math.round(Math.random() * wielkosc - 1)
-    //         for (let i = 0; i < pozycja.length; i++) {
-    //             console.log(i);
-    //             if (pozycja[i].x == random_x) {
-    //                 break;
-    //             }
-    //         }
-    //         appleX = true
-    //     }
-    //     while (appleY == false) {
-    //         random_y = Math.round(Math.random() * wielkosc - 1)
-    //         for (let i = 0; i < pozycja.length; i++) {
-    //             console.log(i);
-    //             if (pozycja[i].y == random_y) {
-    //                 break;
-    //             }
-    //         }
-
-    //         appleY = true
-    //     }
-
-    //     appleOnBoard = true
-
-    //     console.log(random_x, random_y);
-    //     let nazwa = "pole_x" + random_x + "_y" + random_y
-    //     let element = document.getElementById(nazwa)
-
-    //     element.classList.add("japko")
-    // }
 }
