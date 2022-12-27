@@ -1,60 +1,33 @@
 let wielkosc = 11
-let snake_length = 4
+let snake_length = 5
+let pozycja = []
+let speed = 1000
+let appleOnBoard = false
+
 generateBoard()
 
-
-
-
-let pozycja = []
-
-createApple(pozycja);
-
-
-
+createStartPosition(pozycja);
 
 document.onkeydown = (e) => {
-    //console.log("klik");
-    let new_position
-    let new_x, new_y
     let direction
     switch (e.key) {
         case "ArrowRight":
-            // pozycja[0].x + 1 > wielkosc ? new_x = 0 : new_x = pozycja[0].x + 1
-            // new_position = { x: new_x, y: pozycja[0].y }
-            // pozycja.unshift(new_position)
-            // console.log(pozycja);
             direction = "right"
             break;
 
         case "ArrowLeft":
-            // pozycja[0].x - 1 < 0 ? new_x = wielkosc : new_x = pozycja[0].x - 1
-            // new_position = { x: new_x, y: pozycja[0].y }
-            // pozycja.unshift(new_position)
-            // console.log(pozycja);
             direction = "left"
             break;
 
         case "ArrowDown":
-            // pozycja[0].y + 1 > wielkosc ? new_y = 0 : new_y = pozycja[0].y + 1
-            // new_position = { x: pozycja[0].x, y: new_y }
-            // pozycja.unshift(new_position)
-            // console.log(pozycja);
             direction = "down"
             break;
 
         case "ArrowUp":
-            // pozycja[0].y - 1 < 0 ? new_y = wielkosc : new_y = pozycja[0].y - 1
-            // new_position = { x: pozycja[0].x, y: new_y }
-            // pozycja.unshift(new_position)
-            // console.log(pozycja);
             direction = "up"
             break;
+    }
 
-    }
-    //console.log("po kliku");
-    if (pozycja.length > snake_length) {
-        pozycja.pop()
-    }
     show_snake(pozycja, direction)
 }
 
@@ -64,65 +37,82 @@ function show_snake(pozycja, direction) {
     snake_move = setInterval(() => {
         let new_position
         let new_x, new_y
-        //console.log(direction);
 
         switch (direction) {
             case "up":
-                pozycja[0].y - 1 < 0 ? new_y = wielkosc-1 : new_y = pozycja[0].y - 1
+                if (pozycja[0].y - 1 < 0) {
+                    new_y = wielkosc - 1
+                } else {
+                    new_y = pozycja[0].y - 1
+                }
+
                 new_position = { x: pozycja[0].x, y: new_y }
                 pozycja.unshift(new_position)
-                //console.log(pozycja);
                 break;
 
             case "down":
-                pozycja[0].y + 1 > wielkosc ? new_y = 0 : new_y = pozycja[0].y + 1
+                if (pozycja[0].y + 1 > wielkosc - 1) {
+                    new_y = 0
+                } else {
+                    new_y = pozycja[0].y + 1
+                }
+
                 new_position = { x: pozycja[0].x, y: new_y }
                 pozycja.unshift(new_position)
-                //console.log(pozycja);
                 break;
 
             case "left":
-                pozycja[0].x - 1 < 0 ? new_x = wielkosc-1 : new_x = pozycja[0].x - 1
+                if (pozycja[0].x - 1 < 0) {
+                    new_x = wielkosc - 1
+                } else {
+                    new_x = pozycja[0].x - 1
+                }
+
                 new_position = { x: new_x, y: pozycja[0].y }
                 pozycja.unshift(new_position)
-                //console.log(pozycja);
                 break;
 
             case "right":
-                pozycja[0].x + 1 > wielkosc ? new_x = 0 : new_x = pozycja[0].x + 1
+                if (pozycja[0].x + 1 > wielkosc - 1) {
+                    new_x = 0
+                } else {
+                    new_x = pozycja[0].x + 1
+                }
+
                 new_position = { x: new_x, y: pozycja[0].y }
                 pozycja.unshift(new_position)
-                //console.log(pozycja);
                 break;
         }
+
         let last_snake_part
         if (pozycja.length > snake_length) {
             last_snake_part = pozycja.pop()
         }
+        //let one_before_last = pozycja[pozycja.length - 2]
+
         let nazwa1 = "pole_x" + new_position.x + "_y" + new_position.y
-        console.log(nazwa1);
         newSnakeHead(nazwa1)
 
-        //console.log("new_position:\t" , new_position);
-        //console.log("last_snake_part:\t" , last_snake_part);
+        let tail_position = pozycja[pozycja.length - 1]
+        let nazwa2 = "pole_x" + tail_position.x + "_y" + tail_position.y
+        makeSanaketail(nazwa2)
 
-        // let nazwa2 = "pole_x" + last_snake_part.x + "_y" + last_snake_part.y
-        // clearTileFromSnake(nazwa2)
-    }, 1000)
+        let second_snake = pozycja[1]
+        let nazwa3 = "pole_x" + second_snake.x + "_y" + second_snake.y
+        makeSnakeBody(nazwa3)
 
-    // for (let i = 0; i < pozycja.length; i++) {
-    //     console.log("asdasdasd");
-    //     let nazwa = "pole_x" + pozycja[i].x + "_y" + pozycja[i].y
-    //     let element = document.getElementById(nazwa)
-    //     element.classList.add("snake_straight")
-    // }
+        let nazwa4 = "pole_x" + last_snake_part.x + "_y" + last_snake_part.y
+        clearTileFromSnake(nazwa4)
+
+        if (appleOnBoard == false) {
+            generateApple()
+        }
+    }, speed)
 }
 
-function createApple(pozycja) {
-    let random_x = Math.round(Math.random() * wielkosc-1)
-    let random_y = Math.round(Math.random() * wielkosc-1)
-    let nazwa = "pole_x" + random_x + "_y" + random_y
-    document.getElementById(nazwa).style.backgroundImage = "url('./krzak.png')"
+function createStartPosition(pozycja) {
+    let random_x = Math.round(Math.random() * wielkosc - 1)
+    let random_y = Math.round(Math.random() * wielkosc - 1)
 
     pozycja.push({ x: random_x, y: random_y })
 }
@@ -166,6 +156,66 @@ function clearTileFromSnake(nazwa) {
 }
 
 function newSnakeHead(nazwa) {
+    clearTileFromSnake(nazwa)
     let element = document.getElementById(nazwa)
     element.classList.add("snake_head")
+}
+
+function makeSnakeBody(nazwa) {
+    clearTileFromSnake(nazwa)
+    let element = document.getElementById(nazwa)
+    element.classList.add("snake_straight")
+}
+
+function makeSanaketail(nazwa) {
+    clearTileFromSnake(nazwa)
+    let element = document.getElementById(nazwa)
+    element.classList.add("snake_tail")
+}
+
+function generateApple(appleOnBoard) {
+    let random_x = Math.round(Math.random() * wielkosc - 1)
+    let random_y = Math.round(Math.random() * wielkosc - 1)
+    console.log(random_x, random_y);
+
+    let nazwa = "pole_x" + random_x + "_y" + random_y
+    let element = document.getElementById(nazwa)
+
+    element.classList.add("japko")
+
+    appleOnBoard = true
+    // if (appleOnBoard == false) {
+    //     let appleX = false, appleY = false
+    //     let random_x, random_y
+
+    //     while (appleX == false) {
+    //         random_x = Math.round(Math.random() * wielkosc - 1)
+    //         for (let i = 0; i < pozycja.length; i++) {
+    //             console.log(i);
+    //             if (pozycja[i].x == random_x) {
+    //                 break;
+    //             }
+    //         }
+    //         appleX = true
+    //     }
+    //     while (appleY == false) {
+    //         random_y = Math.round(Math.random() * wielkosc - 1)
+    //         for (let i = 0; i < pozycja.length; i++) {
+    //             console.log(i);
+    //             if (pozycja[i].y == random_y) {
+    //                 break;
+    //             }
+    //         }
+
+    //         appleY = true
+    //     }
+
+    //     appleOnBoard = true
+
+    //     console.log(random_x, random_y);
+    //     let nazwa = "pole_x" + random_x + "_y" + random_y
+    //     let element = document.getElementById(nazwa)
+
+    //     element.classList.add("japko")
+    // }
 }

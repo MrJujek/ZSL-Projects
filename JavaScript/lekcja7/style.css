@@ -7,6 +7,7 @@
 #plansza {
     margin: 10px auto;
 }
+
 .pole {
     height: 30px;
     width: 30px;
@@ -27,4 +28,20 @@
 
 .snake_turn {
     background-image: url("./snake_turn.png");
+}
+
+.snake_head {
+    background-image: url("./snake_head.png");
+}
+
+.snake_tail {
+    background-image: url("./snake_tail.png");
+}
+
+.japko {
+    background-image: url("./japko.png");
+}
+
+.rotate90 {
+    transform: rotate(90deg);
 }
