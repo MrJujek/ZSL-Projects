@@ -90,23 +90,15 @@ function show_snake(pozycja, direction) {
             last_snake_part = pozycja.pop()
         }
 
-        let one_before_last = pozycja[pozycja.length - 2]
-        let nazwa4 = "pole_x" + one_before_last.x + "_y" + one_before_last.y
-        makeSnakeBody(nazwa4)
+        let snakeHeadPosition = "pole_x" + new_position.x + "_y" + new_position.y
+        newSnakeHead(snakeHeadPosition, pozycja)
 
-        let nazwa1 = "pole_x" + new_position.x + "_y" + new_position.y
-        newSnakeHead(nazwa1)
+        makeSnakeTail(pozycja)
 
-        let tail_position = pozycja[pozycja.length - 1]
-        let nazwa2 = "pole_x" + tail_position.x + "_y" + tail_position.y
-        makeSanaketail(nazwa2)
+        makeSnakeSecondPart(pozycja)
 
-        let second_snake = pozycja[1]
-        let nazwa3 = "pole_x" + second_snake.x + "_y" + second_snake.y
-        makeSnakeBody(nazwa3)
-
-        let nazwa5 = "pole_x" + last_snake_part.x + "_y" + last_snake_part.y
-        clearTileFromSnake(nazwa5)
+        let deletedSnakePart = "pole_x" + last_snake_part.x + "_y" + last_snake_part.y
+        clearTileFromSnake(deletedSnakePart)
 
         if (appleOnBoard == false) {
             generateApple()
@@ -121,9 +113,10 @@ function show_snake(pozycja, direction) {
             snake_length++;
             appleOnBoard = false
             if (speed > 300) {
-                speed -= 20
+                speed -= 40
             }
         }
+        console.log(speed);
     }, speed)
 }
 
@@ -136,6 +129,10 @@ function createStartPosition(pozycja) {
     element.classList.add("krzak")
 
     pozycja.push({ x: random_x, y: random_y })
+
+    setTimeout(() => {
+        element.classList.remove("krzak")
+    }, 5000)
 }
 
 function generateBoard() {
@@ -174,30 +171,179 @@ function clearTileFromSnake(nazwa) {
     element.classList.remove("snake_turn")
     element.classList.remove("snake_head")
     element.classList.remove("snake_tail")
+    element.classList.remove("rotate0")
+    element.classList.remove("rotate90")
+    element.classList.remove("rotate270")
+    element.classList.remove("rotate180")
 }
 
-function newSnakeHead(nazwa) {
+function newSnakeHead(nazwa, pozycja) {
     clearTileFromSnake(nazwa)
     let element = document.getElementById(nazwa)
     element.classList.add("snake_head")
+
+    if (pozycja[0].y == pozycja[1].y) {
+        if (pozycja[0].x < pozycja[1].x) {
+            obrot = 3
+        } else {
+            obrot = 2
+        }
+    } else {
+        if (pozycja[0].y < pozycja[1].y) {
+            obrot = 1
+        } else {
+            obrot = 4
+        }
+    }
+
+    switch (obrot) {
+        case 1:
+            element.classList.add("rotate0")
+            break;
+
+        case 2:
+            element.classList.add("rotate90")
+            break;
+
+        case 3:
+            element.classList.add("rotate270")
+            break;
+
+        case 4:
+            element.classList.add("rotate180")
+            break;
+    }
 }
 
-function makeSnakeBody(nazwa) {
-    clearTileFromSnake(nazwa)
-    let element = document.getElementById(nazwa)
-    element.classList.add("snake_straight")
-}
+// function makeSnakeBody(nazwa) {
+//     clearTileFromSnake(nazwa)
+//     let element = document.getElementById(nazwa)
+//     element.classList.add("snake_straight")
+// }
 
-function makeSanaketail(nazwa) {
-    clearTileFromSnake(nazwa)
-    let element = document.getElementById(nazwa)
+function makeSnakeTail(pozycja) {
+    let obrot
+    let tailPosition = "pole_x" + pozycja[pozycja.length - 1].x + "_y" + pozycja[pozycja.length - 1].y
+    clearTileFromSnake(tailPosition)
+
+    let element = document.getElementById(tailPosition)
     element.classList.add("snake_tail")
+
+    if (pozycja[pozycja.length - 2].y == pozycja[pozycja.length - 1].y) {
+        if (pozycja[pozycja.length - 2].x < pozycja[pozycja.length - 1].x) {
+            obrot = 2
+        } else {
+            obrot = 3
+        }
+    } else {
+        if (pozycja[pozycja.length - 2].y < pozycja[pozycja.length - 1].y) {
+            obrot = 4
+        } else {
+            obrot = 1
+        }
+    }
+
+    switch (obrot) {
+        case 1:
+            element.classList.add("rotate0")
+            break;
+
+        case 2:
+            element.classList.add("rotate90")
+            break;
+
+        case 3:
+            element.classList.add("rotate270")
+            break;
+
+        case 4:
+            element.classList.add("rotate180")
+            break;
+    }
+}
+
+// function makeSnakeTurn(pozycja) {
+//     let turnOrBodyPosition = "pole_x" + pozycja[1].x + "_y" + pozycja[1].y
+//     clearTileFromSnake(turnOrBodyPosition)
+
+//     let element = document.getElementById(turnOrBodyPosition)
+//     element.classList.add("snake_turn")
+
+//     let obrot
+//     if (pozycja[0].x == pozycja[2].x) {
+//         obrot
+//     } else {
+//         if (pozycja[0].x > pozycja[2].x) {
+//             if (pozycja[0].y > pozycja[2].y) {
+//                 makeSnakeTurn(turnOrBodyPosition, 1)
+//             } else {
+//                 makeSnakeTurn(turnOrBodyPosition, 3)
+//             }
+//         } else {
+//             if (pozycja[0].y < pozycja[2].y) {
+//                 makeSnakeTurn(turnOrBodyPosition, 1)
+//             } else {
+//                 makeSnakeTurn(turnOrBodyPosition, 3)
+//             }
+//         }
+//     }
+//     makeSnakeBody(turnOrBodyPosition)
+
+//     switch (obrot) {
+//         case 1:
+//             element.classList.add("rotate0")
+//             break;
+
+//         case 2:
+//             element.classList.add("rotate90")
+//             break;
+
+//         case 3:
+//             element.classList.add("rotate270")
+//             break;
+
+//         case 4:
+//             element.classList.add("rotate180")
+//             break;
+//     }
+// }
+
+function makeSnakeSecondPart(pozycja) {
+    let obrot
+    let snakeSecondPart = "pole_x" + pozycja[1].x + "_y" + pozycja[1].y
+    clearTileFromSnake(snakeSecondPart)
+    let element = document.getElementById(snakeSecondPart)
+
+    if (pozycja[0].x == pozycja[2].x) {
+        element.classList.add("snake_straight")
+        obrot = 1
+    } else if (pozycja[0].y == pozycja[2].y) {
+        element.classList.add("snake_straight")
+        obrot = 2
+    }
+
+    switch (obrot) {
+        case 1:
+            element.classList.add("rotate0")
+            break;
+
+        case 2:
+            element.classList.add("rotate90")
+            break;
+
+        case 3:
+            element.classList.add("rotate270")
+            break;
+
+        case 4:
+            element.classList.add("rotate180")
+            break;
+    }
 }
 
 function generateApple() {
     appleX = Math.round(Math.random() * wielkosc - 1)
     appleY = Math.round(Math.random() * wielkosc - 1)
-    console.log(appleX, appleY);
 
     let nazwa = "pole_x" + appleX + "_y" + appleY
     let element = document.getElementById(nazwa)

@@ -47,6 +47,18 @@
     background-size: 30px;
 }
 
+.rotate0 {
+    transform: rotate(0deg);
+}
+
 .rotate90 {
     transform: rotate(90deg);
+}
+
+.rotate270 {
+    transform: rotate(270deg);
+}
+
+.rotate180 {
+    transform: rotate(180deg);
 }
