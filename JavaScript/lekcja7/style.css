@@ -41,11 +41,13 @@
 
 .japko {
     background-image: url("./japko.png");
+    transform: rotate(0deg) !important;
 }
 
 .krzak {
     background-image: url("./krzak.png");
     background-size: 30px;
+    transform: rotate(0deg) !important;
 }
 
 .rotate0 {

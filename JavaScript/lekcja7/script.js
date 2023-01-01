@@ -4,6 +4,7 @@ let pozycja = []
 let speed = 800
 let appleOnBoard = false
 let appleX, appleY
+let makeSnakeMove = true
 
 generateBoard()
 
@@ -42,7 +43,8 @@ function show_snake(pozycja, direction) {
         switch (direction) {
             case "up":
                 if (pozycja[0].y - 1 < 0) {
-                    new_y = wielkosc - 1
+                    //new_y = wielkosc - 1
+                    handleLoss()
                 } else {
                     new_y = pozycja[0].y - 1
                 }
@@ -53,7 +55,8 @@ function show_snake(pozycja, direction) {
 
             case "down":
                 if (pozycja[0].y + 1 > wielkosc - 1) {
-                    new_y = 0
+                    //new_y = 0
+                    handleLoss()
                 } else {
                     new_y = pozycja[0].y + 1
                 }
@@ -64,7 +67,8 @@ function show_snake(pozycja, direction) {
 
             case "left":
                 if (pozycja[0].x - 1 < 0) {
-                    new_x = wielkosc - 1
+                    //new_x = wielkosc - 1
+                    handleLoss()
                 } else {
                     new_x = pozycja[0].x - 1
                 }
@@ -75,7 +79,8 @@ function show_snake(pozycja, direction) {
 
             case "right":
                 if (pozycja[0].x + 1 > wielkosc - 1) {
-                    new_x = 0
+                    //new_x = 0
+                    handleLoss()
                 } else {
                     new_x = pozycja[0].x + 1
                 }
@@ -90,37 +95,50 @@ function show_snake(pozycja, direction) {
             last_snake_part = pozycja.pop()
         }
 
-        makeSnakeTail(pozycja)
-        let snakeHeadPosition = "pole_x" + new_position.x + "_y" + new_position.y
-        newSnakeHead(snakeHeadPosition, pozycja)
 
-        makeSnakeSecondPart(pozycja)
 
-        let deletedSnakePart = "pole_x" + last_snake_part.x + "_y" + last_snake_part.y
-        clearTileFromSnake(deletedSnakePart)
-
-        if (appleOnBoard == false) {
-            generateApple()
+        for (let i = 1; i < pozycja.length; i++) {
+            if (new_position.x == pozycja[i].x && new_position.y == pozycja[i].y) {
+                handleLoss()
+            }
         }
 
-        if (pozycja[0].x == appleX && pozycja[0].y == appleY) {
-            let nazwa = "pole_x" + appleX + "_y" + appleY
-            let element = document.getElementById(nazwa)
+        if (makeSnakeMove) {
+            makeSnakeTail(pozycja)
 
-            element.classList.remove("japko")
+            let snakeHeadPosition = "pole_x" + new_position.x + "_y" + new_position.y
+            newSnakeHead(snakeHeadPosition, pozycja)
 
-            snake_length++;
-            appleOnBoard = false
-            if (speed > 300) {
-                speed -= 40
+            makeSnakeSecondPart(pozycja)
+
+            let deletedSnakePart = "pole_x" + last_snake_part.x + "_y" + last_snake_part.y
+            clearTileFromSnake(deletedSnakePart)
+
+            if (appleOnBoard == false) {
+                generateApple()
+            }
+
+            newSnakeHead(snakeHeadPosition, pozycja)
+
+            if (pozycja[0].x == appleX && pozycja[0].y == appleY) {
+                let nazwa = "pole_x" + appleX + "_y" + appleY
+                let element = document.getElementById(nazwa)
+
+                element.classList.remove("japko")
+
+                snake_length++;
+                appleOnBoard = false
+                if (speed > 300) {
+                    speed -= 40
+                }
             }
         }
     }, speed)
 }
 
 function createStartPosition(pozycja) {
-    let random_x = Math.round(Math.random() * wielkosc - 1)
-    let random_y = Math.round(Math.random() * wielkosc - 1)
+    let random_x = Math.round(Math.random() * (wielkosc - 1))
+    let random_y = Math.round(Math.random() * (wielkosc - 1))
 
     let nazwa = "pole_x" + random_x + "_y" + random_y
     let element = document.getElementById(nazwa)
@@ -165,11 +183,26 @@ function clearTileFromSnake(nazwa) {
     element.classList.remove("snake_turn")
     element.classList.remove("snake_head")
     element.classList.remove("snake_tail")
-    element.classList.remove("krzak")
     element.classList.remove("rotate0")
     element.classList.remove("rotate90")
     element.classList.remove("rotate270")
     element.classList.remove("rotate180")
+}
+
+function giveRotate(obrot) {
+    switch (obrot) {
+        case 1:
+            return "rotate0"
+
+        case 2:
+            return "rotate90"
+
+        case 3:
+            return "rotate270"
+
+        case 4:
+            return "rotate180"
+    }
 }
 
 function newSnakeHead(nazwa, pozycja) {
@@ -191,23 +224,8 @@ function newSnakeHead(nazwa, pozycja) {
         }
     }
 
-    switch (obrot) {
-        case 1:
-            element.classList.add("rotate0")
-            break;
-
-        case 2:
-            element.classList.add("rotate90")
-            break;
-
-        case 3:
-            element.classList.add("rotate270")
-            break;
-
-        case 4:
-            element.classList.add("rotate180")
-            break;
-    }
+    element.classList.add(giveRotate(obrot))
+    element.classList.remove("krzak")
 }
 
 function makeSnakeTail(pozycja) {
@@ -232,23 +250,7 @@ function makeSnakeTail(pozycja) {
         }
     }
 
-    switch (obrot) {
-        case 1:
-            element.classList.add("rotate0")
-            break;
-
-        case 2:
-            element.classList.add("rotate90")
-            break;
-
-        case 3:
-            element.classList.add("rotate270")
-            break;
-
-        case 4:
-            element.classList.add("rotate180")
-            break;
-    }
+    element.classList.add(giveRotate(obrot))
 }
 
 function makeSnakeSecondPart(pozycja) {
@@ -297,28 +299,21 @@ function makeSnakeSecondPart(pozycja) {
         }
     }
 
-    switch (obrot) {
-        case 1:
-            element.classList.add("rotate0")
-            break;
-
-        case 2:
-            element.classList.add("rotate90")
-            break;
-
-        case 3:
-            element.classList.add("rotate270")
-            break;
-
-        case 4:
-            element.classList.add("rotate180")
-            break;
-    }
+    element.classList.add(giveRotate(obrot))
+    element.classList.remove("krzak")
 }
 
 function generateApple() {
-    appleX = Math.round(Math.random() * wielkosc - 1)
-    appleY = Math.round(Math.random() * wielkosc - 1)
+    appleX = Math.round(Math.random() * (wielkosc - 1))
+    appleY = Math.round(Math.random() * (wielkosc - 1))
+
+
+    for (let i = 0; i < pozycja.length; i++) {
+        console.log(i);
+        if (appleX == pozycja[i].x && appleY == pozycja[i].y) {
+            generateApple()
+        }
+    }
 
     let nazwa = "pole_x" + appleX + "_y" + appleY
     let element = document.getElementById(nazwa)
@@ -326,4 +321,10 @@ function generateApple() {
     element.classList.add("japko")
 
     appleOnBoard = true
+}
+
+function handleLoss() {
+    clearInterval(snake_move)
+    makeSnakeMove = false
+    alert("Przegrałeś")
 }
