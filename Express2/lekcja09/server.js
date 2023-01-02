@@ -87,7 +87,7 @@ app.get('/download/', function (req, res) {
 
 app.get('/info/', function (req, res) {
     let id = req.query.id
-
+    let bool = true
     for (let i = 0; i < context.files.length; i++) {
         if (id == context.files[i].id) {
             let size = context.files[i].size
@@ -98,7 +98,11 @@ app.get('/info/', function (req, res) {
 
             let obj = { id: id, name: name, type: type, size: size, path: path, savedate: savedate }
             res.render("info.hbs", obj)
+            bool = false
         }
+    }
+    if (bool) {
+        res.render("info.hbs")
     }
 });
 
