@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -68,6 +70,7 @@
 }
 
 .textLoss {
+    font-family: "Noto Sans";
     cursor: pointer;
     position: absolute;
     margin: auto;
@@ -78,10 +81,47 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    width: 200px;
+    width: 250px;
     flex-direction: column;
     color: aliceblue;
     text-shadow: black 1px 1px;
     top: 100px;
-    left: calc((100vw - 200px)/2);
+    left: calc((100vw - 250px)/2);
+}
+
+.inputy form input {
+    font-family: "Noto Sans";
+}
+
+.inputy form label {
+    font-family: "Noto Sans";
+    font-weight: bold;
+}
+
+#wielkosc {
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(194, 126, 0);
+}
+
+#generuj {
+    cursor: pointer;
+    background: orange;
+    border: 1px solid rgb(194, 126, 0);
+    border-radius: 10px;
+    color: aliceblue;
+    text-shadow: black 1px 1px;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 200px;
 }

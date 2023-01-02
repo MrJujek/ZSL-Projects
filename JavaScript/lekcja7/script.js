@@ -10,7 +10,6 @@ let new_position
 let new_x, new_y
 let direction, oldDirection, oldMove
 let snake_move
-let lost = false
 
 generateBoard()
 createStartPosition();
@@ -58,9 +57,10 @@ function show_snake(pozycja) {
         }
 
         for (let i = 1; i < pozycja.length; i++) {
+            console.log(i);
             if (new_position.x == pozycja[i].x && new_position.y == pozycja[i].y) {
-                console.log("NONON");
                 handleLoss()
+                break
             }
         }
 
@@ -94,7 +94,7 @@ function show_snake(pozycja) {
                 }
             }
         }
-        console.log(direction, oldDirection);
+
         oldDirection = direction
     }, speed)
 }
@@ -103,7 +103,7 @@ function arrayChanges(direction) {
     switch (direction) {
         case "up":
             if (pozycja[0].y - 1 < 0) {
-                //new_y = wielkosc - 1
+                new_y = wielkosc - 1
                 handleLoss()
             } else {
                 new_y = pozycja[0].y - 1
@@ -115,7 +115,7 @@ function arrayChanges(direction) {
 
         case "down":
             if (pozycja[0].y + 1 > wielkosc - 1) {
-                //new_y = 0
+                new_y = 0
                 handleLoss()
             } else {
                 new_y = pozycja[0].y + 1
@@ -127,7 +127,7 @@ function arrayChanges(direction) {
 
         case "left":
             if (pozycja[0].x - 1 < 0) {
-                //new_x = wielkosc - 1
+                new_x = wielkosc - 1
                 handleLoss()
             } else {
                 new_x = pozycja[0].x - 1
@@ -139,7 +139,7 @@ function arrayChanges(direction) {
 
         case "right":
             if (pozycja[0].x + 1 > wielkosc - 1) {
-                //new_x = 0
+                new_x = 0
                 handleLoss()
             } else {
                 new_x = pozycja[0].x + 1
@@ -341,46 +341,40 @@ function generateApple() {
 }
 
 function handleLoss() {
-    lost = true
-    if (lost) {
-        clearInterval(snake_move)
+    clearInterval(snake_move)
+    console.log("funkcja");
 
-        let textLoss = document.createElement("div")
-        textLoss.classList.add('textLoss')
-        textLoss.innerHTML = "<h1>Przegrałeś</h1><span>Kliknij zacząć od nowa</span>"
+    let textLoss = document.createElement("div")
+    console.log(textLoss);
+    textLoss.classList.add('textLoss')
+    textLoss.innerHTML = "<h1>Przegrałeś</h1><span>Kliknij aby zacząć od nowa</span>"
 
-        textLoss.addEventListener("click", () => {
-            startAgain()
-        })
+    textLoss.addEventListener("click", () => {
+        startAgain()
+    })
 
-        document.body.append(textLoss)
+    document.body.append(textLoss)
 
-        makeSnakeMove = false
-    }
-
+    makeSnakeMove = false
 }
 
 function startAgain() {
-    return () => {
-        let toRemove = document.getElementsByClassName("textLoss")
-        for (let i = 0; i < toRemove.length; i++) {
-            console.log(i, toRemove);
-            toRemove[i].remove()
-        }
-
-        toRemove = document.getElementById("plansza")
-        toRemove.remove()
-
-        pozycja = []
-        appleOnBoard = false
-        makeSnakeMove = true
-        start = true
-        oldDirection = null
-        lost = false
-
-        generateBoard()
-        createStartPosition()
-
+    let toRemove = document.getElementsByClassName("textLoss")
+    for (let i = 0; i < toRemove.length; i++) {
+        console.log(i, toRemove);
+        toRemove[i].remove()
     }
 
+    toRemove = document.getElementById("plansza")
+    toRemove.remove()
+
+    snake_length = 3
+    pozycja = []
+    appleOnBoard = false
+    makeSnakeMove = true
+    start = true
+    oldDirection = null
+
+    generateBoard()
+    createStartPosition()
 }
