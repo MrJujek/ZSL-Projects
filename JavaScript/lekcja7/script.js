@@ -1,101 +1,60 @@
-let wielkosc = 11
+let wielkosc = 10
 let snake_length = 3
 let pozycja = []
-let speed = 800
+let speed = 400
 let appleOnBoard = false
 let appleX, appleY
 let makeSnakeMove = true
+let start = true
+let new_position
+let new_x, new_y
+let direction, oldDirection, oldMove
+let snake_move
 
 generateBoard()
-
-createStartPosition(pozycja);
+createStartPosition();
 
 document.onkeydown = (e) => {
-    let direction
     switch (e.key) {
         case "ArrowRight":
-            direction = "right"
+            if (oldDirection != "left") {
+                direction = "right"
+            }
             break;
 
         case "ArrowLeft":
-            direction = "left"
+            if (oldDirection != "right") {
+                direction = "left"
+            }
             break;
 
         case "ArrowDown":
-            direction = "down"
+            if (oldDirection != "up") {
+                direction = "down"
+            }
             break;
 
         case "ArrowUp":
-            direction = "up"
+            if (oldDirection != "down") {
+                direction = "up"
+            }
             break;
     }
 
-    show_snake(pozycja, direction)
+    if (start) {
+        show_snake(pozycja, direction)
+        start = false
+    }
 }
 
-var snake_move
-function show_snake(pozycja, direction) {
-    clearInterval(snake_move)
+function show_snake(pozycja) {
     snake_move = setInterval(() => {
-        let new_position
-        let new_x, new_y
-
-        switch (direction) {
-            case "up":
-                if (pozycja[0].y - 1 < 0) {
-                    //new_y = wielkosc - 1
-                    handleLoss()
-                } else {
-                    new_y = pozycja[0].y - 1
-                }
-
-                new_position = { x: pozycja[0].x, y: new_y }
-                pozycja.unshift(new_position)
-                break;
-
-            case "down":
-                if (pozycja[0].y + 1 > wielkosc - 1) {
-                    //new_y = 0
-                    handleLoss()
-                } else {
-                    new_y = pozycja[0].y + 1
-                }
-
-                new_position = { x: pozycja[0].x, y: new_y }
-                pozycja.unshift(new_position)
-                break;
-
-            case "left":
-                if (pozycja[0].x - 1 < 0) {
-                    //new_x = wielkosc - 1
-                    handleLoss()
-                } else {
-                    new_x = pozycja[0].x - 1
-                }
-
-                new_position = { x: new_x, y: pozycja[0].y }
-                pozycja.unshift(new_position)
-                break;
-
-            case "right":
-                if (pozycja[0].x + 1 > wielkosc - 1) {
-                    //new_x = 0
-                    handleLoss()
-                } else {
-                    new_x = pozycja[0].x + 1
-                }
-
-                new_position = { x: new_x, y: pozycja[0].y }
-                pozycja.unshift(new_position)
-                break;
-        }
+        arrayChanges(direction)
 
         let last_snake_part
         if (pozycja.length > snake_length) {
             last_snake_part = pozycja.pop()
         }
-
-
 
         for (let i = 1; i < pozycja.length; i++) {
             if (new_position.x == pozycja[i].x && new_position.y == pozycja[i].y) {
@@ -128,21 +87,79 @@ function show_snake(pozycja, direction) {
 
                 snake_length++;
                 appleOnBoard = false
-                if (speed > 300) {
+                if (speed > 200) {
                     speed -= 40
                 }
             }
         }
+        console.log(direction, oldDirection);
+        oldDirection = direction
     }, speed)
 }
 
-function createStartPosition(pozycja) {
+function arrayChanges(direction) {
+    switch (direction) {
+        case "up":
+            if (pozycja[0].y - 1 < 0) {
+                //new_y = wielkosc - 1
+                handleLoss()
+            } else {
+                new_y = pozycja[0].y - 1
+            }
+
+            new_position = { x: pozycja[0].x, y: new_y }
+            pozycja.unshift(new_position)
+            break;
+
+        case "down":
+            if (pozycja[0].y + 1 > wielkosc - 1) {
+                //new_y = 0
+                handleLoss()
+            } else {
+                new_y = pozycja[0].y + 1
+            }
+
+            new_position = { x: pozycja[0].x, y: new_y }
+            pozycja.unshift(new_position)
+            break;
+
+        case "left":
+            if (pozycja[0].x - 1 < 0) {
+                //new_x = wielkosc - 1
+                handleLoss()
+            } else {
+                new_x = pozycja[0].x - 1
+            }
+
+            new_position = { x: new_x, y: pozycja[0].y }
+            pozycja.unshift(new_position)
+            break;
+
+        case "right":
+            if (pozycja[0].x + 1 > wielkosc - 1) {
+                //new_x = 0
+                handleLoss()
+            } else {
+                new_x = pozycja[0].x + 1
+            }
+
+            new_position = { x: new_x, y: pozycja[0].y }
+            pozycja.unshift(new_position)
+            break;
+    }
+}
+
+function createStartPosition() {
     let random_x = Math.round(Math.random() * (wielkosc - 1))
     let random_y = Math.round(Math.random() * (wielkosc - 1))
 
     let nazwa = "pole_x" + random_x + "_y" + random_y
     let element = document.getElementById(nazwa)
     element.classList.add("krzak")
+
+    setTimeout(() => {
+        element.classList.remove("krzak")
+    }, 5000)
 
     pozycja.push({ x: random_x, y: random_y })
 }
@@ -307,9 +324,7 @@ function generateApple() {
     appleX = Math.round(Math.random() * (wielkosc - 1))
     appleY = Math.round(Math.random() * (wielkosc - 1))
 
-
     for (let i = 0; i < pozycja.length; i++) {
-        console.log(i);
         if (appleX == pozycja[i].x && appleY == pozycja[i].y) {
             generateApple()
         }
@@ -325,6 +340,19 @@ function generateApple() {
 
 function handleLoss() {
     clearInterval(snake_move)
+
+    let textLoss = document.createElement("div")
+    textLoss.classList.add('textLoss')
+    textLoss.innerHTML = "<h1>Przegrałeś</h1><span>Kliknij zacząć od nowa</span>"
+    textLoss.onclick = startAgain()
+    document.body.append(textLoss)
+
     makeSnakeMove = false
-    alert("Przegrałeś")
+}
+
+function startAgain() {
+    return () => {
+        console.log("start");
+    }
+
 }
