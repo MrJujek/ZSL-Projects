@@ -10,6 +10,7 @@ let new_position
 let new_x, new_y
 let direction, oldDirection, oldMove
 let snake_move
+let lost = false
 
 generateBoard()
 createStartPosition();
@@ -58,6 +59,7 @@ function show_snake(pozycja) {
 
         for (let i = 1; i < pozycja.length; i++) {
             if (new_position.x == pozycja[i].x && new_position.y == pozycja[i].y) {
+                console.log("NONON");
                 handleLoss()
             }
         }
@@ -339,20 +341,46 @@ function generateApple() {
 }
 
 function handleLoss() {
-    clearInterval(snake_move)
+    lost = true
+    if (lost) {
+        clearInterval(snake_move)
 
-    let textLoss = document.createElement("div")
-    textLoss.classList.add('textLoss')
-    textLoss.innerHTML = "<h1>Przegrałeś</h1><span>Kliknij zacząć od nowa</span>"
-    textLoss.onclick = startAgain()
-    document.body.append(textLoss)
+        let textLoss = document.createElement("div")
+        textLoss.classList.add('textLoss')
+        textLoss.innerHTML = "<h1>Przegrałeś</h1><span>Kliknij zacząć od nowa</span>"
 
-    makeSnakeMove = false
+        textLoss.addEventListener("click", () => {
+            startAgain()
+        })
+
+        document.body.append(textLoss)
+
+        makeSnakeMove = false
+    }
+
 }
 
 function startAgain() {
     return () => {
-        console.log("start");
+        let toRemove = document.getElementsByClassName("textLoss")
+        for (let i = 0; i < toRemove.length; i++) {
+            console.log(i, toRemove);
+            toRemove[i].remove()
+        }
+
+        toRemove = document.getElementById("plansza")
+        toRemove.remove()
+
+        pozycja = []
+        appleOnBoard = false
+        makeSnakeMove = true
+        start = true
+        oldDirection = null
+        lost = false
+
+        generateBoard()
+        createStartPosition()
+
     }
 
 }
