@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.filetype {
+    height: 50px;
+    width: 50px;
+}
+
+.topPanel {
+    width: 100vw;
+    height: 80px;
+    background: rgb(66, 34, 195);
+    background: linear-gradient(90deg, rgba(66, 34, 195, 1) 0%, rgba(128, 45, 253, 1) 100%);
+    display: flex;
+    align-items: center;
+}
+
+.topPanel input[type="submit"] {
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: 40px;
+    font-size: 32px;
+    text-decoration: none;
+    font-family: "Bungee", Arial;
+    color: aliceblue;
+    text-shadow: 2px 2px 2px #000000;
+    padding: 10px;
+}
+
+.topPanel input[type="submit"]:hover {
+    cursor: pointer;
+    color: orange;
+}
+
+.bottomPanel {
+    min-height: calc(100vh - 80px);
+    background-color: rgb(170, 170, 170);
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftPanel {
+    height: auto;
+    /* width: 200px; */
+    background: #2271c3;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: aliceblue;
+    font-size: 20px;
+    font-family: "Bungee", Arial;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+.uploadFiles,
+.createNewFile,
+.buttonNewFolder {
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    border: 1px solid darkorange;
+    background-color: orange;
+    border-radius: 5px;
+    color: blue;
+    font-family: "Bungee", Arial;
+    text-shadow: 1px 1px 1px #ffffff;
+    padding: 0px 5px;
+    margin: 5px;
+}
+
+.uploadFiles:hover,
+.createNewFile:hover,
+.buttonNewFolder:hover {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px blue;
+    cursor: pointer;
+}
+
+.delete {
+    text-align: center;
+    margin: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    border: 1px solid darkorange;
+    background-color: orange;
+    border-radius: 5px;
+    color: blue;
+    font-family: "Bungee", Arial;
+    text-shadow: 1px 1px 1px #ffffff;
+}
+
+.delete:hover {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px blue;
+}
+
+.leftPanel span {
+    color: orange;
+    font-size: 18px;
+    font-family: "Bungee", Arial;
+    text-shadow: 2px 2px 2px #000000;
+    background-color: #acacac;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.leftPanel input[type="file"],
+.leftPanel label {
+    height: 200px;
+    margin: 10px;
+    width: calc(100vw - 220px);
+    border: 3px dashed rgb(105, 105, 105);
+    background-color: #999999;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftPanel label img {
+    height: 80px;
+    width: 80px;
+}
+
+.leftPanel input[type="file"],
+.leftPanel label:hover {
+    cursor: pointer;
+}
+
+.leftPanel input[type="file"] {
+    display: none;
+}
+
+/* .leftPanel form label {
+    display: none;
+} */
+
+
+.leftPanel form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftPanel input[type="submit"] {
+    font-size: 20px;
+    text-decoration: none;
+    border: 1px solid darkorange;
+    background-color: orange;
+    border-radius: 5px;
+    color: blue;
+    font-family: "Bungee", Arial;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 1px 1px 1px #ffffff;
+}
+
+.leftPanel input[type="submit"]:hover {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px blue;
+    cursor: pointer;
+}

@@ -1,0 +1,21 @@
+<div class="leftPanel">
+    Filemanager
+    <div class="buttonNewFolder">
+        Create new folder
+    </div>
+    <div class="createNewFile">
+        Create new file
+    </div>
+    {{!-- <div class="uploadFiles"> --}}
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="filestoupload"><img src="/icons/direct-download.png">Wybierz pliki</label>
+            <input type="file" multiple required accept="*" name="filestoupload" id="filestoupload">
+            <input type="submit">
+        </form>
+        {{!--
+    </div> --}}
+</div>
+<div class="rightPanel">
+    <div class="directories"></div>
+    <div class="files"></div>
+</div>
