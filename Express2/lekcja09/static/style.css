@@ -170,13 +170,13 @@ table {
     cursor: pointer;
 }
 
-/* .hbs input[type="file"] {
-    display: none;
-} */
-
-.hbs form label {
+.hbs input[type="file"] {
     display: none;
 }
+
+/* .hbs form label {
+    display: none;
+} */
 
 
 .hbs form {
