@@ -83,12 +83,34 @@
                             case 65:
                                 console.log(intersects[0].object);
 
-                                intersects[0].object.position.set(intersects[0].object.position.x + 50, intersects[0].object.position.y, intersects[0].object.position.z)
+                                intersects[0].object.position.set(intersects[0].object.position.x - 50, intersects[0].object.position.y, intersects[0].object.position.z)
                                 break;
                             case 68:
                                 console.log(intersects[0].object);
 
-                                intersects[0].object.position.set(intersects[0].object.position.x - 50, intersects[0].object.position.y, intersects[0].object.position.z)
+                                intersects[0].object.position.set(intersects[0].object.position.x + 50, intersects[0].object.position.y, intersects[0].object.position.z)
+                                break;
+
+                            case 81:
+                                console.log(intersects[0].object);
+
+                                intersects[0].object.position.set(intersects[0].object.position.x, intersects[0].object.position.y + 50, intersects[0].object.position.z)
+                                break;
+                            case 69:
+                                console.log(intersects[0].object);
+
+                                intersects[0].object.position.set(intersects[0].object.position.x, intersects[0].object.position.y - 50, intersects[0].object.position.z)
+                                break;
+
+                            case 87:
+                                console.log(intersects[0].object);
+
+                                intersects[0].object.position.set(intersects[0].object.position.x, intersects[0].object.position.y, intersects[0].object.position.z - 50)
+                                break;
+                            case 83:
+                                console.log(intersects[0].object);
+
+                                intersects[0].object.position.set(intersects[0].object.position.x, intersects[0].object.position.y, intersects[0].object.position.z + 50)
                                 break;
                         }
                     });
