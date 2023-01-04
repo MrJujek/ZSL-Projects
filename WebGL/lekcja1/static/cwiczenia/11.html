@@ -43,8 +43,8 @@
 
         camera.position.set(100, 100, 100)
         camera.lookAt(scene.position);
+
         let cubeArr = []
-        //////////////////////
 
         for (let i = -20; i < 30; i = i + 10) {
             for (let j = -20; j < 30; j = j + 10) {
@@ -58,6 +58,11 @@
                     scene.add(cube);
                     cube.position.set(i, wys, j)
                     cubeArr.push(cube)
+
+                    document.getElementById("skala").addEventListener("input", () => {
+                        let skala = parseFloat(document.getElementById("skala").value)
+                        cube.scale.set(skala, skala, skala)
+                    })
 
                 }
 
@@ -89,12 +94,13 @@
             time = timeNow
         }*/
 
+        /*
         document.getElementById("skala").addEventListener("input", () => {
             let skala = parseFloat(document.getElementById("skala").value)
             for (let i = 0; i < cubeArr.length; i++) {
                 cubeArr[i].scale.set(skala, skala, skala)
             }
-        })
+        })*/
 
 
 
