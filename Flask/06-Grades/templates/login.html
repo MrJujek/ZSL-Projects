@@ -1,22 +1,26 @@
 {% extends "bootstrap/base.html" %}
-{%import "bootstrap/wtf.html" as wtf%}
+{% import "bootstrap/wtf.html" as wtf %}
 {% block scripts %}
     {{ super() }}
     {{ moment.include_moment() }}
-    {{moment.locale('pl')}}
+    {{ moment.locale('pl') }}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 {% endblock %}
 {% block title %}{{ title }}{% endblock %}
-{% block navbar%}
-    {%include "includes/navbar.html"%}
+{% block navbar %}
+    {% if userLogin %}
+        {% include "includes/navbarlogin.html" %}
+    {% else %}
+        {% include "includes/navbar.html" %}
+    {% endif %}
 {% endblock %}
 {% block content %}
 <div class="container mt-2">
-    {%if userlogin%}
-        <h3>jestes zalogowany jako {{userLogin}}</h3>
+    {% if userLogin %}
+        <h3>Jesteś zalogowany jako {{ userLogin }}</h3>
     {% else %}
         <div class="col-lg-4 offset-lg-4">
-            <form method="post" action="/logIn">
+            <form method="POST" action="/logIn">
                 {{ login.hidden_tag() }}
                 {{ login.userLogin.label(class_="form-label") }}
                 {{ login.userLogin(class_="form-control") }}
@@ -25,7 +29,7 @@
                 {{ login.submit(class_="btn btn-dark mt-3 float-end") }}
             </form>
         </div>
-    {%endif%}
+    {% endif %}
 </div>
 {% include "includes/footer.html" %}
 {% endblock %}

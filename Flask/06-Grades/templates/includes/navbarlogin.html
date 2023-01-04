@@ -1,8 +1,8 @@
 <nav class="navbar navbar-dark bg-dark p-3">
-    <div class="d-flex col-12 col-md-3 col-lg-2 flex-wrap mb-lg-0 flex-md-wrap">
+    <div class="d-flex col-12 col-md-3 col-lg-2 flex-wrap mb-lg-0 flex-md-nowrap justify-content-between">
         <a href="/" class="navbar-brand">Home</a>
     </div>
-    <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end">
+    <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
 <!--        <ul class="navbar-nav">-->
 <!--            <li class="nav-item">-->
 <!--                <a href="/logOut" class="nav-link">Wyloguj</a>-->
@@ -10,27 +10,33 @@
 <!--        </ul>-->
         <div class="dropdown me-5">
             <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                Witaj, {{userLogin}}
+                Witaj, {{ userLogin }}
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownmenuButton">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
                     <a href="/dashboard" class="dropdown-item">
                         <i class="bi bi-speedometer2"></i> Dashboard
                     </a>
                 </li>
                 <li>
-                    <a href="" class="dropdown-item">Przedmioty</a>
+                    <a href="" class="dropdown-item">
+                        <i class="bi bi-list"></i> Przedmioty
+                    </a>
                 </li>
                 <li>
-                    <a href="" class="dropdown-item">Oceny</a>
+                    <a href="" class="dropdown-item">
+                         <i class="bi bi-table"></i> Oceny
+                    </a>
                 </li>
                 <li>
-                    <a href="" class="dropdown-item">Średnia</a>
+                    <a href="" class="dropdown-item">
+                        <i class="bi bi-arrow-counterclockwise"></i> Średnia
+                    </a>
                 </li>
                 <li class="dropdown-divider"></li>
                 <li>
                     <a href="/logOut" class="dropdown-item">
-                        <i class="bi bi-door-open"></i> Wyloguj
+                        <i class="bi bi-box-arrow-in-right"></i> Wyloguj
                     </a>
                 </li>
             </ul>
