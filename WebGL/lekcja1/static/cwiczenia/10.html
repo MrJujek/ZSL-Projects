@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(
+            45,
+            4 / 3,
+            0.1,
+            10000
+        );
+
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor(0xffff00);
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        const axes = new THREE.AxesHelper(1000)
+        scene.add(axes)
+
+        document.getElementById("root").appendChild(renderer.domElement);
+
+        camera.position.set(100, 0100, 100)
+        camera.lookAt(scene.position);
+
+        for (let i = -20; i <= 20; i = i + 10) {
+            for (let j = -20; j <= 20; j = j + 10) {
+                const geometry = new THREE.BoxGeometry(9, 9, 9);
+                const material = new THREE.MeshNormalMaterial({
+                    side: THREE.DoubleSide,
+                });
+                const cube = new THREE.Mesh(geometry, material);
+                if (i == -20) {
+                    scene.add(cube);
+                    cube.position.set(i, j, j)
+                } else if (i == 20) {
+                    scene.add(cube);
+                    cube.position.set(i, -j, j)
+                } else {
+                    if (j == -20) {
+                        scene.add(cube);
+                        cube.position.set(i, i, j)
+                    } else if (j == 20) {
+                        scene.add(cube);
+                        cube.position.set(i, -i, j)
+                    }
+                }
+            }
+        }
+
+        function render() {
+            requestAnimationFrame(render);
+
+
+
+            console.log("render leci")
+
+
+            renderer.render(scene, camera);
+        }
+
+
+        render();
+
+        window.addEventListener('resize', onWindowResize, false);
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+        }
+    </script>
+</body>
+
+
+</html>

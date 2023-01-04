@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+
+</head>
+
+<body>
+    <div id="boxy" style="position: absolute;">
+        <input type="range" name="skala" id="skala" min="0.1" max="1" step="0.01">
+    </div>
+    <div id="root"></div>
+    <script>
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(
+            45,
+            4 / 3,
+            0.1,
+            10000
+        );
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor(0xffff00);
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        const axes = new THREE.AxesHelper(1000)
+        scene.add(axes)
+
+        document.getElementById("root").appendChild(renderer.domElement);
+
+        camera.position.set(100, 100, 100)
+        camera.lookAt(scene.position);
+        let cubeArr = []
+        //////////////////////
+
+        for (let i = -20; i < 30; i = i + 10) {
+            for (let j = -20; j < 30; j = j + 10) {
+                for (let wys = -20; wys < 30; wys += 10) {
+                    const geometry = new THREE.BoxGeometry(9, 9, 9);
+                    const material = new THREE.MeshNormalMaterial({
+                        side: THREE.DoubleSide,
+                    });
+
+                    const cube = new THREE.Mesh(geometry, material);
+                    scene.add(cube);
+                    cube.position.set(i, wys, j)
+                    cubeArr.push(cube)
+
+                }
+
+            }
+        }
+        /*
+        let rising = true
+        let scale = 0
+        let time = performance.now()
+        animate()
+        function animate() {
+            requestAnimationFrame(animate);
+            if (scale > 1) {
+                rising = false
+            }
+            if (scale < 0) {
+                rising = true
+            }
+            if (rising) {
+                scale += 0.01
+            } else {
+                scale -= 0.01
+            }
+            for (let i = 0; i < cubeArr.length; i++) {
+                cubeArr[i].scale.set(scale, scale, scale)
+            }
+
+            let timeNow = performance.now()
+            time = timeNow
+        }*/
+
+        document.getElementById("skala").addEventListener("input", () => {
+            let skala = parseFloat(document.getElementById("skala").value)
+            for (let i = 0; i < cubeArr.length; i++) {
+                cubeArr[i].scale.set(skala, skala, skala)
+            }
+        })
+
+
+
+        function render() {
+            requestAnimationFrame(render);
+
+
+
+            console.log("render leci")
+
+
+            renderer.render(scene, camera);
+        }
+
+
+        render();
+
+        window.addEventListener('resize', onWindowResize, false);
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+        }
+    </script>
+</body>
+
+
+</html>

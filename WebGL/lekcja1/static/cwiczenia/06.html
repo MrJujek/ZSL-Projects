@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+
+</head>
+
+<body>
+    <div id="boxy" style="position: absolute;">
+        <input type="range" name="x" id="x" min="1" max="10" step="0.5">
+        <input type="range" name="y" id="y" min="1" max="10" step="0.5">
+        <input type="range" name="z" id="z" min="1" max="10" step="0.5">
+        <input type="button" value="skaluj" id="dodaj">
+    </div>
+
+    <div id="root"></div>
+    <script>
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(
+            45,
+            4 / 3,
+            0.1,
+            10000
+        );
+
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor(0xffff00);
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        const axes = new THREE.AxesHelper(1000)
+        scene.add(axes)
+
+        document.getElementById("root").appendChild(renderer.domElement);
+
+        camera.position.set(100, 200, 200)
+        camera.lookAt(scene.position);
+        //////////////////////
+        const geometry = new THREE.BoxGeometry(10, 10, 10);
+        const material = new THREE.MeshNormalMaterial({
+            side: THREE.DoubleSide,
+        });
+
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+        ///////////////////////
+        document.getElementById("dodaj").addEventListener("click", () => {
+            console.log("KLIK");
+            let x = parseInt(document.getElementById("x").value)
+            let y = parseInt(document.getElementById("y").value)
+            let z = parseInt(document.getElementById("z").value)
+
+            cube.scale.set(x, y, z)
+        })
+
+        function render() {
+            requestAnimationFrame(render);
+
+
+
+            console.log("render leci")
+
+
+            renderer.render(scene, camera);
+        }
+
+
+        render();
+    </script>
+</body>
+
+
+</html>
