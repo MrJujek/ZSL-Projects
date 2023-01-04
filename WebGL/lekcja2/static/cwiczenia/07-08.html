@@ -25,9 +25,6 @@
     </div>
     <div id="root"></div>
     <script>
-        document.addEventListener("keydown", (e) => {
-            console.log(e.keyCode);
-        });
         window.addEventListener("load", function () {
             var kreci_sie = false
             document.getElementById("krec_sie").addEventListener("click", () => {
@@ -65,7 +62,9 @@
             const raycaster = new THREE.Raycaster();
             const mouseVector = new THREE.Vector2();
 
-            window.addEventListener("mousedown", (e) => {
+            let obiekt
+
+            window.addEventListener("click", (e) => {
                 mouseVector.x = (event.clientX / window.innerWidth) * 2 - 1;
                 mouseVector.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -73,51 +72,53 @@
 
                 const intersects = raycaster.intersectObjects(scene.children);
                 console.log(intersects.length)
+                console.log(intersects);
 
                 if (intersects.length > 0) {
-
-                    document.addEventListener("keydown", (e) => {
-                        console.log(e.keyCode);
-
-                        switch (e.keyCode) {
-                            case 65:
-                                console.log(intersects[0].object);
-
-                                intersects[0].object.position.set(intersects[0].object.position.x - 50, intersects[0].object.position.y, intersects[0].object.position.z)
-                                break;
-                            case 68:
-                                console.log(intersects[0].object);
-
-                                intersects[0].object.position.set(intersects[0].object.position.x + 50, intersects[0].object.position.y, intersects[0].object.position.z)
-                                break;
-
-                            case 81:
-                                console.log(intersects[0].object);
-
-                                intersects[0].object.position.set(intersects[0].object.position.x, intersects[0].object.position.y + 50, intersects[0].object.position.z)
-                                break;
-                            case 69:
-                                console.log(intersects[0].object);
-
-                                intersects[0].object.position.set(intersects[0].object.position.x, intersects[0].object.position.y - 50, intersects[0].object.position.z)
-                                break;
-
-                            case 87:
-                                console.log(intersects[0].object);
-
-                                intersects[0].object.position.set(intersects[0].object.position.x, intersects[0].object.position.y, intersects[0].object.position.z - 50)
-                                break;
-                            case 83:
-                                console.log(intersects[0].object);
-
-                                intersects[0].object.position.set(intersects[0].object.position.x, intersects[0].object.position.y, intersects[0].object.position.z + 50)
-                                break;
-                        }
-                    });
-
+                    obiekt = intersects[0].object
                 }
             });
 
+            let kamera = false
+            let klawisz
+            document.addEventListener("keydown", (e) => {
+                console.log(e.keyCode);
+                if (!kamera) {
+                    switch (e.keyCode) {
+                        case 65:
+                            obiekt.position.set(obiekt.position.x - 50, obiekt.position.y, obiekt.position.z)
+                            klawisz = 65
+                            break;
+                        case 68:
+                            obiekt.position.set(obiekt.position.x + 50, obiekt.position.y, obiekt.position.z)
+                            klawisz = 68
+                            break;
+
+                        case 81:
+                            obiekt.position.set(obiekt.position.x, obiekt.position.y + 50, obiekt.position.z)
+                            klawisz = 81
+                            break;
+                        case 69:
+                            obiekt.position.set(obiekt.position.x, obiekt.position.y - 50, obiekt.position.z)
+                            klawisz = 69
+                            break;
+
+                        case 87:
+                            obiekt.position.set(obiekt.position.x, obiekt.position.y, obiekt.position.z - 50)
+                            klawisz = 87
+                            break;
+                        case 83:
+                            obiekt.position.set(obiekt.position.x, obiekt.position.y, obiekt.position.z + 50)
+                            klawisz = 83
+                            break;
+
+                        case 27:
+                            kamera = !kamera
+                            break;
+                    }
+                }
+
+            });
 
             let materials = [];
             materials.push(new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/grass_side.jpg') })); //side
@@ -137,6 +138,7 @@
             }
 
             let krecenie = 0
+            let x, y = 0, z, radius = 0, rad = -Math.PI / 3;
             function render() {
 
                 if (kreci_sie) {
@@ -145,6 +147,41 @@
                     krecenie += 0.04
                 }
 
+                if (kamera) {
+                    switch (klawisz) {
+                        case 65: //a
+                            rad += Math.PI / 90;
+                            break;
+                        case 68: //d
+                            rad -= Math.PI / 90;
+                            break;
+
+                        case 81: //q
+                            y += 10;
+                            break;
+                        case 69: //e
+
+                            y -= 10;
+                            break;
+
+                        case 87: //w
+                            radius += 10;
+                            break;
+                        case 83: //s
+                            radius -= 10;
+                            break;
+                    }
+
+                    z = radius * Math.sin(rad);
+                    x = radius * Math.cos(rad);
+
+                    console.log(camera.position);
+
+                    camera.position.z = z;
+                    camera.position.x = x;
+                    camera.position.y = y;
+                    camera.lookAt(0, 0, 0)
+                }
 
                 camera.updateProjectionMatrix();
 
