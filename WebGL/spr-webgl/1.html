@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #dane {
+            position: absolute;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dane"></div>
+    <input type="range" id="skala" min="0.1" max="1" step="0.01" style="position: absolute;" value="1">
+    <div id="root"></div>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+            45,
+            4 / 3,
+            0.1,
+            10000
+        );
+
+        const renderer = new THREE.WebGLRenderer();
+
+        renderer.setClearColor(0x0066ff);
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        const axes = new THREE.AxesHelper(1000)
+        scene.add(axes)
+
+        camera.position.set(100, 100, 100)
+        camera.lookAt(scene.position)
+
+
+        document.getElementById("root").appendChild(renderer.domElement);
+
+        camera.position.set(100, 100, 100)
+
+
+        camera.lookAt(scene.position);
+
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                for (let q = 0; q < 5; q++) {
+                    const geometry = new THREE.BoxGeometry(9, 9, 9);
+                    const material = new THREE.MeshNormalMaterial({
+
+                        side: THREE.DoubleSide,
+
+                    });
+                    const cube = new THREE.Mesh(geometry, material);
+                    scene.add(cube);
+                    cube.position.set(i * 10, j * 10, q * 10)
+
+                    document.getElementById("skala").addEventListener("input", () => {
+                        cube.scale.set(document.getElementById("skala").value, document.getElementById("skala").value, document.getElementById("skala").value)
+                        document.getElementById("dane").innerHTML = "x:" + document.getElementById("skala").value + "<br>" + "y:" + document.getElementById("skala").value + "<br>" + "z:" + document.getElementById("skala").value + "<br>"
+                    })
+
+                }
+            }
+        }
+
+
+
+        function render() {
+
+            requestAnimationFrame(render);
+
+
+            console.log("render leci")
+
+
+            renderer.render(scene, camera);
+        }
+
+        // na koniec jednokrotne wykonanie powyższej funkcji
+
+        render();
+    </script>
+</body>
+
+</html>

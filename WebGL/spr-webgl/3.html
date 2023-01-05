@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #dane {
+            position: absolute;
+            top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dane">
+        <div id="pozycja_kostki"></div>
+        <div id="pozycja_kontenera"></div>
+    </div>
+    <input type="range" id="kostka" min="-100" max="100" step="0.01" style="position: absolute;" value="1">
+
+    <input type="range" id="kontener" min="-100" max="100" step="0.01" style="position: absolute; top: 20px;" value="1">
+    <div id="root"></div>
+    <script>
+        class kontener {
+
+            constructor() {
+                console.log("ddd");
+                this.container = new THREE.Object3D()
+
+                console.log("dood");
+
+
+
+                this.init()
+
+            }
+
+            init() {
+                console.log("aaaa");
+                for (let i = 0; i < 3; i++) {
+                    const geometry = new THREE.BoxGeometry(9, 9, 9);
+                    const material = new THREE.MeshNormalMaterial({
+                        side: THREE.DoubleSide,
+                    });
+                    const cube = new THREE.Mesh(geometry, material);
+                    cube.position.set(0, i * 10 + 10, 0)
+                    this.container.add(cube);
+
+                    console.log(this.container);
+
+                }
+                scene.add(this.container)
+
+            }
+
+            x(ile) {
+                this.container.position.x = ile
+            }
+
+            getx() {
+                return this.container.position.x
+            }
+
+        }
+
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+            45,
+            4 / 3,
+            0.1,
+            10000
+        );
+
+        const renderer = new THREE.WebGLRenderer();
+
+        renderer.setClearColor(0x0066ff);
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        const axes = new THREE.AxesHelper(1000)
+        scene.add(axes)
+
+        camera.position.set(100, 100, 100)
+        camera.lookAt(scene.position)
+
+
+        document.getElementById("root").appendChild(renderer.domElement);
+
+        camera.position.set(100, 50, 100)
+
+
+        camera.lookAt(scene.position);
+        let d1 = false, d2 = false, d3 = false
+        let obiekt, bool = false
+        const raycaster = new THREE.Raycaster();
+        const mouseVector = new THREE.Vector2()
+        window.addEventListener("mousedown", (e) => {
+            // console.log(e);
+            mouseVector.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseVector.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            raycaster.setFromCamera(mouseVector, camera);
+
+            const intersects = raycaster.intersectObjects(scene.children);
+            console.log(intersects.length)
+
+            if (intersects.length > 0) {
+
+                // zerowy w tablicy czyli najbliższy kamery obiekt to ten, którego potrzebujemy:
+
+                console.log(intersects[0].object);
+                obiekt = intersects[0].object
+                bool = true
+
+
+            }
+        });
+
+        //const obj = new THREE.Object3D()
+
+
+
+
+        const floor = new THREE.PlaneGeometry(256, 256);
+
+        const texture = new THREE.TextureLoader().load("../mats/grass_top.jpg");
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(16, 16);
+
+        let material = new THREE.MeshPhongMaterial({
+            specular: 0x00ffff,
+            shininess: 50,
+            side: THREE.DoubleSide,
+            map: texture,
+        })
+
+        const plane = new THREE.Mesh(floor, material);
+        plane.rotateX(Math.PI / 2);
+        scene.add(plane);
+
+        let boxy = new kontener
+
+        // scene.add(boxy.getKontener)
+
+
+        function render() {
+            boxy.x(document.getElementById("kontener").value)
+            //cube.position.z = document.getElementById("kostka").value
+
+
+            //document.getElementById("pozycja_kostki").innerText = parseInt(cube.position.z) + " " + parseInt(cube.position.y) + " " + parseInt(cube.position.x)
+            document.getElementById("pozycja_kontenera").innerText = parseInt(boxy.z) + " " + parseInt(boxy.y) + " " + boxy.getx()
+
+
+
+
+
+
+
+
+            requestAnimationFrame(render);
+
+
+            console.log("render leci")
+
+
+            renderer.render(scene, camera);
+        }
+
+
+        render();
+    </script>
+
+</body>
+
+</html>
