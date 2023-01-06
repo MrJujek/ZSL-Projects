@@ -2,9 +2,9 @@ $(document).ready(function () {
     let iloscPol
 
     do {
-        iloscPol = window.prompt("Podaj ilosc pol")
+        iloscPol = window.prompt("Input number of fields")
         if (!(iloscPol >= 9)) {
-            window.alert("Musisz podac co najmniej 9 pol")
+            window.alert("You must enter at least 9 fields")
         }
     } while (!(iloscPol >= 9))
 
