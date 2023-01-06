@@ -22,7 +22,7 @@ class WeatherForm(FlaskForm):
 
 @app.route("/", methods=['POST', 'GET'])
 def index():
-    with open("data/weather.json") as weatherFile:
+    with open('ZSL-Projects/Flask/07-weather/data/weather.json') as weatherFile:
         weather = json.load(weatherFile)
         weatherFile.close()
         print(weather[0]["stacja"])
@@ -37,4 +37,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=3000)

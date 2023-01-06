@@ -39,7 +39,7 @@ users = {
 
 def countAverage(subjectValue, termValue):
     """funkcja obliczająca średnie ocen"""
-    with open('data/grades.json') as gradesFile:
+    with open('ZSL-Projects/Flask/07-weather/data/grades.json') as gradesFile:
         grades = json.load(gradesFile)
         gradesFile.close()
     sumGrades = 0
@@ -70,7 +70,7 @@ totalAverage = {}
 
 
 def yearlyAverage(subjectValue, termValue):
-    with open('data/grades.json', encoding='utf-8') as gradesFile:
+    with open('ZSL-Projects/Flask/07-weather/data/grades.json', encoding='utf-8') as gradesFile:
         grades = json.load(gradesFile)
         gradesFile.close()
     sumGrades = 0
@@ -84,7 +84,8 @@ def yearlyAverage(subjectValue, termValue):
                             for grade in grades:
                                 sumGrades += grade
                                 length += 1
-                                totalAverage[subject] = round(sumGrades / length, 2)
+                                totalAverage[subject] = round(
+                                    sumGrades / length, 2)
     if length != 0:
         return round(sumGrades / length, 2)
 
@@ -115,12 +116,13 @@ def logOut():
 
 @app.route('/dashboard')
 def dashboard():
-    with open('data/grades.json', encoding='utf-8') as gradesFile:
+    with open('/ZSL-Projects/Flask/07-weather/data/grades.json', encoding='utf-8') as gradesFile:
         grades = json.load(gradesFile)
         gradesFile.close()
     for subject in grades:
         yearlyAverage(subject, '')
-    sortedTotalAverage = sorted(totalAverage.items(), key=lambda x: x[1], reverse=True)
+    sortedTotalAverage = sorted(
+        totalAverage.items(), key=lambda x: x[1], reverse=True)
     sortedTotalAverage = dict(sortedTotalAverage)
     bestTwoSubject = dict(list(sortedTotalAverage.items())[:2])
     return render_template('dashboard.html', title='Dashboard', userLogin=session.get('userLogin'), date=date, grades=grades, countAverage=countAverage, yearlyAverage=yearlyAverage, bestTwoSubject=bestTwoSubject, sortedTotalAverage=sortedTotalAverage)
@@ -130,7 +132,7 @@ def dashboard():
 def addSubject():
     addSubjectForm = AddSubject()
     if addSubjectForm.validate_on_submit():
-        with open('data/grades.json', encoding='utf-8') as gradesFile:
+        with open('ZSL-Projects/Flask/07-weather/data/grades.json', encoding='utf-8') as gradesFile:
             grades = json.load(gradesFile)
             subject = addSubjectForm.subject.data
             grades[subject] = {
@@ -148,7 +150,7 @@ def addSubject():
                     'yearly': 0
                 }
             }
-        with open('data/grades.json', 'w', encoding='utf-8') as gradesFile:
+        with open('ZSL-Projects/Flask/07-weather/data/grades.json', 'w', encoding='utf-8') as gradesFile:
             json.dump(grades, gradesFile)
             gradesFile.close()
             flash('Dane zapisane')
@@ -157,4 +159,4 @@ def addSubject():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=3000)
