@@ -9,31 +9,36 @@ let start = true
 let new_position
 let new_x, new_y
 let direction, oldDirection, oldMove
-let snake_move
+let snake_move, startPosition, hideBush
 
 generateBoard()
 createStartPosition();
 
 document.onkeydown = (e) => {
+    //console.log(e);
     switch (e.key) {
+        case "d":
         case "ArrowRight":
             if (oldDirection != "left") {
                 direction = "right"
             }
             break;
 
+        case "a":
         case "ArrowLeft":
             if (oldDirection != "right") {
                 direction = "left"
             }
             break;
 
+        case "s":
         case "ArrowDown":
             if (oldDirection != "up") {
                 direction = "down"
             }
             break;
 
+        case "w":
         case "ArrowUp":
             if (oldDirection != "down") {
                 direction = "up"
@@ -41,13 +46,18 @@ document.onkeydown = (e) => {
             break;
     }
 
-    if (start) {
+    if (start && direction) {
         show_snake(pozycja, direction)
         start = false
     }
 }
 
 function show_snake(pozycja) {
+    console.log("showSnake");
+    hideBush = setTimeout(() => {
+        document.getElementById(startPosition).classList.remove("krzak")
+    }, 5000)
+
     snake_move = setInterval(() => {
         arrayChanges(direction)
 
@@ -57,7 +67,6 @@ function show_snake(pozycja) {
         }
 
         for (let i = 1; i < pozycja.length; i++) {
-            console.log(i);
             if (new_position.x == pozycja[i].x && new_position.y == pozycja[i].y) {
                 handleLoss()
                 break
@@ -152,21 +161,20 @@ function arrayChanges(direction) {
 }
 
 function createStartPosition() {
+    console.log("createStartPosition");
     let random_x = Math.round(Math.random() * (wielkosc - 1))
     let random_y = Math.round(Math.random() * (wielkosc - 1))
 
     let nazwa = "pole_x" + random_x + "_y" + random_y
+    startPosition = nazwa
     let element = document.getElementById(nazwa)
     element.classList.add("krzak")
-
-    setTimeout(() => {
-        element.classList.remove("krzak")
-    }, 5000)
 
     pozycja.push({ x: random_x, y: random_y })
 }
 
 function generateBoard() {
+    console.log("generateBoard");
     let plansza = document.createElement("div")
     plansza.setAttribute("id", "plansza")
     plansza.style.width = wielkosc * 30 + "px"
@@ -341,32 +349,33 @@ function generateApple() {
 }
 
 function handleLoss() {
+    console.log("handleLoss");
     clearInterval(snake_move)
-    console.log("funkcja");
+    clearTimeout(hideBush)
 
     let textLoss = document.createElement("div")
-    console.log(textLoss);
     textLoss.classList.add('textLoss')
     textLoss.innerHTML = "<h1>Przegrałeś</h1><span>Kliknij aby zacząć od nowa</span>"
-
-    textLoss.addEventListener("click", () => {
-        startAgain()
-    })
 
     document.body.append(textLoss)
 
     makeSnakeMove = false
+
+    textLoss.addEventListener("click", () => {
+        startAgain()
+    })
 }
 
 function startAgain() {
+    clearInterval(snake_move)
+    clearTimeout(hideBush)
+
     let toRemove = document.getElementsByClassName("textLoss")
     for (let i = 0; i < toRemove.length; i++) {
-        console.log(i, toRemove);
         toRemove[i].remove()
     }
 
-    toRemove = document.getElementById("plansza")
-    toRemove.remove()
+    document.getElementById("plansza").remove()
 
     snake_length = 3
     pozycja = []
@@ -374,7 +383,15 @@ function startAgain() {
     makeSnakeMove = true
     start = true
     oldDirection = null
+    direction = false
+    speed = 400
 
     generateBoard()
     createStartPosition()
 }
+
+document.getElementById("generuj").addEventListener("click", () => {
+    wielkosc = document.getElementById("wielkosc").value
+
+    startAgain()
+})
