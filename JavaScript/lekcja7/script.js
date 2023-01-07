@@ -1,4 +1,4 @@
-let wielkosc = 10
+let boardWidth, boardHeight
 let snake_length = 3
 let pozycja = []
 let speed = 400
@@ -11,11 +11,68 @@ let new_x, new_y
 let direction, oldDirection, oldMove
 let snake_move, startPosition, hideBush
 
-generateBoard()
+generateBoard();
 createStartPosition();
 
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;
+var yDown = null;
+
+function getTouches(evt) {
+    return evt.touches || evt.originalEvent.touches;
+}
+
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+};
+
+function handleTouchMove(evt) {
+    if (!xDown || !yDown) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0) {
+            if (oldDirection != "right") {
+                direction = "left"
+            }
+        } else {
+            if (oldDirection != "left") {
+                direction = "right"
+            }
+        }
+    } else {
+        if (yDiff > 0) {
+            if (oldDirection != "down") {
+                direction = "up"
+            }
+        } else {
+            if (oldDirection != "up") {
+                direction = "down"
+            }
+        }
+    }
+
+    xDown = null;
+    yDown = null;
+
+    if (start && direction) {
+        show_snake(pozycja, direction)
+        start = false
+    }
+};
+
 document.onkeydown = (e) => {
-    //console.log(e);
     switch (e.key) {
         case "d":
         case "ArrowRight":
@@ -53,7 +110,6 @@ document.onkeydown = (e) => {
 }
 
 function show_snake(pozycja) {
-    console.log("showSnake");
     hideBush = setTimeout(() => {
         document.getElementById(startPosition).classList.remove("krzak")
     }, 5000)
@@ -112,7 +168,7 @@ function arrayChanges(direction) {
     switch (direction) {
         case "up":
             if (pozycja[0].y - 1 < 0) {
-                new_y = wielkosc - 1
+                new_y = boardHeight - 1
                 handleLoss()
             } else {
                 new_y = pozycja[0].y - 1
@@ -123,7 +179,7 @@ function arrayChanges(direction) {
             break;
 
         case "down":
-            if (pozycja[0].y + 1 > wielkosc - 1) {
+            if (pozycja[0].y + 1 > boardHeight - 1) {
                 new_y = 0
                 handleLoss()
             } else {
@@ -136,7 +192,7 @@ function arrayChanges(direction) {
 
         case "left":
             if (pozycja[0].x - 1 < 0) {
-                new_x = wielkosc - 1
+                new_x = boardWidth - 1
                 handleLoss()
             } else {
                 new_x = pozycja[0].x - 1
@@ -147,7 +203,7 @@ function arrayChanges(direction) {
             break;
 
         case "right":
-            if (pozycja[0].x + 1 > wielkosc - 1) {
+            if (pozycja[0].x + 1 > boardWidth - 1) {
                 new_x = 0
                 handleLoss()
             } else {
@@ -161,9 +217,8 @@ function arrayChanges(direction) {
 }
 
 function createStartPosition() {
-    console.log("createStartPosition");
-    let random_x = Math.round(Math.random() * (wielkosc - 1))
-    let random_y = Math.round(Math.random() * (wielkosc - 1))
+    let random_x = Math.round(Math.random() * (boardWidth - 1))
+    let random_y = Math.round(Math.random() * (boardHeight - 1))
 
     let nazwa = "pole_x" + random_x + "_y" + random_y
     startPosition = nazwa
@@ -174,15 +229,24 @@ function createStartPosition() {
 }
 
 function generateBoard() {
-    console.log("generateBoard");
+    boardWidth = document.getElementById("wielkosc").value
+    boardHeight = boardWidth
+
+    if (window.innerWidth - 20 < boardWidth * 30) {
+        boardWidth = Math.floor((window.innerWidth - 20) / 30)
+    }
+    if (window.innerHeight - 110 < boardHeight * 30) {
+        boardHeight = Math.floor((window.innerHeight - 110) / 30)
+    }
+
     let plansza = document.createElement("div")
     plansza.setAttribute("id", "plansza")
-    plansza.style.width = wielkosc * 30 + "px"
-    plansza.style.height = wielkosc * 30 + "px"
+    plansza.style.width = boardWidth * 30 + "px"
+    plansza.style.height = boardHeight * 30 + "px"
     plansza.style.position = "relative"
 
-    for (let y = 0; y < wielkosc; y++) {
-        for (let x = 0; x < wielkosc; x++) {
+    for (let y = 0; y < boardHeight; y++) {
+        for (let x = 0; x < boardWidth; x++) {
             let pole = document.createElement("div")
 
             pole.setAttribute("id", "pole_x" + x + "_y" + y)
@@ -331,8 +395,8 @@ function makeSnakeSecondPart(pozycja) {
 }
 
 function generateApple() {
-    appleX = Math.round(Math.random() * (wielkosc - 1))
-    appleY = Math.round(Math.random() * (wielkosc - 1))
+    appleX = Math.round(Math.random() * (boardWidth - 1))
+    appleY = Math.round(Math.random() * (boardHeight - 1))
 
     for (let i = 0; i < pozycja.length; i++) {
         if (appleX == pozycja[i].x && appleY == pozycja[i].y) {
@@ -349,7 +413,6 @@ function generateApple() {
 }
 
 function handleLoss() {
-    console.log("handleLoss");
     clearInterval(snake_move)
     clearTimeout(hideBush)
 
@@ -391,7 +454,5 @@ function startAgain() {
 }
 
 document.getElementById("generuj").addEventListener("click", () => {
-    wielkosc = document.getElementById("wielkosc").value
-
     startAgain()
 })
