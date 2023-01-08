@@ -18,7 +18,7 @@ let id = 1
 
 
 app.get("/", function (req, res) {
-    res.render('upload.hbs');
+    res.render('filemanager.hbs');
 })
 
 app.post("/upload", function (req, res) {
@@ -29,42 +29,37 @@ app.post("/upload", function (req, res) {
     form.keepExtensions = true
     form.multiples = true
     form.parse(req, function (err, fields, files) {
-        if (files.filestoupload.length) {
-            for (let i = 0; i < files.filestoupload.length; i++) {
-                let size = files.filestoupload[i].size
-                let path = files.filestoupload[i].path
-                let type = files.filestoupload[i].type
-                let name = files.filestoupload[i].name
-                let savedate = new Date().getTime()
-                let obraz = getIcon(type)
+        // if (files.filestoupload.length) {
+        //     for (let i = 0; i < files.filestoupload.length; i++) {
+        //         let size = files.filestoupload[i].size
+        //         let path = files.filestoupload[i].path
+        //         let type = files.filestoupload[i].type
+        //         let name = files.filestoupload[i].name
+        //         let savedate = new Date().getTime()
+        //         let obraz = getIcon(type)
 
-                let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path, savedate: savedate }
-                context.files.push(obj)
+        //         let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path, savedate: savedate }
+        //         context.files.push(obj)
 
-                id++
-            }
-        } else {
-            let size = files.filestoupload.size
-            let path = files.filestoupload.path
-            let type = files.filestoupload.type
-            let name = files.filestoupload.name
-            let savedate = new Date().getTime()
-            let obraz = getIcon(type)
+        //         id++
+        //     }
+        // } else {
+        //     let size = files.filestoupload.size
+        //     let path = files.filestoupload.path
+        //     let type = files.filestoupload.type
+        //     let name = files.filestoupload.name
+        //     let savedate = new Date().getTime()
+        //     let obraz = getIcon(type)
 
-            let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path, savedate: savedate }
-            context.files.push(obj)
+        //     let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path, savedate: savedate }
+        //     context.files.push(obj)
 
-            id++
-        }
+        //     id++
+        //}
 
         res.redirect("/")
     });
 })
-
-
-app.post('/filemanager', function (req, res) {
-    res.render("filemanager.hbs", context)
-});
 
 app.get('/show/', function (req, res) {
     let id = req.query.id

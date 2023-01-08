@@ -46,7 +46,7 @@
 
 .leftPanel {
     height: auto;
-    /* width: 200px; */
+    width: 250px;
     background: #2271c3;
     display: flex;
     align-items: center;
@@ -57,7 +57,6 @@
     text-shadow: 1px 1px 1px #000000;
 }
 
-.uploadFiles,
 .createNewFile,
 .buttonNewFolder {
     text-align: center;
@@ -71,9 +70,9 @@
     text-shadow: 1px 1px 1px #ffffff;
     padding: 0px 5px;
     margin: 5px;
+    width: 200px;
 }
 
-.uploadFiles:hover,
 .createNewFile:hover,
 .buttonNewFolder:hover {
     color: #ffffff;
@@ -109,11 +108,8 @@
     padding-right: 10px;
 }
 
-.leftPanel input[type="file"],
-.leftPanel label {
-    height: 200px;
+.uploadFiles {
     margin: 10px;
-    width: calc(100vw - 220px);
     border: 3px dashed rgb(105, 105, 105);
     background-color: #999999;
     border-radius: 5px;
@@ -121,6 +117,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+}
+
+.uploadFiles label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
 }
 
 .leftPanel label img {
@@ -140,7 +145,6 @@
 /* .leftPanel form label {
     display: none;
 } */
-
 
 .leftPanel form {
     display: flex;
