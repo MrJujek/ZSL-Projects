@@ -17,15 +17,11 @@ createStartPosition();
 document.addEventListener('touchstart', handleTouchStart, false);
 document.addEventListener('touchmove', handleTouchMove, false);
 
-var xDown = null;
-var yDown = null;
-
-function getTouches(evt) {
-    return evt.touches || evt.originalEvent.touches;
-}
+let xDown = null;
+let yDown = null;
 
 function handleTouchStart(evt) {
-    const firstTouch = getTouches(evt)[0];
+    const firstTouch = evt.touches[0];
     xDown = firstTouch.clientX;
     yDown = firstTouch.clientY;
 };
@@ -231,12 +227,20 @@ function createStartPosition() {
 function generateBoard() {
     boardWidth = document.getElementById("wielkosc").value
     boardHeight = boardWidth
+    let isBoardSizeOk = true
 
     if (window.innerWidth - 20 < boardWidth * 30) {
         boardWidth = Math.floor((window.innerWidth - 20) / 30)
+        document.getElementById("wielkosc").value = Math.floor((window.innerWidth - 20) / 30)
+        isBoardSizeOk = false
     }
     if (window.innerHeight - 110 < boardHeight * 30) {
         boardHeight = Math.floor((window.innerHeight - 110) / 30)
+        document.getElementById("wielkosc").value = Math.floor((window.innerHeight - 20) / 30)
+        isBoardSizeOk = false
+    }
+    if (!isBoardSizeOk) {
+        changeBoardSize()
     }
 
     let plansza = document.createElement("div")
@@ -456,3 +460,15 @@ function startAgain() {
 document.getElementById("generuj").addEventListener("click", () => {
     startAgain()
 })
+
+function changeBoardSize() {
+    let boardSizePopUp = document.createElement("div")
+    boardSizePopUp.setAttribute("id", "boardSizePopUp")
+    boardSizePopUp.innerHTML = "<span>Dopasowuję wielkość aby pasowała do ekranu</span>"
+
+    document.body.append(boardSizePopUp)
+
+    setTimeout(() => {
+        document.getElementById("boardSizePopUp").remove()
+    }, 2000)
+}
