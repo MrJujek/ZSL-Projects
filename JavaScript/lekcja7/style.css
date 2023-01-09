@@ -8,6 +8,7 @@
 
 body {
     overscroll-behavior: contain;
+    overflow: hidden;
 }
 
 #plansza {
@@ -92,6 +93,7 @@ body {
     left: calc((100vw - 250px)/2);
     box-shadow: rgb(80, 52, 0) 1px 1px;
     z-index: 1;
+    transition: 0.3s;
 }
 
 .textLoss {

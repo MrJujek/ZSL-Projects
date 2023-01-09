@@ -1,7 +1,7 @@
 let boardWidth, boardHeight
 let snake_length = 3
 let pozycja = []
-let speed = 400
+let speed = 200
 let appleOnBoard = false
 let appleX, appleY
 let makeSnakeMove = true
@@ -126,6 +126,7 @@ function show_snake(pozycja) {
         }
 
         if (makeSnakeMove) {
+            console.log(speed);
             makeSnakeTail(pozycja)
 
             let snakeHeadPosition = "pole_x" + new_position.x + "_y" + new_position.y
@@ -231,12 +232,10 @@ function generateBoard() {
 
     if (window.innerWidth - 20 < boardWidth * 30) {
         boardWidth = Math.floor((window.innerWidth - 20) / 30)
-        document.getElementById("wielkosc").value = Math.floor((window.innerWidth - 20) / 30)
         isBoardSizeOk = false
     }
     if (window.innerHeight - 110 < boardHeight * 30) {
         boardHeight = Math.floor((window.innerHeight - 110) / 30)
-        document.getElementById("wielkosc").value = Math.floor((window.innerHeight - 20) / 30)
         isBoardSizeOk = false
     }
     if (!isBoardSizeOk) {
@@ -467,6 +466,12 @@ function changeBoardSize() {
     boardSizePopUp.innerHTML = "<span>Dopasowuję wielkość aby pasowała do ekranu</span>"
 
     document.body.append(boardSizePopUp)
+
+    if (Math.floor((window.innerHeight - 20) / 30) > Math.floor((window.innerHeight - 20) / 30)) {
+        document.getElementById("wielkosc").value = Math.floor((window.innerHeight - 20) / 30)
+    } else {
+        document.getElementById("wielkosc").value = Math.floor((window.innerWidth - 20) / 30)
+    }
 
     setTimeout(() => {
         document.getElementById("boardSizePopUp").remove()
