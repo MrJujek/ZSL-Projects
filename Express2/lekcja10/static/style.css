@@ -128,7 +128,7 @@
     padding-bottom: 20px;
 }
 
-.leftPanel label img {
+.leftPanel img {
     height: 80px;
     width: 80px;
 }
@@ -139,12 +139,11 @@
 }
 
 .leftPanel input[type="file"] {
-    display: none;
+    width: 215px;
+    height: 250px;
+    position: absolute;
+    opacity: 0;
 }
-
-/* .leftPanel form label {
-    display: none;
-} */
 
 .leftPanel form {
     display: flex;
@@ -164,6 +163,7 @@
     padding-left: 10px;
     padding-right: 10px;
     text-shadow: 1px 1px 1px #ffffff;
+    z-index: 1;
 }
 
 .leftPanel input[type="submit"]:hover {

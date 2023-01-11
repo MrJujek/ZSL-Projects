@@ -3,6 +3,7 @@ const app = express()
 const PORT = 3000;
 const path = require("path")
 const formidable = require('formidable');
+const os = require("os")
 var hbs = require('express-handlebars');
 
 app.use(express.static('static'))
@@ -24,8 +25,10 @@ app.get("/", function (req, res) {
 app.post("/upload", function (req, res) {
     let form = formidable({});
 
-    console.log(__dirname);
-    form.uploadDir = __dirname + '/files/'
+    // const userHome = os.homedir()
+    // form.uploadDir = path.join(userHome, "Desktop")
+
+    form.uploadDir = path.join(__dirname, 'files')
     form.keepExtensions = true
     form.multiples = true
     form.parse(req, function (err, fields, files) {
