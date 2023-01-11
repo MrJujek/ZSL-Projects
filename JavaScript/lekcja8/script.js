@@ -1,10 +1,9 @@
 let linie = {
-    canvas: document.getElementById("linie"),
     ctx: document.getElementById("linie").getContext("2d"),
     start: function () {
         setInterval(() => {
             this.rysuj();
-        }, 100)
+        }, 10)
     },
     rysuj: function () {
         this.ctx.beginPath();
@@ -18,7 +17,6 @@ let linie = {
 linie.start()
 
 let kolka = {
-    canvas: document.getElementById("kolka"),
     ctx: document.getElementById("kolka").getContext("2d"),
     start: function () {
         let x, y
@@ -28,7 +26,7 @@ let kolka = {
         })
         setInterval(() => {
             this.rysuj(x, y);
-        }, 100)
+        }, 10)
     },
     rysuj: function (x, y) {
         let start = Math.random() * 6
@@ -41,10 +39,31 @@ let kolka = {
 }
 kolka.start()
 
+let dolarek = {
+    canvas: document.getElementById("dolar"),
+    ctx: document.getElementById("dolar").getContext("2d"),
+    start: function () {
+        let startX = Math.random() * 370
+        let startY = Math.random() * 340
+
+        setInterval(() => {
+            this.rysuj(startX, startY);
+        }, 10)
+    },
+    rysuj: function (startX, startY) {
+        this.ctx.clearRect(0, 0, 400, 400)
+        let img = new Image()
+        img.src = './dollar.jpg'
+        this.ctx.drawImage(img, startX, startY, 30, 60)
+        let direction = Math.random() * 4
+    }
+}
+dolarek.start()
+
 function random_hex(count) {
     let hex = "#";
     for (let i = 0; i < count; i++) {
-        hex += Math.floor(Math.random() * 15).toString(16)
+        hex += Math.floor(Math.random() * 16).toString(16)
     }
     return hex
 }
