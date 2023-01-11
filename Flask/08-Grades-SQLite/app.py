@@ -1,5 +1,5 @@
 import json
-
+import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_bs4 import Bootstrap
 from flask_moment import Moment
@@ -36,18 +36,14 @@ class AddGrade(FlaskForm):
     grade = SelectField("Ocena:", choices=[
                         (6, "6"), (5, "5"), (4, "4"), (3, "3"), (2, "2"), (1, "1")])
     submit = SubmitField("Dodaj")
-
-
-users = {
-    1: {
-        'userLogin': 'julo',
-        'userPass': 'julo',
-        'fname': 'julo',
-        'lname': 'julo'
-    }
-}
-
-
+# users = {
+#     1: {
+#         'userLogin': 'julo',
+#         'userPass': 'julo',
+#         'fname': 'julo',
+#         'lname': 'julo'
+#     }
+# }
 def countAverage(subjectValue, termValue):
     """funkcja obliczająca średnie ocen"""
     with open('/home/ubuntu/Desktop/ZSL-Projects/Flask/06-Grades/data/grades.json') as gradesFile:
@@ -108,11 +104,16 @@ def index():
 
 @app.route('/logIn', methods=['POST', 'GET'])
 def logIn():
-    """funkcja obsługująca logowanie użytkowników"""
+    """Funkcja obsługująca logowanie użytkowników"""
     login = LoginForm()
     if login.validate_on_submit():
         userLogin = login.userLogin.data
         userPass = login.userPass.data
+        connection = sqlite3('/home/ubuntu/Desktop/ZSL-Projects/Flask/06-Grades/data/grades')
+        cursor = connection.cursor()
+        cursor.execute(f"SELECT userLogin, firstName FROM users WHERE userlogin='{userLogin}' AND userPass='{userPass}'")
+        user = cursor.fetchtone()
+        connection.close()
         if userLogin == users[1]['userLogin'] and userPass == users[1]['userPass']:
             session['userLogin'] = userLogin
             return redirect('dashboard')
