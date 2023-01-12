@@ -42,20 +42,28 @@ kolka.start()
 let dolarek = {
     canvas: document.getElementById("dolar"),
     ctx: document.getElementById("dolar").getContext("2d"),
+    x: Math.random() * 370,
+    y: Math.random() * 340,
+    angle: Math.random() * 360,
+    speed: 5,
     start: function () {
-        let startX = Math.random() * 370
-        let startY = Math.random() * 340
-
         setInterval(() => {
-            this.rysuj(startX, startY);
+            this.rysuj();
         }, 10)
     },
-    rysuj: function (startX, startY) {
+    rysuj: function () {
         this.ctx.clearRect(0, 0, 400, 400)
         let img = new Image()
         img.src = './dollar.jpg'
-        this.ctx.drawImage(img, startX, startY, 30, 60)
-        let direction = Math.random() * 4
+        this.ctx.drawImage(img, this.x, this.y, 30, 60);
+        this.x += this.speed * Math.cos((this.angle * Math.PI) / 180);
+        this.y += this.speed * Math.sin((this.angle * Math.PI) / 180);
+        if (this.x + 30 > 400 || this.x < 0) {
+            this.angle = 180 - this.angle;
+        }
+        if (this.y > 400 - 60 || this.y < 0) {
+            this.angle = 360 - this.angle;
+        }
     }
 }
 dolarek.start()

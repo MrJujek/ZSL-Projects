@@ -1,7 +1,7 @@
 let boardWidth, boardHeight
 let snake_length = 3
 let pozycja = []
-let speed = 300
+let speed = 400
 let appleOnBoard = false
 let appleX, appleY
 let makeSnakeMove = true
