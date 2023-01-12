@@ -14,6 +14,10 @@ app.post('/api', function (req, res) {
     res.end(JSON.stringify(req.body));
 })
 
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/static/2.html');
+})
+
 app.listen(PORT, function () {
     console.log("start serwera na porcie " + PORT)
 })
