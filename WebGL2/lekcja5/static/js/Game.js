@@ -32,7 +32,6 @@ class Game {
         //this.scene.add(new THREE.AxesHelper(100))
 
         this.createBoard()
-        //this.givePawns()
 
         this.render()
     }
@@ -40,11 +39,11 @@ class Game {
     render = () => {
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setSize(window.innerWidth, window.innerHeight - 100);
 
         requestAnimationFrame(this.render);
         this.renderer.render(this.scene, this.camera);
-        //console.log("render leci")
+        this.camera.lookAt(this.size * 4, 0, this.size * 4);
     }
 
     createBoard = () => {
@@ -58,18 +57,18 @@ class Game {
                 if (this.board[i][j] == 1) {
                     cube = new THREE.Mesh(geometry, jasne);
                     this.scene.add(cube);
-                    cube.position.set(i * this.size, 2.5, j * this.size)
+                    cube.position.set(i * this.size + this.size / 2, 2.5, j * this.size + this.size / 2)
                 } else {
                     cube = new THREE.Mesh(geometry, ciemne);
                     this.scene.add(cube);
-                    cube.position.set(i * this.size, 2.5, j * this.size)
+                    cube.position.set(i * this.size + this.size / 2, 2.5, j * this.size + this.size / 2)
                 }
             }
         }
     }
 
     givePawns = () => {
-        const geometry = new THREE.CylinderGeometry(this.size / 2, this.size / 2, 5, 20);
+        const geometry = new THREE.CylinderGeometry(this.size / 2, this.size / 2, 10, 20);
         const white = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/bialy.jpg') });
         const black = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/czarny.jfif') });
         let cylinder
@@ -79,13 +78,21 @@ class Game {
                 if (this.pawns[i][j] == 2) {
                     cylinder = new THREE.Mesh(geometry, white);
                     this.scene.add(cylinder);
-                    cylinder.position.set(j * this.size, 7.5, i * this.size)
+                    cylinder.position.set(j * this.size + this.size / 2, 10, i * this.size + this.size / 2)
                 } else if (this.pawns[i][j] == 1) {
                     cylinder = new THREE.Mesh(geometry, black);
                     this.scene.add(cylinder);
-                    cylinder.position.set(j * this.size, 7.5, i * this.size)
+                    cylinder.position.set(j * this.size + this.size / 2, 10, i * this.size + this.size / 2)
                 }
             }
+        }
+    }
+
+    setPlayer = (player) => {
+        if (player == 1) {
+            this.camera.position.set(this.size * 4, 500, -100)
+        } else {
+            this.camera.position.set(this.size * 4, 500, 500)
         }
     }
 }

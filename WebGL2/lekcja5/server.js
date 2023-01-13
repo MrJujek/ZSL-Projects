@@ -4,6 +4,7 @@ const PORT = 3000;
 const path = require("path")
 const fs = require("fs")
 const hbs = require('express-handlebars');
+const { addAbortSignal } = require("stream");
 app.use(express.json());
 
 app.use(express.static('static'))
@@ -30,7 +31,11 @@ app.post("/ADD_USER", (req, res) => {
         } else {
             console.log("Nie ma");
             users.push(req.body.nick)
-            res.end(JSON.stringify("userAdded"));
+            if (users.length == 1) {
+                res.end(JSON.stringify("1"));
+            } else {
+                res.end(JSON.stringify("2"));
+            }
         }
     } else {
         res.end(JSON.stringify("gameFull"));
