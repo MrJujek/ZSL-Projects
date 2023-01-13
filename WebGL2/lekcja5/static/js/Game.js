@@ -50,8 +50,8 @@ class Game {
         const geometry = new THREE.BoxGeometry(this.size, 5, this.size);
         const jasne = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/jasne.jpg') });
         const ciemne = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/ciemne.jfif') });
-        let cube
 
+        let cube
         for (let i = 0; i < this.board.length; i++) {
             for (let j = 0; j < this.board[i].length; j++) {
                 if (this.board[i][j] == 1) {
