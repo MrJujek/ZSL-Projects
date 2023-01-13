@@ -5,6 +5,7 @@ const path = require("path")
 const formidable = require('formidable');
 const os = require("os")
 const fs = require("fs")
+const fsPromises = require('fs/promises')
 var hbs = require('express-handlebars');
 
 app.use(express.static('static'))
@@ -17,14 +18,49 @@ app.use(express.urlencoded({
 
 let context = { files: [] }
 let id = 1
+let allFiles
 
+async function getDirectory() {
+    const dir = {
+        folders: [],
+        files: [],
+        others: [],
+    }
 
-app.get("/", function (req, res) {
+    const directory = fs.readdirSync(path.join(__dirname, 'files'))
+    //console.log(directory)
+
+    await Promise.all(directory.map(async (e) => {
+        const stats = await fsPromises.lstat(path.join(__dirname, 'files', e))
+        const d = { name: e }
+
+        if (stats.isDirectory()) {
+            d.img = 'folder.png'
+            dir.folders.push(d)
+        } else if (stats.isFile()) {
+            d.img = getIcon(d.name)
+            dir.files.push(d)
+        } else {
+            d.img = '/gfx/other.png'
+            dir.others.push(d)
+        }
+    })
+
+    )
+    return dir
+}
+
+app.get("/", async function (req, res) {
     fs.readdir(path.join(__dirname, "files"), (err, files) => {
         if (err) throw err
-        console.log("lista", files);
+        allFiles = files
+        console.log("CZYTANIE FOLDERU");
+        console.log(files);
     })
-    res.render('filemanager.hbs');
+
+    const dir = await getDirectory()
+    console.log(dir);
+    res.render('filemanager.hbs', dir);
 })
 
 app.post("/upload", function (req, res) {
@@ -32,11 +68,25 @@ app.post("/upload", function (req, res) {
 
     // const userHome = os.homedir()
     // form.uploadDir = path.join(userHome, "Desktop")
-
     form.uploadDir = path.join(__dirname, 'files')
     form.keepExtensions = true
     form.multiples = true
+
+    form.on('fileBegin', function (name, file) {
+        let fileName = file.name
+        for (let i = 0; i < allFiles.length; i++) {
+            if (allFiles[i] == file.name) {
+                let time = new Date().getTime();
+                let splitted = fileName.split(".")
+                fileName = splitted[0] + time + "." + splitted[1]
+                break;
+            }
+        }
+        file.path = form.uploadDir + '/' + fileName
+    })
+
     form.parse(req, function (err, fields, files) {
+        if (err) throw err
         res.redirect("/")
     });
 })

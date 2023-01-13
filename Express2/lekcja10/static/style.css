@@ -1,173 +1,221 @@
+@import url(https://fonts.googleapis.com/css?family=Bungee:regular);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .filetype {
-    height: 50px;
-    width: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .topPanel {
-    width: 100vw;
-    height: 80px;
-    background: rgb(66, 34, 195);
-    background: linear-gradient(90deg, rgba(66, 34, 195, 1) 0%, rgba(128, 45, 253, 1) 100%);
-    display: flex;
-    align-items: center;
+  width: 100vw;
+  height: 80px;
+  background: #4222c3;
+  background: -webkit-gradient(linear, left top, right top, from(#4222c3), to(#802dfd));
+  background: linear-gradient(90deg, #4222c3 0%, #802dfd 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .topPanel input[type="submit"] {
-    background: none;
-    border: none;
-    outline: none;
-    margin-left: 40px;
-    font-size: 32px;
-    text-decoration: none;
-    font-family: "Bungee", Arial;
-    color: aliceblue;
-    text-shadow: 2px 2px 2px #000000;
-    padding: 10px;
+  background: none;
+  border: none;
+  outline: none;
+  margin-left: 40px;
+  font-size: 32px;
+  text-decoration: none;
+  font-family: "Bungee", Arial;
+  color: aliceblue;
+  text-shadow: 2px 2px 2px #000000;
+  padding: 10px;
 }
 
 .topPanel input[type="submit"]:hover {
-    cursor: pointer;
-    color: orange;
+  cursor: pointer;
+  color: orange;
 }
 
 .bottomPanel {
-    min-height: calc(100vh - 80px);
-    background-color: rgb(170, 170, 170);
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
+  min-height: calc(100vh - 80px);
+  background-color: #aaaaaa;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .leftPanel {
-    height: auto;
-    width: 250px;
-    background: #2271c3;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: aliceblue;
-    font-size: 20px;
-    font-family: "Bungee", Arial;
-    text-shadow: 1px 1px 1px #000000;
-}
-
-.createNewFile,
-.buttonNewFolder {
-    text-align: center;
-    font-size: 16px;
-    text-decoration: none;
-    border: 1px solid darkorange;
-    background-color: orange;
-    border-radius: 5px;
-    color: blue;
-    font-family: "Bungee", Arial;
-    text-shadow: 1px 1px 1px #ffffff;
-    padding: 0px 5px;
-    margin: 5px;
-    width: 200px;
-}
-
-.createNewFile:hover,
-.buttonNewFolder:hover {
-    color: #ffffff;
-    text-shadow: 1px 1px 1px blue;
-    cursor: pointer;
-}
-
-.delete {
-    text-align: center;
-    margin: 5px;
-    font-size: 16px;
-    text-decoration: none;
-    border: 1px solid darkorange;
-    background-color: orange;
-    border-radius: 5px;
-    color: blue;
-    font-family: "Bungee", Arial;
-    text-shadow: 1px 1px 1px #ffffff;
-}
-
-.delete:hover {
-    color: #ffffff;
-    text-shadow: 1px 1px 1px blue;
+  height: auto;
+  width: 250px;
+  background: #2271c3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: aliceblue;
+  font-size: 20px;
+  font-family: "Bungee", Arial;
+  text-shadow: 1px 1px 1px #000000;
 }
 
 .leftPanel span {
-    color: orange;
-    font-size: 18px;
-    font-family: "Bungee", Arial;
-    text-shadow: 2px 2px 2px #000000;
-    background-color: #acacac;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.uploadFiles {
-    margin: 10px;
-    border: 3px dashed rgb(105, 105, 105);
-    background-color: #999999;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.uploadFiles label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 20px;
+  color: orange;
+  font-size: 18px;
+  font-family: "Bungee", Arial;
+  text-shadow: 2px 2px 2px #000000;
+  background-color: #acacac;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .leftPanel img {
-    height: 80px;
-    width: 80px;
+  height: 80px;
+  width: 80px;
 }
 
 .leftPanel input[type="file"],
 .leftPanel label:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .leftPanel input[type="file"] {
-    width: 215px;
-    height: 250px;
-    position: absolute;
-    opacity: 0;
+  width: 215px;
+  height: 250px;
+  position: absolute;
+  opacity: 0;
 }
 
 .leftPanel form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .leftPanel input[type="submit"] {
-    font-size: 20px;
-    text-decoration: none;
-    border: 1px solid darkorange;
-    background-color: orange;
-    border-radius: 5px;
-    color: blue;
-    font-family: "Bungee", Arial;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-shadow: 1px 1px 1px #ffffff;
-    z-index: 1;
+  font-size: 20px;
+  text-decoration: none;
+  border: 1px solid darkorange;
+  background-color: orange;
+  border-radius: 5px;
+  color: blue;
+  font-family: "Bungee", Arial;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-shadow: 1px 1px 1px #ffffff;
+  z-index: 1;
 }
 
 .leftPanel input[type="submit"]:hover {
-    color: #ffffff;
-    text-shadow: 1px 1px 1px blue;
-    cursor: pointer;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px blue;
+  cursor: pointer;
 }
+
+.createNewFile,
+.buttonNewFolder {
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid darkorange;
+  background-color: orange;
+  border-radius: 5px;
+  color: blue;
+  font-family: "Bungee", Arial;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px #ffffff;
+  padding: 0px 5px;
+  margin: 5px;
+  width: 200px;
+}
+
+.createNewFile:hover,
+.buttonNewFolder:hover {
+  color: #ffffff;
+  text-shadow: 1px 1px 1px blue;
+  cursor: pointer;
+}
+
+.delete {
+  text-align: center;
+  margin: 5px;
+  font-size: 16px;
+  text-decoration: none;
+  border: 1px solid darkorange;
+  background-color: orange;
+  border-radius: 5px;
+  color: blue;
+  font-family: "Bungee", Arial;
+  text-shadow: 1px 1px 1px #ffffff;
+}
+
+.delete:hover {
+  color: #ffffff;
+  text-shadow: 1px 1px 1px blue;
+}
+
+.uploadFiles {
+  margin: 10px;
+  border: 3px dashed dimgray;
+  background-color: #999999;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+}
+
+.uploadFiles label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 20px;
+}
+/*# sourceMappingURL=style.css.map */
