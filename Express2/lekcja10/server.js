@@ -4,6 +4,7 @@ const PORT = 3000;
 const path = require("path")
 const formidable = require('formidable');
 const os = require("os")
+const fs = require("fs")
 var hbs = require('express-handlebars');
 
 app.use(express.static('static'))
@@ -19,6 +20,10 @@ let id = 1
 
 
 app.get("/", function (req, res) {
+    fs.readdir(path.join(__dirname, "files"), (err, files) => {
+        if (err) throw err
+        console.log("lista", files);
+    })
     res.render('filemanager.hbs');
 })
 
@@ -32,34 +37,6 @@ app.post("/upload", function (req, res) {
     form.keepExtensions = true
     form.multiples = true
     form.parse(req, function (err, fields, files) {
-        // if (files.filestoupload.length) {
-        //     for (let i = 0; i < files.filestoupload.length; i++) {
-        //         let size = files.filestoupload[i].size
-        //         let path = files.filestoupload[i].path
-        //         let type = files.filestoupload[i].type
-        //         let name = files.filestoupload[i].name
-        //         let savedate = new Date().getTime()
-        //         let obraz = getIcon(type)
-
-        //         let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path, savedate: savedate }
-        //         context.files.push(obj)
-
-        //         id++
-        //     }
-        // } else {
-        //     let size = files.filestoupload.size
-        //     let path = files.filestoupload.path
-        //     let type = files.filestoupload.type
-        //     let name = files.filestoupload.name
-        //     let savedate = new Date().getTime()
-        //     let obraz = getIcon(type)
-
-        //     let obj = { id: id, obraz: obraz, name: name, type: type, size: size, path: path, savedate: savedate }
-        //     context.files.push(obj)
-
-        //     id++
-        //}
-
         res.redirect("/")
     });
 })
