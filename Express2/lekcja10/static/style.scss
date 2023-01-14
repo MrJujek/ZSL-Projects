@@ -91,6 +91,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        label {
+            width: 170px;
+        }
     }
 
     input[type="submit"] {
@@ -128,6 +132,14 @@
     padding: 0px 5px;
     margin: 5px;
     width: 200px;
+
+    a {
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: blue;
+    }
 }
 
 .createNewFile:hover,
@@ -135,6 +147,12 @@
     color: #ffffff;
     text-shadow: 1px 1px 1px blue;
     cursor: pointer;
+
+    a {
+        color: #ffffff;
+        text-shadow: 1px 1px 1px blue;
+        cursor: pointer;
+    }
 }
 
 .delete {
@@ -167,11 +185,124 @@
     justify-content: center;
     padding: 20px;
 
+
     label {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         padding-bottom: 20px;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+
+    .element {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80px;
+        min-width: 100px;
+        max-width: fit-content;
+        border: 1px solid darkorange;
+        background-color: orange;
+        border-radius: 10px;
+        margin: 5px;
+        position: relative;
+        padding: 0px 5px;
+
+        a {
+            font-family: 'Noto Sans';
+            color: #ffffff;
+            text-shadow: 1px 1px 1px black;
+            text-decoration: none;
+        }
+
+        .imgX {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+
+            img {
+                height: 50px;
+                width: 50px;
+            }
+
+            a {
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                height: 15px;
+                width: 15px;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+#dialognewfolder,
+#dialognewfile {
+    user-select: none;
+    font-size: 24px;
+    color: orange;
+    text-shadow: 1px 1px 1px black;
+    font-family: 'Bungee';
+    position: absolute;
+    top: 100px;
+    left: calc((100vw - 400px)/2);
+    height: fit-content;
+    width: 400px;
+    border: 3px solid darkorange;
+    background-color: #999;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 1px 1px 100px #999;
+
+    input {
+        font-family: 'Noto Sans';
+        border: 1px solid darkorange;
+        border-radius: 5px;
+        height: 40px;
+        width: 100%;
+        font-size: 28px;
+        padding: 5px;
+    }
+
+    .dialogButtons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+
+        a,
+        div {
+            text-align: center;
+            font-size: 16px;
+            text-decoration: none;
+            border: 1px solid darkorange;
+            background-color: orange;
+            border-radius: 5px;
+            color: blue;
+            font-family: "Bungee", Arial;
+            text-shadow: 1px 1px 1px #ffffff;
+            width: 80px;
+
+            &:hover {
+                color: #ffffff;
+                text-shadow: 1px 1px 1px blue;
+                cursor: pointer;
+
+                a:visited {
+                    color: #ffffff;
+                }
+            }
+        }
     }
 }

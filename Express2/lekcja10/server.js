@@ -15,52 +15,38 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-
-let context = { files: [] }
-let id = 1
-let allFiles
-
-async function getDirectory() {
-    const dir = {
-        folders: [],
-        files: [],
-        others: [],
-    }
-
-    const directory = fs.readdirSync(path.join(__dirname, 'files'))
-    //console.log(directory)
-
-    await Promise.all(directory.map(async (e) => {
-        const stats = await fsPromises.lstat(path.join(__dirname, 'files', e))
-        const d = { name: e }
-
-        if (stats.isDirectory()) {
-            d.img = 'folder.png'
-            dir.folders.push(d)
-        } else if (stats.isFile()) {
-            d.img = getIcon(d.name)
-            dir.files.push(d)
-        } else {
-            d.img = '/gfx/other.png'
-            dir.others.push(d)
-        }
-    })
-
-    )
-    return dir
+let context = {
+    directories: [],
+    files: []
 }
+// let id = 1
+let allFiles
 
 app.get("/", async function (req, res) {
     fs.readdir(path.join(__dirname, "files"), (err, files) => {
         if (err) throw err
         allFiles = files
-        console.log("CZYTANIE FOLDERU");
-        console.log(files);
-    })
+        console.log(allFiles);
 
-    const dir = await getDirectory()
-    console.log(dir);
-    res.render('filemanager.hbs', dir);
+        context = {
+            directories: [],
+            files: []
+        }
+        files.forEach((file) => {
+            fs.lstat(path.join(__dirname, "files", file), (err, stats) => {
+                let fileToPush = { name: file }
+                if (stats.isDirectory()) {
+                    fileToPush.obraz = "folder.png"
+                    context.directories.push(fileToPush)
+                } else {
+                    fileToPush.obraz = getIcon(file)
+                    context.files.push(fileToPush)
+                }
+            })
+        })
+
+        res.render('filemanager.hbs', context);
+    })
 })
 
 app.post("/upload", function (req, res) {
@@ -89,6 +75,57 @@ app.post("/upload", function (req, res) {
         if (err) throw err
         res.redirect("/")
     });
+})
+
+app.get('/newFile', function (req, res) {
+    let name = req.query.name
+    let splitted = name.split(".")
+    let fileName = name
+    if (!(splitted.length >= 2)) {
+        fileName += ".txt"
+    }
+    for (let i = 0; i < allFiles.length; i++) {
+        if (allFiles[i] == fileName) {
+            let time = new Date().getTime();
+            let splitted = fileName.split(".")
+            fileName = splitted[0] + time + "." + splitted[1]
+            break;
+        }
+    }
+
+    const filepath = path.join(__dirname, "files", fileName)
+    fs.writeFile(filepath, "", (err) => {
+        if (err) throw err
+
+        res.redirect("/")
+    })
+})
+
+app.get('/newFolder', function (req, res) {
+    let name = req.query.name
+    if (!name) {
+        let time = new Date().getTime();
+        name = "NewFolder" + time
+    }
+
+    let filepath = path.join(__dirname, "files", name)
+    if (!fs.existsSync(filepath)) {
+        console.log("nie istnieje");
+        fs.mkdir(filepath, (err) => {
+            if (err) throw err
+
+            res.redirect("/")
+        })
+    } else {
+        let time = new Date().getTime();
+        name += time
+        filepath = path.join(__dirname, "files", name)
+        fs.mkdir(filepath, (err) => {
+            if (err) throw err
+
+            res.redirect("/")
+        })
+    }
 })
 
 app.get('/show/', function (req, res) {
@@ -162,42 +199,44 @@ app.listen(PORT, function () {
     console.log("start serwera na porcie " + PORT)
 })
 
-function getIcon(type) {
+function getIcon(file) {
     let obraz
-    switch (type) {
-        case 'image/jpeg':
+    let splitted = file.split(".")
+
+    switch (splitted[1]) {
+        case 'jpg':
             obraz = "jpg.png";
             break;
 
-        case 'image/png':
+        case 'png':
             obraz = "png.png";
             break;
 
-        case 'image/bmp':
+        case 'bmp':
             obraz = "bmp.png";
             break;
 
-        case 'text/plain':
+        case 'txt':
             obraz = "txt.png";
             break;
 
-        case 'application/pdf':
+        case 'pdf':
             obraz = "pdf.png";
             break;
 
-        case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+        case 'docx':
             obraz = "docx.png";
             break;
 
-        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+        case 'xlsx':
             obraz = "xlsx.png";
             break;
 
-        case 'text/javascript':
+        case 'js':
             obraz = "js.png"
             break;
 
-        case 'application/json':
+        case 'json':
             obraz = "json.png";
             break;
 

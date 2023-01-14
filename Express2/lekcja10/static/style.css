@@ -120,6 +120,10 @@
           justify-content: center;
 }
 
+.leftPanel form label {
+  width: 170px;
+}
+
 .leftPanel input[type="submit"] {
   font-size: 20px;
   text-decoration: none;
@@ -156,8 +160,25 @@
   width: 200px;
 }
 
+.createNewFile a,
+.buttonNewFolder a {
+  text-decoration: none;
+}
+
+.createNewFile a:visited,
+.buttonNewFolder a:visited {
+  color: blue;
+}
+
 .createNewFile:hover,
 .buttonNewFolder:hover {
+  color: #ffffff;
+  text-shadow: 1px 1px 1px blue;
+  cursor: pointer;
+}
+
+.createNewFile:hover a,
+.buttonNewFolder:hover a {
   color: #ffffff;
   text-shadow: 1px 1px 1px blue;
   cursor: pointer;
@@ -217,5 +238,158 @@
       -ms-flex-pack: center;
           justify-content: center;
   padding-bottom: 20px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.row .element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 80px;
+  min-width: 100px;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  border: 1px solid darkorange;
+  background-color: orange;
+  border-radius: 10px;
+  margin: 5px;
+  position: relative;
+  padding: 0px 5px;
+}
+
+.row .element a {
+  font-family: 'Noto Sans';
+  color: #ffffff;
+  text-shadow: 1px 1px 1px black;
+  text-decoration: none;
+}
+
+.row .element .imgX {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.row .element .imgX img {
+  height: 50px;
+  width: 50px;
+}
+
+.row .element .imgX a {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: 15px;
+  width: 15px;
+}
+
+.row .element .imgX a img {
+  height: 100%;
+  width: 100%;
+}
+
+#dialognewfolder,
+#dialognewfile {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 24px;
+  color: orange;
+  text-shadow: 1px 1px 1px black;
+  font-family: 'Bungee';
+  position: absolute;
+  top: 100px;
+  left: calc((100vw - 400px)/2);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 400px;
+  border: 3px solid darkorange;
+  background-color: #999;
+  border-radius: 20px;
+  padding: 10px;
+  -webkit-box-shadow: 1px 1px 100px #999;
+          box-shadow: 1px 1px 100px #999;
+}
+
+#dialognewfolder input,
+#dialognewfile input {
+  font-family: 'Noto Sans';
+  border: 1px solid darkorange;
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+  font-size: 28px;
+  padding: 5px;
+}
+
+#dialognewfolder .dialogButtons,
+#dialognewfile .dialogButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+}
+
+#dialognewfolder .dialogButtons a,
+#dialognewfolder .dialogButtons div,
+#dialognewfile .dialogButtons a,
+#dialognewfile .dialogButtons div {
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  border: 1px solid darkorange;
+  background-color: orange;
+  border-radius: 5px;
+  color: blue;
+  font-family: "Bungee", Arial;
+  text-shadow: 1px 1px 1px #ffffff;
+  width: 80px;
+}
+
+#dialognewfolder .dialogButtons a:hover,
+#dialognewfolder .dialogButtons div:hover,
+#dialognewfile .dialogButtons a:hover,
+#dialognewfile .dialogButtons div:hover {
+  color: #ffffff;
+  text-shadow: 1px 1px 1px blue;
+  cursor: pointer;
+}
+
+#dialognewfolder .dialogButtons a:hover a:visited,
+#dialognewfolder .dialogButtons div:hover a:visited,
+#dialognewfile .dialogButtons a:hover a:visited,
+#dialognewfile .dialogButtons div:hover a:visited {
+  color: #ffffff;
 }
 /*# sourceMappingURL=style.css.map */

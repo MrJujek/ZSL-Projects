@@ -1,9 +1,9 @@
 <div class="leftPanel">
     Filemanager
-    <div class="buttonNewFolder">
+    <div class="buttonNewFolder" onclick="createNewFolder()">
         Create new folder
     </div>
-    <div class="createNewFile">
+    <div class="createNewFile" onclick="createNewFile()">
         Create new file
     </div>
     <div class="uploadFiles">
@@ -16,28 +16,26 @@
     </div>
 </div>
 <div class="rightPanel">
-    <div class="directories">
-        {{#each folders}}
-        <div class="element folder">
-            <div class="upper-part">
-                <img src="{{img}}" alt="{{type}}">
+    <div class="row">
+        {{#each directories}}
+        <div class="element">
+            <div class="imgX">
+                <img src="{{obraz}}" alt="{{type}}">
                 <a href="/delete?name={{name}}"><img src="close.png" alt="X"></a>
             </div>
             <a href="">{{name}}</a>
         </div>
         {{/each}}
     </div>
-    <div class="files">
-        <div class="row">
-            {{#each files}}
-            <div class="element file">
-                <div class="upper-part">
-                    <img src="{{img}}" alt="{{type}}">
-                    <a href="/delete?name={{name}}"><img src="close.png" alt="X"></a>
-                </div>
-                <a href="">{{name}}</a>
+    <div class="row">
+        {{#each files}}
+        <div class="element">
+            <div class="imgX">
+                <img src="{{obraz}}" alt="{{type}}">
+                <a href="/delete?name={{name}}"><img src="close.png" alt="X"></a>
             </div>
-            {{/each}}
+            <a href="">{{name}}</a>
         </div>
+        {{/each}}
     </div>
 </div>
