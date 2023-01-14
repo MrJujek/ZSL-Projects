@@ -19,27 +19,51 @@ let context = {
     directories: [],
     files: []
 }
-// let id = 1
 let allFiles
+let fileIcons = [
+    '3ds.png', 'aac.png', 'ai.png',
+    'avi.png', 'bmp.png', 'cad.png',
+    'cdr.png', 'close.png', 'css.png',
+    'dat.png', 'direct-download.png', 'dll.png',
+    'dmg.png', 'doc.png', 'eps.png',
+    'fla.png', 'flv.png', 'folder.png',
+    'gif.png', 'html.png', 'indd.png',
+    'iso.png', 'jpg.png', 'js.png',
+    'midi.png', 'mov.png', 'mp3.png',
+    'mpg.png', 'pdf.png', 'php.png',
+    'png.png', 'ppt.png', 'ps.png',
+    'psd.png', 'raw.png', 'sql.png',
+    'svg.png', 'tif.png', 'txt.png',
+    'unknown.png', 'wmv.png', 'xls.png',
+    'xml.png', 'zip.png'
+]
 
 app.get("/", async function (req, res) {
+    fs.readdir(path.join(__dirname, "static", "icons"), (err, files) => {
+        fileIcons = files
+
+        console.log(files);
+    })
     fs.readdir(path.join(__dirname, "files"), (err, files) => {
         if (err) throw err
         allFiles = files
-        console.log(allFiles);
+        //console.log(allFiles);
 
         context = {
             directories: [],
             files: []
         }
+
         files.forEach((file) => {
             fs.lstat(path.join(__dirname, "files", file), (err, stats) => {
-                let fileToPush = { name: file }
+                let fileToPush = { name: file, obraz: "unknown.png" }
                 if (stats.isDirectory()) {
                     fileToPush.obraz = "folder.png"
                     context.directories.push(fileToPush)
                 } else {
                     fileToPush.obraz = getIcon(file)
+                    //console.log(file);
+                    console.log(getIcon("NewFile1673712613725.txt"));
                     context.files.push(fileToPush)
                 }
             })
@@ -64,7 +88,11 @@ app.post("/upload", function (req, res) {
             if (allFiles[i] == file.name) {
                 let time = new Date().getTime();
                 let splitted = fileName.split(".")
-                fileName = splitted[0] + time + "." + splitted[1]
+                if (splitted.length >= 2) {
+                    fileName = splitted[0] + time + "." + splitted[1]
+                } else {
+                    fileName = splitted[0]
+                }
                 break;
             }
         }
@@ -79,6 +107,11 @@ app.post("/upload", function (req, res) {
 
 app.get('/newFile', function (req, res) {
     let name = req.query.name
+    if (!name) {
+        let time = new Date().getTime();
+        name = "NewFile" + time
+    }
+
     let splitted = name.split(".")
     let fileName = name
     if (!(splitted.length >= 2)) {
@@ -110,7 +143,6 @@ app.get('/newFolder', function (req, res) {
 
     let filepath = path.join(__dirname, "files", name)
     if (!fs.existsSync(filepath)) {
-        console.log("nie istnieje");
         fs.mkdir(filepath, (err) => {
             if (err) throw err
 
@@ -128,68 +160,16 @@ app.get('/newFolder', function (req, res) {
     }
 })
 
-app.get('/show/', function (req, res) {
-    let id = req.query.id
+app.get('/delete', function (req, res) {
+    let name = req.query.name
+    let filepath = path.join(__dirname, "files", name)
 
-    for (let i = 0; i < context.files.length; i++) {
-        if (id == context.files[i].id) {
-            res.sendFile(context.files[i].path)
-        }
-    }
+    fs.unlink(filepath, (err) => {
+        if (err) throw err
+
+        res.redirect("/")
+    })
 });
-
-app.get('/download/', function (req, res) {
-    let id = req.query.id
-
-    for (let i = 0; i < context.files.length; i++) {
-        if (id == context.files[i].id) {
-            res.download(context.files[i].path)
-        }
-    }
-});
-
-app.get('/info/', function (req, res) {
-    let id = req.query.id
-    let bool = true
-    for (let i = 0; i < context.files.length; i++) {
-        if (id == context.files[i].id) {
-            let size = context.files[i].size
-            let path = context.files[i].path
-            let type = context.files[i].type
-            let name = context.files[i].name
-            let savedate = context.files[i].savedate
-
-            let obj = { id: id, name: name, type: type, size: size, path: path, savedate: savedate }
-            res.render("info.hbs", obj)
-            bool = false
-        }
-    }
-    if (bool) {
-        res.render("info.hbs")
-    }
-});
-
-app.get('/delete/', function (req, res) {
-    let id = req.query.id
-
-    // if (id) {
-    for (let i = 0; i < context.files.length; i++) {
-        if (id == context.files[i].id) {
-            context.files.splice(i, 1)
-        }
-    }
-    // } else {
-    //     context = { files: [] }
-    // }
-
-    res.render("filemanager.hbs", context)
-});
-
-app.get('/reset/', function (req, res) {
-    context = { files: [] }
-
-    res.render("filemanager.hbs", context)
-})
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs', hbs({ defaultLayout: 'main.hbs' }));
@@ -200,49 +180,16 @@ app.listen(PORT, function () {
 })
 
 function getIcon(file) {
-    let obraz
     let splitted = file.split(".")
+    let obraz = "unknown.png"
 
-    switch (splitted[1]) {
-        case 'jpg':
-            obraz = "jpg.png";
-            break;
+    for (let i = 0; i < fileIcons.length; i++) {
+        if (splitted[splitted.length - 1] == fileIcons[i].split(".")[0]) {
+            obraz = String(fileIcons[i])
 
-        case 'png':
-            obraz = "png.png";
-            break;
-
-        case 'bmp':
-            obraz = "bmp.png";
-            break;
-
-        case 'txt':
-            obraz = "txt.png";
-            break;
-
-        case 'pdf':
-            obraz = "pdf.png";
-            break;
-
-        case 'docx':
-            obraz = "docx.png";
-            break;
-
-        case 'xlsx':
-            obraz = "xlsx.png";
-            break;
-
-        case 'js':
-            obraz = "js.png"
-            break;
-
-        case 'json':
-            obraz = "json.png";
-            break;
-
-        default:
-            obraz = "unknown.png";
-            break;
+            console.log("WYLICZONE", obraz);
+            return obraz
+        }
     }
     return obraz
 }

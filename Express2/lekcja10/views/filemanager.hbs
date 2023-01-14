@@ -16,22 +16,28 @@
     </div>
 </div>
 <div class="rightPanel">
+    {{#if directories}}
+    <span class="rowInfo">Folders:</span>
+    {{/if}}
     <div class="row">
         {{#each directories}}
         <div class="element">
             <div class="imgX">
-                <img src="{{obraz}}" alt="{{type}}">
+                <img src="{{obraz}}" alt="{{name}}">
                 <a href="/delete?name={{name}}"><img src="close.png" alt="X"></a>
             </div>
             <a href="">{{name}}</a>
         </div>
         {{/each}}
     </div>
+    {{#if files}}
+    <span class="rowInfo">Files:</span>
+    {{/if}}
     <div class="row">
         {{#each files}}
         <div class="element">
             <div class="imgX">
-                <img src="{{obraz}}" alt="{{type}}">
+                <img src="{{obraz}}" alt="{{name}}">
                 <a href="/delete?name={{name}}"><img src="close.png" alt="X"></a>
             </div>
             <a href="">{{name}}</a>

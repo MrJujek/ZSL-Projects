@@ -59,7 +59,7 @@
 
 .leftPanel {
   height: auto;
-  width: 250px;
+  width: 236px;
   background: #2271c3;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -238,6 +238,14 @@
       -ms-flex-pack: center;
           justify-content: center;
   padding-bottom: 20px;
+}
+
+.rowInfo {
+  color: aliceblue;
+  font-size: 20px;
+  font-family: "Bungee", Arial;
+  text-shadow: 1px 1px 1px #000000;
+  margin-left: 20px;
 }
 
 .row {
