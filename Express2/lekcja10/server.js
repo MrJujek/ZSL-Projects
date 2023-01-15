@@ -20,34 +20,12 @@ let context = {
     files: []
 }
 let allFiles
-let fileIcons = [
-    '3ds.png', 'aac.png', 'ai.png',
-    'avi.png', 'bmp.png', 'cad.png',
-    'cdr.png', 'close.png', 'css.png',
-    'dat.png', 'direct-download.png', 'dll.png',
-    'dmg.png', 'doc.png', 'eps.png',
-    'fla.png', 'flv.png', 'folder.png',
-    'gif.png', 'html.png', 'indd.png',
-    'iso.png', 'jpg.png', 'js.png',
-    'midi.png', 'mov.png', 'mp3.png',
-    'mpg.png', 'pdf.png', 'php.png',
-    'png.png', 'ppt.png', 'ps.png',
-    'psd.png', 'raw.png', 'sql.png',
-    'svg.png', 'tif.png', 'txt.png',
-    'unknown.png', 'wmv.png', 'xls.png',
-    'xml.png', 'zip.png'
-]
 
 app.get("/", async function (req, res) {
-    fs.readdir(path.join(__dirname, "static", "icons"), (err, files) => {
-        fileIcons = files
-
-        console.log(files);
-    })
     fs.readdir(path.join(__dirname, "files"), (err, files) => {
         if (err) throw err
         allFiles = files
-        //console.log(allFiles);
+        console.log(allFiles);
 
         context = {
             directories: [],
@@ -62,8 +40,6 @@ app.get("/", async function (req, res) {
                     context.directories.push(fileToPush)
                 } else {
                     fileToPush.obraz = getIcon(file)
-                    //console.log(file);
-                    console.log(getIcon("NewFile1673712613725.txt"));
                     context.files.push(fileToPush)
                 }
             })
@@ -160,7 +136,7 @@ app.get('/newFolder', function (req, res) {
     }
 })
 
-app.get('/delete', function (req, res) {
+app.get('/deleteFile', function (req, res) {
     let name = req.query.name
     let filepath = path.join(__dirname, "files", name)
 
@@ -171,6 +147,18 @@ app.get('/delete', function (req, res) {
     })
 });
 
+app.get('/deleteFolder', function (req, res) {
+    let name = req.query.name
+    let filepath = path.join(__dirname, "files", name)
+    if (fs.existsSync(filepath)) {
+        fs.rmdir(filepath, (err) => {
+            if (err) throw err
+
+            res.redirect("/")
+        })
+    }
+});
+
 app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs', hbs({ defaultLayout: 'main.hbs' }));
 app.set('view engine', 'hbs');
@@ -179,6 +167,23 @@ app.listen(PORT, function () {
     console.log("start serwera na porcie " + PORT)
 })
 
+let fileIcons = [
+    '3ds.png', 'aac.png', 'ai.png',
+    'avi.png', 'bmp.png', 'cad.png',
+    'cdr.png', 'close.png', 'css.png',
+    'dat.png', 'direct-download.png', 'dll.png',
+    'dmg.png', 'doc.png', 'eps.png',
+    'fla.png', 'flv.png', 'folder.png',
+    'gif.png', 'html.png', 'indd.png',
+    'iso.png', 'jpg.png', 'js.png',
+    'midi.png', 'mov.png', 'mp3.png',
+    'mpg.png', 'pdf.png', 'php.png',
+    'png.png', 'ppt.png', 'ps.png',
+    'psd.png', 'raw.png', 'sql.png',
+    'svg.png', 'tif.png', 'txt.png',
+    'unknown.png', 'wmv.png', 'xls.png',
+    'xml.png', 'zip.png'
+]
 function getIcon(file) {
     let splitted = file.split(".")
     let obraz = "unknown.png"
@@ -187,7 +192,6 @@ function getIcon(file) {
         if (splitted[splitted.length - 1] == fileIcons[i].split(".")[0]) {
             obraz = String(fileIcons[i])
 
-            console.log("WYLICZONE", obraz);
             return obraz
         }
     }
