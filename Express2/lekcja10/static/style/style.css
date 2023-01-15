@@ -258,7 +258,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 80px;
+  height: 90px;
   min-width: 100px;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
@@ -269,13 +269,6 @@
   margin: 5px;
   position: relative;
   padding: 0px 5px;
-}
-
-.row .element a {
-  font-family: 'Noto Sans';
-  color: #ffffff;
-  text-shadow: 1px 1px 1px black;
-  text-decoration: none;
 }
 
 .row .element .imgX {
@@ -297,17 +290,36 @@
   width: 50px;
 }
 
-.row .element .imgX a {
+.row .element .imgX button {
   position: absolute;
-  right: 5px;
-  top: 5px;
-  height: 15px;
-  width: 15px;
+  right: 0px;
+  top: 0px;
+  height: 20px;
+  width: 20px;
+  background: none;
+  border: none;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
 }
 
-.row .element .imgX a img {
-  height: 100%;
-  width: 100%;
+.row .element .imgX button:hover {
+  background: -webkit-gradient(linear, left top, right top, from(#4222c3), to(#802dfd));
+  background: linear-gradient(90deg, #4222c3 0%, #802dfd 100%);
+  border-radius: 5px;
+}
+
+.row .element .imgX button img {
+  height: 15px;
+  width: 15px;
 }
 
 #dialognewfolder,
@@ -387,5 +399,39 @@
 #dialognewfile .dialogButtons button[type="submit"]:hover a:visited,
 #dialognewfile .dialogButtons div:hover a:visited {
   color: #ffffff;
+}
+
+.fileLink {
+  background: none;
+  border: none;
+  font-family: 'Noto Sans';
+  color: #ffffff;
+  text-shadow: 1px 1px 1px black;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0px 5px;
+}
+
+.fileLink:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#4222c3), to(#802dfd));
+  background: linear-gradient(90deg, #4222c3 0%, #802dfd 100%);
+  border-radius: 5px;
+}
+
+.filePath {
+  font-family: "Noto Sans";
+  font-size: 32px;
+  margin-top: 100px;
+  color: #ffffff;
+  text-shadow: 1px 1px 10px black;
+  padding: 0px 5px;
+}
+
+.filePath:hover {
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#4222c3), to(#802dfd));
+  background: linear-gradient(90deg, #4222c3 0%, #802dfd 100%);
+  border-radius: 5px;
 }
 /*# sourceMappingURL=style.css.map */

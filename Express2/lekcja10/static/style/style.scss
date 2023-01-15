@@ -49,7 +49,6 @@
 
 .leftPanel {
     height: auto;
-    // width: 236px;
     background: #2271c3;
     display: flex;
     align-items: center;
@@ -208,7 +207,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 80px;
+        height: 90px;
         min-width: 100px;
         max-width: fit-content;
         border: 1px solid darkorange;
@@ -217,13 +216,6 @@
         margin: 5px;
         position: relative;
         padding: 0px 5px;
-
-        a {
-            font-family: 'Noto Sans';
-            color: #ffffff;
-            text-shadow: 1px 1px 1px black;
-            text-decoration: none;
-        }
 
         .imgX {
             display: flex;
@@ -236,16 +228,28 @@
                 width: 50px;
             }
 
-            a {
+            button {
                 position: absolute;
-                right: 5px;
-                top: 5px;
-                height: 15px;
-                width: 15px;
+                right: 0px;
+                top: 0px;
+                height: 20px;
+                width: 20px;
+                background: none;
+                border: none;
+                margin: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                &:hover {
+                    background: linear-gradient(90deg, rgba(66, 34, 195, 1) 0%, rgba(128, 45, 253, 1) 100%);
+                    border-radius: 5px;
+                }
 
                 img {
-                    height: 100%;
-                    width: 100%;
+                    height: 15px;
+                    width: 15px;
                 }
             }
         }
@@ -308,5 +312,37 @@
                 }
             }
         }
+    }
+}
+
+.fileLink {
+    background: none;
+    border: none;
+    font-family: 'Noto Sans';
+    color: #ffffff;
+    text-shadow: 1px 1px 1px black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 0px 5px;
+
+    &:hover {
+        cursor: pointer;
+        background: linear-gradient(90deg, rgba(66, 34, 195, 1) 0%, rgba(128, 45, 253, 1) 100%);
+        border-radius: 5px;
+    }
+}
+
+.filePath {
+    font-family: "Noto Sans";
+    font-size: 32px;
+    margin-top: 100px;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px black;
+    padding: 0px 5px;
+
+    &:hover {
+        cursor: pointer;
+        background: linear-gradient(90deg, rgba(66, 34, 195, 1) 0%, rgba(128, 45, 253, 1) 100%);
+        border-radius: 5px;
     }
 }

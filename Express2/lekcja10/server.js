@@ -9,13 +9,13 @@ const fsPromises = require('fs/promises')
 var hbs = require('express-handlebars');
 
 app.use(express.static('static'))
-app.use(express.static('static/icons'))
 
 app.use(express.urlencoded({
     extended: true
 }));
 
 let context = {
+    filePath: [],
     directories: [],
     files: []
 }
@@ -24,16 +24,20 @@ let folderPath
 
 app.get("/*", async function (req, res) {
     folderPath = req.url
+    console.log(context);
     fs.readdir(path.join(__dirname, "files", folderPath), (err, files) => {
         if (err) throw err
         allFiles = files
+
         //console.log(allFiles);
+        //console.log(folderPath);
 
         context = {
+            filePath: folderPath,
             directories: [],
             files: []
         }
-        console.log(folderPath);
+
         files.forEach((file) => {
             fs.lstat(path.join(__dirname, "files", folderPath, file), (err, stats) => {
                 let fileToPush = { name: file, obraz: "unknown.png" }
@@ -57,10 +61,7 @@ app.get("/*", async function (req, res) {
 
 app.post("/upload", function (req, res) {
     let form = formidable({});
-
-    // const userHome = os.homedir()
-    // form.uploadDir = path.join(userHome, "Desktop")
-    form.uploadDir = path.join(__dirname, 'files')
+    form.uploadDir = path.join(__dirname, 'files', folderPath)
     form.keepExtensions = true
     form.multiples = true
 
@@ -79,11 +80,12 @@ app.post("/upload", function (req, res) {
             }
         }
         file.path = form.uploadDir + '/' + fileName
+        console.log(file.path);
     })
 
     form.parse(req, function (err, fields, files) {
         if (err) throw err
-        res.redirect("/")
+        res.redirect(folderPath)
     });
 })
 
@@ -124,6 +126,7 @@ app.post('/newFolder', function (req, res) {
     }
 
     let filepath = path.join(__dirname, "files", folderPath, name)
+    console.log(filepath);
     if (!fs.existsSync(filepath)) {
         fs.mkdir(filepath, (err) => {
             if (err) throw err
@@ -158,12 +161,18 @@ app.post('/deleteFolder', function (req, res) {
     let name = req.query.name
     let filepath = path.join(__dirname, "files", folderPath, name)
     if (fs.existsSync(filepath)) {
-        fs.rmdir(filepath, { recursive: true }, (err) => {
+        fs.rm(filepath, { recursive: true }, (err) => {
             if (err) throw err
 
             res.redirect(folderPath)
         })
     }
+});
+
+app.post('/show/*', function (req, res) {
+    let url = req.url
+    //console.log(path.join(__dirname, "files", url.slice(5)));
+    res.sendFile(path.join(__dirname, "files", url.slice(5)))
 });
 
 app.set('views', path.join(__dirname, 'views'));

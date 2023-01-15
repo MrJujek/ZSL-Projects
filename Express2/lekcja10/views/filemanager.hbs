@@ -16,6 +16,7 @@
     </div>
 </div>
 <div class="rightPanel">
+    <span class="filePath">{{ filePath }}</span><br>
     {{#if directories}}
     <span class="rowInfo">Folders:</span>
     {{/if}}
@@ -23,12 +24,11 @@
         {{#each directories}}
         <div class="element">
             <div class="imgX">
-                <img src="{{obraz}}" alt="{{name}}">
+                <img src="/icons/{{obraz}}" alt="{{name}}">
                 <form method="POST" action="/deleteFolder?name={{name}}">
-                    <button type="submit"><img src="close.png" alt="X"></button>
+                    <button type="submit"><img src="/icons/close.png" alt="X"></button>
                 </form>
             </div>
-            {{path}}
             <a class="fileLink" href="{{path}}">{{name}}</a>
         </div>
         {{/each}}
@@ -40,14 +40,15 @@
         {{#each files}}
         <div class="element">
             <div class="imgX">
-                <img src="{{obraz}}" alt="{{name}}">
+                <img src="/icons/{{obraz}}" alt="{{name}}">
                 <form method="POST" action="/deleteFile?name={{name}}">
-                    <button type="submit"><img src="close.png" alt="X"></button>
+                    <button type="submit"><img src="/icons/close.png" alt="X"></button>
                 </form>
-                {{!-- <a href="/deleteFile?name={{name}}"><img src="close.png" alt="X"></a> --}}
             </div>
-            {{path}}
-            <a class="fileLink" href="{{path}}">{{name}}</a>
+            <form method="POST" action="/show{{path}}">
+                <button class="fileLink" type="submit">{{name}}</button>
+            </form>
+            {{!-- <a class="fileLink" href="/show{{path}}">{{name}}</a> --}}
         </div>
         {{/each}}
     </div>
