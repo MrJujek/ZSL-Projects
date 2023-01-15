@@ -3,15 +3,19 @@ function createNewFile() {
     element.id = "dialognewfile"
     element.innerText = "Input file name:"
 
+    let form = document.createElement("form")
+    form.method = "POST"
+    form.action = "/newFile"
+
     let input = document.createElement("input")
-    element.append(input)
+    form.append(input)
 
     let buttons = document.createElement("div")
     buttons.classList.add("dialogButtons")
 
-    let create = document.createElement("a")
+    let create = document.createElement("button")
+    create.type = "submit"
     create.innerText = "Create"
-    create.href = "/newFile"//?name=" + input.value
 
     let cancel = document.createElement("div")
     cancel.innerText = "Cancel"
@@ -20,11 +24,12 @@ function createNewFile() {
     })
 
     input.addEventListener("input", () => {
-        create.href = "/newFile?name=" + input.value
+        form.action = "/newFile?name=" + input.value
     })
 
     buttons.append(create, cancel)
-    element.append(buttons)
+    form.append(buttons)
+    element.append(form)
 
     document.body.append(element)
 }
@@ -32,17 +37,21 @@ function createNewFile() {
 function createNewFolder() {
     let element = document.createElement("div")
     element.id = "dialognewfolder"
-    element.innerText = "Input folder name:"
+    element.innerText = "Input file name:"
+
+    let form = document.createElement("form")
+    form.method = "POST"
+    form.action = "/newFolder"
 
     let input = document.createElement("input")
-    element.append(input)
+    form.append(input)
 
     let buttons = document.createElement("div")
     buttons.classList.add("dialogButtons")
 
-    let create = document.createElement("a")
+    let create = document.createElement("button")
+    create.type = "submit"
     create.innerText = "Create"
-    create.href = "/newFolder?"//?name=" + input.value
 
     let cancel = document.createElement("div")
     cancel.innerText = "Cancel"
@@ -51,11 +60,12 @@ function createNewFolder() {
     })
 
     input.addEventListener("input", () => {
-        create.href = "/newFolder?name=" + input.value
+        form.action = "/newFolder?name=" + input.value
     })
 
     buttons.append(create, cancel)
-    element.append(buttons)
+    form.append(buttons)
+    element.append(form)
 
     document.body.append(element)
 }

@@ -20,26 +20,32 @@ let context = {
     files: []
 }
 let allFiles
+let folderPath
 
-app.get("/", async function (req, res) {
-    fs.readdir(path.join(__dirname, "files"), (err, files) => {
+app.get("/*", async function (req, res) {
+    folderPath = req.url
+    fs.readdir(path.join(__dirname, "files", folderPath), (err, files) => {
         if (err) throw err
         allFiles = files
-        console.log(allFiles);
+        //console.log(allFiles);
 
         context = {
             directories: [],
             files: []
         }
-
+        console.log(folderPath);
         files.forEach((file) => {
-            fs.lstat(path.join(__dirname, "files", file), (err, stats) => {
+            fs.lstat(path.join(__dirname, "files", folderPath, file), (err, stats) => {
                 let fileToPush = { name: file, obraz: "unknown.png" }
                 if (stats.isDirectory()) {
                     fileToPush.obraz = "folder.png"
+                    fileToPush.path = path.join(folderPath, file)
+
                     context.directories.push(fileToPush)
                 } else {
                     fileToPush.obraz = getIcon(file)
+                    fileToPush.path = path.join(folderPath, file)
+
                     context.files.push(fileToPush)
                 }
             })
@@ -81,7 +87,7 @@ app.post("/upload", function (req, res) {
     });
 })
 
-app.get('/newFile', function (req, res) {
+app.post('/newFile', function (req, res) {
     let name = req.query.name
     if (!name) {
         let time = new Date().getTime();
@@ -102,59 +108,60 @@ app.get('/newFile', function (req, res) {
         }
     }
 
-    const filepath = path.join(__dirname, "files", fileName)
+    const filepath = path.join(__dirname, "files", folderPath, fileName)
     fs.writeFile(filepath, "", (err) => {
         if (err) throw err
 
-        res.redirect("/")
+        res.redirect(folderPath)
     })
 })
 
-app.get('/newFolder', function (req, res) {
+app.post('/newFolder', function (req, res) {
     let name = req.query.name
     if (!name) {
         let time = new Date().getTime();
         name = "NewFolder" + time
     }
 
-    let filepath = path.join(__dirname, "files", name)
+    let filepath = path.join(__dirname, "files", folderPath, name)
     if (!fs.existsSync(filepath)) {
         fs.mkdir(filepath, (err) => {
             if (err) throw err
 
-            res.redirect("/")
+            res.redirect(folderPath)
         })
     } else {
         let time = new Date().getTime();
         name += time
-        filepath = path.join(__dirname, "files", name)
+        filepath = path.join(__dirname, "files", folderPath, name)
         fs.mkdir(filepath, (err) => {
             if (err) throw err
 
-            res.redirect("/")
+            res.redirect(folderPath)
         })
     }
 })
 
-app.get('/deleteFile', function (req, res) {
+app.post('/deleteFile', function (req, res) {
+    console.log(folderPath);
     let name = req.query.name
-    let filepath = path.join(__dirname, "files", name)
+    let filepath = path.join(__dirname, "files", folderPath, name)
 
     fs.unlink(filepath, (err) => {
         if (err) throw err
 
-        res.redirect("/")
+        res.redirect(folderPath)
     })
 });
 
-app.get('/deleteFolder', function (req, res) {
+app.post('/deleteFolder', function (req, res) {
     let name = req.query.name
-    let filepath = path.join(__dirname, "files", name)
+    let filepath = path.join(__dirname, "files", folderPath, name)
     if (fs.existsSync(filepath)) {
-        fs.rmdir(filepath, (err) => {
+        fs.rmdir(filepath, { recursive: true }, (err) => {
             if (err) throw err
 
-            res.redirect("/")
+            res.redirect(folderPath)
         })
     }
 });
@@ -171,7 +178,7 @@ let fileIcons = [
     '3ds.png', 'aac.png', 'ai.png',
     'avi.png', 'bmp.png', 'cad.png',
     'cdr.png', 'close.png', 'css.png',
-    'dat.png', 'direct-download.png', 'dll.png',
+    'dat.png', 'dll.png',
     'dmg.png', 'doc.png', 'eps.png',
     'fla.png', 'flv.png', 'folder.png',
     'gif.png', 'html.png', 'indd.png',

@@ -49,7 +49,7 @@
 
 .leftPanel {
     height: auto;
-    width: 236px;
+    // width: 236px;
     background: #2271c3;
     display: flex;
     align-items: center;
@@ -140,18 +140,17 @@
     a:visited {
         color: blue;
     }
-}
 
-.createNewFile:hover,
-.buttonNewFolder:hover {
-    color: #ffffff;
-    text-shadow: 1px 1px 1px blue;
-    cursor: pointer;
-
-    a {
+    &:hover {
         color: #ffffff;
         text-shadow: 1px 1px 1px blue;
         cursor: pointer;
+
+        a {
+            color: #ffffff;
+            text-shadow: 1px 1px 1px blue;
+            cursor: pointer;
+        }
     }
 }
 
@@ -166,13 +165,12 @@
     color: blue;
     font-family: "Bungee", Arial;
     text-shadow: 1px 1px 1px #ffffff;
-}
 
-.delete:hover {
-    color: #ffffff;
-    text-shadow: 1px 1px 1px blue;
+    &:hover {
+        color: #ffffff;
+        text-shadow: 1px 1px 1px blue;
+    }
 }
-
 
 .uploadFiles {
     margin: 10px;
@@ -187,11 +185,9 @@
 
 
     label {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         padding-bottom: 20px;
+        text-align: center;
+        overflow-wrap: break-word;
     }
 }
 
@@ -289,7 +285,7 @@
         justify-content: space-between;
         margin-top: 5px;
 
-        a,
+        button[type="submit"],
         div {
             text-align: center;
             font-size: 16px;

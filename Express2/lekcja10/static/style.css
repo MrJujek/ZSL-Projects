@@ -59,7 +59,6 @@
 
 .leftPanel {
   height: auto;
-  width: 236px;
   background: #2271c3;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -224,20 +223,9 @@
 }
 
 .uploadFiles label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   padding-bottom: 20px;
+  text-align: center;
+  overflow-wrap: break-word;
 }
 
 .rowInfo {
@@ -369,9 +357,9 @@
   margin-top: 5px;
 }
 
-#dialognewfolder .dialogButtons a,
+#dialognewfolder .dialogButtons button[type="submit"],
 #dialognewfolder .dialogButtons div,
-#dialognewfile .dialogButtons a,
+#dialognewfile .dialogButtons button[type="submit"],
 #dialognewfile .dialogButtons div {
   text-align: center;
   font-size: 16px;
@@ -385,18 +373,18 @@
   width: 80px;
 }
 
-#dialognewfolder .dialogButtons a:hover,
+#dialognewfolder .dialogButtons button[type="submit"]:hover,
 #dialognewfolder .dialogButtons div:hover,
-#dialognewfile .dialogButtons a:hover,
+#dialognewfile .dialogButtons button[type="submit"]:hover,
 #dialognewfile .dialogButtons div:hover {
   color: #ffffff;
   text-shadow: 1px 1px 1px blue;
   cursor: pointer;
 }
 
-#dialognewfolder .dialogButtons a:hover a:visited,
+#dialognewfolder .dialogButtons button[type="submit"]:hover a:visited,
 #dialognewfolder .dialogButtons div:hover a:visited,
-#dialognewfile .dialogButtons a:hover a:visited,
+#dialognewfile .dialogButtons button[type="submit"]:hover a:visited,
 #dialognewfile .dialogButtons div:hover a:visited {
   color: #ffffff;
 }

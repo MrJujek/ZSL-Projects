@@ -24,9 +24,12 @@
         <div class="element">
             <div class="imgX">
                 <img src="{{obraz}}" alt="{{name}}">
-                <a href="/deleteFolder?name={{name}}"><img src="close.png" alt="X"></a>
+                <form method="POST" action="/deleteFolder?name={{name}}">
+                    <button type="submit"><img src="close.png" alt="X"></button>
+                </form>
             </div>
-            <a href="">{{name}}</a>
+            {{path}}
+            <a class="fileLink" href="{{path}}">{{name}}</a>
         </div>
         {{/each}}
     </div>
@@ -38,9 +41,13 @@
         <div class="element">
             <div class="imgX">
                 <img src="{{obraz}}" alt="{{name}}">
-                <a href="/deleteFile?name={{name}}"><img src="close.png" alt="X"></a>
+                <form method="POST" action="/deleteFile?name={{name}}">
+                    <button type="submit"><img src="close.png" alt="X"></button>
+                </form>
+                {{!-- <a href="/deleteFile?name={{name}}"><img src="close.png" alt="X"></a> --}}
             </div>
-            <a href="">{{name}}</a>
+            {{path}}
+            <a class="fileLink" href="{{path}}">{{name}}</a>
         </div>
         {{/each}}
     </div>
