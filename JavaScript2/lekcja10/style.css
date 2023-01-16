@@ -1,0 +1,21 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100vw;
+    margin: 10px;
+    display: flex;
+    font-family: 'Noto Sans';
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#speedway {
+    border: 1px solid black;
+}
