@@ -8,8 +8,8 @@
 </head>
 <body>
     <?php
-        $a = 1
-        echo($a)
+        $a = 1;
+        echo $a;
     ?>
 </body>
 </html>

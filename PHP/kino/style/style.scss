@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logInDiv {
+    font-family: 'Noto Sans', sans-serif;
+    width: 100vw;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        label {
+            color: #4CAF50;
+            text-shadow: #3b853e 1px 1px 1px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            border: 2px solid #3b853e;
+            height: 35px;
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border: 3px solid #3b853e;
+            border-radius: 10px;
+        }
+    }
+}
