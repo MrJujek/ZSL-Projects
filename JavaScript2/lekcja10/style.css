@@ -8,7 +8,6 @@
 
 .main {
     width: 100vw;
-    margin: 10px;
     display: flex;
     font-family: 'Noto Sans';
     flex-direction: column;
@@ -17,5 +16,5 @@
 }
 
 #speedway {
-    border: 1px solid black;
+    outline: 1px solid black;
 }
