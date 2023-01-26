@@ -6,25 +6,29 @@ class Net {
 
     waitForSecondPlayer = () => {
         let nick = document.getElementById("dajDane").value
+
         const body = JSON.stringify({ nick: nick, info: "fetch" })
         const headers = { "Content-Type": "application/json" }
 
-        let waitingDiv = document.createElement("div")
-        waitingDiv.id = "waitingDiv"
-        waitingDiv.innerHTML = "Czekam na drugiego gracza"
-        document.body.appendChild(waitingDiv)
+        ui.waitForSecondPlayer()
 
         let interval = setInterval(() => {
             fetch("/GET_USERS", { method: "post", body, headers })
                 .then(response => response.json())
                 .then(
                     data => {
+                        if (nick == "") {
+                            nick = "Quest" + data
+                        }
+
                         if (data == "1") {
                             this.mainDiv.remove()
                             this.playerInfo.innerHTML = nick + " grasz bialymi"
                         } else if (data == "2") {
                             this.mainDiv.remove()
-                            this.playerInfo.innerHTML = nick + " grasz czarnymi"
+                            if (this.playerInfo.innerHTML != nick + " grasz bialymi") {
+                                this.playerInfo.innerHTML = nick + " grasz czarnymi"
+                            }
                             clearInterval(interval)
                             document.getElementById("waitingDiv").remove()
                         }
@@ -34,6 +38,9 @@ class Net {
 
     loguj = () => {
         let nick = document.getElementById("dajDane").value
+        if (nick == "") {
+            nick = "Quest" + new Date().getTime()
+        }
 
         const body = JSON.stringify({ nick: nick, info: "fetch" })
         const headers = { "Content-Type": "application/json" }
@@ -62,7 +69,6 @@ class Net {
 
     reset = () => {
         const body = JSON.stringify({ reset: "reset" })
-
         const headers = { "Content-Type": "application/json" }
 
         fetch("/RESET", { method: "post", body, headers })

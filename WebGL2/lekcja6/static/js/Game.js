@@ -70,50 +70,47 @@ class Game {
     }
 
     givePawns = () => {
-        const white = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/bialy.jpg') });
-        const black = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, map: new THREE.TextureLoader().load('mats/czarny.jfif') });
         let cylinder
 
         for (let i = 0; i < this.pawns.length; i++) {
             for (let j = 0; j < this.pawns[i].length; j++) {
                 if (this.pawns[i][j] == 2) {
-                    cylinder = new Pawn(white, this.size)
+                    cylinder = new Pawn("white", this.size)
 
                     this.scene.add(cylinder);
                     cylinder.position.set(j * this.size + this.size / 2, 10, i * this.size + this.size / 2)
 
                 } else if (this.pawns[i][j] == 1) {
-                    cylinder = new Pawn(black, this.size)
+                    cylinder = new Pawn("black", this.size)
 
                     this.scene.add(cylinder);
                     cylinder.position.set(j * this.size + this.size / 2, 10, i * this.size + this.size / 2)
                 }
             }
         }
-
-        this.checkForMovePawn();
     }
 
-    checkForMovePawn = () => {
+    checkForMovePawn = (player) => {
         window.addEventListener("mousedown", (e) => {
-            console.log(e.clientX, e.clientY - 100);
-            console.log(document.getElementById("root").offsetWidth, document.getElementById("root").offsetHeight);
-
             this.mouseVector.x = (e.clientX / document.getElementById("root").offsetWidth) * 2 - 1;
-            this.mouseVector.y = -(e.clientY - 100 / document.getElementById("root").offsetHeight) * 2 + 1;
+            this.mouseVector.y = -((e.clientY - 100) / document.getElementById("root").offsetHeight) * 2 + 1;
 
             this.raycaster.setFromCamera(this.mouseVector, this.camera);
 
-            let intersects = this.raycaster.intersectObjects(this.scene.children);
-            console.log("length", intersects.length)
+            const intersects = this.raycaster.intersectObjects(this.scene.children);
 
             if (intersects.length > 0) {
-                console.log("kliknięto");
-
-                // zerowy w tablicy czyli najbliższy kamery obiekt to ten, którego potrzebujemy:
-
-                console.log(intersects[0].object);
-
+                if (player == 1) {
+                    if (intersects[0].object.player == "white") {
+                        console.log("biały");
+                        intersects[0].object.material.color.setHex(0x8587ff);
+                    }
+                } else {
+                    if (intersects[0].object.player == "black") {
+                        console.log("czarny");
+                        intersects[0].object.material.color.setHex(0x8587ff);
+                    }
+                }
             }
         });
     }
@@ -124,5 +121,6 @@ class Game {
         } else {
             this.camera.position.set(this.size * 4, 500, 500)
         }
+        this.checkForMovePawn(player);
     }
 }

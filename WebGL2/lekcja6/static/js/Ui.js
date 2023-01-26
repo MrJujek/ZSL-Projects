@@ -27,4 +27,11 @@ class Ui {
             net.reset()
         })
     }
+
+    waitForSecondPlayer = () => {
+        let waitingDiv = document.createElement("div")
+        waitingDiv.id = "waitingDiv"
+        waitingDiv.innerHTML = "Czekam na drugiego gracza"
+        document.body.appendChild(waitingDiv)
+    }
 }
