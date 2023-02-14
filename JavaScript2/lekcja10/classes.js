@@ -62,24 +62,42 @@ export class Player {
     constructor(playerNumber) {
         this.playerColor
         this.playerMotorcycle
+        this.leftKey
+        this.rightKey
+        this.playerColor
         this.ctx = document.getElementById("speedway").getContext("2d")
 
         switch (playerNumber) {
             case 1:
-                this.playerX = 100
-                this.playerY = 100
+                this.playerX = 500
+                this.playerY = 300
+                this.leftKey = "ArrowLeft"
+                this.rightKey = "ArrowRight"
+                this.playerColor = "red"
                 break;
 
             case 2:
+                this.playerX = 100
+                this.playerY = 100
+                this.leftKey = "KeyA"
+                this.rightKey = "KeyD"
+                this.playerColor = "blue"
                 break;
 
             case 3:
+                this.playerX = 100
+                this.playerY = 100
+                this.leftKey = "KeyZ"
+                this.rightKey = "KeyX"
+                this.playerColor = "green"
                 break;
 
             case 4:
-                break;
-
-            default:
+                this.playerX = 100
+                this.playerY = 100
+                this.leftKey = "KeyV"
+                this.rightKey = "KeyB"
+                this.playerColor = "yellow"
                 break;
         }
 
@@ -93,35 +111,52 @@ export class Player {
         this.playerMotorcycle = new Image()
         this.playerMotorcycle.src = './img/motorcycle.png'
         this.playerMotorcycle.onload = () => {
-
+            this.ctx.drawImage(this.playerMotorcycle, this.playerX, this.playerY, 20, 50)
         }
     }
     movePlayer() {
+        let alfa = 90 * Math.PI / 180, dx = 0, dy = 0, turnLeft = false, turnRight = false
 
-        let alfa, dx, dy
+        document.addEventListener('keydown', (e) => {
+            switch (e.code) {
+                case this.leftKey:
+                    turnLeft = true
+                    break;
+
+                case this.rightKey:
+                    turnRight = true
+                    alfa += 15 * Math.PI / 180
+                    break;
+            }
+
+            if (turnLeft) {
+                alfa -= 15 * Math.PI / 180
+            } else if (turnRight) {
+                alfa += 15 * Math.PI / 180
+            }
+
+            if (turnLeft || turnRight) {
+                dx = 2 * Math.cos(alfa)
+                dy = 2 * Math.sin(alfa)
+            }
+        })
+
+        document.addEventListener('keyup', () => {
+            turnLeft = false
+            turnRight = false
+        })
+
         setInterval(() => {
-            document.addEventListener('keydown', (e) => {
-                console.log(e.keyCode);
-
-                switch (e.keyCode) {
-                    case 65:
-                        alfa = -10
-                        dx = 10 * Math.sin(alfa)
-                        break;
-
-                    case 67:
-                        alfa = 10
-                        dy = 10 * Math.cos(alfa)
-                        break;
-
-                }
-            })
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = this.playerColor;
+            this.ctx.moveTo(this.playerX, this.playerY);
 
             this.playerX += dx
             this.playerY += dy
 
-
-
+            this.ctx.lineTo(this.playerX, this.playerY);
+            this.ctx.closePath();
+            this.ctx.stroke();
         }, 10);
     }
 }
