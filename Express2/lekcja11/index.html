@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.js"></script>
+</head>
+
+<body>
+    <div id="kto"></div>
+    <div id="usery"></div>
+    <div id="root"></div>
+    <script>
+        window.onload = function () {
+
+            const client = io();
+            client.on("onconnect", (data) => {
+                document.getElementById("kto").innerHTML = data.clientId + " jesteś zalogowany<br>"
+            })
+
+            window.addEventListener("mousemove", (e) => {
+                client.emit("mouseposition", {
+                    posX: e.clientX,
+                    posY: e.clientY
+                })
+            })
+
+            client.on("mouseposition", (data) => {
+                document.getElementById("root").innerHTML = `x: ${data.posX} y: ${data.posY}`
+                //console.log(data)
+            })
+
+            client.on("usery", (data) => {
+                console.log("USERY")
+                console.log(data)
+                document.getElementById("usery").innerHTML = ""
+                for (let i = 0; i < data.users.length; i++) {
+                    document.getElementById("usery").innerHTML += data.users[i] + "<br>"
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
