@@ -60,6 +60,8 @@ export class NewGame {
 
 export class Player {
     constructor(playerNumber) {
+        this.canvasHeight = document.getElementById("speedway").height
+        this.canvasWidth = document.getElementById("speedway").width
         this.playerColor
         this.playerMotorcycle
         this.leftKey
@@ -115,7 +117,7 @@ export class Player {
         }
     }
     movePlayer() {
-        let alfa = 90 * Math.PI / 180, dx = 0, dy = 0, turnLeft = false, turnRight = false
+        let alfa = 360 * Math.PI / 180, dx = 0, dy = 0, turnLeft = false, turnRight = false, player_trails = []
 
         document.addEventListener('keydown', (e) => {
             switch (e.code) {
@@ -125,19 +127,7 @@ export class Player {
 
                 case this.rightKey:
                     turnRight = true
-                    alfa += 15 * Math.PI / 180
                     break;
-            }
-
-            if (turnLeft) {
-                alfa -= 15 * Math.PI / 180
-            } else if (turnRight) {
-                alfa += 15 * Math.PI / 180
-            }
-
-            if (turnLeft || turnRight) {
-                dx = 2 * Math.cos(alfa)
-                dy = 2 * Math.sin(alfa)
             }
         })
 
@@ -147,16 +137,48 @@ export class Player {
         })
 
         setInterval(() => {
-            this.ctx.beginPath();
-            this.ctx.strokeStyle = this.playerColor;
-            this.ctx.moveTo(this.playerX, this.playerY);
+            console.log("turnLeft: " + turnLeft + " turnRight: " + turnRight);
 
-            this.playerX += dx
-            this.playerY += dy
+            if (turnLeft) {
+                alfa -= 2 * Math.PI / 180
+            } else if (turnRight) {
+                alfa += 2 * Math.PI / 180
+            }
 
-            this.ctx.lineTo(this.playerX, this.playerY);
-            this.ctx.closePath();
-            this.ctx.stroke();
+            if (turnLeft || turnRight) {
+                dx = 2 * Math.cos(alfa)
+                dy = 2 * Math.sin(alfa)
+            }
+
+            this.drawTrail(player_trails, dx, dy)
         }, 10);
     }
+
+    drawTrail(player_trails, dx, dy) {
+        let trail = new Path2D()
+        trail.moveTo(this.playerX, this.playerY)
+
+
+
+        this.playerX += dx
+        this.playerY += dy
+
+        this.ctx.strokeStyle = this.playerColor;
+        trail.lineTo(this.playerX, this.playerY);
+
+        player_trails.push(trail)
+
+        if (player_trails.length > 100) {
+            this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
+            super.makeSpeedway()
+            player_trails.pop()
+        }
+
+        for (let i = 0; i < player_trails.length; i++) {
+            this.ctx.save()
+            this.ctx.globalAlpha = 0.5
+            this.ctx.stroke(trail)
+            this.ctx.restore()
+        }
+    };
 }
