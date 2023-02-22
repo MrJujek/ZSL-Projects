@@ -19,7 +19,7 @@
     {% if userLogin %}
         {% for message in get_flashed_messages() %}
             <div class="col-lg-12">
-                <div class="alert alert-success alert-dismissible fade show">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ message }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -34,11 +34,9 @@
             </form>
         </div>
     {% else %}
-
-         <div class="alert alert-warning">
+        <div class="alert alert-warning">
             Nie jesteś zalogowany! <a href="/logIn" class="alert-link">
-            Przejdź do strony logowania.
-        </a>
+            Przejdź do strony logowania.</a>
         </div>
     {% endif %}
 </div>

@@ -1,4 +1,4 @@
 import hashlib
 
-passwd = 'julo'.encode()
+passwd = 'zaq1'.encode()
 print(hashlib.sha256(passwd).hexdigest())
