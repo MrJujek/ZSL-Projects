@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "colors": "^1.4.0",
+    "node": "^19.6.1",
+    "tracer": "^1.0.2"
+  }
+}
