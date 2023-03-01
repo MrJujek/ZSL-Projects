@@ -16,15 +16,15 @@ socketio.on('connection', (client) => {
     users.push(client.id)
 
     socketio.emit("usery", {
-        users:users
-     })
+        users: users
+    })
 
     client.emit("onconnect", {
-        clientId:client.id
-     })
+        clientId: client.id
+    })
 
-     client.on("disconnect", (reason) => {
-        console.log("klient "+client.id+" się rozłącza", reason)
+    client.on("disconnect", (reason) => {
+        console.log("klient " + client.id + " się rozłącza", reason)
         for (let i = 0; i < users.length; i++) {
             if (users[i] == client.id) {
                 users.splice(i, 1);
@@ -32,13 +32,13 @@ socketio.on('connection', (client) => {
         }
 
         socketio.emit("usery", {
-            users:users
-         })
-     })
+            users: users
+        })
+    })
 
-     client.on("mouseposition", (data) => {
+    client.on("mouseposition", (data) => {
         client.broadcast.emit("mouseposition", { posX: data.posX, posY: data.posY });
-     })
+    })
 });
 
 app.get('/', (req, res) => {
