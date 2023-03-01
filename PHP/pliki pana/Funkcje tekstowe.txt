@@ -1,6 +1,0 @@
-Funkcje tekstowe
-
-strlen(tekst) - d³ugoœæ tekstu
-substr(tekst,od,ile) - fragment tekstu
-strpos(tekst,fragment) - pozycja tekstu w tekœcie
-str_replace(co,na_co,tekst)
