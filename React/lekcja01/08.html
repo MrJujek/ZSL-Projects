@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        .image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 10px;
+        }
+
+        img {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+    <script type="text/babel">
+        const imagesData = [
+            { id: 1, name: "dirt" },
+            { id: 2, name: "grass_side" },
+            { id: 3, name: "grass_top" },
+            { id: 4, name: "wood_top" },
+            { id: 5, name: "wood" },
+        ]
+
+        class ImagesList extends React.Component {
+            render() {
+                return (
+                    <>
+                        {imagesData.map(item => (
+                            <Image key={item.id} item={item} />
+                        ))}
+                    </>
+                );
+            }
+        }
+
+        class Image extends React.Component {
+            makeImageUrl(name) {
+                return `./img/${name}.jpg`
+            }
+
+            makeImageName(name) {
+                return name.split("")[0].toUpperCase() + name.split("").slice(1).join("")
+            }
+
+            render() {
+                return (
+                    <>
+                        <div key={this.props.item.id} className="image">
+                            <p style={{ fontSize: "24px" }}>{this.makeImageName(this.props.item.name)}</p>
+                            <img src={this.makeImageUrl(this.props.item.name)} />
+                        </div>
+
+                    </>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <ImagesList />,
+            document.getElementById('react-app')
+        );
+
+    </script>
+
+</body>
+
+</html>

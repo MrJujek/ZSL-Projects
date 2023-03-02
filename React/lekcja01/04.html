@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        .flex {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+    <script type="text/babel">
+        class List extends React.Component {
+            render() {
+                return (
+                    <div class="flex">
+                        <div>
+                            <ListItem quantity="1" name="masło" />
+                        </div>
+                        <div>
+                            <ListItem quantity="2" name="mleko" />
+                        </div>
+                        <div>
+                            <ListItem quantity="3" name="chleb" />
+                        </div>
+                    </div>
+
+                );
+            }
+        }
+
+        class ListItem extends React.Component {
+            render() {
+                console.log(this.props)
+                return (
+                    <>
+                        {this.props.quantity} x {this.props.name}
+                    </>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <List />,
+            document.getElementById('react-app')
+        );
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        .tasklist {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+    <script type="text/babel">
+        const data = [
+            { id: [1, "blue"], quantity: [1, "green"], name: ["masło", "black"] },
+            { id: [2, "red"], quantity: [1, "blue"], name: ["masło", "white"] },
+            { id: [3, "green"], quantity: [1, "red"], name: ["masło", "yellow"] },
+        ];
+
+        class Task extends React.Component {
+            render() {
+                return (
+                    <li className="task">
+                        <span style={{ backgroundColor: this.props.id[1] }}>ID: {this.props.id[0]}</span>
+                        <span style={{ backgroundColor: this.props.quantity[1] }}>Quantity: {this.props.quantity[0]}</span>
+                        <span style={{ backgroundColor: this.props.name[1] }}>Name: {this.props.name[0]}</span>
+                    </li>
+                );
+            }
+        }
+
+        class TaskList extends React.Component {
+            render() {
+                return (
+                    <ul className="tasklist">
+                        {data.map(item => (
+                            <Task key={item.id[0]} id={item.id} quantity={item.quantity} name={item.name} />
+                        ))}
+                    </ul>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <TaskList />,
+            document.getElementById('react-app')
+        );
+
+    </script>
+
+</body>
+
+</html>
