@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="range" name="r" id="r" min="0" max="255" oninput="changeColor()"><br>
+    <input type="range" name="g" id="g" min="0" max="255" oninput="changeColor()"><br>
+    <input type="range" name="b" id="b" min="0" max="255" oninput="changeColor()"><br>
+    <input type="range" name="a" id="a" min="0" max="1" step="0.001" oninput="changeColor()"><br>
+    <div id="color" style="width: 100px; height: 100px; background-color: rgb(0, 0, 0);"></div>
+
+
+    <script>
+        function changeColor() {
+            let r = document.getElementById("r").value;
+            let g = document.getElementById("g").value;
+            let b = document.getElementById("b").value;
+            let a = document.getElementById("a").value;
+            fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    r: r,
+                    g: g,
+                    b: b,
+                    a: a
+                })
+            }).then(response => response.text())
+                .then(
+                    data => {
+                        console.log(data)
+                        console.log(JSON.parse(data))
+                        document.getElementById("color").style.backgroundColor = `rgba(${JSON.parse(data).r}, ${JSON.parse(data).g}, ${JSON.parse(data).b}, ${JSON.parse(data).a})`;
+                    }
+                )
+        }
+    </script>
+</body>
+
+</html>

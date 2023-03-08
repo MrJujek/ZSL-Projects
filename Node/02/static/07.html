@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+        }
+
+        #left {
+            width: 50vw;
+            height: 100vh;
+            border: 1px solid black;
+        }
+
+        #right {
+            width: 50vw;
+            height: 100vh;
+            border: 1px solid black;
+        }
+
+        .rectangle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left"></div>
+    <div id="right"></div>
+
+    <script>
+        let holdMouse = false;
+        let startDrawing = true;
+
+        document.getElementById("left").addEventListener("mousedown", function () {
+            holdMouse = true;
+            startDrawing = true;
+        });
+
+        document.getElementById("left").addEventListener("mouseup", function () {
+            holdMouse = false;
+            startDrawing = false;
+        });
+
+
+        let startX, startY
+        document.getElementById("left").addEventListener("mousemove", function (e) {
+            if (holdMouse) {
+                if (startDrawing) {
+                    console.log(e.clientX, e.clientY);
+                    let element = document.createElement("div");
+                    element.classList.add("rectangle");
+                    element.style.top = e.clientY + "px";
+                    element.style.left = e.clientX + "px";
+                    document.body.appendChild(element);
+
+                    startDrawing = false;
+                } else {
+
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>
