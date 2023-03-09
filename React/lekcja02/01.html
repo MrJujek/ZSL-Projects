@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .square {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+    <script type="text/babel">
+        class Square extends React.Component {
+            constructor() {
+                super();
+                this.state = { a: 1, b: 2 };
+            }
+
+            changeState = () => {
+                this.setState({
+                    a: Math.floor(Math.random() * 100),
+                    b: Math.floor(Math.random() * 100),
+                });
+            }
+
+            render() {
+                return (
+
+                    <div class="square">
+                        <button onClick={this.changeState}>Change state</button>
+                        a = {this.state.a}, b = {this.state.b}
+                    </div>
+
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <>
+                <Square />
+                <Square />
+                <Square />
+            </>,
+            document.getElementById('react-app')
+        );
+
+    </script>
+
+</body>
+
+</html>

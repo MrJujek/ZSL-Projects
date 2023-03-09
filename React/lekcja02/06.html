@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 100%;
+        }
+
+        .parent {
+            border: 1px solid black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+    <script type="text/babel">
+        class Parent extends React.Component {
+            render() {
+                return (
+                    <div className="parent">
+                        <>
+                            <Stoper />
+                            <Stoper />
+                            <Stoper />
+                        </>
+                    </div >
+                );
+            }
+        }
+
+        class Stoper extends React.Component {
+            constructor() {
+                super();
+                this.state = { toShow: "", time: 0, button: "Start" };
+            }
+
+            change = () => {
+                if (this.state.button == "Start") {
+                    this.setState({ button: "Stop" });
+                    this.interval = setInterval(() => {
+                        this.setState({ time: this.state.time + 1 });
+                        this.setState({ toShow: this.state.time });
+                    }, 1000);
+                } else {
+                    this.setState({ button: "Start" });
+                    clearInterval(this.interval);
+                }
+            }
+
+            render() {
+                return (
+                    <div className="box">
+                        <h1>{this.state.toShow}</h1>
+                        <button onClick={this.change}>{this.state.button}</button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            < Parent />,
+            document.getElementById('react-app')
+        );
+
+        function random_hex() {
+            let hex = "#";
+            for (let i = 0; i < 6; i++) {
+                hex += Math.floor(Math.random() * 15).toString(16)
+            }
+            return hex
+        }
+
+    </script>
+
+</body>
+
+</html>

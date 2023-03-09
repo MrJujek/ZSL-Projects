@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .box {
+            width: fit-content;
+            height: fit-content;
+            background-color: red;
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .parent {
+            border: 1px solid black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+    <script type="text/babel">
+        class Parent extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    array: [
+                        { name: "grass", number: 1 },
+                        { name: "wood", number: 2 },
+                    ]
+                };
+            }
+
+            addGrass = () => {
+                let array1 = [...this.state.array];
+
+                array1.push({ name: "grass", number: (array1.length + 1) });
+                console.log("array1:", array1)
+
+                this.setState({ array: array1 });
+            }
+
+            addWood = () => {
+                let array2 = [...this.state.array];
+
+                array2.push({ name: "wood", number: (array2.length + 1) });
+                console.log("array2:", array2)
+
+                this.setState({ array: array2 });
+            }
+
+            render() {
+                console.log("render()")
+                const array = [...this.state.array];
+                console.log("array:", array)
+                console.log("this.state.array:", this.state.array)
+
+                return (
+                    <div className="parent">
+                        <button onClick={this.addGrass}>Add grass</button>
+                        <button onClick={this.addWood}>Add wood</button>
+                        <>
+                            {array.map(item => (
+                                <Box name={item.name} number={item.number} key={item.number} />
+                            ))}
+                        </>
+                    </div >
+                );
+            }
+        }
+
+        class Box extends React.Component {
+            render() {
+                console.log("box:", this.props);
+                return (
+                    <div className="box">
+                        <h2>{this.props.name}</h2>
+                        <h1>{this.props.number}</h1>
+                        <img src={`./img/${this.props.name}.jpg`} />
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            < Parent />,
+            document.getElementById('react-app')
+        );
+
+    </script>
+
+</body>
+
+</html>

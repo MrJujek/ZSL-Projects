@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .food {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .foodlist {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+    <script type="text/babel">
+        class FoodList extends React.Component {
+            constructor() {
+                super();
+                this.state = { food: ["masło", "mleko", "chleb", "dżem"], randomFood: "" };
+                this.state.randomFood = this.state.food[0];
+            }
+
+            changeFood = () => {
+                this.setState({ randomFood: this.state.food[Math.floor(Math.random() * 4)] });
+            }
+
+            render() {
+                console.log("render:", this.state.randomFood)
+                return (
+                    < div className="foodlist">
+                        <button onClick={this.changeFood}>Change food</button>
+                        <Food randomFood={this.state.randomFood} />
+                        <Food randomFood={this.state.randomFood} />
+                        <Food randomFood={this.state.randomFood} />
+                    </div >
+                );
+            }
+        }
+
+        class Food extends React.Component {
+            constructor() {
+                super();
+                this.state = { like: "lubie" }
+            }
+            changeLike = () => {
+                if (this.state.like == "lubie") {
+                    this.setState({ like: "nie lubie" });
+                } else {
+                    this.setState({ like: "lubie" });
+                }
+            }
+
+            render() {
+                console.log(this.props.randomFood);
+                return (
+                    <div className="food">
+                        <button onClick={this.changeLike}>Change like</button>
+                        <h2>{this.state.like}</h2>
+                        <h1>{this.props.randomFood}</h1>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            < FoodList />,
+            document.getElementById('react-app')
+        );
+
+    </script>
+
+</body>
+
+</html>

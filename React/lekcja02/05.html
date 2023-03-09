@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .box {
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .parent {
+            border: 1px solid black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+    <script type="text/babel">
+        class Parent extends React.Component {
+            render() {
+                return (
+                    <div className="parent">
+                        <>
+                            <Box />
+                            <Box />
+                            <Box />
+                            <Box />
+                        </>
+                    </div >
+                );
+            }
+        }
+
+        class Box extends React.Component {
+            constructor() {
+                super();
+                this.state = { w: 100, h: 100, c: 100 };
+            }
+
+            change = () => {
+                this.setState({ w: Math.floor(Math.random() * 100) + 20, h: Math.floor(Math.random() * 200) + 20, c: random_hex() });
+            }
+
+            render() {
+                return (
+                    <div className="box" style={
+                        {
+                            width: this.state.w + "px",
+                            height: this.state.h + "px",
+                            backgroundColor: this.state.c
+                        }
+                    }>
+                        <button onClick={this.change}>change</button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            < Parent />,
+            document.getElementById('react-app')
+        );
+
+        function random_hex() {
+            let hex = "#";
+            for (let i = 0; i < 6; i++) {
+                hex += Math.floor(Math.random() * 15).toString(16)
+            }
+            return hex
+        }
+
+    </script>
+
+</body>
+
+</html>
