@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+}
+
+.chart {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    background-color: lightslategray;
+    margin: 10px;
+}
+
+.maxUsage {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 2px solid red;
+}
+
+.maxValue {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 5px;
+    background-color: red;
+    color: white;
+}
