@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .form {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+
+    <script type="text/babel">
+
+        let obj = {
+            array: [
+                { id: 0, name: "hamlet" },
+                { id: 1, name: "krzyzacy" },
+                { id: 2, name: "lalka" }
+            ],
+            array2: [
+                { id: 0, name: "Kraków" },
+                { id: 1, name: "Warszawa" },
+                { id: 2, name: "Gdańsk" },
+                { id: 3, name: "Toruń" }
+            ]
+        }
+
+        class MyCheckbox extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    checked: false,
+                };
+            }
+            render() {
+                return (
+                    <>
+                        <input
+                            type="checkbox"
+                            value={this.props.value}
+                            checked={this.state.checked}
+                            onChange={this.change}
+                        />
+                        {this.props.value}
+                    </>
+                );
+            }
+
+            change = (event) => {
+                this.setState({
+                    checked: !this.state.checked,
+                })
+
+                this.props.handleChange(event)
+            }
+        }
+
+        class MyForm extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    array: [
+                        { checked: false, value: 1 },
+                        { checked: false, value: 2 },
+                        { checked: false, value: 3 },
+                        { checked: false, value: 10 },
+                        { checked: false, value: 20 },
+                    ],
+                    toShow: 0,
+                    sum: 0
+                };
+            }
+
+            render() {
+                return (
+                    <>
+
+                        <form onSubmit={this.handleSubmit} className="form">
+                            {this.state.array.map((item) => {
+                                return <MyCheckbox key={item.value} value={item.value} checked={item.checked} handleChange={this.onHandleChange} />
+                            })}
+                            <input type="submit" value="send" />
+                        </form>
+                        <p>Suma: {this.state.toShow}</p>
+                    </>
+                );
+            }
+
+            onHandleChange = (event) => {
+                console.log(event.target.value);
+                this.setState({
+                    sum: 0
+                })
+
+                for (let i = 0; i < Object.keys(this.state.array).length; i++) {
+                    if (this.state.array[i].value == parseInt(event.target.value)) {
+                        this.state.array[i].checked = !this.state.array[i].checked;
+                    }
+                }
+
+                for (let i = 0; i < Object.keys(this.state.array).length; i++) {
+                    if (this.state.array[i].checked) {
+                        this.state.sum += this.state.array[i].value;
+                    }
+                }
+
+                this.setState({
+                    toShow: this.state.sum
+                })
+            }
+
+            handleSubmit = (event) => {
+                window.alert(this.state.toShow)
+                event.preventDefault();
+            }
+        }
+
+        ReactDOM.render(
+
+            <MyForm />,
+
+            document.getElementById('react-app')
+        );
+
+    </script>
+
+</body>
+
+</html>

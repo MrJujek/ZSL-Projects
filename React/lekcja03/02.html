@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .select {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+
+    <script type="text/babel">
+
+        let obj = {
+            array: [
+                { id: 0, name: "hamlet" },
+                { id: 1, name: "krzyzacy" },
+                { id: 2, name: "lalka" }
+            ],
+            array2: [
+                { id: 0, name: "Kraków" },
+                { id: 1, name: "Warszawa" },
+                { id: 2, name: "Gdańsk" },
+                { id: 3, name: "Toruń" }
+            ]
+        }
+
+        class MySelect extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    selected: ''
+                };
+            }
+            render() {
+                let arrayToMap = [];
+                if (this.props.array === "1") {
+                    arrayToMap = obj.array;
+                } else {
+                    arrayToMap = obj.array2;
+                }
+                return (
+                    <div className="select">
+                        <select onChange={this.change}>
+                            {arrayToMap.map((item) => {
+                                return <option key={item.id} value={item.name}>{item.name}</option>
+                            })}
+                        </select>
+                        {this.state.selected}
+                    </div>
+                );
+            }
+
+            change = (event) => {
+                this.props.handleSelect(event, this.props.array)
+                this.setState({ selected: event.target.value });
+            }
+        }
+
+        class MyForm extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    data1: '',
+                    data2: '',
+                    toShow: '1'
+                };
+            }
+
+            render() {
+                return (
+                    <>
+                        <form onSubmit={this.handleSubmit}>
+                            <MySelect array="1" handleSelect={this.onHandleSelect} />
+                            <MySelect array="2" handleSelect={this.onHandleSelect} />
+                            <input type="submit" value="send" />
+                        </form>
+                        <p>{this.state.toShow}</p>
+                    </>
+                );
+            }
+
+            onHandleSelect = (event, arrayNumber) => {
+                if (arrayNumber === "1") {
+                    this.setState({ data1: event.target.value });
+                } else {
+                    this.setState({ data2: event.target.value });
+                }
+            }
+
+            handleSubmit = (event) => {
+                this.setState({
+                    toShow: [this.state.data1, this.state.data2]
+                })
+                //blokada przed wysłaniem formularza
+                event.preventDefault();
+            }
+        }
+
+        ReactDOM.render(
+
+            <MyForm />,
+
+            document.getElementById('react-app')
+        );
+
+    </script>
+
+</body>
+
+</html>

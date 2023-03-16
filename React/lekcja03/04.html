@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .form {
+            border: 1px solid black;
+        }
+
+        .box {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="react-app"></div>
+
+    <script type="text/babel">
+
+        let obj = {
+            array: [
+                { id: 0, name: "hamlet" },
+                { id: 1, name: "krzyzacy" },
+                { id: 2, name: "lalka" }
+            ],
+            array2: [
+                { id: 0, name: "Kraków" },
+                { id: 1, name: "Warszawa" },
+                { id: 2, name: "Gdańsk" },
+                { id: 3, name: "Toruń" }
+            ]
+        }
+
+        class MyRadios extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    checked: false,
+                };
+            }
+
+            render() {
+                return (
+                    <div className="box">
+                        <input
+                            type="checkbox"
+                            value={this.props.value}
+                            checked={this.state.checked}
+                            onChange={this.change}
+                        />
+                        {this.props.value}
+                    </div>
+                );
+            }
+
+            change = (event) => {
+                this.setState({
+                    checked: !this.state.checked,
+                })
+
+                this.props.handleChange(event)
+            }
+        }
+
+        class MyForm extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    array: [
+                        { id: 1, name: "AAA" },
+                        { id: 2, name: "BBB" },
+                    ],
+                    selectedOption: '',
+                };
+            }
+
+            render() {
+                return (
+                    <>
+                        <form onSubmit={this.handleSubmit} className="form">
+                            <input type="radio" value="option1" checked={this.state.selectedOption == 'option1'} onChange={this.change} />AAAA
+                            <br />
+                            <input type="radio" value="option2" checked={this.state.selectedOption == 'option2'} onChange={this.change} />BBBB
+                            <br />
+                            <div>
+                                {this.state.array.map((item) => {
+                                    return (
+                                        <MyRadios
+                                            key={item.id}
+                                            value={item.name}
+                                            handleDelete={this.onHandleDelete}
+                                        />
+                                    )
+                                })}
+                            </div>
+                            <br />
+                        </form>
+                    </>
+                );
+            }
+
+            change = (event) => {
+                this.setState({
+                    selectedOption: event.target.value
+                })
+                let newid = this.state.array[Object.keys(this.state.array).length - 1].id + 1;
+                let array = this.state.array;
+                array.push({ id: newid, name: event.target.value });
+
+                this.setState({
+                    array: array
+                })
+            }
+
+            onHandleDelete = (event) => {
+                /*
+                console.log(event.target.value);
+                this.setState({
+                    sum: 0
+                })
+
+                for (let i = 0; i < Object.keys(this.state.array).length; i++) {
+                    if (this.state.array[i].value == parseInt(event.target.value)) {
+                        this.state.array[i].checked = !this.state.array[i].checked;
+                    }
+                }
+
+                for (let i = 0; i < Object.keys(this.state.array).length; i++) {
+                    if (this.state.array[i].checked) {
+                        this.state.sum += this.state.array[i].value;
+                    }
+                }
+
+                this.setState({
+                    toShow: this.state.sum
+                })
+                */
+            }
+
+            handleSubmit = (event) => {
+                event.preventDefault();
+            }
+        }
+
+        ReactDOM.render(
+
+            <MyForm />,
+
+            document.getElementById('react-app')
+        );
+
+    </script>
+
+</body>
+
+</html>
