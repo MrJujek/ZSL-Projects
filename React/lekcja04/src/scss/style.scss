@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.boxForBoxes4 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.button4 {
+    margin: 10px;
+    background-color: aqua;
+    padding: 5px;
+    border: 2px solid darkblue;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+}
+
+.box4 {
+    height: 50px;
+    width: 50px;
+    border: 2px solid darkorange;
+    background-color: lightsalmon;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.button5 {
+    margin: 10px;
+    background-color: red;
+    padding: 5px;
+    border: 2px solid lightcoral;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+}
+
+.box5 {
+    height: 100px;
+    width: 100px;
+    border: 2px solid darkorange;
+    background-color: lightsalmon;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.box6 {
+    height: 50px;
+    min-width: 100px;
+    border: 2px solid darkorange;
+    background-color: lightsalmon;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    flex-direction: column;
+    padding: 0px 10px;
+}
