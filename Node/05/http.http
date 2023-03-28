@@ -1,0 +1,29 @@
+### GET all
+GET http://localhost:3000/api/tasks HTTP/1.1
+
+### DELETE
+DELETE  http://localhost:3000/api/tasks/4 HTTP/1.1
+
+### POST - nowe dane
+
+POST http://localhost:3000/api/tasks HTTP/1.1
+content-type: application/json
+
+{    
+  "title": "tytul",
+  "description": "opis",
+  "completed": false
+}
+
+### PATCH - updatuj wg id
+PATCH  http://localhost:3000/api/tasks HTTP/1.1
+content-type: application/json
+
+{
+  "id": 3,
+  "a": 111111,
+  "b": 222222
+}
+
+### GET 1
+GET http://localhost:3000/api/tasks/2 HTTP/1.1
