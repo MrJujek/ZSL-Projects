@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.literki {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 60px;
+}
+
+.klocek {
+  width: 20px;
+  border: 1px solid black;
+  height: 20px;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid black;
+  margin:5px;
+}
+
+.glowny {
+  display: flex;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.boards {
+  border: 1px solid blue;
+  margin: 5px;
+}
+
+.selected {
+  border: 1px solid greenyellow;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.board2 {
+  margin: 5px;
+}
+
+input {
+  margin: 5px;
+}
