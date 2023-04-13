@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s;
+
+    &:hover {
+        background-color: #ccc;
+    }
+}
+
+h3 {
+    margin: 5px;
+}
