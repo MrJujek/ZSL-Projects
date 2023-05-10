@@ -1,0 +1,21 @@
+{% extends "bootstrap/base.html" %}
+{% block scripts %}
+    {{ super() }}
+{% endblock %}
+{% block title %} {{ title }} {% endblock %}
+{% block navbar %}
+
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Flask Login</h2>
+        <div class="row my-3">
+            <div class="col-lg-1">
+                <a href="{{ url_for('login') }}" class="btn btn-outline-primary">Logowanie</a>
+            </div>
+            <div class="col-lg-1">
+                <a href="{{ url_for('register') }}" class="btn btn-outline-primary">Rejestracja</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
