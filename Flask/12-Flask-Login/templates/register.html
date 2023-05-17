@@ -1,0 +1,30 @@
+{% extends "bootstrap/base.html" %}
+{% block scripts %}
+    {{ super() }}
+{% endblock %}
+{% block title %} {{ title }} {% endblock %}
+{% block navbar %}
+
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Flask Login - rejestracja</h2>
+        <div class="row my-3">
+            <div class="col-lg-12">
+
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-lg-4 offset-lg-4">
+                <form method="post" action="">
+                    {{ registerForm.hidden_tag() }}
+                    {{ registerForm.userName.label(class="form-label") }}
+                    {{ registerForm.userName(class="form-control") }}
+                    {{ registerForm.userPass.label(class="form-label") }}
+                    {{ registerForm.userPass(class="form-control") }}
+                    {{ registerForm.submit(class="btn btn-secondary mt-3 float-end") }}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

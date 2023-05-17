@@ -36,6 +36,7 @@ class Users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     userName = db.Column(db.String(50), unique=True)
     userPass = db.Column(db.String(50))
+    rola = db.Column(db.String(50))
 
     def is_authenticated(self):
         return True
@@ -71,9 +72,10 @@ def register():
         try:
             hashedPass = bcrypt.generate_password_hash(
                 registerForm.userPass.data)
-            rola = 'user'
+            rola = "user"
             newUser = Users(userName=registerForm.userName.data,
                             userPass=hashedPass, rola=rola)
+
             db.session.add(newUser)
             db.session.commit()
             flash('Konto utworzone poprawnie', 'success')
@@ -105,7 +107,14 @@ def logout():
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
-    return render_template('dashboard.html', title='Dashboard')
+    # print("XXXXXXXXXXXXXXXXXXXXXXX")
+    # print(current_user.userName)
+    # print(current_user.rola)
+    if (current_user.rola == "admin"):
+        print("admin")
+        return render_template('admin.html', title='Dashboard')
+    else:
+        return render_template('user.html', title='Dashboard')
 
 
 if __name__ == '__main__':
