@@ -7,46 +7,51 @@
   <p *ngIf="number">I tak widzimy, że twoje zarobki to: {{number | currency:'USD':'symbol':'1.0-3'}}</p>
 </div>
 
-<div *ngIf="specialNumber && !showBook">
+<div *ngIf="specialNumber && !serwis.showBook">
   <p>Idealne zarobki by zrobić dalszą część zadania :)</p>
   
   <div class="image-grid">
-    <div *ngFor="let url of imgSrc">
-      <img [src]="url" (click)="imgClick($event)">
+    <div *ngFor="let url of serwis.imgSrc">
+      <img [src]="url" (click)="serwis.imgClick($event)">
     </div>
   </div>
 </div>
 
-<div *ngIf="showBook">
-  <button (click)="goBack()">Go back</button>
+<div *ngIf="serwis.showBook">
+  <button (click)="serwis.goBack()">Go back</button>
   <br>
-  <h1>{{klik}}</h1>
-  <button *ngFor="let item of lata" (click)="yearClick($event)" value="{{item}}">{{ item }}</button>
-  <button (click)="yearClick($event)" value="all">All</button>
+  <h1>{{serwis.klik}}</h1>
+  <button *ngFor="let item of serwis.lata" (click)="serwis.yearClick($event)" value="{{item}}">{{ item }}</button>
+  <button (click)="serwis.yearClick($event)" value="all">All</button>
 
-  <h3 *ngIf="yearChoosed">{{year}}</h3>
-  <table *ngIf="yearChoosed" border="1">
+  <h3 *ngIf="serwis.yearChoosed">{{serwis.year}}</h3>
+  <table *ngIf="serwis.yearChoosed" border="1">
       <tr>
         <th>Strona tytulowa</th>
         <th>Plik</th>
-        <th>pismo</th>
-        <th>darczyncy</th>
+        <th>Pismo</th>
+        <th>Darczyncy</th>
       </tr>
-      <tr *ngFor="let item of toShow">
+      <tr *ngFor="let item of serwis.toShow">
         <td>
-          <img [src]="'http://atarionline.pl/biblioteka/czasopisma/' + klik +'/'+ item.miniaturka" alt="">
+          <a [href]="'http://atarionline.pl/biblioteka/czasopisma/' + serwis.klik +'/'+ item.miniaturka" target="_blank">
+            <img [src]="'http://atarionline.pl/biblioteka/czasopisma/' + serwis.klik +'/'+ item.miniaturka" alt="">
+          </a>
         </td>
+
         <td>
           format: <b>{{ item.format }}</b> <br>
           rozmiar: <b>{{ item.rozmiar }}</b> <br>
           stron: <b>{{ item.stron }}</b> <br>
-          plik: <b>{{ item.plik }}</b>
+          plik: <b><a [href]="'http://atarionline.pl/biblioteka/czasopisma/' + serwis.klik +'/'+ item.plik">tutaj</a></b>
         </td>
+
         <td>
           nazwa: <b>{{ item.nazwa }}</b> <br>
           numer: <b>{{ item.numer }}</b> <br>
           wydawca: <b>{{ item.wydawca }}</b>
         </td>
+
         <td>
           skan: <b>{{ item.skan }}</b> <br>
           przetworzenie: <b>{{ item.przetworzenie }} </b><br>
