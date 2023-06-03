@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import * as xml2js from 'xml2js';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +14,25 @@ export class AppComponent {
   isDot: boolean = false;
   specialNumber: boolean = false;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.number = '';
+
+    this.http.get('https://mendela.pl/ap_kli/czasopisma.xml', { responseType: 'text' }).subscribe(data => {
+      const parser = new DOMParser();
+      const xmlData = parser.parseFromString(data, 'application/xml');
+      console.log(xmlData);
+    });
+
+    // fetch("https://mendela.pl/ap_kli/czasopisma.xml", { mode: 'no-cors' })
+    //   .then(response => response.text())
+    //   .then(data => {
+    //     const parser = new xml2js.Parser({ explicitArray: false });
+    //     parser.parseString(data, (err, result) => {
+    //       console.log(result);
+    //       // console.log(result.czasopisma.zmienne.Atari_Age.src)
+    //     });
+    //   })
+    //   .catch(console.error);
   }
 
   onInput(event: any) {
