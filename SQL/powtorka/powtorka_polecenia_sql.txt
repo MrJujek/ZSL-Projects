@@ -1,0 +1,13 @@
+select rok,nazwisko,GrandPrix,sum(punkty) as suma_pkt from wyniki,wyscigi,kierowcy where kierowcy.id_kierowcy=wyniki.id_kierowcy and wyniki.id_wyscigu=wyscigi.id_wyscigu and nazwisko="Kubica" group by rok,nazwisko,GrandPrix order by suma_pkt desc limit 1;
+
+select GrandPrix,COUNT(GrandPrix) as ile from wyscigi group by GrandPrix ORDER BY ile ASC;
+
+SELECT imie, nazwisko, rok, SUM(Punkty) as suma_pkt from kierowcy, wyniki, wyscigi WHERE kierowcy.id_kierowcy=wyniki.Id_kierowcy and wyscigi.Id_wyscigu=wyniki.Id_wyscigu and rok='2000' group by imie, nazwisko, rok order by suma_pkt desc limit 1;
+
+SELECT kraj, COUNT(kraj) as ile from kierowcy group by kraj order by ile desc limit 1;
+
+SELECT kraj, rok from kierowcy, wyscigi, wyniki where kierowcy.id_kierowcy=wyniki.Id_kierowcy and wyniki.Id_wyscigu=wyscigi.Id_wyscigu and kraj="Polska" group by rok order by rok asc limit 1;
+
+
+dod:
+SELECT imie, nazwisko, round(avg(punkty),2) as srednia,kraj, rok from kierowcy, wyscigi, wyniki where kierowcy.id_kierowcy=wyniki.Id_kierowcy and wyniki.Id_wyscigu=wyscigi.Id_wyscigu and rok="2011" group by imie, nazwisko having srednia > 15 order by srednia desc;
