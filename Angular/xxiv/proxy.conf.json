@@ -1,0 +1,7 @@
+{
+  "/": {
+    "target": "https://mendela.pl",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

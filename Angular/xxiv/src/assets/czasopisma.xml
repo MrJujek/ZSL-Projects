@@ -1,0 +1,2688 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<czasopisma>
+  <zmienne>
+    <Atari_Age>
+      <src>atariage.jpg</src>
+      <klik>Atari_Age</klik>
+    </Atari_Age>
+    <Komputer>
+      <src>komputer.jpg</src>
+      <klik>Komputer</klik>
+    </Komputer>
+    <Atari_club>
+      <src>atari_club.jpg</src>
+      <klik>Atari_club</klik>
+    </Atari_club>
+    <Moje_Atari>
+      <src>moje_atari.jpg</src>
+      <klik>Moje_Atari</klik>
+    </Moje_Atari>
+    <Avax>
+      <src>avax.jpg</src>
+      <klik>Avax</klik>
+    </Avax>
+    <POKE>
+      <src>POKE.jpg</src>
+      <klik>POKE</klik>
+    </POKE>
+    <Bajtek>
+      <src>bajtek.jpg</src>
+      <klik>Bajtek</klik>
+    </Bajtek>
+    <STEfan>
+      <src>stefan.jpg</src>
+      <klik>STEfan</klik>
+    </STEfan>
+    <Desktop_Info>
+      <src>desktop_info.jpg</src>
+      <klik>Desktop_Info</klik>
+    </Desktop_Info>
+    <Swiat_Atari>
+      <src>swiat_atari.jpg</src>
+      <klik>Swiat_Atari</klik>
+    </Swiat_Atari>
+    <IKS>
+      <src>IKS.jpg</src>
+      <klik>IKS</klik>
+    </IKS>
+  </zmienne>
+  <lata>
+    <IKS>1986,1987,1988,1989,nr specjalne</IKS>
+    <Avax>1990,1991</Avax>
+    <Komputer>1986,1987,1988,1989,1990,nr specjalny</Komputer>
+    <Bajtek>1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,nr specjalne</Bajtek>
+    <Atari_club>1996</Atari_club>
+    <STEfan>1992,1993</STEfan>
+    <Moje_Atari>1990,1991</Moje_Atari>
+    <Swiat_Atari>1992,1993,1994</Swiat_Atari>
+    <Atari_Age>1982,1983,1984</Atari_Age>
+    <Desktop_Info>1994</Desktop_Info>
+    <POKE>2003,2004,2005</POKE>
+  </lata>
+  <Avax>
+    <Avax_90_01 rok="1990">
+      <nazwa>Avax</nazwa>
+      <numer>1990/1</numer>
+      <wydawca>Avax</wydawca>
+      <format>djvu</format>
+      <stron>24</stron>
+      <miniaturka>Avax_1990_01_male.jpg</miniaturka>
+      <plik>Avax_1990_01.djvu</plik>
+      <skan>Pet</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Pet</podeslal>
+    </Avax_90_01>
+    <Avax_90_02 rok="1990">
+      <nazwa>Avax</nazwa>
+      <numer>1990/2</numer>
+      <wydawca>OKW Elektronika</wydawca>
+      <format>djvu</format>
+      <stron>24</stron>
+      <miniaturka>Avax_1990_02_male.jpg</miniaturka>
+      <plik>Avax_1990_02.djvu</plik>
+      <skan>Pet</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Pet</podeslal>
+    </Avax_90_02>
+    <Avax_91_01 rok="1991">
+      <nazwa>Avax</nazwa>
+      <numer>1991/1 - ksero</numer>
+      <wydawca>Reckon sp. z o.o.</wydawca>
+      <format>djvu</format>
+      <stron>24</stron>
+      <miniaturka>Avax_1991_01_male.jpg</miniaturka>
+      <plik>Avax_1991_01.djvu</plik>
+      <skan>Pet</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Pet</podeslal>
+    </Avax_91_01>
+  </Avax>
+  <Bajtek>
+    <Bajtek_85_01 rok="1985">
+      <nazwa>Bajtek</nazwa>
+      <numer>1985/1 - ksero</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1985_01_male.jpg</miniaturka>
+      <plik>Bajtek_1985_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_85_01>
+    <Bajtek_85_02 rok="1985">
+      <nazwa>Bajtek</nazwa>
+      <numer>1985/2</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1985_02_male.jpg</miniaturka>
+      <plik>Bajtek_1985_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_85_02>
+    <Bajtek_85_03 rok="1985">
+      <nazwa>Bajtek</nazwa>
+      <numer>1985/3</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1985_03_male.jpg</miniaturka>
+      <plik>Bajtek_1985_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_85_03>
+    <Bajtek_85_04 rok="1985">
+      <nazwa>Bajtek</nazwa>
+      <numer>1985/4 - ksero</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1985_04_male.jpg</miniaturka>
+      <plik>Bajtek_1985_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_85_04>
+    <Bajtek_86_01 rok="1986">
+      <nazwa>Bajtek</nazwa>
+      <numer>1986/1</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1986_01_male.jpg</miniaturka>
+      <plik>Bajtek_1986_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_86_01>
+    <Bajtek_86_02 rok="1986">
+      <nazwa>Bajtek</nazwa>
+      <numer>1986/2</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1986_02_male.jpg</miniaturka>
+      <plik>Bajtek_1986_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_86_02>
+    <Bajtek_86_03_04 rok="1986">
+      <nazwa>Bajtek</nazwa>
+      <numer>1986/3,4</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1986_03_04_male.jpg</miniaturka>
+      <plik>Bajtek_1986_03_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_86_03_04>
+    <Bajtek_86_05_06 rok="1986">
+      <nazwa>Bajtek</nazwa>
+      <numer>1986/5,6</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1986_05_06_male.jpg</miniaturka>
+      <plik>Bajtek_1986_05_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_86_05_06>
+    <Bajtek_86_07 rok="1986">
+      <nazwa>Bajtek</nazwa>
+      <numer>1986/7</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1986_07_male.jpg</miniaturka>
+      <plik>Bajtek_1986_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_86_07>
+    <Bajtek_86_08 rok="1986">
+      <nazwa>Bajtek</nazwa>
+      <numer>1986/8</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1986_08_male.jpg</miniaturka>
+      <plik>Bajtek_1986_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_86_08>
+    <Bajtek_86_09 rok="1986">
+      <nazwa>Bajtek</nazwa>
+      <numer>1986/9</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1986_09_male.jpg</miniaturka>
+      <plik>Bajtek_1986_09.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_86_09>
+    <Bajtek_86_10 rok="1986">
+      <nazwa>Bajtek</nazwa>
+      <numer>1986/10</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1986_10_male.jpg</miniaturka>
+      <plik>Bajtek_1986_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_86_10>
+    <Bajtek_86_11 rok="1986">
+      <nazwa>Bajtek</nazwa>
+      <numer>1986/11</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1986_11_male.jpg</miniaturka>
+      <plik>Bajtek_1986_11.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_86_11>
+    <Bajtek_86_12 rok="1986">
+      <nazwa>Bajtek</nazwa>
+      <numer>1986/12</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1986_12_male.jpg</miniaturka>
+      <plik>Bajtek_1986_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_86_12>
+    <Bajtek_87_01 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/1</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_01_male.jpg</miniaturka>
+      <plik>Bajtek_1987_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_01>
+    <Bajtek_87_02 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/2</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_02_male.jpg</miniaturka>
+      <plik>Bajtek_1987_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_02>
+    <Bajtek_87_03 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/3</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_03_male.jpg</miniaturka>
+      <plik>Bajtek_1987_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_03>
+    <Bajtek_87_04 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/4</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_04_male.jpg</miniaturka>
+      <plik>Bajtek_1987_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_04>
+    <Bajtek_87_05 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/5</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_05_male.jpg</miniaturka>
+      <plik>Bajtek_1987_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_05>
+    <Bajtek_87_06 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/6</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_06_male.jpg</miniaturka>
+      <plik>Bajtek_1987_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_06>
+    <Bajtek_87_07 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/7</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_07_male.jpg</miniaturka>
+      <plik>Bajtek_1987_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_07>
+    <Bajtek_87_08 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/8</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_08_male.jpg</miniaturka>
+      <plik>Bajtek_1987_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_08>
+    <Bajtek_87_09 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/9</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_09_male.jpg</miniaturka>
+      <plik>Bajtek_1987_09.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_09>
+    <Bajtek_87_10 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/10</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_10_male.jpg</miniaturka>
+      <plik>Bajtek_1987_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_10>
+    <Bajtek_87_11 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/11</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_11_male.jpg</miniaturka>
+      <plik>Bajtek_1987_11.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_11>
+    <Bajtek_87_12 rok="1987">
+      <nazwa>Bajtek</nazwa>
+      <numer>1987/12</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1987_12_male.jpg</miniaturka>
+      <plik>Bajtek_1987_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_87_12>
+    <Bajtek_88_01 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/01</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_01_male.jpg</miniaturka>
+      <plik>Bajtek_1988_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_01>
+    <Bajtek_88_02 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/02</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_02_male.jpg</miniaturka>
+      <plik>Bajtek_1988_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_02>
+    <Bajtek_88_03 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/03</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_03_male.jpg</miniaturka>
+      <plik>Bajtek_1988_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_03>
+    <Bajtek_88_04 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/04</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_04_male.jpg</miniaturka>
+      <plik>Bajtek_1988_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_04>
+    <Bajtek_88_05 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/05</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_05_male.jpg</miniaturka>
+      <plik>Bajtek_1988_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_05>
+    <Bajtek_88_06 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/06</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_06_male.jpg</miniaturka>
+      <plik>Bajtek_1988_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_06>
+    <Bajtek_88_07 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/07</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_07_male.jpg</miniaturka>
+      <plik>Bajtek_1988_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_07>
+    <Bajtek_88_08 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/08</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_08_male.jpg</miniaturka>
+      <plik>Bajtek_1988_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_08>
+    <Bajtek_88_09 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/09</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_09_male.jpg</miniaturka>
+      <plik>Bajtek_1988_09.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_09>
+    <Bajtek_88_10 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/10</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_10_male.jpg</miniaturka>
+      <plik>Bajtek_1988_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_10>
+    <Bajtek_88_11 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/11</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_11_male.jpg</miniaturka>
+      <plik>Bajtek_1988_11.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_11>
+    <Bajtek_88_12 rok="1988">
+      <nazwa>Bajtek</nazwa>
+      <numer>1988/12</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1988_12_male.jpg</miniaturka>
+      <plik>Bajtek_1988_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_88_12>
+    <Bajtek_89_01 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/1</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_01_male.jpg</miniaturka>
+      <plik>Bajtek_1989_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_01>
+    <Bajtek_89_02 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/2</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_02_male.jpg</miniaturka>
+      <plik>Bajtek_1989_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_02>
+    <Bajtek_89_03 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/3</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_03_male.jpg</miniaturka>
+      <plik>Bajtek_1989_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_03>
+    <Bajtek_89_04 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/4</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_04_male.jpg</miniaturka>
+      <plik>Bajtek_1989_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_04>
+    <Bajtek_89_05 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/5</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_05_male.jpg</miniaturka>
+      <plik>Bajtek_1989_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_05>
+    <Bajtek_89_06 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/6</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_06_male.jpg</miniaturka>
+      <plik>Bajtek_1989_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_06>
+    <Bajtek_89_07 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/7</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_07_male.jpg</miniaturka>
+      <plik>Bajtek_1989_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_07>
+    <Bajtek_89_08 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/8</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_08_male.jpg</miniaturka>
+      <plik>Bajtek_1989_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_08>
+    <Bajtek_89_09 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/9</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_09_male.jpg</miniaturka>
+      <plik>Bajtek_1989_09.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_09>
+    <Bajtek_89_10 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/10</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_10_male.jpg</miniaturka>
+      <plik>Bajtek_1989_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_10>
+    <Bajtek_89_11 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/11</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_11_male.jpg</miniaturka>
+      <plik>Bajtek_1989_11.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_11>
+    <Bajtek_89_12 rok="1989">
+      <nazwa>Bajtek</nazwa>
+      <numer>1989/12</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1989_12_male.jpg</miniaturka>
+      <plik>Bajtek_1989_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_89_12>
+    <Bajtek_90_01_02 rok="1990">
+      <nazwa>Bajtek</nazwa>
+      <numer>1990/1,2</numer>
+      <wydawca>Oficyna Wydawnicza "Sztandar Młodych"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1990_01_02_male.jpg</miniaturka>
+      <plik>Bajtek_1990_01_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_90_01_02>
+    <Bajtek_90_03_04 rok="1990">
+      <nazwa>Bajtek</nazwa>
+      <numer>1990/3,4</numer>
+      <wydawca>Oficyna Wydawnicza "Sztandar Młodych"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_1990_03_04_male.jpg</miniaturka>
+      <plik>Bajtek_1990_03_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_90_03_04>
+    <Bajtek_90_05_06 rok="1990">
+      <nazwa>Bajtek</nazwa>
+      <numer>1990/5,6 (I)</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>40</stron>
+      <miniaturka>Bajtek_1990_05_06_male.jpg</miniaturka>
+      <plik>Bajtek_1990_05_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_90_05_06>
+    <Bajtek_90_07_08 rok="1990">
+      <nazwa>Bajtek</nazwa>
+      <numer>1990/7,8 (II)</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>40</stron>
+      <miniaturka>Bajtek_1990_07_08_male.jpg</miniaturka>
+      <plik>Bajtek_1990_07_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_90_07_08>
+    <Bajtek_90_09_10 rok="1990">
+      <nazwa>Bajtek</nazwa>
+      <numer>1990/9,10 (III)</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>40</stron>
+      <miniaturka>Bajtek_1990_09_10_male.jpg</miniaturka>
+      <plik>Bajtek_1990_09_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_90_09_10>
+    <Bajtek_90_11_12 rok="1990">
+      <nazwa>Bajtek</nazwa>
+      <numer>1990/11,12 (IV)</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>40</stron>
+      <miniaturka>Bajtek_1990_11_12_male.jpg</miniaturka>
+      <plik>Bajtek_1990_11_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_90_11_12>
+    <Bajtek_91_01 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/1</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_01_male.jpg</miniaturka>
+      <plik>Bajtek_1991_01.djvu</plik>
+      <skan>Scalak, MaW</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_01>
+    <Bajtek_91_02 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/2</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_02_male.jpg</miniaturka>
+      <plik>Bajtek_1991_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_02>
+    <Bajtek_91_03 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/3</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_03_male.jpg</miniaturka>
+      <plik>Bajtek_1991_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_03>
+    <Bajtek_91_04 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/4</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_04_male.jpg</miniaturka>
+      <plik>Bajtek_1991_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_04>
+    <Bajtek_91_05 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/5</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_05_male.jpg</miniaturka>
+      <plik>Bajtek_1991_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_05>
+    <Bajtek_91_06 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/6</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_06_male.jpg</miniaturka>
+      <plik>Bajtek_1991_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_06>
+    <Bajtek_91_07 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/7</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_07_male.jpg</miniaturka>
+      <plik>Bajtek_1991_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_07>
+    <Bajtek_91_08 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/8</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_08_male.jpg</miniaturka>
+      <plik>Bajtek_1991_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_08>
+    <Bajtek_91_09 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/9</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_09_male.jpg</miniaturka>
+      <plik>Bajtek_1991_09.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_09>
+    <Bajtek_91_10 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/10</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_10_male.jpg</miniaturka>
+      <plik>Bajtek_1991_10.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Bajtek_91_10>
+    <Bajtek_91_11 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/11</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_11_male.jpg</miniaturka>
+      <plik>Bajtek_1991_11.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_11>
+    <Bajtek_91_12 rok="1991">
+      <nazwa>Bajtek</nazwa>
+      <numer>1991/12</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1991_12_male.jpg</miniaturka>
+      <plik>Bajtek_1991_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_91_12>
+    <Bajtek_92_01 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/1</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1992_01_male.jpg</miniaturka>
+      <plik>Bajtek_1992_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_01>
+    <Bajtek_92_02 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/2</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1992_02_male.jpg</miniaturka>
+      <plik>Bajtek_1992_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_02>
+    <Bajtek_92_03 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/3</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1992_03_male.jpg</miniaturka>
+      <plik>Bajtek_1992_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_03>
+    <Bajtek_92_04 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/4</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1992_04_male.jpg</miniaturka>
+      <plik>Bajtek_1992_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_04>
+    <Bajtek_92_05 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/5</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1992_05_male.jpg</miniaturka>
+      <plik>Bajtek_1992_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_05>
+    <Bajtek_92_06 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/6</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1992_06_male.jpg</miniaturka>
+      <plik>Bajtek_1992_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_06>
+    <Bajtek_92_07 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/7</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1992_07_male.jpg</miniaturka>
+      <plik>Bajtek_1992_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_07>
+    <Bajtek_92_08 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/8</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>44</stron>
+      <miniaturka>Bajtek_1992_08_male.jpg</miniaturka>
+      <plik>Bajtek_1992_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_08>
+    <Bajtek_92_09 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/9</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1992_09_male.jpg</miniaturka>
+      <plik>Bajtek_1992_09.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_09>
+    <Bajtek_92_10 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/10</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1992_10_male.jpg</miniaturka>
+      <plik>Bajtek_1992_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_10>
+    <Bajtek_92_11 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/11</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1992_11_male.jpg</miniaturka>
+      <plik>Bajtek_1992_11.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_11>
+    <Bajtek_92_12 rok="1992">
+      <nazwa>Bajtek</nazwa>
+      <numer>1992/12</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1992_12_male.jpg</miniaturka>
+      <plik>Bajtek_1992_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_92_12>
+    <Bajtek_93_01 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/1</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1993_01_male.jpg</miniaturka>
+      <plik>Bajtek_1993_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_01>
+    <Bajtek_93_02 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/2</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1993_02_male.jpg</miniaturka>
+      <plik>Bajtek_1993_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_02>
+    <Bajtek_93_03 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/3</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1993_03_male.jpg</miniaturka>
+      <plik>Bajtek_1993_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_03>
+    <Bajtek_93_04 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/4</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1993_04_male.jpg</miniaturka>
+      <plik>Bajtek_1993_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_04>
+    <Bajtek_93_05 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/5</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1993_05_male.jpg</miniaturka>
+      <plik>Bajtek_1993_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_05>
+    <Bajtek_93_06 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/6</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1993_06_male.jpg</miniaturka>
+      <plik>Bajtek_1993_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_06>
+    <Bajtek_93_07 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/7</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1993_07_male.jpg</miniaturka>
+      <plik>Bajtek_1993_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_07>
+    <Bajtek_93_08_09 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/8,9</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1993_08_09_male.jpg</miniaturka>
+      <plik>Bajtek_1993_08_09.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_08_09>
+    <Bajtek_93_10 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/10</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1993_10_male.jpg</miniaturka>
+      <plik>Bajtek_1993_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_10>
+    <Bajtek_93_11 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/11</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>52</stron>
+      <miniaturka>Bajtek_1993_11_male.jpg</miniaturka>
+      <plik>Bajtek_1993_11.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_11>
+    <Bajtek_93_12 rok="1993">
+      <nazwa>Bajtek</nazwa>
+      <numer>1993/12</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1993_12_male.jpg</miniaturka>
+      <plik>Bajtek_1993_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_93_12>
+    <Bajtek_94_01 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/1</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_01_male.jpg</miniaturka>
+      <plik>Bajtek_1994_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_01>
+    <Bajtek_94_02 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/2</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_02_male.jpg</miniaturka>
+      <plik>Bajtek_1994_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_02>
+    <Bajtek_94_03 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/3</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_03_male.jpg</miniaturka>
+      <plik>Bajtek_1994_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_03>
+    <Bajtek_94_04 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/4</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_04_male.jpg</miniaturka>
+      <plik>Bajtek_1994_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_04>
+    <Bajtek_94_05 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/5</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_05_male.jpg</miniaturka>
+      <plik>Bajtek_1994_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_05>
+    <Bajtek_94_06 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/6</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_06_male.jpg</miniaturka>
+      <plik>Bajtek_1994_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_06>
+    <Bajtek_94_07 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/7</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_07_male.jpg</miniaturka>
+      <plik>Bajtek_1994_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_07>
+    <Bajtek_94_08 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/8</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_08_male.jpg</miniaturka>
+      <plik>Bajtek_1994_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_08>
+    <Bajtek_94_09 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/9</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_09_male.jpg</miniaturka>
+      <plik>Bajtek_1994_09.djvu</plik>
+      <skan>Bas</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Bas</podeslal>
+    </Bajtek_94_09>
+    <Bajtek_94_10 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/10</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_10_male.jpg</miniaturka>
+      <plik>Bajtek_1994_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_10>
+    <Bajtek_94_11 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/11</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_11_male.jpg</miniaturka>
+      <plik>Bajtek_1994_11.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_11>
+    <Bajtek_94_12 rok="1994">
+      <nazwa>Bajtek</nazwa>
+      <numer>1994/12</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1994_12_male.jpg</miniaturka>
+      <plik>Bajtek_1994_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_94_12>
+    <Bajtek_95_01 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/1</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_01_male.jpg</miniaturka>
+      <plik>Bajtek_1995_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_01>
+    <Bajtek_95_02 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/2</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_02_male.jpg</miniaturka>
+      <plik>Bajtek_1995_02.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Bajtek_95_02>
+    <Bajtek_95_03 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/3</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_03_male.jpg</miniaturka>
+      <plik>Bajtek_1995_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_03>
+    <Bajtek_95_04 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/4</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_04_male.jpg</miniaturka>
+      <plik>Bajtek_1995_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_04>
+    <Bajtek_95_05 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/5</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_05_male.jpg</miniaturka>
+      <plik>Bajtek_1995_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_05>
+    <Bajtek_95_06 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/6</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_06_male.jpg</miniaturka>
+      <plik>Bajtek_1995_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_06>
+    <Bajtek_95_07 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/7</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_07_male.jpg</miniaturka>
+      <plik>Bajtek_1995_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_07>
+    <Bajtek_95_08 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/8</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_08_male.jpg</miniaturka>
+      <plik>Bajtek_1995_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_08>
+    <Bajtek_95_09 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/9</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_09_male.jpg</miniaturka>
+      <plik>Bajtek_1995_09.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_09>
+    <Bajtek_95_10 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/10</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_10_male.jpg</miniaturka>
+      <plik>Bajtek_1995_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_10>
+    <Bajtek_95_11 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/11</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_11_male.jpg</miniaturka>
+      <plik>Bajtek_1995_11.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_11>
+    <Bajtek_95_12 rok="1995">
+      <nazwa>Bajtek</nazwa>
+      <numer>1995/12</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1995_12_male.jpg</miniaturka>
+      <plik>Bajtek_1995_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_95_12>
+    <Bajtek_96_01 rok="1996">
+      <nazwa>Bajtek</nazwa>
+      <numer>1996/1</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1996_01_male.jpg</miniaturka>
+      <plik>Bajtek_1996_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_96_01>
+    <Bajtek_96_02 rok="1996">
+      <nazwa>Bajtek</nazwa>
+      <numer>1996/2</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1996_02_male.jpg</miniaturka>
+      <plik>Bajtek_1996_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_96_02>
+    <Bajtek_96_03 rok="1996">
+      <nazwa>Bajtek</nazwa>
+      <numer>1996/3</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1996_03_male.jpg</miniaturka>
+      <plik>Bajtek_1996_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_96_03>
+    <Bajtek_96_04 rok="1996">
+      <nazwa>Bajtek</nazwa>
+      <numer>1996/4</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1996_04_male.jpg</miniaturka>
+      <plik>Bajtek_1996_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_96_04>
+    <Bajtek_96_05 rok="1996">
+      <nazwa>Bajtek</nazwa>
+      <numer>1996/5</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1996_05_male.jpg</miniaturka>
+      <plik>Bajtek_1996_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_96_05>
+    <Bajtek_96_06 rok="1996">
+      <nazwa>Bajtek</nazwa>
+      <numer>1996/6</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1996_06_male.jpg</miniaturka>
+      <plik>Bajtek_1996_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_96_06>
+    <Bajtek_96_07 rok="1996">
+      <nazwa>Bajtek</nazwa>
+      <numer>1996/7</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1996_07_male.jpg</miniaturka>
+      <plik>Bajtek_1996_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_96_07>
+    <Bajtek_96_08 rok="1996">
+      <nazwa>Bajtek</nazwa>
+      <numer>1996/8</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1996_08_male.jpg</miniaturka>
+      <plik>Bajtek_1996_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_96_08>
+    <Bajtek_96_09_10 rok="1996">
+      <nazwa>Bajtek</nazwa>
+      <numer>1996/9,10</numer>
+      <wydawca>Wydawnictwo "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>68</stron>
+      <miniaturka>Bajtek_1996_09_10_male.jpg</miniaturka>
+      <plik>Bajtek_1996_09_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_96_09_10>
+    <Bajtek_7_gier rok="nr specjalne">
+      <nazwa>Bajtek 7 wspaniałych gier</nazwa>
+      <rok>nn</rok>
+      <numer>nn</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>16</stron>
+      <miniaturka>Bajtek_7_wspanialych_gier_male.jpg</miniaturka>
+      <plik>Bajtek_7_wspanialych_gier.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_7_gier>
+    <Bajtek_9_gier rok="nr specjalne">
+      <nazwa>Bajtek 9 gier komputerowych</nazwa>
+      <rok>nn</rok>
+      <numer>nn</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>24</stron>
+      <miniaturka>Bajtek_9_gier_komputerowych_male.jpg</miniaturka>
+      <plik>Bajtek_9_gier_komputerowych.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_9_gier>
+    <Bajtek_początkujący rok="nr specjalne">
+      <nazwa>Bajtek Tylko dla początkujących</nazwa>
+      <rok>1989</rok>
+      <numer>1989</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_Tylko_dla_poczatkujacych_male.jpg</miniaturka>
+      <plik>Bajtek_Tylko_dla_poczatkujacych.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_początkujący>
+    <Bajtek_o_Atari_1 rok="nr specjalne">
+      <nazwa>Bajtek Tylko o Atari</nazwa>
+      <rok>1987</rok>
+      <numer>1987</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_Tylko_o_Atari_01_male.jpg</miniaturka>
+      <plik>Bajtek_Tylko_o_Atari_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_o_Atari_1>
+    <Bajtek_o_Atari_2 rok="nr specjalne">
+      <nazwa>Bajtek Tylko o Atari</nazwa>
+      <rok>1988</rok>
+      <numer>1988</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_Tylko_o_Atari_02_male.jpg</miniaturka>
+      <plik>Bajtek_Tylko_o_Atari_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_o_Atari_2>
+    <Bajtek_Commodore rok="nr specjalne">
+      <nazwa>Bajtek Tylko o Commodore</nazwa>
+      <rok>nn</rok>
+      <numer>nn</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Bajtek_Tylko_o_Commodore_male.jpg</miniaturka>
+      <plik>Bajtek_Tylko_o_Commodore.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </Bajtek_Commodore>
+  </Bajtek>
+  <Komputer>
+    <Komputer_86_01_B rok="1986" brak="1986/1 - nikt nie skanuje"></Komputer_86_01_B>
+    <Komputer_86_02_B rok="1986" brak="1986/2 - nikt nie skanuje" />
+    <Komputer_86_03_B rok="1986" brak="1986/3 - nikt nie skanuje" />
+    <Komputer_86_04_B rok="1986" brak="1986/4 - nikt nie skanuje" />
+    <Komputer_86_05_B rok="1986" brak="1986/5 - nikt nie skanuje" />
+    <Komputer_86_06_B rok="1986" brak="1986/6 - skanuje Scalak" />
+    <Komputer_86_07 rok="1986">
+      <nazwa>Komputer</nazwa>
+      <numer>1986/7</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>48</stron>
+      <miniaturka>Komputer_1986_07_male.jpg</miniaturka>
+      <plik>Komputer_1986_07.djvu</plik>
+      <skan>Bas</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Bas</podeslal>
+    </Komputer_86_07>
+    <Komputer_86_08_B rok="1986" brak="1986/8 - nikt nie skanuje" />
+    <Komputer_86_09_B rok="1986" brak="1986/9 - nikt nie skanuje" />
+    <Komputer_87_01 rok="1987">
+      <nazwa>Komputer</nazwa>
+      <numer>1987/1 - strony 21 do 28 uszkodzone</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>48</stron>
+      <miniaturka>Komputer_1987_01_male.jpg</miniaturka>
+      <plik>Komputer_1987_01.djvu</plik>
+      <skan>Bas</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Bas</podeslal>
+    </Komputer_87_01>
+    <Komputer_87_02_B rok="1987" brak="1987/2 - nikt nie skanuje" />
+    <Komputer_87_03_B rok="1987" brak="1987/3 - nikt nie skanuje" />
+    <Komputer_87_04_B rok="1987" brak="1987/4 - nikt nie skanuje" />
+    <Komputer_87_05_B rok="1987" brak="1987/5 - nikt nie skanuje" />
+    <Komputer_87_06_B rok="1987" brak="1987/6 - nikt nie skanuje" />
+    <Komputer_87_07_B rok="1987" brak="1987/7 - nikt nie skanuje" />
+    <Komputer_87_08_B rok="1987" brak="1987/8 - nikt nie skanuje" />
+    <Komputer_87_09_B rok="1987" brak="1987/9 - nikt nie skanuje" />
+    <Komputer_87_10_B rok="1987" brak="1987/10 - nikt nie skanuje" />
+    <Komputer_87_11_B rok="1987" brak="1987/11 - nikt nie skanuje" />
+    <Komputer_87_12_B rok="1987" brak="1987/12 - nikt nie skanuje" />
+    <Komputer_88_01 rok="1988">
+      <nazwa>Komputer</nazwa>
+      <numer>1988/1</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>56</stron>
+      <miniaturka>Komputer_1988_01_male.jpg</miniaturka>
+      <plik>Komputer_1988_01.djvu</plik>
+      <skan>Danos</skan>
+      <przetworzenie>Danos</przetworzenie>
+      <podeslal>Danos</podeslal>
+    </Komputer_88_01>
+    <Komputer_88_02_B rok="1988" brak="1988/2 - skanuje Danos" />
+    <Komputer_88_03_B rok="1988" brak="1988/3 - nikt nie skanuje" />
+    <Komputer_88_04_B rok="1988" brak="1988/4 - nikt nie skanuje" />
+    <Komputer_88_05_B rok="1988" brak="1988/5 - nikt nie skanuje" />
+    <Komputer_88_06 rok="1988">
+      <nazwa>Komputer</nazwa>
+      <numer>1988/6</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>54</stron>
+      <miniaturka>Komputer_1988_06_male.jpg</miniaturka>
+      <plik>Komputer_1988_06.djvu</plik>
+      <skan>Andygroo</skan>
+      <przetworzenie>ptb</przetworzenie>
+      <podeslal>Andygroo</podeslal>
+    </Komputer_88_06>
+    <Komputer_88_07 rok="1988">
+      <nazwa>Komputer</nazwa>
+      <numer>1988/7</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>56</stron>
+      <miniaturka>Komputer_1988_07_male.jpg</miniaturka>
+      <plik>Komputer_1988_07.djvu</plik>
+      <skan>Bas</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Bas</podeslal>
+    </Komputer_88_07>
+    <Komputer_88_08_B rok="1988" brak="1988/8 - nikt nie skanuje" />
+    <Komputer_88_09_B rok="1988" brak="1988/9 - nikt nie skanuje" />
+    <Komputer_88_10_B rok="1988" brak="1988/10 - nikt nie skanuje" />
+    <Komputer_88_11_B rok="1988" brak="1988/11 - nikt nie skanuje" />
+    <Komputer_88_12_B rok="1988" brak="1988/12 - nikt nie skanuje" />
+    <Komputer_89_01_B rok="1989" brak="1989/1 - nikt nie skanuje" />
+    <Komputer_89_02_B rok="1989" brak="1989/2 - nikt nie skanuje" />
+    <Komputer_89_03_B rok="1989" brak="1989/3 - nikt nie skanuje" />
+    <Komputer_89_04 rok="1989">
+      <nazwa>Komputer</nazwa>
+      <numer>1989/4</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>64</stron>
+      <miniaturka>Komputer_1989_04_male.jpg</miniaturka>
+      <plik>Komputer_1989_04.djvu</plik>
+      <skan>Andygroo</skan>
+      <przetworzenie>Andygroo</przetworzenie>
+      <podeslal>Andygroo</podeslal>
+    </Komputer_89_04>
+    <Komputer_89_05_B rok="1989" brak="1989/5 - nikt nie skanuje" />
+    <Komputer_89_06_B rok="1989" brak="1989/6 - nikt nie skanuje" />
+    <Komputer_89_07_08_B rok="1989" brak="1989/6,7 - nikt nie skanuje" />
+    <Komputer_89_09_B rok="1989" brak="1989/9 - nikt nie skanuje" />
+    <Komputer_89_10_B rok="1989" brak="1989/10 - nikt nie skanuje" />
+    <Komputer_90_01_02_03_B rok="1990" brak="1990/1,2,3 - nikt nie skanuje" />
+    <Komputer_90_04_B rok="1990" brak="1990/4 - nikt nie skanuje" />
+    <Komputer_90_05_B rok="1990" brak="1990/5 - nikt nie skanuje" />
+    <Komputer_90_06_B rok="1990" brak="1990/6 - nikt nie skanuje" />
+    <Komputer_90_07_08_09_10_11_12_B rok="1990" brak="1990/7,8,9,10,11,12 - nikt nie skanuje" />
+    <Komputer_44_gry rok="nr specjalny">
+      <nazwa>Komputer</nazwa>
+      <numer>1988/7</numer>
+      <wydawca>RSW "Prasa-Książka-Ruch"</wydawca>
+      <format>djvu</format>
+      <stron>48</stron>
+      <miniaturka>Komputer_44_gry_na_Atari_male.jpg</miniaturka>
+      <plik>Komputer_44_gry_na_Atari.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Nosty</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Komputer_44_gry>
+  </Komputer>
+  <Atari_club>
+    <Atari_club_96_01 rok="1996" brak="1996/1 - nikt nie skanuje" />
+    <Atari_club_96_02 rok="1996">
+      <nazwa>Atari club</nazwa>
+      <numer>1996/2</numer>
+      <wydawca>brak</wydawca>
+      <format>djvu</format>
+      <stron>8</stron>
+      <miniaturka>Atari_club_1996_02_male.jpg</miniaturka>
+      <plik>Atari_club_1996_02.djvu</plik>
+      <skan>Jurgi</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </Atari_club_96_02>
+    <Atari_club_96_03 rok="1996">
+      <nazwa>Atari club</nazwa>
+      <numer>1996/3</numer>
+      <wydawca>brak</wydawca>
+      <format>djvu</format>
+      <stron>12</stron>
+      <miniaturka>Atari_club_1996_03_male.jpg</miniaturka>
+      <plik>Atari_club_1996_03.djvu</plik>
+      <skan>Jurgi</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </Atari_club_96_03>
+    <Atari_club_96_04 rok="1996">
+      <nazwa>Atari club</nazwa>
+      <numer>1996/4</numer>
+      <wydawca>brak</wydawca>
+      <format>djvu</format>
+      <stron>12</stron>
+      <miniaturka>Atari_club_1996_04_male.jpg</miniaturka>
+      <plik>Atari_club_1996_04.djvu</plik>
+      <skan>Jurgi</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </Atari_club_96_04>
+    <Atari_club_96_05 rok="1996">
+      <nazwa>Atari club</nazwa>
+      <numer>1996/5</numer>
+      <wydawca>brak</wydawca>
+      <format>djvu</format>
+      <stron>12</stron>
+      <miniaturka>Atari_club_1996_05_male.jpg</miniaturka>
+      <plik>Atari_club_1996_05.djvu</plik>
+      <skan>Jurgi</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </Atari_club_96_05>
+    <Atari_club_96_06_07 rok="1996">
+      <nazwa>Atari club</nazwa>
+      <numer>1996/6,7</numer>
+      <wydawca>brak</wydawca>
+      <format>djvu</format>
+      <stron>16</stron>
+      <miniaturka>Atari_club_1996_06_07_male.jpg</miniaturka>
+      <plik>Atari_club_1996_06_07.djvu</plik>
+      <skan>Jurgi</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </Atari_club_96_06_07>
+  </Atari_club>
+  <STEfan>
+    <STEfan_92_01 rok="1992">
+      <nazwa>STEfan</nazwa>
+      <numer>1992/1</numer>
+      <wydawca>Atar System</wydawca>
+      <format>djvu</format>
+      <stron>12</stron>
+      <miniaturka>STEfan_1992_01_male.jpg</miniaturka>
+      <plik>STEfan_1992_01.djvu</plik>
+      <skan>Kaz</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </STEfan_92_01>
+    <STEfan_92_02 rok="1992">
+      <nazwa>STEfan</nazwa>
+      <numer>1992/2</numer>
+      <wydawca>Atar System</wydawca>
+      <format>djvu</format>
+      <stron>18</stron>
+      <miniaturka>STEfan_1992_02_male.jpg</miniaturka>
+      <plik>STEfan_1992_02.djvu</plik>
+      <skan>Kaz</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </STEfan_92_02>
+    <STEfan_92_03 rok="1992">
+      <nazwa>STEfan</nazwa>
+      <numer>1992/3</numer>
+      <wydawca>Atar System</wydawca>
+      <format>djvu</format>
+      <stron>24</stron>
+      <miniaturka>STEfan_1992_03_male.jpg</miniaturka>
+      <plik>STEfan_1992_03.djvu</plik>
+      <skan>Kaz</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </STEfan_92_03>
+    <STEfan_93_01_02 rok="1993">
+      <nazwa>STEfan</nazwa>
+      <numer>1993/1,2</numer>
+      <wydawca>Atar System</wydawca>
+      <format>djvu</format>
+      <stron>50</stron>
+      <miniaturka>STEfan_1993_01_02_male.jpg</miniaturka>
+      <plik>STEfan_1993_01_02.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </STEfan_93_01_02>
+    <STEfan_93_03_04 rok="1993">
+      <nazwa>STEfan</nazwa>
+      <numer>1993/3,4</numer>
+      <wydawca>Atar System</wydawca>
+      <format>djvu</format>
+      <stron>43</stron>
+      <miniaturka>STEfan_1993_03_04_male.jpg</miniaturka>
+      <plik>STEfan_1993_03_04.djvu</plik>
+      <skan>Kaz</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </STEfan_93_03_04>
+    <STEfan_93_05_06 rok="1993">
+      <nazwa>STEfan</nazwa>
+      <numer>1993/5,6</numer>
+      <wydawca>Atar System</wydawca>
+      <format>djvu</format>
+      <stron>40</stron>
+      <miniaturka>STEfan_1993_05_06_male.jpg</miniaturka>
+      <plik>STEfan_1993_05_06.djvu</plik>
+      <skan>Kaz</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </STEfan_93_05_06>
+  </STEfan>
+  <Swiat_Atari>
+    <Swiat_Atari_92_01 rok="1992">
+      <nazwa>Świat Atari</nazwa>
+      <numer>1992/1</numer>
+      <wydawca>Agencja Wydawnicza B.I.M.</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Swiat_Atari_1992_01_male.jpg</miniaturka>
+      <plik>Swiat_Atari_1992_01.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Swiat_Atari_92_01>
+    <Swiat_Atari_93_01 rok="1993">
+      <nazwa>Świat Atari</nazwa>
+      <numer>1993/1</numer>
+      <wydawca>Agencja Wydawnicza B.I.M.</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Swiat_Atari_1993_01_male.jpg</miniaturka>
+      <plik>Swiat_Atari_1993_01.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Swiat_Atari_93_01>
+    <Swiat_Atari_93_02 rok="1993">
+      <nazwa>Świat Atari</nazwa>
+      <numer>1993/2</numer>
+      <wydawca>Agencja Wydawnicza B.I.M.</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Swiat_Atari_1993_02_male.jpg</miniaturka>
+      <plik>Swiat_Atari_1993_02.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Swiat_Atari_93_02>
+    <Swiat_Atari_94_01 rok="1994">
+      <nazwa>Świat Atari</nazwa>
+      <numer>1994/1</numer>
+      <wydawca>Agencja Wydawnicza B.I.M.</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Swiat_Atari_1994_01_male.jpg</miniaturka>
+      <plik>Swiat_Atari_1994_01.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Swiat_Atari_94_01>
+  </Swiat_Atari>
+  <Atari_Age>
+    <Atari_Age_1982_01 rok="1982">
+      <nazwa>Atari Age</nazwa>
+      <numer>1982/1 - brak stron 3, 4, 9, 12, 13, 14</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>16</stron>
+      <miniaturka>Atari_Age_1982_01_male.jpg</miniaturka>
+      <plik>Atari_Age_1982_01.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1982_01>
+    <Atari_Age_1982_02 rok="1982">
+      <nazwa>Atari Age</nazwa>
+      <numer>1982/2 - brak stron 5, 6, 15, 16</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>20</stron>
+      <miniaturka>Atari_Age_1982_02_male.jpg</miniaturka>
+      <plik>Atari_Age_1982_02.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1982_02>
+    <Atari_Age_1982_03 rok="1982">
+      <nazwa>Atari Age</nazwa>
+      <numer>1982/3</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>16</stron>
+      <miniaturka>Atari_Age_1982_03_male.jpg</miniaturka>
+      <plik>Atari_Age_1982_03.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1982_03>
+    <Atari_Age_1982_04 rok="1982">
+      <nazwa>Atari Age</nazwa>
+      <numer>1982/4 - brak stron 5, 6, 17</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>20</stron>
+      <miniaturka>Atari_Age_1982_04_male.jpg</miniaturka>
+      <plik>Atari_Age_1982_04.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1982_04>
+    <Atari_Age_1983_01 rok="1983">
+      <nazwa>Atari Age</nazwa>
+      <numer>1983/1</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>20</stron>
+      <miniaturka>Atari_Age_1983_01_male.jpg</miniaturka>
+      <plik>Atari_Age_1983_01.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1983_01>
+    <Atari_Age_1983_02 rok="1983">
+      <nazwa>Atari Age</nazwa>
+      <numer>1983/2 - brak plakatu Phoenix (form. A2)</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>20</stron>
+      <miniaturka>Atari_Age_1983_02_male.jpg</miniaturka>
+      <plik>Atari_Age_1983_02.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1983_02>
+    <Atari_Age_1983_03 rok="1983">
+      <nazwa>Atari Age</nazwa>
+      <numer>1983/3 - brak strony 5</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>28</stron>
+      <miniaturka>Atari_Age_1983_03_male.jpg</miniaturka>
+      <plik>Atari_Age_1983_03.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1983_03>
+    <Atari_Age_1983_04 rok="1983">
+      <nazwa>Atari Age</nazwa>
+      <numer>1983/4 - brak rozkładówki</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>36</stron>
+      <miniaturka>Atari_Age_1983_04_male.jpg</miniaturka>
+      <plik>Atari_Age_1983_04.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1983_04>
+    <Atari_Age_1983_05 rok="1983">
+      <nazwa>Atari Age</nazwa>
+      <numer>1983/5 - brak 7 stron rozkładówki (An Atari Club Christmas)</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>37</stron>
+      <miniaturka>Atari_Age_1983_05_male.jpg</miniaturka>
+      <plik>Atari_Age_1983_05.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1983_05>
+    <Atari_Age_1983_06 rok="1983">
+      <nazwa>Atari Age</nazwa>
+      <numer>1983/6 - brak stron 16, 17, 27, 33</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>36</stron>
+      <miniaturka>Atari_Age_1983_06_male.jpg</miniaturka>
+      <plik>Atari_Age_1983_06.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1983_06>
+    <Atari_Age_1984_01 rok="1984">
+      <nazwa>Atari Age</nazwa>
+      <numer>1984/1 - brak stron 26, 28, 32, 33</numer>
+      <wydawca>the ATARI club</wydawca>
+      <format>djvu</format>
+      <stron>36</stron>
+      <miniaturka>Atari_Age_1984_01_male.jpg</miniaturka>
+      <plik>Atari_Age_1984_01.djvu</plik>
+      <skan>Nosty</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Nosty</podeslal>
+    </Atari_Age_1984_01>
+  </Atari_Age>
+  <Moje_Atari>
+    <Moje_Atari_90_01 rok="1990">
+      <nazwa>Moje Atari</nazwa>
+      <numer>1990/1</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Moje_Atari_1990_01_male.jpg</miniaturka>
+      <plik>Moje_Atari_1990_01.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Moje_Atari_90_01>
+    <Moje_Atari_90_02 rok="1990">
+      <nazwa>Moje Atari</nazwa>
+      <numer>1990/2</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Moje_Atari_1990_02_male.jpg</miniaturka>
+      <plik>Moje_Atari_1990_02.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Moje_Atari_90_02>
+    <Moje_Atari_91_03 rok="1991">
+      <nazwa>Moje Atari</nazwa>
+      <numer>1991/3</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Moje_Atari_1991_03_male.jpg</miniaturka>
+      <plik>Moje_Atari_1991_03.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Moje_Atari_91_03>
+    <Moje_Atari_91_04 rok="1991">
+      <nazwa>Moje Atari</nazwa>
+      <numer>1991/4</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Moje_Atari_1991_04_male.jpg</miniaturka>
+      <plik>Moje_Atari_1991_04.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Moje_Atari_91_04>
+    <Moje_Atari_91_05 rok="1991">
+      <nazwa>Moje Atari</nazwa>
+      <numer>1991/5</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Moje_Atari_1991_05_male.jpg</miniaturka>
+      <plik>Moje_Atari_1991_05.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Moje_Atari_91_05>
+    <Moje_Atari_91_06 rok="1991">
+      <nazwa>Moje Atari</nazwa>
+      <numer>1991/6</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Moje_Atari_1991_06_male.jpg</miniaturka>
+      <plik>Moje_Atari_1991_06.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Moje_Atari_91_06>
+    <Moje_Atari_91_07 rok="1991">
+      <nazwa>Moje Atari</nazwa>
+      <numer>1991/7</numer>
+      <wydawca>Spółdzielnia "Bajtek"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>Moje_Atari_1991_07_male.jpg</miniaturka>
+      <plik>Moje_Atari_1991_07.djvu</plik>
+      <skan>Kaczor</skan>
+      <przetworzenie>Kaczor</przetworzenie>
+      <podeslal>Kaczor</podeslal>
+    </Moje_Atari_91_07>
+  </Moje_Atari>
+  <Desktop_Info>
+    <Desktop_Info_94_01 rok="1994">
+      <nazwa>Desktop Info</nazwa>
+      <numer>1994/1</numer>
+      <wydawca>Atar system</wydawca>
+      <format>djvu</format>
+      <stron>12</stron>
+      <miniaturka>Desktop_Info_1994_01_male.jpg</miniaturka>
+      <plik>Desktop_Info_1994_01.djvu</plik>
+      <skan>Kaz</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </Desktop_Info_94_01>
+    <Desktop_Info_94_02 rok="1994">
+      <nazwa>Desktop Info</nazwa>
+      <numer>1994/2</numer>
+      <wydawca>Atar system</wydawca>
+      <format>djvu</format>
+      <stron>12</stron>
+      <miniaturka>Desktop_Info_1994_02_male.jpg</miniaturka>
+      <plik>Desktop_Info_1994_02.djvu</plik>
+      <skan>Kaz</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </Desktop_Info_94_02>
+    <Desktop_Info_94_02_reklama rok="1994">
+      <nazwa>Desktop Info</nazwa>
+      <numer>1994/2 - reklama Atar System</numer>
+      <wydawca>Atar system</wydawca>
+      <format>djvu</format>
+      <stron>4</stron>
+      <miniaturka>Reklama_Atar_System_male.jpg</miniaturka>
+      <plik>Reklama_Atar_System.djvu</plik>
+      <skan>Bas</skan>
+      <przetworzenie>Kaz</przetworzenie>
+      <podeslal>Bas</podeslal>
+    </Desktop_Info_94_02_reklama>
+  </Desktop_Info>
+  <IKS>
+    <IKS_86_01 rok="1986">
+      <nazwa>IKS</nazwa>
+      <numer>1986/1</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>16</stron>
+      <miniaturka>IKS_1986_01_male.jpg</miniaturka>
+      <plik>IKS_1986_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_86_01>
+    <IKS_86_02 rok="1986">
+      <nazwa>IKS</nazwa>
+      <numer>1986/2</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1986_02_male.jpg</miniaturka>
+      <plik>IKS_1986_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_86_02>
+    <IKS_86_03_B rok="1986" brak="1986/3 - nikt nie skanuje" />
+    <IKS_86_04 rok="1986">
+      <nazwa>IKS</nazwa>
+      <numer>1986/4</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1986_04_male.jpg</miniaturka>
+      <plik>IKS_1986_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_86_04>
+    <IKS_86_05 rok="1986">
+      <nazwa>IKS</nazwa>
+      <numer>1986/5</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1986_05_male.jpg</miniaturka>
+      <plik>IKS_1986_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_86_05>
+    <IKS_86_06 rok="1986">
+      <nazwa>IKS</nazwa>
+      <numer>1986/6</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1986_06_male.jpg</miniaturka>
+      <plik>IKS_1986_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_86_06>
+    <IKS_86_07 rok="1986">
+      <nazwa>IKS</nazwa>
+      <numer>1986/7</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1986_07_male.jpg</miniaturka>
+      <plik>IKS_1986_07.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_86_07>
+    <IKS_86_08 rok="1986">
+      <nazwa>IKS</nazwa>
+      <numer>1986/8</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1986_08_male.jpg</miniaturka>
+      <plik>IKS_1986_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_86_08>
+    <IKS_87_01 rok="1987">
+      <nazwa>IKS</nazwa>
+      <numer>1987/1</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1987_01_male.jpg</miniaturka>
+      <plik>IKS_1987_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_87_01>
+    <IKS_87_02 rok="1987">
+      <nazwa>IKS</nazwa>
+      <numer>1987/2</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1987_02_male.jpg</miniaturka>
+      <plik>IKS_1987_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_87_02>
+    <IKS_87_03 rok="1987">
+      <nazwa>IKS</nazwa>
+      <numer>1987/3</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1987_03_male.jpg</miniaturka>
+      <plik>IKS_1987_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_87_03>
+    <IKS_87_04_B rok="1987" brak="1987/4 - skanuje Scalak" />
+    <IKS_87_05_B rok="1987" brak="1987/5 - skanuje Scalak" />
+    <IKS_87_06_B rok="1987" brak="1987/6 - skanuje Scalak" />
+    <IKS_87_07_08 rok="1987">
+      <nazwa>IKS</nazwa>
+      <numer>1987/7,8</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1987_07_08_male.jpg</miniaturka>
+      <plik>IKS_1987_07_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_87_07_08>
+    <IKS_87_09_B rok="1987" brak="1987/9 - skanuje Scalak" />
+    <IKS_87_10_B rok="1987" brak="1987/10 - skanuje Scalak" />
+    <IKS_87_11_B rok="1987" brak="1987/11 - skanuje Scalak" />
+    <IKS_87_12_B rok="1987" brak="1987/12 - skanuje Scalak" />
+    <IKS_88_01 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/1</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_01_male.jpg</miniaturka>
+      <plik>IKS_1988_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_01>
+    <IKS_88_02 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/2</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_02_male.jpg</miniaturka>
+      <plik>IKS_1988_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_02>
+    <IKS_88_03 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/3</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_03_male.jpg</miniaturka>
+      <plik>IKS_1988_03.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_03>
+    <IKS_88_04 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/4</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_04_male.jpg</miniaturka>
+      <plik>IKS_1988_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_04>
+    <IKS_88_05 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/5</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_05_male.jpg</miniaturka>
+      <plik>IKS_1988_05.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_05>
+    <IKS_88_06 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/6</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_06_male.jpg</miniaturka>
+      <plik>IKS_1988_06.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_06>
+    <IKS_88_07_08 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/7,8</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_07_08_male.jpg</miniaturka>
+      <plik>IKS_1988_07_08.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_07_08>
+    <IKS_88_09 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/9</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_09_male.jpg</miniaturka>
+      <plik>IKS_1988_09.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_09>
+    <IKS_88_10 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/10</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_10_male.jpg</miniaturka>
+      <plik>IKS_1988_10.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_10>
+    <IKS_88_11 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/11</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_11_male.jpg</miniaturka>
+      <plik>IKS_1988_11.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_11>
+    <IKS_88_12 rok="1988">
+      <nazwa>IKS</nazwa>
+      <numer>1988/12</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1988_12_male.jpg</miniaturka>
+      <plik>IKS_1988_12.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_88_12>
+    <IKS_89_01_B rok="1989" brak="1989/1 - nikt nie skanuje" />
+    <IKS_89_02 rok="1989">
+      <nazwa>IKS</nazwa>
+      <numer>1989/2</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_1989_02_male.jpg</miniaturka>
+      <plik>IKS_1989_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </IKS_89_02>
+    <IKS_89_03_B rok="1989" brak="1989/3 - nikt nie skanuje" />
+    <ZPK_87_01 rok="nr specjalne">
+      <nazwa>IKS Zeszyty Programów Komputerowych</nazwa>
+      <numer>1987/1</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_Zeszyty_Programow_Komputerowych_1987_01_male.jpg</miniaturka>
+      <plik>IKS_Zeszyty_Programow_Komputerowych_1987_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </ZPK_87_01>
+    <ZPK_87_02 rok="nr specjalne">
+      <nazwa>IKS Zeszyty Programów Komputerowych</nazwa>
+      <numer>1987/2</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_Zeszyty_Programow_Komputerowych_1987_02_male.jpg</miniaturka>
+      <plik>IKS_Zeszyty_Programow_Komputerowych_1987_02.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </ZPK_87_02>
+    <ZPK_87_03_B rok="nr specjalne" brak="1987/3 - nikt nie skanuje" />
+    <ZPK_87_04 rok="nr specjalne">
+      <nazwa>IKS Zeszyty Programów Komputerowych</nazwa>
+      <numer>1987/4</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_Zeszyty_Programow_Komputerowych_1987_04_male.jpg</miniaturka>
+      <plik>IKS_Zeszyty_Programow_Komputerowych_1987_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </ZPK_87_04>
+    <ZPK_88_01 rok="nr specjalne">
+      <nazwa>IKS Zeszyty Programów Komputerowych</nazwa>
+      <numer>1988/1</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_Zeszyty_Programow_Komputerowych_1988_01_male.jpg</miniaturka>
+      <plik>IKS_Zeszyty_Programow_Komputerowych_1988_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </ZPK_88_01>
+    <ZPK_88_02_B rok="nr specjalne" brak="1988/2 - nikt nie skanuje" />
+    <ZPK_88_03 rok="nr specjalne">
+      <nazwa>IKS Zeszyty Programów Komputerowych</nazwa>
+      <numer>1988/3</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_Zeszyty_Programow_Komputerowych_1988_03_male.jpg</miniaturka>
+      <plik>IKS_Zeszyty_Programow_Komputerowych_1988_03.djvu</plik>
+      <skan>Bas</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Bas</podeslal>
+    </ZPK_88_03>
+    <ZPK_88_04 rok="nr specjalne">
+      <nazwa>IKS Zeszyty Programów Komputerowych</nazwa>
+      <numer>1988/4</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_Zeszyty_Programow_Komputerowych_1988_04_male.jpg</miniaturka>
+      <plik>IKS_Zeszyty_Programow_Komputerowych_1988_04.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </ZPK_88_04>
+    <ZPK_89_01 rok="nr specjalne">
+      <nazwa>IKS Zeszyty Programów Komputerowych</nazwa>
+      <numer>1989/1</numer>
+      <wydawca>Wydawnictwo "Czasopisma Wojskowe"</wydawca>
+      <format>djvu</format>
+      <stron>32</stron>
+      <miniaturka>IKS_Zeszyty_Programow_Komputerowych_1989_01_male.jpg</miniaturka>
+      <plik>IKS_Zeszyty_Programow_Komputerowych_1989_01.djvu</plik>
+      <skan>Scalak</skan>
+      <przetworzenie>Scalak</przetworzenie>
+      <podeslal>Scalak</podeslal>
+    </ZPK_89_01>
+  </IKS>
+  <POKE>
+    <POKE_03_01 rok="2003">
+      <nazwa>POKE</nazwa>
+      <numer>2003/1</numer>
+      <wydawca>-</wydawca>
+      <format>pdf</format>
+      <stron>46</stron>
+      <miniaturka>POKE_2003_01_male.jpg</miniaturka>
+      <plik>POKE_2003_01.pdf</plik>
+      <skan>Gozdek</skan>
+      <przetworzenie>Gozdek</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </POKE_03_01>
+    <POKE_03_02 rok="2003">
+      <nazwa>POKE</nazwa>
+      <numer>2003/2</numer>
+      <wydawca>-</wydawca>
+      <format>pdf</format>
+      <stron>29</stron>
+      <miniaturka>POKE_2003_02_male.jpg</miniaturka>
+      <plik>POKE_2003_02.pdf</plik>
+      <skan>Gozdek</skan>
+      <przetworzenie>Gozdek</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </POKE_03_02>
+    <POKE_03_03 rok="2003">
+      <nazwa>POKE</nazwa>
+      <numer>2003/3</numer>
+      <wydawca>-</wydawca>
+      <format>pdf</format>
+      <stron>35</stron>
+      <miniaturka>POKE_2003_03_male.jpg</miniaturka>
+      <plik>POKE_2003_03.pdf</plik>
+      <skan>Gozdek</skan>
+      <przetworzenie>Gozdek</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </POKE_03_03>
+    <POKE_03_04 rok="2003">
+      <nazwa>POKE</nazwa>
+      <numer>2003/4</numer>
+      <wydawca>-</wydawca>
+      <format>pdf</format>
+      <stron>31</stron>
+      <miniaturka>POKE_2003_04_male.jpg</miniaturka>
+      <plik>POKE_2003_04.pdf</plik>
+      <skan>Gozdek</skan>
+      <przetworzenie>Gozdek</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </POKE_03_04>
+    <POKE_04_01 rok="2004">
+      <nazwa>POKE</nazwa>
+      <numer>2004/1</numer>
+      <wydawca>-</wydawca>
+      <format>pdf</format>
+      <stron>28</stron>
+      <miniaturka>POKE_2004_01_male.jpg</miniaturka>
+      <plik>POKE_2004_01.pdf</plik>
+      <skan>Gozdek</skan>
+      <przetworzenie>Gozdek</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </POKE_04_01>
+    <POKE_05_01 rok="2005">
+      <nazwa>POKE</nazwa>
+      <numer>2005/1</numer>
+      <wydawca>-</wydawca>
+      <format>pdf</format>
+      <stron>28</stron>
+      <miniaturka>POKE_2005_01_male.jpg</miniaturka>
+      <plik>POKE_2005_01.pdf</plik>
+      <skan>Gozdek</skan>
+      <przetworzenie>Gozdek</przetworzenie>
+      <podeslal>Kaz</podeslal>
+    </POKE_05_01>
+  </POKE>
+</czasopisma>

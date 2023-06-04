@@ -1,0 +1,59 @@
+<app-clock></app-clock>
+<router-outlet></router-outlet>
+
+<div *ngIf="specialNumber && !serwis.showBook">
+  <p>Idealne zarobki by zrobić dalszą część zadania :)</p>
+  
+  <div class="image-grid">
+    <div *ngFor="let url of serwis.imgSrc">
+      <img [src]="url" (click)="serwis.imgClick($event)">
+    </div>
+  </div>
+</div>
+
+<div *ngIf="serwis.showBook">
+  <button (click)="serwis.goBack()">Go back</button>
+  <br>
+  <h1>{{serwis.klik}}</h1>
+  <button *ngFor="let item of serwis.lata" (click)="serwis.yearClick($event)" value="{{item}}">{{ item }}</button>
+  <button (click)="serwis.yearClick($event)" value="all">All</button>
+
+  <div *ngIf="serwis.yearChoosed">
+    <h3>{{serwis.year}}</h3>
+    <table border="1">
+        <tr>
+          <th>Strona tytulowa</th>
+          <th>Plik</th>
+          <th>Pismo</th>
+          <th>Darczyncy</th>
+        </tr>
+        <tr *ngFor="let item of serwis.toShow">
+          <td>
+            <a [href]="'http://atarionline.pl/biblioteka/czasopisma/' + serwis.klik +'/'+ item.miniaturka" target="_blank">
+              <img [src]="'http://atarionline.pl/biblioteka/czasopisma/' + serwis.klik +'/'+ item.miniaturka" alt="">
+            </a>
+          </td>
+  
+          <td>
+            format: <b>{{ item.format }}</b> <br>
+            rozmiar: <b>{{ item.rozmiar }}</b> <br>
+            stron: <b>{{ item.stron }}</b> <br>
+            plik: <b><a [href]="'http://atarionline.pl/biblioteka/czasopisma/' + serwis.klik +'/'+ item.plik">tutaj</a></b>
+          </td>
+  
+          <td>
+            nazwa: <b>{{ item.nazwa }}</b> <br>
+            numer: <b>{{ item.numer }}</b> <br>
+            wydawca: <b>{{ item.wydawca }}</b>
+          </td>
+  
+          <td>
+            skan: <b>{{ item.skan }}</b> <br>
+            przetworzenie: <b>{{ item.przetworzenie }} </b><br>
+            podeslal: <b>{{ item.podeslal }}</b>
+          </td>
+        </tr>
+    </table>
+  </div>
+</div>
+

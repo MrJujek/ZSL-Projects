@@ -1,0 +1,4 @@
+<label for="number">Wpisz zarobki z poprzedniego roku:</label>
+  <input type="password" id="number" name="number" (input)="onInput($event)" value="">$
+
+  <p *ngIf="number">I tak widzimy, że twoje zarobki to: {{number | currency:'USD':'symbol':'1.0-3'}}</p>

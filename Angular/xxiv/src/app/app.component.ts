@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import * as xml2js from 'xml2js';
 import { HttpClient } from '@angular/common/http';
 import { parseString } from 'xml2js';
-import { SerwisService} from './serwis.service'
+import { SerwisService} from './services/serwis.service'
 
 @Component({
   selector: 'app-root',
@@ -37,6 +37,9 @@ export class AppComponent {
             };
           }
         });
+
+        // console.log(Object.keys(this.serwis.json.czasopisma.zmienne[0]));
+        
       },
       (error) => {
         console.log(error);
@@ -45,6 +48,8 @@ export class AppComponent {
 
   onInput(event: any) {
     const value = event.target.value;
+    console.log(value);
+    
 
     if (value == '666.666') {
       this.number = '666.666';
@@ -80,5 +85,8 @@ export class AppComponent {
       this.number = value.slice(0, value.length - 1);
       event.target.value = this.number;
     }
+
+    console.log(event.target.value);
+    
   }
 }
