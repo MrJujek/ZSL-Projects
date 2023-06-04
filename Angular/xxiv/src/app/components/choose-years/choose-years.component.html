@@ -1,0 +1,5 @@
+<button (click)="serwis.goBack()">Go back</button>
+<br>
+<h1>{{serwis.klik}}</h1>
+<button *ngFor="let item of serwis.lata" (click)="serwis.yearClick($event)" value="{{item}}">{{ item }}</button>
+<button (click)="serwis.yearClick($event)" value="all">All</button>

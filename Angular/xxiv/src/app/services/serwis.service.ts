@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class SerwisService {
   imgSrc:string[] = [];
   json: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   imgClick(event: MouseEvent) {
     this.showBook = true;
@@ -23,12 +24,15 @@ export class SerwisService {
     this.klik = this.json.czasopisma.zmienne[0][Object.keys(this.json.czasopisma.zmienne[0])[index]][0].klik[0];
 
     this.lata = this.json.czasopisma.lata[0][this.klik][0].split(',');
+
+    this.router.navigate([this.klik]);
   }
 
   goBack() {
     this.showBook = false;
     this.yearChoosed = false;
     this.toShow = [];
+    this.router.navigate(['/choose']);
   }
 
   yearClick(event: MouseEvent) {
@@ -48,5 +52,7 @@ export class SerwisService {
         }
       }
     }
+
+    this.router.navigate([this.klik+'/'+ this.year]);
   }
 }

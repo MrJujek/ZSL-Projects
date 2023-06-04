@@ -16,8 +16,6 @@ export class WpiszZarobkiComponent {
   }
   onInput(event: any) {
     const value = event.target.value;
-    console.log(value);
-    
 
     if (value == '666.666') {
       this.number = '666.666';
@@ -53,12 +51,10 @@ export class WpiszZarobkiComponent {
       this.number = value.slice(0, value.length - 1);
       event.target.value = this.number;
     }
-
-    console.log(event.target.value);
     
     if (event.target.value == '666.666') {
       this.specialNumber = true;
-      this.router.navigate(['/choose']);
+      this.router.navigate(['/choose-book']);
     }
   }
 }

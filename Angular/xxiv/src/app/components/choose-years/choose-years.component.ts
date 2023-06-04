@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { SerwisService } from '../../services/serwis.service'
 
 @Component({
-  selector: 'app-choose-book',
-  templateUrl: './choose-book.component.html',
-  styleUrls: ['./choose-book.component.scss']
+  selector: 'app-choose-years',
+  templateUrl: './choose-years.component.html',
+  styleUrls: ['./choose-years.component.scss']
 })
-export class ChooseBookComponent {
+export class ChooseYearsComponent {
   constructor(public serwis: SerwisService) { }
 }

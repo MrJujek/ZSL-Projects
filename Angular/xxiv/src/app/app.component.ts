@@ -37,7 +37,8 @@ export class AppComponent {
             };
           }
         });
-
+        console.log(this.serwis.imgSrc);
+        
         // console.log(Object.keys(this.serwis.json.czasopisma.zmienne[0]));
         
       },

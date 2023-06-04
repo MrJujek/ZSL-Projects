@@ -6,13 +6,15 @@ import { ShowBooksComponent } from '../components/show-books/show-books.componen
 import { SerwisService } from '../services/serwis.service'
 import { ChooseBookComponent } from '../components/choose-book/choose-book.component';
 import { WpiszZarobkiComponent } from '../components/wpisz-zarobki/wpisz-zarobki.component';
+import { ChooseYearsComponent } from '../components/choose-years/choose-years.component';
 
 let czasopisma = ['Atari_Age', 'Komputer', 'Atari_club', 'Moje_Atari', 'Avax', 'POKE', 'Bajtek', 'STEfan', 'Desktop_Info', 'Swiat_Atari', 'IKS']
 const routes: Routes = [
   { path: '', component: WpiszZarobkiComponent},
-  { path: 'choose', component: ChooseBookComponent },
-  ...czasopisma.map(czasopismo => ({ path: czasopismo, component: ShowBooksComponent })),
-  { path: '**', redirectTo: '/choose' }
+  { path: 'choose-book', component: ChooseBookComponent },
+  ...czasopisma.map(czasopismo => ({ path: czasopismo, component: ChooseYearsComponent })),
+  ...czasopisma.map(czasopismo => ({ path: `${czasopismo}/:year`, component: ShowBooksComponent })),
+  { path: '**', redirectTo: '/choose-book' }
 ]
 
 @NgModule({

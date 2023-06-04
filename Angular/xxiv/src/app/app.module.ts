@@ -9,6 +9,7 @@ import { AppRoutingModule } from './routes/app-routing.module';
 import { ShowBooksComponent } from './components/show-books/show-books.component';
 import { ChooseBookComponent } from './components/choose-book/choose-book.component';
 import { WpiszZarobkiComponent } from './components/wpisz-zarobki/wpisz-zarobki.component';
+import { ChooseYearsComponent } from './components/choose-years/choose-years.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { WpiszZarobkiComponent } from './components/wpisz-zarobki/wpisz-zarobki.
     ClockComponent,
     ShowBooksComponent,
     ChooseBookComponent,
-    WpiszZarobkiComponent
+    WpiszZarobkiComponent,
+    ChooseYearsComponent
   ],
   imports: [
     BrowserModule,
