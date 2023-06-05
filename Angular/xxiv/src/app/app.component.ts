@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import * as xml2js from 'xml2js';
 import { HttpClient } from '@angular/common/http';
 import { parseString } from 'xml2js';
-import { SerwisService} from './services/serwis.service'
+import { SerwisService } from './services/serwis.service'
 
 @Component({
   selector: 'app-root',
@@ -17,40 +17,39 @@ export class AppComponent {
   specialNumber: boolean = false;
   src: string = '';
 
-  constructor(private http: HttpClient, public serwis: SerwisService) { 
-    this.number = '';  
+  constructor(private http: HttpClient, public serwis: SerwisService) {
+    this.number = '';
   }
 
   ngOnInit() {
-    this.http.get('../assets/czasopisma.xml', { responseType: 'text' })
-      .subscribe(data => {
-        parseString(data, (err, result) => {
-          this.serwis.json = result;
-          for (let i = 0; i < Object.keys(result.czasopisma.zmienne[0]).length; i++) {
-            let x = result.czasopisma.zmienne[0][Object.keys(result.czasopisma.zmienne[0])[i]][0].src[0];
-            this.serwis.imgSrc.push('http://atarionline.pl/biblioteka/czasopisma/img/'+x);
-            
-            const img = new Image();
-            img.src = 'http://atarionline.pl/biblioteka/czasopisma/img/' + x;
-            img.onload = () => {
-              console.log('Image loaded');
-            };
-          }
-        });
-        console.log(this.serwis.imgSrc);
-        
-        // console.log(Object.keys(this.serwis.json.czasopisma.zmienne[0]));
-        
-      },
-      (error) => {
-        console.log(error);
-      });
+    // this.http.get('../assets/czasopisma.xml', { responseType: 'text' })
+    //   .subscribe(data => {
+    //     parseString(data, (err, result) => {
+    //       this.serwis.json = result;
+    //       for (let i = 0; i < Object.keys(result.czasopisma.zmienne[0]).length; i++) {
+    //         let x = result.czasopisma.zmienne[0][Object.keys(result.czasopisma.zmienne[0])[i]][0].src[0];
+    //         this.serwis.imgSrc.push('http://atarionline.pl/biblioteka/czasopisma/img/' + x);
+
+    //         const img = new Image();
+    //         img.src = 'http://atarionline.pl/biblioteka/czasopisma/img/' + x;
+    //         img.onload = () => {
+    //           console.log('Image loaded');
+    //         };
+    //       }
+    //     });
+
+    //     // console.log(Object.keys(this.serwis.json.czasopisma.zmienne[0]));
+
+    //   },
+    //     (error) => {
+    //       console.log(error);
+    //     });
   }
 
   onInput(event: any) {
     const value = event.target.value;
     console.log(value);
-    
+
 
     if (value == '666.666') {
       this.number = '666.666';
@@ -88,6 +87,6 @@ export class AppComponent {
     }
 
     console.log(event.target.value);
-    
+
   }
 }
