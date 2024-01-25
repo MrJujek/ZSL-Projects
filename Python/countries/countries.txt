@@ -1,0 +1,502 @@
+    fm,    7.425554,    150.550812,    mICRONESIA;
+
+  bs,  25.03428,  -77.39628,  bAHAMAS;
+
+    gb,    55.378051,    -3.435973,    uNITED kINGDOM;
+
+        ai,        18.220554,        -63.068615,        aNGUILLA;
+  ws,  -13.759029,  -172.104629,  sAMOA;
+
+        vg,        18.420695,        -64.639968,        bRITISH vIRGIN iSLANDS;
+
+
+     as,     -14.270972,     -170.132217,     aMERICAN sAMOA;
+
+
+  mc,  43.750298,  7.412841,  mONACO;
+      kg,      41.20438,      74.766098,      kYRGYZSTAN;
+   tm,   38.969719,   59.556278,   tURKMENISTAN;
+        sr,        3.919305,        -56.027783,        sURINAME;
+
+       sz,       -26.522503,       31.465866,       sWAZILAND;
+
+
+          be,          50.503887,          4.469936,          bELGIUM;
+     mh,     7.131474,     171.184478,     mARSHALL iSLANDS;
+
+
+   fr,   46.227638,   2.213749,   fRANCE;
+         kn,         17.357822,         -62.782998,         sAINT kITTS AND nEVIS;
+
+         vu,         -15.376706,         166.959158,         vANUATU;
+
+
+      ne,      17.607789,      8.081666,      nIGER;
+
+bt,27.514162,90.433601,bHUTAN;
+
+    mw,    -13.254308,    34.301525,    mALAWI;
+
+
+         iq,         33.223191,         43.679291,         iRAQ;
+
+ eh, 24.215527, -12.885834, wESTERN sAHARA;
+      gw,      11.803749,      -15.180413,      gUINEA-bISSAU;
+
+zm,-13.133897,27.849332,zAMBIA;
+
+
+        lv,        56.879635,        24.603189,        lATVIA;
+     hm,     -53.08181,     73.504158,     hEARD iSLAND AND mCdONALD iSLANDS;
+
+      ag,      17.060816,      -61.796428,      aNTIGUA AND bARBUDA;
+
+         lk,         7.873054,         80.771797,         sRI lANKA;
+
+
+   ba,   43.915886,   17.679076,   bOSNIA AND hERZEGOVINA;
+     ad,     42.546245,     1.601554,     aNDORRA;
+
+   tn,   33.886917,   9.537499,   tUNISIA;
+
+
+         sy,         34.802075,         38.996815,         sYRIA;
+
+   mm,   21.913965,   95.956223,   mYANMAR [bURMA];
+
+      gm,      13.443182,      -15.310139,      gAMBIA;
+
+
+     mg,     -18.766947,     46.869107,     mADAGASCAR;
+   md,   47.411631,   28.369885,   mOLDOVA;
+
+
+gf,3.933889,-53.125782,fRENCH gUIANA;
+       dj,       11.825138,       42.590275,       dJIBOUTI;
+
+
+        mk,        41.608635,        21.745275,        mACEDONIA [fyrom];
+    it,    41.87194,    12.56738,    iTALY;
+ pf, -17.679742, -149.406843, fRENCH pOLYNESIA;
+          lb,          33.854721,          35.862285,          lEBANON;
+
+      bv,      -54.423199,      3.413194,      bOUVET iSLAND;
+
+
+ ki, -3.370417, -168.734039, kIRIBATI;
+
+ rs, 44.016521, 21.005859, sERBIA;
+
+
+ke,-0.023559,37.906193,kENYA;
+
+
+ pl, 51.919438, 19.145136, pOLAND;
+    jm,    18.109581,    -77.297508,    jAMAICA;
+
+
+   cv,   16.002082,   -24.013197,   cAPE vERDE;
+
+         mq,         14.641528,         -61.024174,         mARTINIQUE;
+
+
+     bm,     32.321384,     -64.75737,     bERMUDA;
+
+
+      ls,      -29.609988,      28.233608,      lESOTHO;
+
+
+    gg,    49.465691,    -2.585278,    gUERNSEY;
+  dm,  15.414999,  -61.370976,  dOMINICA;
+        eg,        26.820553,        30.802498,        eGYPT;
+ax,60.3385485,20.2712585,ã…LAND;
+
+
+          gi,          36.137741,          -5.345374,          gIBRALTAR;
+
+
+ sx, 18.030827, -63.073633, sINT mAARTEN;
+
+
+          gt,          15.783471,          -90.230759,          gUATEMALA;
+
+     gy,     4.860416,     -58.93018,     gUYANA;
+
+
+        ru,        61.52401,        105.318756,        rUSSIA;
+
+          cm,          7.369722,          12.354722,          cAMEROON;
+
+         me,         42.708678,         19.37439,         mONTENEGRO;
+
+
+ vc, 12.984305, -61.287228, sAINT vINCENT AND THE gRENADINES;
+          bg,          42.733883,          25.48583,          bULGARIA;
+       sa,       23.885942,       45.079162,       sAUDI aRABIA;
+
+in,20.593684,78.96288,iNDIA;
+
+        tw,        23.69781,        120.960515,        tAIWAN;
+
+
+ az, 40.143105, 47.576927, aZERBAIJAN;
+
+         tl,         -8.874217,         125.727539,         tIMOR-lESTE;
+
+ tg, 8.619543, 0.824782, tOGO;
+
+        kw,        29.31166,        47.481766,        kUWAIT;
+    er,    15.179384,    39.782334,    eRITREA;
+
+
+        dz,        28.033886,        1.659626,        aLGERIA;
+
+      na,      -22.95764,      18.49041,      nAMIBIA;
+
+
+      cz,      49.817492,      15.472962,      cZECH rEPUBLIC;
+
+
+nz,-40.900557,174.885971,nEW zEALAND;
+
+ mo, 22.198745, 113.543873, mACAU;
+
+
+       np,       28.394857,       84.124008,       nEPAL;
+
+    ng,    9.081999,    8.675277,    nIGERIA;
+co,4.570868,-74.297333,cOLOMBIA;
+
+    cl,    -35.675147,    -71.542969,    cHILE;
+
+
+sn,14.497401,-14.452362,sENEGAL;
+   ml,   17.570692,   -3.996166,   mALI;
+
+
+      tk,      -8.967363,      -171.855881,      tOKELAU;
+
+          wf,          -13.768752,          -177.156097,          wALLIS AND fUTUNA;
+
+dk,56.26392,9.501785,dENMARK;
+       cy,       35.126413,       33.429859,       cYPRUS;
+
+
+   pw,   7.51498,   134.58252,   pALAU;
+
+
+        ky,        19.513469,        -80.566956,        cAYMAN iSLANDS;
+
+
+    hu,    47.162494,    19.503304,    hUNGARY;
+
+
+    kp,    40.339852,    127.510093,    nORTH kOREA;
+
+          mx,          23.634501,          -102.552784,          mEXICO;
+        rw,        -1.940278,        29.873888,        rWANDA;
+
+tv,-7.109535,177.64933,tUVALU;
+
+ de, 51.165691, 10.451526, gERMANY;
+
+
+          mv,          3.202778,          73.22068,          mALDIVES;
+
+
+    ar,    -38.416097,    -63.616672,    aRGENTINA;
+
+
+         so,         5.152149,         46.199616,         sOMALIA;
+       ie,       53.41291,       -8.24389,       iRELAND;
+
+    bw,    -22.328474,    24.684866,    bOTSWANA;
+
+      hk,      22.396428,      114.109497,      hONG kONG;
+
+
+         my,         4.210484,         101.975766,         mALAYSIA;
+
+        je,        49.214439,        -2.13125,        jERSEY;
+tj,38.861034,71.276093,tAJIKISTAN;
+
+  gu,  13.444304,  144.793731,  gUAM;
+
+
+  sc,  -4.679574,  55.491977,  sEYCHELLES;
+
+tc,21.694025,-71.797928,tURKS AND cAICOS iSLANDS;
+af,33.93911,67.709953,aFGHANISTAN;
+
+    sm,    43.94236,    12.457777,    sAN mARINO;
+
+
+      bq,      12.1783611,      -68.2385339,      bONAIRE, sINT eUSTATIUS, AND sABA;
+  gh,  7.946527,  -1.023194,  gHANA;
+
+
+        sg,        1.352083,        103.819836,        sINGAPORE;
+
+       li,       47.166,       9.555373,       lIECHTENSTEIN;
+
+
+          ug,          1.373333,          32.290275,          uGANDA;
+     mf,     18.08255,     -63.052251,     sAINT mARTIN;
+     sh,     -24.143474,     -10.030696,     sAINT hELENA;
+
+  sj,  77.553604,  23.670272,  sVALBARD AND jAN mAYEN;
+
+     bz,     17.189877,     -88.49765,     bELIZE;
+        aq,        -75.250973,        -0.071389,        aNTARCTICA;
+
+  re,  -21.115141,  55.536384,  rã©UNION;
+     no,     60.472024,     8.468946,     nORWAY;
+    ci,    7.539989,    -5.54708,    cã´TE D'iVOIRE;
+
+          mn,          46.862496,          103.846656,          mONGOLIA;
+      ph,      12.879721,      121.774017,      pHILIPPINES;
+      cg,      -0.228021,      15.827659,      cONGO [rEPUBLIC];
+
+
+  il,  31.046051,  34.851612,  iSRAEL;
+         yt,         -12.8275,         45.166244,         mAYOTTE;
+         pt,         39.399872,         -8.224454,         pORTUGAL;
+
+
+          gl,          71.706936,          -42.604303,          gREENLAND;
+         jp,         36.204824,         138.252924,         jAPAN;
+
+
+ et, 9.145, 40.489673, eTHIOPIA;
+
+  st,  0.18636,  6.613081,  sã³O tOMã© AND pRã­NCIPE;
+pk,30.375321,69.345116,pAKISTAN;
+
+
+ bb, 13.193887, -59.543198, bARBADOS;
+
+
+nl,52.132633,5.291266,nETHERLANDS;
+
+         cr,         9.748917,         -83.753428,         cOSTA rICA;
+         ma,         31.791702,         -7.09262,         mOROCCO;
+
+
+     pa,     8.537981,     -80.782127,     pANAMA;
+
+     at,     47.516231,     14.550072,     aUSTRIA;
+
+
+         ps,         31.952162,         35.233154,         pALESTINIAN tERRITORIES;
+
+cu,21.521757,-77.781167,cUBA;
+
+
+     fo,     61.892635,     -6.911806,     fAROE iSLANDS;
+
+
+          ms,          16.742498,          -62.187366,          mONTSERRAT;
+fj,-16.578193,179.414413,fIJI;
+
+    um,    0,    0,    u.s. mINOR oUTLYING iSLANDS;
+         nu,         -19.054445,         -169.867233,         nIUE;
+
+      cw,      12.16957,      -68.99002,      cURAã§AO;
+
+  bf,  12.238333,  -1.561593,  bURKINA fASO;
+    se,    60.128161,    18.643501,    sWEDEN;
+
+        gq,        1.650801,        10.267895,        eQUATORIAL gUINEA;
+
+      uz,      41.377491,      64.585262,      uZBEKISTAN;
+
+
+        pm,        46.941936,        -56.27111,        sAINT pIERRE AND mIQUELON;
+
+  gn,  9.945587,  -9.696645,  gUINEA;
+       bl,       17.9,       -62.833333,       sAINT-bARTHã©LEMY;
+
+
+    vi,    18.335765,    -64.896335,    u.s. vIRGIN iSLANDS;
+       sd,       12.862807,       30.217636,       sUDAN;
+   jo,   30.585164,   36.238414,   jORDAN;
+
+
+    nr,    -0.522778,    166.931503,    nAURU;
+
+  cc,  -12.164165,  96.870956,  cOCOS [kEELING] iSLANDS;
+
+ir,32.427908,53.688046,iRAN;
+
+
+     ao,     -11.202692,     17.873887,     aNGOLA;
+     om,     21.512583,     55.923255,     oMAN;
+
+
+   lt,   55.169438,   23.881275,   lITHUANIA;
+   hn,   15.199999,   -86.241905,   hONDURAS;
+         lr,         6.428055,         -9.429499,         lIBERIA;
+
+ mt, 35.937496, 14.375416, mALTA;
+
+
+      cn,      35.86166,      104.195397,      cHINA;
+
+
+       is,       64.963051,       -19.020835,       iCELAND;
+
+ ge, 42.315407, 43.356892, gEORGIA;
+si,46.151241,14.995463,sLOVENIA;
+        ve,        6.42375,        -66.58973,        vENEZUELA;
+ us, 37.09024, -95.712891, uNITED sTATES;
+ ec, -1.831239, -78.183406, eCUADOR;
+ za, -30.559482, 22.937506, sOUTH aFRICA;
+
+      gp,      16.995971,      -62.067641,      gUADELOUPE;
+
+
+   ro,   45.943161,   24.96676,   rOMANIA;
+         sb,         -9.64571,         160.156194,         sOLOMON iSLANDS;
+  nc,  -20.904305,  165.618042,  nEW cALEDONIA;
+         ca,         56.130366,         -106.346771,         cANADA;
+    pe,    -9.189967,    -75.015152,    pERU;
+ly,26.3351,17.228331,lIBYA;
+
+
+      mp,      17.33083,      145.38469,      nORTHERN mARIANA iSLANDS;
+
+          km,          -11.875001,          43.872219,          cOMOROS;
+
+    th,    15.870032,    100.992541,    tHAILAND;
+
+
+by,53.709807,27.953389,bELARUS;
+
+
+ hr, 45.1, 15.2, cROATIA;
+   xk,   42.602636,   20.902977,   kOSOVO;
+
+  bn,  4.535277,  114.727669,  bRUNEI;
+
+          pg,          -6.314993,          143.95555,          pAPUA nEW gUINEA;
+       fi,       61.92411,       25.748151,       fINLAND;
+    tt,    10.691803,    -61.222503,    tRINIDAD AND tOBAGO;
+
+       mr,       21.00789,       -10.940835,       mAURITANIA;
+
+
+     am,     40.069099,     45.038189,     aRMENIA;
+ sl, 8.460555, -11.779889, sIERRA lEONE;
+
+         nf,         -29.040835,         167.954712,         nORFOLK iSLAND;
+
+
+   qa,   25.354826,   51.183884,   qATAR;
+
+       tr,       38.963745,       35.243322,       tURKEY;
+
+
+       kz,       48.019573,       66.923684,       kAZAKHSTAN;
+
+
+       cx,       -10.447525,       105.690449,       cHRISTMAS iSLAND;
+
+          mu,          -20.348404,          57.552152,          mAURITIUS;
+  ga,  -0.803689,  11.609444,  gABON;
+
+
+         ye,         15.552727,         48.516388,         yEMEN;
+
+          id,          -0.789275,          113.921327,          iNDONESIA;
+
+     td,     15.454166,     18.732207,     cHAD;
+
+   tz,   -6.369028,   34.888822,   tANZANIA;
+       bj,       9.30769,       2.315834,       bENIN;
+      aw,      12.52111,      -69.968338,      aRUBA;
+
+    bo,    -16.290154,    -63.588653,    bOLIVIA;
+  mz,  -18.665695,  35.529562,  mOZAMBIQUE;
+
+      fk,      -51.796253,      -59.523613,      fALKLAND iSLANDS [iSLAS mALVINAS];
+         pr,         18.220833,         -66.590149,         pUERTO rICO;
+
+         ck,         -21.236736,         -159.777671,         cOOK iSLANDS;
+   vn,   14.058324,   108.277199,   vIETNAM;
+
+    bh,    25.930414,    50.637772,    bAHRAIN;
+
+
+          gr,          39.074208,          21.824312,          gREECE;
+     ae,     23.424076,     53.847818,     uNITED aRAB eMIRATES;
+        bd,        23.684994,        90.356331,        bANGLADESH;
+
+
+  lc,  13.909444,  -60.978893,  sAINT lUCIA;
+
+    ua,    48.379433,    31.16558,    uKRAINE;
+     pn,     -24.703615,     -127.439308,     pITCAIRN iSLANDS;
+
+
+        sk,        48.669026,        19.699024,        sLOVAKIA;
+
+lu,49.815273,6.129583,lUXEMBOURG;
+
+
+    kr,    35.907757,    127.766922,    sOUTH kOREA;
+
+
+      gz,      31.354676,      34.308825,      gAZA sTRIP;
+
+
+        bi,        -3.373056,        29.918886,        bURUNDI;
+
+    an,    12.226079,    -69.060087,    nETHERLANDS aNTILLES;
+
+
+to,-21.178986,-175.198242,tONGA;
+
+  py,  -23.442503,  -58.443832,  pARAGUAY;
+
+     sv,     13.794185,     -88.89653,     eL sALVADOR;
+         cf,         6.611111,         20.939444,         cENTRAL aFRICAN rEPUBLIC;
+
+      gd,      12.262776,      -61.604171,      gRENADA;
+
+  ni,  12.865416,  -85.207229,  nICARAGUA;
+
+
+        do,        18.735693,        -70.162651,        dOMINICAN rEPUBLIC;
+        gs,        -54.429579,        -36.587909,        sOUTH gEORGIA AND THE sOUTH sANDWICH iSLANDS;
+
+
+       au,       -25.274398,       133.775136,       aUSTRALIA;
+im,54.236107,-4.548056,iSLE OF mAN;
+    uy,    -32.522779,    -55.765835,    uRUGUAY;
+
+
+br,-14.235004,-51.92528,bRAZIL;
+
+          ee,          58.595272,          25.013607,          eSTONIA;
+       cd,       -4.038333,       21.758664,       cONGO [drc];
+   ch,   46.818188,   8.227512,   sWITZERLAND;
+
+
+         kh,         12.565679,         104.990963,         cAMBODIA;
+
+    la,    19.85627,    102.495496,    lAOS;
+
+        zw,        -19.015438,        29.154857,        zIMBABWE;
+
+  al,  41.153332,  20.168331,  aLBANIA;
+
+
+     ht,     18.971187,     -72.285215,     hAITI;
+
+va,41.902916,12.453389,vATICAN cITY;
+es,40.463667,-3.74922,sPAIN;
+
+
+          tf,          -49.280366,          69.348557,          fRENCH sOUTHERN tERRITORIES;
+
+    io,    -6.343194,    71.876519,    bRITISH iNDIAN oCEAN tERRITORY;
